@@ -1,0 +1,420 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ukrainian, english]{babel}
+\usepackage[a4paper, top=1cm, bottom=1cm, left=0.75cm, right=2.54cm]{geometry}
+\usepackage{titling}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{polynom}
+\usepackage{amssymb}
+
+\polyset{vars=xt, style=D} % Спробуйте стиль D або інші, наприклад A, B, C...
+
+\title{\textbf{ДКР №3.2 — Визначенні інтеграли} \\ Варіант 8}
+
+\linespread{0.6}
+
+\author{Давидчук Артем, ІО-41}
+\date{}
+
+\setlength{\droptitle}{-0.5cm}
+
+\pagestyle{empty}
+
+\begin{document}
+
+    \maketitle
+
+    \thispagestyle{empty}
+
+    \section*{Завдання №1}
+
+        \subsection*{1. $\displaystyle \int_{1}^{4} \frac{1/(2\sqrt{x})+1}{(\sqrt{x}+x)^2}dx:$}
+
+            \begin{flalign*}
+                &
+                \text{ Тут можна побачити, що } d(x + \sqrt{x}) = (1/2\sqrt{x}+1)dx, \text{ тоді }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int_{1}^{4} \frac{1/(2\sqrt{x})+1}{(\sqrt{x}+x)^2}dx = \int_{1}^{4} \frac{d(x+\sqrt{x})}{(x+\sqrt{x})^2} =
+                \int_{1}^{4} (x+\sqrt{x})^{-2}d(x+\sqrt{x}) = - \frac{1}{x+\sqrt{x}} \bigg|_{1}^{4}
+                \text{ тоді за формулою Ньютона-Лейбніца}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int_{a}^{b}f(x)dx = F(x) \bigg|_{a}^{b} = F(b) - F(a); \text{ тоді }
+                - \frac{1}{x+\sqrt{x}} \bigg|_{1}^{4} = -\frac{1}{4 + \sqrt{4}} - \left( - \frac{1}{1+\sqrt{1} }\right) = -\frac{1}{6} + \frac{1}{2} = \frac{1}{3}
+                &
+            \end{flalign*}
+
+        \subsection*{2. $\displaystyle \int_{2}^{3} (x-1)^3 \ln^2(x-1)dx:$}
+
+            \begin{flalign*}
+                &
+                \int_{2}^{3} (x-1)^3 \ln^2(x-1)dx; \text{ Використовуватиму метод інтегрування частинами: }
+                \int_{b}^{a} f(x)g'(x)dx = f(x)g(x) \bigg|_{b}^{a} - \int_{b}^{a} f'(x)g(x)dx
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{ В нашому випадку: }
+                f = \ln^2(x-1), g' = (x-1)^3, g = \frac{(x-1)^4}{4}, f' = \frac{2 \ln(x-1)}{x-1} \text{ тоді згідно за формулою: } 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int_{2}^{3} (x-1)^3 \ln^2(x-1)dx = \ln^2(x-1) \cdot \frac{(x-1)^4}{4} \bigg|_{2}^{3} - \frac{1}{2} \int_{2}^{3} \ln(x-1) (x-1)^3dx
+                \text{, так само зробимо із залишковим інтегралом: }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int_{2}^{3} \ln(x-1) (x-1)^3dx; \text{ тут } f = \ln(x-1), g' = (x-1)^3, g = \frac{(x-1)^4}{4}, f' = \frac{1}{x-1} \text{ тоді }
+                \int_{2}^{3} \ln(x-1) (x-1)^3dx = \ln(x-1) \cdot
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot \frac{(x-1)^4}{4} \bigg|_{2}^{3} - \frac{1}{4} \int_{2}^{3} (x-1)^3dx =
+                \ln(x-1) \cdot \frac{(x-1)^4}{4} \bigg|_{2}^{3} - \frac{1}{4} \int_{2}^{3} (x-1)^3d(x-1) =
+                \ln(x-1) \cdot \frac{(x-1)^4}{4} \bigg|_{2}^{3} - \frac{1}{4} \cdot \frac{(x-1)^4}{4} \bigg|_{2}^{3} =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{(x-1)^4}{4} \left( \ln(x-1) - \frac{1}{4} \right) \bigg|_{2}^{3}
+                \text{ тоді фінальний визначений інтеграл буде дорівнювати: }
+                \int_{2}^{3} (x-1)^3 \ln^2(x-1)dx = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \ln^2(x-1) \cdot \frac{(x-1)^4}{4} \bigg|_{2}^{3} - \frac{(x-1)^4}{4} \left( \ln(x-1) - \frac{1}{4} \right) \bigg|_{2}^{3} =
+                \frac{(x-1)^4}{4} \left( \ln^2(x-1) - \frac{1}{2} \left( \ln(x-1) - \frac{1}{4} \right) \right) \bigg|_{2}^{3} =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{(x-1)^4}{4} \left( \ln^2(x-1) - \frac{\ln(x-1)}{2} + \frac{1}{8} \right) \bigg|_{2}^{3} =
+                \frac{(3-1)^4}{4} \left( \ln^2(2) - \frac{\ln(2)}{2} + \frac{1}{8} \right) - \frac{(2-1)^4}{4} \left( \ln^2(1) - \frac{\ln(1)}{2} + \frac{1}{8} \right) =
+                4\ln^2(2) - 2\ln(2) +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \frac{1}{2} - \frac{1}{32} = 4\ln^2(2) - 2\ln(2) + \frac{15}{32}
+                &
+            \end{flalign*}
+
+        \subsection*{3. $\displaystyle \int_{-\pi}^{\pi} x\sin(x)\cos(x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int_{-\pi}^{\pi} x\sin(x)\cos(x)dx = \frac{1}{2} \int_{-\pi}^{\pi} x\sin(2x)dx = \frac{1}{4} \int_{-\pi}^{\pi} x\sin(2x)d(2x);
+                f = x, g' = \sin(2x), g = \int \sin(2x)d(2x) = -\cos(2x); f' = 1
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{1}{4} \int_{-\pi}^{\pi} x\sin(2x)d(2x) = \frac{1}{4} \left( - x \cos(2x) \bigg|_{-\pi}^{\pi} + \frac{1}{2} \int_{-\pi}^{\pi} \cos(2x)d(2x) \right) =
+                \left( -\frac{1}{4} x \cos(2x) + \frac{1}{8} \sin(2x) \right) \bigg|_{-\pi}^{\pi} = 
+                -\frac{1}{4} \pi \cos(2\pi) + \frac{1}{8} \sin(2\pi) -
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                - \left( -\frac{1}{4} (-\pi) \cos(-2\pi) + \frac{1}{8} \sin(-2\pi) \right) = 
+                -\frac{\pi}{4} + 0 - \left( \frac{\pi}{4} + 0 \right) = -\frac{\pi}{4} -\frac{\pi}{4} = -\frac{\pi}{2}
+                &
+            \end{flalign*}
+
+        \subsection*{4. $\displaystyle \int_{0}^{\pi} 2^4\sin^4(x)\cos^4(x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int_{0}^{\pi} 2^4\sin^4(x)\cos^4(x)dx = \int_{0}^{\pi} (2\sin(x)\cos(x))^4dx = \int_{0}^{\pi} \sin^4(2x)dx;
+                \text{ }
+                \sin^4(2x) = \left(\frac{1-\cos(4x)}{2}\right)^2 = \frac{1}{4} \left( 1 - \cos(4x)\right)^2 =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{1}{4} (1 - 2\cos(4x) + \cos^2(4x)); \text{ }
+                \cos^2(4x) = \frac{1+\cos(8x)}{2} = \frac{1}{2} (1 + \cos(8x)); \text{ тобто }
+                \frac{1}{4} (1 - 2\cos(4x) + \cos^2(4x)) = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{1}{4} \left(1 - 2\cos(4x) + \frac{1}{2} (1 + \cos(8x))\right) = 
+                \frac{3}{8} - \frac{1}{2} \cos(4x) + \frac{1}{8} \cos(8x); \text{ тобто }
+                \int_{0}^{\pi} 2^4\sin^4(x)\cos^4(x)dx =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \int_{0}^{\pi} \left( \frac{3}{8} - \frac{1}{2} \cos(4x) + \frac{1}{8} \cos(8x)\right)dx =
+                \frac{3}{8} \int_{0}^{\pi} dx - \frac{1}{2} \int_{0}^{\pi} \cos(4x)dx + \frac{1}{8} \int_{0}^{\pi} \cos(8x)dx =
+                \frac{3}{8}x \bigg|_{0}^{\pi} - \frac{1}{8} \int_{0}^{\pi} \cos(4x)d(4x) +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \frac{1}{64} \int_{0}^{\pi} \cos(8x)d(8x) = \frac{3}{8}x \bigg|_{0}^{\pi} - \frac{1}{8} \sin(4x) \bigg|_{0}^{\pi} +
+                \frac{1}{64} \sin(8x) \bigg|_{0}^{\pi} = \left( \frac{3}{8}x - \frac{1}{8} \sin(4x) +\frac{1}{64} \sin(8x) \right)
+                \bigg|_{0}^{\pi} = \frac{3\pi}{8}
+                &
+            \end{flalign*}
+
+        \subsection*{5. $\displaystyle \int_{4}^{5} \frac{dx}{(x-1)(x+2)}:$}
+
+            \begin{flalign*}
+                &
+                (x-1)(x+2) = x^2+ x- 2 = \left( x + \frac{1}{2}\right)^2 - \frac{9}{4} = 
+                \left( x + \frac{1}{2}\right)^2 - \left( \frac{3}{2} \right)^2; \text{ тобто }
+                \int_{4}^{5} \frac{dx}{(x-1)(x+2)} = \int_{4}^{5} \frac{dx}{\left( x + \frac{1}{2}\right)^2 - \left( \frac{3}{2} \right)^2} =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{1}{3} \ln \left| \frac{x + \frac{1}{2} - \frac{3}{2}}{x + \frac{1}{2} + \frac{3}{2}}\right| \bigg|_{4}^{5}
+                = \frac{1}{3} \ln \left| \frac{x-1}{x+2} \right| \bigg|_{4}^{5} = 
+                \frac{1}{3} \ln \left| \frac{4}{7} \right| - \frac{1}{3} \ln \left| \frac{3}{6} \right| = 
+                \frac{1}{3} \ln \left( \frac{4}{7} \right) - \frac{1}{3} \ln \left( \frac{1}{2} \right) = 
+                \frac{1}{3} \left( \ln \left( \frac{4}{7} \right) - \ln \left( \frac{1}{2} \right) \right) = \frac{1}{3} \ln \left( \frac{8}{7} \right) 
+                &
+            \end{flalign*}
+
+        \subsection*{6. $\displaystyle \int_{\frac{1}{\sqrt{2}}}^{1} \frac{\sqrt{1-x^2}}{x^6} dx:$}
+
+            \begin{flalign*}
+                &
+                \int_{\frac{1}{\sqrt{2}}}^{1} \frac{\sqrt{1-x^2}}{x^6} dx = \int_{\frac{1}{\sqrt{2}}}^{1} \frac{x\sqrt{1-x^2}}{x^7} dx;
+                \text{ Зроблю заміну } x = \sin(t), dx = d(\sin(t)) = -\cos(t)dt,
+                \text{ а також відбувається}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{"трансформування" границь визначеного інтегралу: }
+                \text{ }
+                \begin{tabular}{c|c|c}
+                    $x$ & $\frac{1}{\sqrt2}$ & $1$ \\ \hline
+                    $t$ & $\frac{\pi}{4}$ & $\frac{\pi}{2}$ \\
+                \end{tabular}
+                \text{ з формули } t = \arcsin(x) \text{, тоді }
+                \int_{\frac{1}{\sqrt{2}}}^{1} \frac{\sqrt{1-x^2}}{x^6} dx =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int_{\frac{\pi}{4}}^{\frac{\pi}{2}} -\frac{\sqrt{1-\sin^2(t)}}{\sin^6(t)} \cos(t) dt =
+                -\int_{\frac{\pi}{4}}^{\frac{\pi}{2}} \frac{\cos^2(t)}{\sin^6(t)}dt =
+                -\int_{\frac{\pi}{4}}^{\frac{\pi}{2}} \frac{\cos^2(t)}{\sin^2(t)} \cdot \frac{1}{\sin^2(t)} \cdot \frac{1}{\sin^2(t)}dt =
+                -\int_{\frac{\pi}{4}}^{\frac{\pi}{2}} \ctg^2(t) \cdot (1 + \ctg^2(t))d(\ctg(t)) = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                - \int_{\frac{\pi}{4}}^{\frac{\pi}{2}} (\ctg^2(t) + \ctg^4(t))d(\ctg(t)) =
+                - \left( \frac{\ctg^3(t)}{3} + \frac{\ctg^5(t)}{5}\right) \bigg|_{\frac{\pi}{4}}^{\frac{\pi}{2}} = 
+                - \left( \frac{\ctg^3(\frac{\pi}{2})}{3} + \frac{\ctg^5(\frac{\pi}{2})}{5}\right) -
+                \left( - \left( \frac{\ctg^3(\frac{\pi}{4})}{3} + \frac{\ctg^5(\frac{\pi}{4})}{5}\right) \right) =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                - \left( \frac{0}{3} + \frac{0}{5}\right) + \left( \frac{1}{3} + \frac{1}{5}\right) = \frac{8}{15}
+                &
+            \end{flalign*}
+
+        \subsection*{7. $\displaystyle \int_{1}^{2} \frac{dx}{x^2+5x+4}:$}
+
+            \begin{flalign*}
+                &
+                \int_{1}^{2} \frac{dx}{x^2+5x+4} = \int_{1}^{2} \frac{dx}{\left( x + \frac{5}{2} \right)^2 - \left( \frac{3}{2} \right)^2} =
+                \int_{1}^{2} \frac{d\left( x + \frac{5}{2} \right)}{\left( x + \frac{5}{2} \right)^2 - \left( \frac{3}{2} \right)^2} =
+                \frac{1}{3} \ln \left| \frac{x + \frac{5}{2}-\frac{3}{2}}{x+\frac{5}{2} + \frac{3}{2}}\right| \bigg|_{1}^{2} =
+                \frac{1}{3} \ln \left| \frac{x + 1}{x+4}\right| \bigg|_{1}^{2} = 
+                \frac{1}{3} \ln \left| \frac{3}{6} \right| - \frac{1}{3} \ln \left| \frac{2}{5} \right| =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{1}{3} \left( \ln \left( \frac{1}{2} \right) - \ln \left( \frac{2}{5} \right) \right) = \frac{1}{3} \ln \left( \frac{5}{4} \right)
+                &
+            \end{flalign*}
+
+        \subsection*{8. $\displaystyle \int_{0}^{\ln(2)} \sqrt{e^x-1}dx:$}
+
+            \begin{flalign*}
+                &
+                \int_{0}^{\ln(2)} \sqrt{e^x-1}dx = \int_{0}^{\ln(2)} \left(e^x\right)^0\cdot \sqrt{e^x-1}dx;
+                \text{ Звідси ми можемо застосувати теорему Чебишова. А саме у виразі} \left(e^x\right)^0 \cdot
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot \sqrt{e^x-1}dx \text{ --- це вираз типу } x^m(a + bx^n)^p  \text{ де }  m = 0, n = 1, a = -1, b = 1, p = \frac{1}{2}
+                \text{ і виходить така рівність: } \frac{m+1}{n} \in \mathbb{Z} \Rightarrow 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \Rightarrow \frac{0+1}{1} = 1 \in \mathbb{Z} \text{, тоді робиться така заміна: } t^2 = e^x-1, t = \sqrt{e^x-1}, x = \ln(t^2+1), 
+                dx = d(\ln(t^2+1)) = \frac{2t}{t^2+1}dt \text{, а також }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{ відбувається "трансформування" границь визначеного інтегралу: }
+                \text{ }
+                \begin{tabular}{c|c|c}
+                    $x$ & $\ln(2)$ & $0$ \\ \hline
+                    $t$ & $1$ & $0$ \\
+                \end{tabular}
+                \text{ з формули } t = \sqrt{e^x-1} \text{ тоді }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int_{0}^{\ln(2)} \sqrt{e^x-1}dx = \int_{0}^{1} \frac{2t^2}{t^2+1}dt;
+                \text{ Перетворимо неправильний дріб на правильний дріб: }
+                \text{\polylongdiv{2t^2}{t^2+1}}
+                \text{\quad тоді}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int_{0}^{1} \frac{2t^2}{t^2+1}dt = \int_0^1 \left( 2 - \frac{2}{t^2+1}\right)dt = 
+                2\int_{0}^{1} dt -2 \int_{0}^{1} \frac{dt}{t^2+1} = 2x \bigg|_{0}^{1} - 2 \arctg(x) \bigg|_{0}^{1} =
+                \left(2x - 2\arctg(x)\right) \bigg|_{0}^{1} = 2 - \frac{\pi}{2}
+                &
+            \end{flalign*}
+
+    \section*{Завдання №2}
+
+        \subsection*{1. $\displaystyle \int_4^{+\infty} \frac{xdx}{\sqrt{x^2-4x+1}}:$}
+
+            \begin{flalign*}
+                &
+                \int_4^{+\infty} \frac{xdx}{\sqrt{x^2-4x+1}} = \lim_{b \to \infty} \int_4^b \frac{xdx}{\sqrt{x^2-4x+1}};
+                \int_4^b \frac{xdx}{\sqrt{x^2-4x+1}} = \int_4^b \frac{\frac{1}{2}(2x-4)+2}{\sqrt{x^2-4x+1}}dx =
+                \int_4^b \frac{2x-4}{2\sqrt{x^2-4x+1}}dx + 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + 2 \int \frac{dx}{\sqrt{(x-2)^2-3}} = \frac{1}{2} \int_4^b \frac{d(x^2-4x+1)}{\sqrt{x^2-4x+1}} + 2 \int_4^b \frac{d(x-2)}{\sqrt{(x-2)^2-3}} =
+                \sqrt{x^2-4x+1} \bigg|_4^b + 2 \ln \left|x-2+\sqrt{x^2-4x+1}\right| \bigg|_4^b =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \left( \sqrt{x^2-4x+1} + 2 \ln \left|x-2+\sqrt{x^2-4x+1}\right| \right) \bigg|_4^b =
+                \sqrt{b^2-4b+1} + 2 \ln \left|b-2+\sqrt{b^2-4b+1}\right| -
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                - \left( \sqrt{4^2-4\cdot 4+1} + 2 \ln \left|4-2+\sqrt{4^2-4\cdot 4+1}\right| \right) =
+                \sqrt{b^2-4b+1} + 2 \ln \left|b-2+\sqrt{b^2-4b+1}\right| - 1 -2 \ln(3) \text{ тоді границя буде}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \lim_{b \to \infty} \int_4^b \frac{xdx}{\sqrt{x^2-4x+1}} =
+                \lim_{b \to \infty} \left( \sqrt{b^2-4b+1} + 2 \ln \left|b-2+\sqrt{b^2-4b+1}\right| - 1 -2 \ln(3) \right) =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \lim_{b \to \infty} \left( \sqrt{b^2-4b+1} + 2 \ln \left|b-2+\sqrt{b^2-4b+1}\right| \right) - 1 -2 \ln(3) =
+                \lim_{b \to \infty} \left( \sqrt{(b-2)^2-3} + 2 \ln \left|b-2+\sqrt{(b-2)^2-3}\right| \right) - 1 -
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                - 2 \ln(3) = \sqrt{(\infty-2)^2-3} + 2 \ln \left|\infty-2+\sqrt{(\infty-2)^2-3}\right| - 1 - 2 \ln(3) =
+                \infty + 2 \ln (\infty) - 1 - 2 \ln(3) = \infty + \infty - 1 - 2 \ln(3) = \infty
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{ а це означає, що інтеграл } \int_4^{+\infty} \frac{xdx}{\sqrt{x^2-4x+1}} \text{ є розбіжним }
+                &
+            \end{flalign*}
+
+        \subsection*{2. $\displaystyle \int_0^1 \frac{2xdx}{\sqrt{1-x^4}}:$}
+
+            \begin{flalign*}
+                &
+                \text{Підінтегральний вираз невизначений при } x = 1, \text{ тобто у верхній межі. Такий інтеграл буде еквівалентним такому виразу }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int_0^1 \frac{2xdx}{\sqrt{1-x^4}} = \lim_{\delta \to 0} \int_0^{1+\delta} \frac{2xdx}{\sqrt{1-x^4}};
+                \int_0^{1+\delta} \frac{2xdx}{\sqrt{1-x^4}} = \int_0^{1+\delta} \frac{d(x^2)}{\sqrt{1^2-\left(x^2\right)^2}} =
+                \arcsin\left(x^2\right) \bigg|_0^{1+\delta} = \arcsin\left((1+\delta)^2\right) - \arcsin(0) =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                =  \arcsin\left((1+\delta)^2\right); \text{ тоді } \lim_{\delta \to 0} \int_0^{1+\delta} \frac{2xdx}{\sqrt{1-x^4}} = 
+                \lim_{\delta \to 0} \arcsin\left((1+\delta)^2\right) = \arcsin\left((1+0)^2\right) = \arcsin(1) = \frac{\pi}{2}
+                \text{; Також хочу зазначити,}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{що значення такого інтегралу} \int_0^1 \frac{2xdx}{\sqrt{1-x^4}} \text{ буде дуже-дуже сильно наближеним до числа } \frac{\pi}{2}
+                \text{, а не чітко йому дорівнювати}
+                &
+            \end{flalign*}
+
+
+
+
+\end{document}

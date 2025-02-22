@@ -1,0 +1,1046 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ukrainian, english]{babel}
+\usepackage[a4paper, top=1cm, bottom=1cm, left=0.75cm, right=2.54cm]{geometry}
+\usepackage{titling}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{polynom}
+\usepackage{amssymb}
+
+\polyset{vars=xt, style=D} % Спробуйте стиль D або інші, наприклад A, B, C...
+
+\title{\textbf{ДКР №3.1 — Невизначенні інтеграли} \\ Варіант 8}
+
+\linespread{0.6}
+
+\author{Давидчук Артем, ІО-41}
+\date{}
+
+\setlength{\droptitle}{-0.5cm}
+
+\pagestyle{empty}
+
+\begin{document}
+
+    \maketitle
+
+    \thispagestyle{empty}
+
+    \section*{Завдання №1}
+
+        \subsection*{1. $\displaystyle \int \left(7x^2+\frac{3}{x}-\sqrt[5]{(x-1)^4}+\frac{8}{x^3}\right)dx:$}
+
+            \begin{flalign*}
+                &
+                \displaystyle \int \left(7x^2+\frac{3}{x}-\sqrt[5]{(x-1)^4}+\frac{8}{x^3}dx\right) = 7 \int x^2dx + 3\int \frac{dx}{x} - \int \sqrt[5]{(x-1)^4}dx + 8\int x^{-3}dx =
+                \frac{7}{3}x^3+3\ln|x|-\frac{5}{9}\sqrt[5]{(x-1)^9}-\frac{4}{x^2} +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + C
+                &
+            \end{flalign*}
+
+        \subsection*{2. $\displaystyle \int \cos(7x+3)dx:$}
+
+            \begin{flalign*}
+                &
+                \int \cos(7x+3)dx = \frac{1}{7} \sin(7x+3) + C
+                &
+            \end{flalign*}
+
+        \subsection*{3. $\displaystyle \int \frac{dx}{\sqrt{4x^2+3}}:$}
+
+            \begin{flalign*}
+                &
+                \int \frac{dx}{\sqrt{4x^2+3}}=\int \frac{dx}{\sqrt{(2x)^2+(\sqrt{3})^2}}=\frac{1}{2} \int \frac{d(2x)}{\sqrt{(2x)^2+(\sqrt{3})^2}}=
+                \frac{1}{2} \cdot \left( \ln{|2x+\sqrt{4x^2+3}|}+C\right)=\frac{1}{2} \ln{|2x+\sqrt{4x^2+3}|}+C
+                &
+            \end{flalign*}
+
+        \subsection*{4. $\displaystyle \int \frac{dx}{2x^2+7}:$}
+
+            \begin{flalign*}
+                &
+                \int \frac{dx}{2x^2+7} = \int \frac{dx}{(x\sqrt{2})^2+(\sqrt{7})^2}=\frac{1}{\sqrt{2}} \int \frac{d(x \sqrt{2})}{(x\sqrt{2})^2+(\sqrt{7})^2}=
+                \frac{1}{\sqrt{2}} \cdot \left( \frac{1}{\sqrt{7}} \cdot \arctg \left(x \sqrt{\frac{2}{7}}\right)+C\right)=
+                \frac{1}{\sqrt{14}} \cdot \arctg \left(x \sqrt{\frac{2}{7}} \right) + C
+                &
+            \end{flalign*}
+
+        \subsection*{5. $\displaystyle \int e^{1-6x^2}xdx:$}
+
+            \begin{flalign*}
+                &
+                \int e^{1-6x^2}xdx = e \int e^{-6x^2}xdx = \frac{e}{2} \int e^{-6x^2}d(x^2) = -\frac{e}{12} \int e^{-6x^2}d(-6x^2)=
+                -\frac{e}{12} \cdot e^{-6x^2} + C = - \frac{e^{1-6x^2}}{12}+C
+                &
+            \end{flalign*}
+
+        \subsection*{6. $\displaystyle \int \sin^6(3x)\cos(3x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int \sin^6(3x)\cos(3x)dx = \frac{1}{3} \int \sin^6(3x) d(\sin(3x)) = \frac{\sin^7(3x)}{21} + C
+                &
+            \end{flalign*}
+
+        \subsection*{7. $\displaystyle \int \frac{\sqrt{\ln^3(x+3)}}{x+3}dx:$}
+
+            \begin{flalign*}
+                &
+                \int \frac{\sqrt{\ln^3(x+3)}}{x+3}dx = \int \frac{\ln^{1.5}(x+3)}{x+3}dx = \int \ln^{1.5}(x+3)d(\ln(x+3))=
+                \frac{\ln^{2.5}(x+3)}{2.5} + C = \frac{2}{5} \sqrt{\ln^5(x+3)} + C
+                &
+            \end{flalign*}
+
+        \subsection*{8. $\displaystyle \int \frac{\sqrt[5]{\tg^2 3x}}{\cos^2 3x}dx:$}
+
+            \begin{flalign*}
+                &
+                \int \frac{\sqrt[5]{\tg^2 3x}}{\cos^2 3x}dx = \int \frac{\tg^{0.4} 3x}{\cos^2 3x}dx = \frac{1}{3} \int (\tg^{0.4} 3x) d(\tg 3x) =
+                \frac{1}{3} \left( \frac{\tg^{1.4}3x}{1.4} + C\right) = \frac{5}{21} \sqrt[5]{\tg^7 3x} + C
+                &
+            \end{flalign*}
+
+        \subsection*{9. $\displaystyle \int e^{2-4x}dx:$}
+
+            \begin{flalign*}
+                &
+                \int e^{2-4x}dx = e^2 \int e^{-4x}dx = -\frac{e^2}{4} \int e^{-4x} d(-4x) = -\frac{e^2}{4} \cdot e^{-4x} + C = -\frac{e^{2-4x}}{4} + C
+                &
+            \end{flalign*}
+
+        \subsection*{10. $\displaystyle \int \frac{\sqrt{\arccos 2x}}{\sqrt{1-4x^2}}dx:$}
+
+            \begin{flalign*}
+                &
+                \int \frac{\sqrt{\arccos 2x}}{\sqrt{1-4x^2}}dx = \int \frac{\arccos^{0.5}2x}{\sqrt{1-4x^2}}dx = -\frac{1}{2} \int (\arccos^{0.5}2x) d(\arccos 2x) = 
+                -\frac{1}{2} \cdot \frac{\arccos^{1.5}2x}{1.5} + C = -\frac{1}{3} \sqrt{\arccos^3 2x} + C
+                &
+            \end{flalign*}
+
+        \subsection*{11. $\displaystyle \int \frac{xdx}{2x^2-7}:$}
+
+            \begin{flalign*}
+                &
+                \int \frac{xdx}{2x^2-7} = \frac{1}{4} \int \frac{1}{2x^2-7}d(2x^2-7) = \frac{1}{4} \int \frac{d(2x^2-7)}{2x^2-7} =
+                \frac{1}{4} \ln|2x^2-7| + C
+                &
+            \end{flalign*}
+
+        \subsection*{12. $\displaystyle \int \frac{1/(2 \sqrt{x})+1}{(\sqrt{x} + x)^2}dx:$}
+
+            \begin{flalign*}
+                &
+                \int \frac{1/(2 \sqrt{x})+1}{(\sqrt{x} + x)^2}dx = \int \frac{1}{(\sqrt{x}+x)^2}d(\sqrt{x}+x) = \int (\sqrt{x}+x)^{-2}d(\sqrt{x}+x)=
+                \frac{(\sqrt{x}+x)^{-1}}{-1} + C = -\frac{1}{\sqrt{x}+x} + C
+                &
+            \end{flalign*}
+
+    \section*{Завдання №2}
+
+        \subsection*{1. $\displaystyle \int \left(\arcsin \frac{x}{5} \right)dx:$}
+
+            \begin{flalign*}
+                &
+                \int \left(\arcsin \frac{x}{5} \right)dx = \int \left(x^0 \cdot \arcsin \frac{x}{5} \right)dx; \text{  Звідси }
+                u = \arcsin \left( \frac{x}{5} \right); \text{  тоді } du = d\left(\arcsin \left( \frac{x}{5} \right)\right) = \frac{1}{\sqrt{25-x^2}}dx, \text{  а }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                dv = x^0dx; v = \int x^0dx = x; \text{  Тому ми можемо застосуванти формулу інтегрування частинами: } \int udv = uv - \int vdu
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int \left(x^0 \cdot \arcsin \frac{x}{5} \right)dx = x \arcsin \left( \frac{x}{5} \right) - \int \frac{x}{\sqrt{25-x^2}}dx = 
+                x \arcsin \left( \frac{x}{5} \right) - \int -\frac{1}{\sqrt{25-x^2}}d(\sqrt{25-x^2}) = x \arcsin \left( \frac{x}{5} \right) +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \int (\sqrt{25-x^2})^{-1}d(\sqrt{25-x^2}) = x \arcsin \left( \frac{x}{5} \right) + \sqrt{25-x^2} + C
+                \text{. Додатково зазначу (хоч це випливає з означення первісної)}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{так як $f(x) = \arcsin \left( \frac{x}{5} \right)$ штучно обмежена на проміжку $\left[ -5; 5 \right]$, то значить і первісна матиме сенс на цьому проміжку.}
+                &
+            \end{flalign*}
+
+        \subsection*{2. $\displaystyle \int (x \arctg(2x))dx:$}
+
+            \begin{flalign*}
+                &
+                \int (x \arctg(2x))dx = \frac{x^2}{2} \arctg(2x) - \int \frac{x^2}{2} \cdot \frac{2}{4x^2+1}dx =
+                \frac{x^2}{2} \arctg(2x) - \int \frac{x^2}{4x^2+1}dx = 
+                \frac{x^2}{2} \arctg(2x) + \int \frac{\frac{1}{4}(4x^2+1)}{4x^2+1}dx =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                 = \frac{x^2}{2} \arctg(2x) - \int \left( \frac{1}{4} - \frac{1}{4(4x^2+1)}\right)dx = 
+                \frac{x^2}{2} \arctg(2x) - \frac{1}{4} \int \left(1 - \frac{1}{4x^2+1}\right)dx = 
+                \frac{x^2}{2} \arctg(2x) - \frac{1}{4} \cdot 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot \left( \int 1dx - \int \frac{dx}{4x^2+1}\right) =
+                \frac{x^2}{2} \arctg(2x) - \frac{1}{4} \left( x - \frac{1}{2} \arctg(2x) + C \right) =
+                \frac{x^2}{2} \arctg(2x) - \frac{x}{4} + \frac{1}{8} \arctg(2x) + C =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{1}{8} (\arctg(2x) \cdot (4x^2+1) - 2x) + C
+                &
+            \end{flalign*}
+
+        \subsection*{3. $\displaystyle \int x^2 \cos^2(x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int x^2 \cos^2(x)dx; f = x^2, f' = 2x. g' = \cos^2(x);
+                g = \int \cos^2(x)dx = \int \frac{1+\cos(2x)}{2}dx =
+                \frac{1}{2} \int (1+\cos(2x))dx = \frac{1}{2} \int dx +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \frac{1}{4} \int \cos(2x)d(2x) = \frac{1}{2}x + \frac{1}{4}\sin(2x)
+                \text{ Тоді за формулою інтегрування частинами ми отримаємо:} \int fg'dx = 
+                fg - \int f'gdx
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{ тобто}
+                \int x^2 \cos^2(x)dx = \frac{x^3}{2} + \frac{x^2}{4}\sin(2x) -
+                \int \left( x^2 + \frac{x}{2} \sin(2x) \right)dx;
+                \int \left( x^2 + \frac{x}{2} \sin(2x) \right)dx = \int x^2dx + \int \frac{x}{2} \sin(2x)dx = \int x^2dx +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \frac{1}{2} \int x \sin(2x)dx;
+                \int x \sin(2x)dx; f = x, f' = 1, g' = \sin(2x), g = \int \sin(2x)dx = \frac{1}{2} \int \sin(2x)d(2x)=
+                -\frac{1}{2}\cos(2x); \text{ тоді}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int x \sin(2x)dx = -\frac{x}{2}\cos(2x) + \frac{1}{2} \int \cos(2x)dx =
+                -\frac{x}{4}\cos(2x) + \frac{1}{4} \int \cos(2x)d(2x) = -\frac{x}{2}\cos(2x)+\frac{1}{4}\sin(2x)
+                \text{; тепер рухаємось}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{ назад:} \int x^2dx = \frac{x^3}{3}; \text{ тоді }
+                \int \left(x^2+\frac{x}{2}\sin(2x) \right)dx = \frac{x^3}{3} + \frac{1}{2}
+                \left( -\frac{x}{2}\cos(2x)+\frac{1}{4}\sin(2x)\right) = 
+                \frac{x^3}{3} - \frac{x}{4}\cos(2x)+\frac{1}{8}\sin(2x)
+                \text{ тоді }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int x^2\cos^2(x)dx = \frac{x^3}{2}+\frac{x^2}{4}\sin(2x)-\left( \frac{x^3}{3}-\frac{x}{4}\cos(2x)
+                +\frac{1}{8}\sin(2x)\right) =
+                \frac{x^3}{2} + \frac{x^2}{4}\sin(2x)-\frac{x^3}{3} + \frac{x}{4}\cos(2x)-\frac{1}{8}\sin(2x)+C=
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{x^3}{6} + \sin(2x) \cdot \left( \frac{x^2}{4} - \frac{1}{8}\right) + \frac{x}{4}\cos(2x)+C
+                &
+            \end{flalign*}
+
+        \subsection*{4. $\displaystyle \int (x+1) \cos(7x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int (x+1) \cos(7x)dx; f = (x+1), g' = \cos(7x) \text{     Тоді за формулою інтегрування частинами ми отримаємо:} \int f(x)g'(x)dx =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = f(x)g(x) - \int f'(x)g(x)dx; \text{   }g = \int \cos(7x)dx = \frac{1}{7} \int \cos(7x)d(7x) = \frac{1}{7} \sin(7x); \text{   }
+                f' = (x+1)' = 1
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int (x+1) \cos(7x)dx = \frac{1}{7} \sin(7x) (x+1) - \frac{1}{7} \int \sin(7x)d(7x) = \frac{1}{7} \sin(7x) (x+1) - \frac{1}{49} \int \sin(7x)d(7x) =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                 = \frac{7(x+1)\sin(7x)+\cos(7x)}{49}+C
+                &
+            \end{flalign*}
+
+        \subsection*{5. $\displaystyle \int (x+3)e^{-x}dx:$}
+
+            \begin{flalign*}
+                &
+                \int (x+3)e^{-x}dx; \text{    } f = (x+3), g' = e^{-x}; \text{     } g = \int e^{-x}dx = -\int e^{-x}d(-x) = -e^{-x}; \text{  Тоді:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int (x+3)e^{-x}dx = -e^{-x}(x+3) - \int -e^{-x}dx = -e^{-x}(x+3)-\int e^{-x}d(-x) = -e^{-x}(x+3) - e^{-x} + C = -e^{-x}(x+4) + C
+                &
+            \end{flalign*}
+
+        \subsection*{6. $\displaystyle \int x \ln(x^2+1)dx:$}
+
+            \begin{flalign*}
+                &
+                \int x \ln(x^2+1)dx; f = \ln(x^2+1), g' = x, g = \frac{x^2}{2} \text{; тоді за формулою інтегрування частинами ми отримаємо:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int x \ln(x^2+1)dx = \frac{x^2}{2} \ln(x^2+1) - \int \frac{x^3}{x^2+1}dx; \text{ перетворюю неправильний дріб на правильний діленням:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{\polylongdiv{x^3}{x^2+1}} \text{ \quad Тобто }
+                \frac{x^3}{x^2+1} = x - \frac{x}{x^2+1} \text{ тоді }
+                \int \frac{x^3}{x^2+1}dx = \int xdx - \int \frac{x}{x^2+1}dx
+                \text{, а останній інтеграл є інтегралом}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{вигляду } \int \frac{Mx+N}{x^2+px+q}dx, \text{ де } M = 1, N = 0, p = 0 \text{ і такий інтеграл можна знайти за формулою: }
+                \int \frac{Mx+N}{x^2+px+q}dx =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{M}{2} \int \frac{d(x^2+px+q)}{x^2+px+q} + \left(N - \frac{Mp}{2}\right) \int \frac{dx}{x^2+px+q} \text{ тобто }
+                \int \frac{x}{x^2+1}dx = \frac{1}{2} \int \frac{d(x^2+1)}{x^2+1} = \frac{1}{2} \ln |x^2+1| + C
+                \text{, а інтеграл}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int xdx = \frac{x^2}{2}; \text{ тоді фінальна первісна буде: }
+                \frac{x^2}{2} \ln(x^2+1) - \frac{x^2}{2} + \frac{1}{2} \ln |x^2+1| + C = \frac{1}{2} \left( \ln(x^2+1)\cdot (x^2+1)-x^2\right) + C
+                &
+            \end{flalign*}
+
+    \section*{Завдання №3}
+
+        \subsection*{1. $\displaystyle \int \frac{2x^2+5}{x+1}dx:$}
+
+            \begin{flalign*}
+                &
+                \text{\polylongdiv{2x^2+5}{x + 1}} \text{ \quad Тобто}
+                \int \frac{2x^2+5}{x+1}dx = \int (2x-2)dx + 7 \int \frac{dx}{x+1} = 2 \int (x-1)d(x-1) + 7 \int \frac{d(x-1)}{x-1} =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = 2 \cdot \frac{(x-1)^2}{2} + 7 \ln |x+1| + C = (x-1)^2 + 7 \ln |x+1| + C
+                &
+            \end{flalign*}
+
+        \subsection*{2. $\displaystyle \int \frac{x-5}{2x^2+x+1}dx:$}
+
+            \begin{flalign*}
+                &
+                \text{Тут } 2x^2+x+1 \text{ немає дійсних коренів. Зведу даний тричлен до нормованого вигляду } x^2+px+q:
+                2x^2+x+1 =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{1}{2} \left( x^2+\frac{1}{2}x+\frac{1}{2} \right)
+                \text{; Тоді дріб } \frac{1}{2} \cdot \frac{x-5}{x^2+\frac{1}{2}x+\frac{1}{2}} \text{ є дробом вигляду } \frac{Mx+N}{x^2+px+q}
+                \text{; Звідси } M = 1, N = -5, p = 0.5 \text{ Тоді}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{за формулою інтегрування елементарного дробу 3 типу матимемо: } \int \frac{Mx+N}{x^2+px+q}dx =
+                \frac{M}{2} \int \frac{d(x^2+px+q)}{x^2+px+q} + 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \left(N - \frac{Mp}{2}\right) \int \frac{dx}{x^2+px+q}; \int \frac{x-5}{2x^2+x+1}dx =
+                \frac{1}{2} \int \frac{x-5}{x^2+\frac{1}{2}x+\frac{1}{2}}dx = \frac{1}{2} \cdot \frac{1}{2} \int \frac{d(x^2+\frac{1}{2}x+\frac{1}{2})}{x^2+\frac{1}{2}x+\frac{1}{2}} +
+                \left( -5 - \frac{-\frac{1}{2}}{2} \right) \cdot
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot \int \frac{dx}{x^2+\frac{1}{2}x+\frac{1}{2}} = \frac{1}{4} \cdot \int \frac{d(x^2+\frac{1}{2}x+\frac{1}{2})}{x^2+\frac{1}{2}x+\frac{1}{2}} -
+                \frac{21}{8} \int \frac{d(x + \frac{1}{4})}{\left( x + \frac{1}{4}\right)^2-\left( \frac{\sqrt{7}}{4} \right)^2} = \frac{1}{4} \ln \left|x^2+\frac{1}{2}x+\frac{1}{2}\right| - \frac{21}{8}
+                \cdot \frac{4}{\sqrt{7}} \arctg \left(\left( x + \frac{1}{4}\right)\cdot \frac{4}{\sqrt{7}}\right) +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + C; \text{ Так як підмодульний вираз завжди додатній, то модуль можемо прибрати. Тоді фінальна первісна матиме вигляд: }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{1}{4} \ln \left( x^2+\frac{1}{2}x+\frac{1}{2} \right) - \frac{3\sqrt{7}}{2} \cdot \arctg \left( \frac{4x+1}{\sqrt{7}} \right) + C
+                &
+            \end{flalign*}
+
+        \subsection*{3. $\displaystyle \int \frac{2x^2+12x-6}{(x+1)(x^2+8x+15)}dx:$}
+
+            \begin{flalign*}
+                &
+                \frac{2x^2+12x-6}{(x+1)(x^2+8x+15)} = \frac{2 \cdot (x^2+6x-3)}{(x+1)(x^2+8x+15)} =
+                2 \cdot \frac{(x+1)^2+4x-4}{(x+1)(x^2+8x+15)} = \frac{2(x+1)^2}{(x+1)(x^2+8x+15)} + \frac{2(4x-4)}{(x+1)(x^2+8x+15)} = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{2x+2}{x^2+8x+15} + \frac{8x-8}{x^3+9x^2+23x+15} \text{; Тоді } \int \frac{2x^2+12x-6}{(x+1)(x^2+8x+15)}dx =
+                \int \frac{2x+2}{x^2+8x+15}dx + \int \frac{8x-8}{(x+1)(x^2+8x+15)}dx
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{Дріб } \frac{2x+2}{x^2+8x+15} \text{ є елементарним дробом 3 типу. Звідси } M = 2, N = 2, p = 8 \text{ тоді}
+                \int \frac{2x+2}{x^2+8x+15}dx = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \int \frac{d(x^2+8x+15)}{x^2+8x+15}dx - 6 \int \frac{dx}{x^2+8x+15}dx = \ln |x^2+8x+15| - 6 \int \frac{d(x+4)}{(x+4)^2-1^2}dx =
+                \ln |x^2+8x+15| - 3\ln \left| \frac{x+3}{x+5} \right| + C
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{У знаменнику дробу } \frac{8x-8}{(x+1)(x^2+8x+15)} \text{ можна знайти корені } x^2+8x+15, \text{ а саме при } x_1 = -5, x_2 = -3
+                \text{ тоді, за}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{теоремою Безу, я можу записати дріб у такому вигляді: } \frac{8x-8}{(x+1)(x^2+8x+15)} =
+                \frac{8x-8}{(x+5)(x+3)(x+1)} \text{, а цей дріб у свою}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{чергу можу розкласти як } \frac{A}{x+5} + \frac{B}{x+3} + \frac{C}{x+1} \text{ далі зводитиму ліву частину до спільного знаменника:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{A}{x+5} + \frac{B}{x+3} + \frac{C}{x+1} = \frac{A(x+3)(x+1)+B(x+5)(x+1)+C(x+5)(x+3)}{(x+5)(x+3)(x+1)} = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{A(x^2+4x+3)+B(x^2+6x+5)+C(x^2+8x+15)}{(x+5)(x+3)(x+1)} = \frac{Ax^2+4Ax+3A+Bx^2+6Bx+5B+Cx^2+8Cx+15C}{(x+5)(x+3)(x+1)} =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{(A+B+C)x^2+(4A+6B+5C)x+(3A+5B+15C)}{(x+5)(x+3)(x+1)} \text{; а це дріб у свою чергу дорівнює початокову дробу: }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{(A+B+C)x^2+(4A+6B+5C)x+(3A+5B+15C)}{(x+5)(x+3)(x+1)} = \frac{8x-8}{(x+5)(x+3)(x+1)} \text{; Тоді }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                (A+B+C)x^2+(4A+6B+5C)x+(3A+5B+15C) = 8x-8 \text{, а звідси випливає, що постає задача розв'язання СЛАР:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \begin{cases}
+                    A+B+C = 0 \\
+                    4A+6B+5C = 8 \\
+                    3A+5B+15C = -8
+                \end{cases}
+                \text{звідси: } A=-6, B=8, C=-2; \text{Тому дріб } \frac{8x-8}{(x+5)(x+3)(x+1)} = -\frac{6}{x+5}+\frac{8}{x+3}-\frac{2}{x+1};
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int \frac{8x-8}{(x+1)(x^2+8x+15)}dx = \int \left( -\frac{6}{x+5}+\frac{8}{x+3}-\frac{2}{x+1} \right)dx =
+                -\int \frac{6}{x+5}dx + \int \frac{8}{x+3}dx - \int \frac{2}{x+1}dx = -6 \int \frac{d(x+5)}{x+5} + 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + 8 \int \frac{d(x+3)}{x+3} - 2 \int \frac{d(x+1)}{x+1} = -6 \ln |x+5| + 8 \ln |x+3| - 2 \ln |x+1| + C
+                \text{; Тоді фінальна первісна матиме вигляд:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int \frac{2x^2+12x-6}{(x+1)(x^2+8x+15)}dx = \int \frac{2x+2}{x^2+8x+15}dx + \int \frac{8x-8}{(x+1)(x^2+8x+15)}dx =
+                \ln |x^2+8x+15| - 3\ln \left| \frac{x+3}{x+5} \right| - 6 \ln |x+5| +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + 8 \ln |x+3| - 2 \ln |x+1| + C = \ln |x^2+8x+15| + 5 \ln |x+3| - 3 \ln |x+5| - 2 \ln |x+1| + C
+                &
+            \end{flalign*}
+
+        \subsection*{4. $\displaystyle \int \frac{x^3-4x+5}{(x^2-1)(x-1)} dx:$}
+
+            \begin{flalign*}
+                &
+                \text{\polylongdiv{x^3-4x+5}{x^3-x^2-x+1}} \text{ \quad Тобто } \frac{x^3-4x+5}{(x^2-1)(x-1)} = 1 + \frac{x^2-3x+4}{(x^2-1)(x-1)} =
+                1 + \frac{x^2-3x+4}{(x+1)(x-1)^2}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{ Тепер розкладемо дріб } \frac{x^2-3x+4}{(x+1)(x-1)^2} \text{ в суму елементарних дробів: } \frac{A}{x+1} + \frac{B}{x-1} + \frac{C}{(x-1)^2};
+                \text{Знайдемо коефіцієнти: }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{A}{x+1} + \frac{B}{x-1} + \frac{C}{(x-1)^2} = \frac{A(x-1)^2+B(x^2-1)+C(x+1)}{(x+1)(x-1)^2} = \frac{x^2-3x+4}{(x+1)(x-1)^2};
+                \text{ Звідси } A(x-1)^2+B(x^2-1)+C(x+1) =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = x^2-3x+4 = A(x^2-2x+1)+B(x^2-1)+C(x+1) = Ax^2-2Ax+A+Bx^2-B+Cx+C = (A+B)x^2 + (C-2A)x + A -
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                -B+C = x^2-3x+4; \text{Звідси я отримую СЛАР:}
+                \begin{cases}
+                    A+B = 1 \\
+                    -2A+C = -3 \\
+                    A-B+C = 4
+                \end{cases}
+                \text{ звідси: } A = 2, B = -1, C = 1, \text{ тобто вираз}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{x^3-4x+5}{(x^2-1)(x-1)} = 1 + \frac{2}{x+1} - \frac{1}{x-1} + \frac{1}{(x-1)^2}; \text{ а значить}
+                \int \frac{x^3-4x+5}{(x^2-1)(x-1)}dx = \int dx + 2 \int \frac{dx}{x+1} - \int \frac{dx}{x-1} + \int \frac{dx}{(x-1)^2} =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \int dx + 2 \int \frac{d(x+1)}{x+1} - \int \frac{d(x-1)}{x-1} + \int \frac{d(x-1)}{(x-1)^2} =
+                x + 2 \ln |x+1| - \ln |x-1| - \frac{1}{x-1} + C
+                &
+            \end{flalign*}
+
+        \subsection*{5. $\displaystyle \int \frac{2x^2+4x+20}{(x+1)(x^2-4x+13)}dx:$}
+
+            \begin{flalign*}
+                &
+                \frac{2x^2+4x+20}{(x+1)(x^2-4x+13)} = 2 \cdot \frac{x^2+4x+10}{(x+1)(x^2-4x+13)};
+                \text{ Так як } x^2-4x+13 \text{ немає дійсних коренів, то дріб } \frac{x^2+4x+10}{(x+1)(x^2-4x+13)}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{можна розкласти на елементарні дроби: }
+                \frac{x^2+4x+10}{(x+1)(x^2-4x+13)} = \frac{A}{x+1} + \frac{Bx+C}{x^2-4x+13}; \text{Знайду значення A, B та C:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{A(x^2-4x+13)+(Bx+C)(x+1)}{(x+1)(x^2-4x+13)} = \frac{x^2+4x+10}{(x+1)(x^2-4x+13)}; 
+                A(x^2-4x+13)+(Bx+C)(x+1) = x^2+4x+10 \text{; розкладаю:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                A(x^2-4x+13)+(Bx+C)(x+1) = Ax^2-4Ax+13A+Bx^2+(B+C)x+C = (A+B)x^2+(-4A+B+C)x + 13A+C = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = x^2-4x+13 \text{; звідси я отримую СЛАР та розв'язую її:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \begin{cases}
+                    A+B = 1 \\
+                    -4A+B+C = 2 \\
+                    13A+C = 10
+                \end{cases}
+                \text{звідси: } A = \frac{1}{2}, B = \frac{1}{2}, C = \frac{7}{2}, \text{ тобто дріб}
+                \frac{x^2+4x+10}{(x+1)(x^2-4x+13)} = \frac{1}{2} \cdot \frac{1}{x+1} + \frac{1}{2} \cdot \frac{x+7}{x^2-4x+13} = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{1}{2} \cdot \left( \frac{1}{x+1} + \frac{x+7}{x^2-4x+13} \right); \text{ а значить}
+                \frac{2x^2+4x+20}{(x+1)(x^2-4x+13)} = \frac{1}{x+1} + \frac{x+7}{x^2-4x+13}; \text{ тоді }
+                \int \frac{2x^2+4x+20}{(x+1)(x^2-4x+13)}dx =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \int \frac{dx}{x+1} + \int \frac{x+7}{x^2-4x+13}dx; \text{ Інтеграл } \int \frac{x+7}{x^2-4x+13}dx
+                \text{ є елементарним інтегралом 3 типу, якого } M = 1, N = 7, p = -4
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{тоді за формулою: }
+                \int \frac{Mx+N}{x^2+px+q}dx = \frac{M}{2} \int \frac{d(x^2+px+q)}{x^2+px+q} + \left(N - \frac{Mp}{2}\right) \int \frac{dx}{x^2+px+q}
+                \text{; Тобто: }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int \frac{x+7}{x^2-4x+13}dx = \frac{1}{2} \int \frac{d(x^2-4x+13)}{x^2-4x+13} + \left(7 + \frac{4}{2}\right) \int \frac{dx}{x^2-4x+13}
+                = \frac{1}{2} \int \frac{d(x^2-4x+13)}{x^2-4x+13} + 9 \int \frac{dx}{x^2-4x+13} = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{1}{2} \int \frac{d(x^2-4x+13)}{x^2-4x+13} + 9 \int \frac{d(x-2)}{(x-2)^2+3^2} = \frac{1}{2} \ln |x^2-4x+13| +
+                9 \cdot \frac{1}{3} \cdot \arctg \left(\frac{x-2}{3}\right) + C = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{1}{2} \ln |x^2-4x+13| + 3 \cdot \arctg \left(\frac{x-2}{3}\right) + C;
+                \text{, а інтграл} \int \frac{dx}{x+1} = \int \frac{d(x+1)}{x+1} = \ln |x+1| + C;
+                \text{ тоді фінальна первісна буде:}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \ln |x+1| + \frac{1}{2} \ln |x^2-4x+13| + 3\arctg \left(\frac{x-2}{3}\right) + C
+                &
+            \end{flalign*}
+
+    \section*{Завдання №4}
+
+        \subsection*{1. $\displaystyle \int \tg^4(3x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int \tg^4(3x)dx = \int \tg^2(3x)dx \cdot \tg^2(3x)dx;
+                \tg^2(3x) = \frac{1}{\cos^2(3x)} -1 \text{ тоді }
+                \int \tg^2(3x) \cdot \tg^2(3x)dx =
+                \int \tg^2(3x) \cdot \left( \frac{1}{\cos^2(3x)}-1\right)dx = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int \tg^2(3x) \cdot \frac{1}{\cos^2(3x)}dx - \int \tg^2(3x)dx = 
+                \frac{1}{3} \int \tg^2(3x) \cdot \frac{1}{\cos^2(3x)}d(3x) - 
+                \frac{1}{3} \int \tg^2(3x)d(3x) = \frac{1}{3} \int \tg^2(3x) d(\tg(3x)) -
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                - \frac{1}{3} \cdot \int \left( \frac{1}{\cos^2(3x)}-1\right)d(3x) =
+                \frac{1}{3} \int \tg^2(3x)d(\tg(3x)) - \frac{1}{3} \int \frac{d(3x)}{\cos^2(3x)} + \frac{1}{3} \int d(3x) = 
+                \frac{1}{9}\tg^3(3x) - \frac{1}{3} \tg(3x) + x + C
+                &
+            \end{flalign*}
+
+        \subsection*{2. $\displaystyle \int \sin^2(x)\cos^4(x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int \sin^2(x)\cos^4(x)dx = \frac{1}{8} \int (1-\cos^2(2x))(1+\cos(2x))dx =
+                - \frac{1}{8} \int (\cos^3(2x)+\cos^2(2x)-\cos(2x)-x)dx
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int (\cos^3(2x)+\cos^2(2x)-\cos(2x)-x)dx = \int \cos^3(2x)dx + \int \cos^2(2x)dx - \int \cos(2x)dx - \int xdx
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int \cos^3(2x)dx = \frac{1}{2} \int \cos^3(2x)d(2x) = \frac{1}{2} \left( \frac{\cos^2(2x)\sin(2x)}{3} + \frac{2}{3}
+                \int \cos(2x)d(2x)\right) = \frac{\sin(2x)(2+\cos^2(2x))}{6}
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int \cos^2(2x)dx = \frac{1}{2} \int \cos^2(2x)d(2x) = \frac{\sin(2x)}{2}; \int dx = x; \text{ тоді:}
+                \int \sin^2(x)\cos^4(x)dx = -\frac{\sin(2x)(2+\cos^2(2x))}{48} - \frac{\sin(4x)}{64}-\frac{x}{16} +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \frac{\sin(2x)}{16} + \frac{x}{8} + C =
+                -\frac{4\sin(2x)(2+\cos^2(2x))+3\sin(4x)+12x-12\sin(2x)-24x}{192} + C =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = -\frac{\sin(6x)+3\sin(4x)-3\sin(2x)-12x}{192} + C
+                &
+            \end{flalign*}
+
+        \subsection*{3. $\displaystyle \int \sin^3(5x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int \sin(5x) \cdot \sin^2(5x)dx = 
+                \int \sin(5x) \cdot (1 - \cos^2(5x))dx =
+                -\frac{1}{5} \int (1 - \cos^2(5x)) d(\cos(5x)) = 
+                -\frac{1}{5} \int d(\cos(5x)) +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \frac{1}{5} \int \cos^2(5x)d(\cos(5x)) =
+                -\frac{\cos(5x)}{5} + \frac{\cos^3(5x)}{15} + C = 
+                \frac{-3\cos(5x)+\cos^3(5x)}{15} + C
+                &
+            \end{flalign*}
+
+        \subsection*{4. $\displaystyle \int \frac{dx}{3-2\sin^2(x)}:$}
+
+            \begin{flalign*}
+                &
+                \text{Формула подвійного кута косинуса: } \cos(2x) = 1 - 2\sin^2(x), \text{ тоді }
+                \int \frac{dx}{3-2\sin^2(x)} = \int \frac{dx}{2+\cos(2x)} = \frac{1}{2} \int \frac{d(2x)}{2+\cos(2x)};
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{Застосвуємо універсальну тригонометричну підстановку: }
+                t = \tg\left( \frac{2x}{2} \right) = \tg(x), \text{ тоді } \cos(2x) = \frac{1-t^2}{1+t^2}, d(2x) = \frac{2dt}{1+t^2} \text{ тоді }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \frac{1}{2} \int \frac{d(2x)}{2+\cos(2x)} = \int \frac{2dt}{1+t^2} \cdot \frac{1}{2 + \frac{1-t^2}{1+t^2}} =
+                \int \frac{dt}{t^2+\sqrt{3}^2} = \frac{1}{\sqrt{3}} \arctg \left( \frac{t}{\sqrt{3}}\right) + C = 
+                \frac{1}{\sqrt{3}} \arctg \left( \frac{\tg(x)}{\sqrt{3}}\right) + C
+                &
+            \end{flalign*}
+
+
+
+        \subsection*{5. $\displaystyle \int \cos(x) \cos(7x)dx:$}
+
+            \begin{flalign*}
+                &
+                \int \cos(x) \cos(7x)dx = \int \frac{1}{2} \left( \cos(-6x)+\cos(8x)\right)dx = 
+                \frac{1}{2} \int \cos(-6x)dx + \frac{1}{2} \int \cos(8x)dx =
+                -\frac{1}{12} \int \cos(-6x)d(-6x) +  
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \frac{1}{16} \int \cos(8x)d(8x) = -\frac{\sin(-6x)}{12} + \frac{\sin(8x)}{16} + C =
+                \frac{\sin(6x)}{12} + \frac{\sin(8x)}{16} + C
+                &
+            \end{flalign*}
+
+        \subsection*{6. $\displaystyle \int \frac{dx}{3\cos(x)-4\sin(x)}:$}
+
+            \begin{flalign*}
+                &
+                \text{Проведу універсальну тригонометричну підстановку: }
+                t = \tg\left( \frac{x}{2} \right),
+                \sin(x) = \frac{2t}{1+t^2},
+                \cos(x) = \frac{1-t^2}{1+t^2},
+                dx = \frac{2dt}{1+t^2}
+                \text{ тоді }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \int \frac{dx}{3\cos(x)-4\sin(x)} = \int \frac{2dt}{1+t^2} \cdot \frac{1}{\frac{3(1-t^2)-8t}{1+t^2}} =
+                \int \frac{2dt}{-3t^2-8t+3} = 
+                -\frac{2}{3} \int \frac{dt}{t^2+\frac{8}{3}t - 1} = 
+                -\frac{2}{3} \int \frac{dt}{\left( t + \frac{4}{3}\right)^2 - \left( \frac{5}{3}\right)^2} =
+                -\frac{2}{3} \cdot \frac{3}{10} \cdot 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot \ln \left| \frac{t+\frac{4}{3}-\frac{5}{3}}{t+\frac{4}{3}+\frac{5}{3}} \right| + C =
+                -\frac{1}{5} \cdot \ln \left| \frac{t - \frac{1}{3}}{t + 3}\right| + C = 
+                -\frac{1}{5} \cdot \ln \left| \frac{\tg\left( \frac{x}{2} \right) - \frac{1}{3}}{ \tg\left( \frac{x}{2} \right) + 3}\right| + C
+                &
+            \end{flalign*}
+
+    \section*{Завдання №5}
+
+        \subsection*{1. $\displaystyle \int \frac{dx}{\sqrt{x}(x-1)}:$}
+
+            \begin{flalign*}
+                &
+                \text{Проведу заміну: } x = t^2, dx = d(t^2) = 2tdt, t = \sqrt{x}, \text{ тоді }
+                \int \frac{dx}{\sqrt{x}(x-1)} = \int \frac{2tdt}{t^3-t} =
+                2 \int \frac{dt}{t^2-1^2} = 2 \cdot \frac{1}{2} \ln \left| \frac{t-1}{t+1} \right| + C = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \ln \left| \frac{t-1}{t+1} \right| + C = \ln \left| \frac{\sqrt{x}-1}{\sqrt{x}+1} \right| + C
+                &
+            \end{flalign*}
+
+        \subsection*{2. $\displaystyle \int \frac{2x+3}{\sqrt{2x^2-x+6}}dx:$}
+
+            \begin{flalign*}
+                &
+                \int \frac{2x+3}{\sqrt{2x^2-x+6}}dx = 
+                \frac{1}{\sqrt{2}} \int \frac{2x+3}{\sqrt{x^2-0.5x+3}}dx, \text{ звідси }
+                M = 2, N = 3, p = -0.5, \text{ тоді }
+                \frac{1}{\sqrt{2}} \int \frac{2x+3}{\sqrt{x^2-0.5x+3}}dx =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \frac{1}{\sqrt{2}} \int \frac{d(\sqrt{x^2-0.5x+3})}{\sqrt{x^2-0.5x+3}} + \frac{7}{2\sqrt{2}} \int \frac{dx}{\sqrt{x^2-0.5x+3}} =
+                \frac{1}{\sqrt{2}} \cdot 2 \sqrt{x^2-0.5x+3} + \frac{7}{2\sqrt{2}} \int \frac{d(x-0.25)}{\sqrt{(x-0.25)^2-\frac{\sqrt{47}}{16}}} = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = \sqrt{2x^2-x+6} + \frac{7}{2\sqrt{2}} \ln \left| x - 0.25 + \sqrt{x^2-0.5x+3} \right| + C
+                &
+            \end{flalign*}
+
+        \subsection*{3. $\displaystyle \int x^3\sqrt{1-x^2}dx:$}
+
+            \begin{flalign*}
+                &
+                \text{Проведу заміну: } x = \sin(t), dx = \cos(t)dt, t = \arcsin(x), \text{ тоді }
+                \int x^3\sqrt{1-x^2}dx = -\int \sin^3(t)\sqrt{1-\sin^2(t)}\cos(t)dt =
+                -\int \sin^2(t) \cdot
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot \sin(t) \cdot \cos^2(t)dt =
+                -\int \sin^2(t) \cos^2(t) d(\cos(t)) =
+                -\int (1 - \cos^2(t)) \cos^2(t) d(\cos(t)) =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                -\int (\cos^2(t) - \cos^4(t)) d(\cos(t)) =
+                -\int \cos^2(t) + \int \cos^4(t)d(\cos(t)) =
+                -\frac{\cos^3(t)}{3} + \frac{\cos^5(t)}{5} + C =
+                -\frac{\cos^3(\arcsin(x))}{3} +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + \frac{\cos^5(\arcsin(x))}{5} + C
+                &
+            \end{flalign*}
+
+        \subsection*{4. $\displaystyle \int \frac{dx}{\sqrt{x}-\sqrt[6]{x}}:$}
+
+            \begin{flalign*}
+                &
+                \text{Проведу заміну: } x = t^6, t = \sqrt[6]{x}, dx = d(t^6) = 6t^5dt, \text{ тоді }
+                \int \frac{dx}{\sqrt{x}-\sqrt[6]{x}} = \int \frac{6t^5}{t^3-t}dt = 6 \int \frac{t^4}{t^2-1}dt; \text{ знайду правильний дріб: }
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \text{\polylongdiv{t^4}{t^2 - 1}} \text{ \quad Тобто }
+                6 \int \frac{t^4}{t^2-1}dt = 6 \int \left(t^2+1+\frac{1}{t^2-1}\right)dt =
+                6\int t^2dt + 6\int dt + \int \frac{1}{t^2-1}dt = 2t^3 + 6t +
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                + 3 \ln \left|\frac{t-1}{t+1}\right| + C = 
+                2\sqrt{x} + 6\sqrt[6]{x} + 3 \ln \left|\frac{\sqrt[6]{x}-1}{\sqrt[6]{x}+1}\right| + C
+                &
+            \end{flalign*}
+
+        \subsection*{5. $\displaystyle \int \frac{dx}{(x+1)\sqrt{1-x-x^2}}:$}
+
+            \begin{flalign*}
+                &
+                \text{Проведу заміну: } x+1 = \frac{1}{t}, x = \frac{1}{t}-1, dx = -\frac{dt}{t^2}, t = \frac{1}{x+1}, \text{ тоді }
+                \int \frac{dx}{(x+1)\sqrt{1-x-x^2}} =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                -\int \frac{dt}{t^2} \cdot \frac{1}{\left( \frac{1}{t}-1+1 \right)\sqrt{-\frac{1}{t^2}+\frac{1}{t}+1}} = 
+                -\int \frac{dt}{\sqrt{t^2+t-1}} = -\int \frac{d\left(t + \frac{1}{2}\right)}{\sqrt{\left( t + \frac{1}{2}\right)^2-\frac{\sqrt{5}}{2}}} = 
+                -\ln \left| t + \frac{1}{2} +\sqrt{t^2+t-1} \right| + C = 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = -\ln \left| \frac{1}{x+1} + \frac{1}{2} + \sqrt{\frac{1}{(x+1)^2} + \frac{1}{x+1} -1} \right| + C
+                &
+            \end{flalign*}
+
+        \subsection*{6. $\displaystyle \int \frac{\sqrt[3]{1+\sqrt[5]{x^4}}}{x^2\sqrt[15]{x}}dx:$}
+
+            \begin{flalign*}
+                &
+                \frac{\sqrt[3]{1+\sqrt[5]{x^4}}}{x^2\sqrt[15]{x}}dx = \left(1+x^{\frac{4}{5}}\right)^{\frac{1}{3}} \cdot x^{-\frac{31}{15}}dx
+                \text{ звідси } a = 1, b = 1, m = -\frac{31}{15}, n = \frac{4}{5}, p = \frac{1}{3} \text{ і звідси задовільняє умову: }
+                \frac{m+1}{n}+p \in \mathbb{Z}:
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \left(-\frac{31}{15} + 1\right)\cdot \frac{5}{4} + \frac{1}{3} = -1 \in \mathbb{Z} \text{ тоді робимо таку заміну: }
+                x^{-\frac{4}{5}}+1=t^3; t = \left(1+x^{-\frac{4}{5}}\right)^{\frac{1}{3}}; x = \left(t^3-1\right)^{-\frac{5}{4}}; 
+                dx = -\frac{15}{4}\left(t^3-1\right)^{-\frac{9}{4}} \cdot
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot t^2dt \text{, тоді }
+                \left(1+x^{\frac{4}{5}}\right)^{\frac{1}{3}} \cdot x^{-\frac{31}{15}}dx = 
+                -\frac{15}{4} \cdot \left(1+\left(\left(\left(t^3-1\right)^{-\frac{5}{4}}\right)^{\frac{4}{5}}\right)\right)^{\frac{1}{3}} \cdot
+                \left( \left(t^3-1\right)^{-\frac{5}{4}}\right)^{-\frac{31}{15}} \left(t^3-1\right)^{-\frac{9}{4}} t^2dt=
+                -\frac{15}{4} \cdot  
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot \left( 1 + \left( t^3-1\right)^{-1}\right)^{\frac{1}{3}}
+                \cdot \left( t^3-1\right)^{\frac{31}{12}} \cdot \left(t^3-1\right)^{-\frac{9}{4}} t^2dt =
+                -\frac{15}{4} \left( 1 + \left( t^3-1\right)^{-1}\right)^{\frac{1}{3}} \cdot \left( t^3-1\right)^{\frac{1}{3}} t^2dt =
+                -\frac{15}{4} \left(\left( 1 + \left( t^3-1\right)^{-1}\right) \cdot \left( t^3-1\right)\right)^{\frac{1}{3}} \cdot 
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                \cdot t^2dt = \left(t^3-1+1\right)^{\frac{1}{3}} \cdot -\frac{15}{4} t^2dt =
+                t \cdot \left(-\frac{15}{4}\right) t^2dt = -\frac{15}{4} \cdot t^3 dt; \text{ Тобто }
+                \int \frac{\sqrt[3]{1+\sqrt[5]{x^4}}}{x^2\sqrt[15]{x}}dx = \int -\frac{15}{4} \cdot t^3 dt =
+                -\frac{15}{4} \cdot \frac{t^4}{4} + C =
+                &
+            \end{flalign*}
+
+            \begin{flalign*}
+                &
+                = -\frac{15}{16} \cdot t^4 + C = -\frac{15}{16} \cdot \left(\left(1+x^{-\frac{4}{5}}\right)^{\frac{1}{3}}\right)^4 + C = 
+                -\frac{15}{16} \cdot \sqrt[3]{\left( 1 + \frac{1}{\sqrt[5]{x^4}}\right)^4} + C
+                &
+            \end{flalign*}
+
+\end{document}

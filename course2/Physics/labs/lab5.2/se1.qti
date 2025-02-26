@@ -1,0 +1,250 @@
+QtiPlot 0.9.7 project file
+<scripting-lang>	muParser
+<windows>	3
+<table>
+Table1	30	3	06.02.2025 13:36:24
+geometry	10	63	493	331	
+header	X[X]	T1[Y]	T2[Y]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13	0;0/13
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		2
+<data>
+0	1.00000000000000e-02	1.22180000000000e+00	1.13540000000000e+00
+1	2.00000000000000e-02	1.25160000000000e+00	1.14140000000000e+00
+2	3.00000000000000e-02	1.23810000000000e+00	1.21170000000000e+00
+3	4.00000000000000e-02	1.23950000000000e+00	1.23170000000000e+00
+4	5.00000000000000e-02	1.25450000000000e+00	1.22670000000000e+00
+5	6.00000000000000e-02	1.28610000000000e+00	1.27310000000000e+00
+6	7.00000000000000e-02	1.30010000000000e+00	1.31370000000000e+00
+7	8.00000000000000e-02	1.29070000000000e+00	1.33420000000000e+00
+8	9.00000000000000e-02	1.35120000000000e+00	1.41540000000000e+00
+9	1.00000000000000e-01	1.37140000000000e+00	1.44570000000000e+00
+</data>
+</table>
+<multiLayer>
+Graph1	1	1	06.02.2025 13:43:38
+geometry	256	271	510	430	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	5	5	484	365
+PlotTitle	Title	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	X Axis Title	Y Axis Title			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	8	75	0	0	0
+AxisFont0	MS Shell Dlg 2	8	50	0	0	0
+AxisFont1	MS Shell Dlg 2	8	50	0	0	0
+AxisFont2	MS Shell Dlg 2	8	50	0	0	0
+AxisFont3	MS Shell Dlg 2	8	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table1_X	Table1_T1	15	6	#000000	0	1	7	0	#000000	#000000	0	#000000	14	2	0	0	29	1
+curve	Table1_X	Table1_T2	15	6	#ff0000	0	1	7	0	#ff0000	#ff0000	0	#000000	14	2	0	0	29	1
+scale	0	1.1	1.45	0	8	5	0	0
+scale	1	1.1	1.45	0	8	5	0	0
+scale	2	0	0.12	0	8	5	0	0
+scale	3	0	0.12	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.0030379746835443</x>
+<y>1.4374100719424</y>
+<right>0.0331139240506329</right>
+<bottom>1.40089928057554</bottom>
+<Text>
+\l(1)%(1)
+\l(2)%(2)
+</Text>
+<Font>MS Shell Dlg 2	8	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<multiLayer>
+Graph2	1	1	06.02.2025 13:43:45
+geometry	208	6	510	430	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	6	5	489	368
+PlotTitle	Залежність періоду від аргументу	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Відстань X, м	Період T, c			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	8	75	0	0	0
+AxisFont0	MS Shell Dlg 2	8	50	0	0	0
+AxisFont1	MS Shell Dlg 2	8	50	0	0	0
+AxisFont2	MS Shell Dlg 2	8	50	0	0	0
+AxisFont3	MS Shell Dlg 2	8	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table1_X	Table1_T1	7	5	#000000	0	1	7	1	#000000	#000000	0	#000000	14	2	0	0	29	1
+curve	Table1_X	Table1_T2	7	5	#ff0000	0	1	7	2	#ff0000	#ff0000	0	#000000	14	2	0	0	29	1
+scale	0	1.1	1.45	0	8	5	0	0
+scale	1	1.1	1.45	0	8	5	0	0
+scale	2	0	0.12	0	8	5	0	0
+scale	3	0	0.12	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<line>	0.0650442477876106	1.08789	0.0650442477876106	1.08789	1	#000000	SolidLine	0	0	4	45	1</line>
+<line>	0.06495	1.09617486338798	0.06495	1.29827	1	#000000	DashLine	0	0	4	45	1</line>
+<line>	-0.0052212389380531	1.29699	0.0645132743362832	1.29699	1	#000000	DashLine	0	0	4	45	1</line>
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.0030379746835443</x>
+<y>1.4374100719424</y>
+<right>0.0331139240506329</right>
+<bottom>1.40089928057554</bottom>
+<Text>
+\l(1)T<sub>1</sub>
+\l(2)T<sub>2</sub>
+</Text>
+<Font>MS Shell Dlg 2	8	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+<Ellipse>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.064513274336283</x>
+<y>1.3001821493625</y>
+<right>0.0653097345132743</right>
+<bottom>1.29508196721311</bottom>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<BrushColor>#ffffff</BrushColor>
+<BrushStyle>0</BrushStyle>
+</Ellipse>
+<Legend>
+<Frame>0</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.063451327433628</x>
+<y>1.3173952641166</y>
+<right>0.066283185840708</right>
+<bottom>1.29699453551913</bottom>
+<Text>
+A
+</Text>
+<Font>MS Shell Dlg 2	7	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>0</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+<Legend>
+<Frame>0</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.063716814159292</x>
+<y>1.0974499089253</y>
+<right>0.0668141592920354</right>
+<bottom>1.07832422586521</bottom>
+<Text>
+X<sub>0</sub>
+</Text>
+<Font>MS Shell Dlg 2	7	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>0</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+<Legend>
+<Frame>0</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-0.00053097345132743</x>
+<y>1.3173952641166</y>
+<right>0.00238938053097345</right>
+<bottom>1.29954462659381</bottom>
+<Text>
+T<sub>0</sub>
+</Text>
+<Font>MS Shell Dlg 2	6	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>0</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<open>1</open>

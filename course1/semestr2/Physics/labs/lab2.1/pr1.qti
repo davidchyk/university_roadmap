@@ -3,7 +3,7 @@ QtiPlot 0.9.7 project file
 <windows>	3
 <table>
 Table1	30	2	23.02.2025 18:19:31
-geometry	0	0	445	220	active
+geometry	0	0	445	220	
 header	beta[X]	M[Y]
 ColWidth	100	100	
 <com>
@@ -74,8 +74,8 @@ LabelsRotation	0	0
 <LineStyle>0</LineStyle>
 <x>2.2088772845953</x>
 <y>0.025352517985612</y>
-<right>2.66840731070496</right>
-<bottom>0.0236690647482014</bottom>
+<right>4.30079155672823</right>
+<bottom>0.0231914893617021</bottom>
 <Text>
 
 </Text>
@@ -91,14 +91,14 @@ LabelsRotation	0	0
 </multiLayer>
 <multiLayer>
 Graph2	1	1	23.02.2025 18:23:36
-geometry	538	42	510	430	
+geometry	maximized	active
 WindowLabel		2
 Margins	5	5	5	5
 Spacing	5	5
 LayerCanvasSize	414	319
 Alignement	0	0
 <graph>
-ggeometry	5	5	489	368
+ggeometry	10	6	993	454
 PlotTitle	Графік залежності М(β), при малому моменті інерції маятника, та радіусом r=0,021м<br>	#000000	4228
 <Antialiasing>1</Antialiasing>
 Background	#ffffff	255
@@ -110,15 +110,15 @@ AxesTitles	β, рад/с<sup>2</sup>	М, H∙м
 AxesTitleColors	#000000	#000000	#000000	#000000	
 AxesTitleAlignment	5124	5124	5124	5124
 AxesTitleDistance	2	2	2	2
-TitleFont	MS Shell Dlg 2	10	75	0	0	0
-ScaleFont0	MS Shell Dlg 2	8	75	0	0	0
-ScaleFont1	MS Shell Dlg 2	8	75	0	0	0
-ScaleFont2	MS Shell Dlg 2	8	75	0	0	0
-ScaleFont3	MS Shell Dlg 2	8	75	0	0	0
-AxisFont0	MS Shell Dlg 2	8	50	0	0	0
-AxisFont1	MS Shell Dlg 2	8	50	0	0	0
-AxisFont2	MS Shell Dlg 2	8	50	0	0	0
-AxisFont3	MS Shell Dlg 2	8	50	0	0	0
+TitleFont	MS Shell Dlg 2	12	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	10	75	0	0	0
+AxisFont0	MS Shell Dlg 2	10	50	0	0	0
+AxisFont1	MS Shell Dlg 2	10	50	0	0	0
+AxisFont2	MS Shell Dlg 2	10	50	0	0	0
+AxisFont3	MS Shell Dlg 2	10	50	0	0	0
 EnabledTickLabels	1	1	1	1	
 AxesColors	#000000	#000000	#000000	#000000
 AxesNumberColors	#000000	#000000	#000000	#000000
@@ -145,14 +145,14 @@ LabelsRotation	0	0
 <LineStyle>0</LineStyle>
 <x>2.2025316455696</x>
 <y>0.024941176470588</y>
-<right>3.8644825018615</right>
-<bottom>0.0229294117647059</bottom>
+<right>4.24742268041237</right>
+<bottom>0.0231578947368421</bottom>
 <Text>
 β - кутове прискорення, рад/с<sup>2</sup>
 M - момент сили, H∙м
 r - половина діаметра малого шківа
 </Text>
-<Font>Times New Roman	8	50	0	0	0</Font>
+<Font>Times New Roman	10	50	0	0	0</Font>
 <TextColor>#000000</TextColor>
 <Background>#ffffff</Background>
 <Alpha>0</Alpha>

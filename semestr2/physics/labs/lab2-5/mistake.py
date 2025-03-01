@@ -1,18 +1,20 @@
 from math import sqrt, log
 
-R = 91000
-r_OUT = 0.09
-r_IN = 0.0055
-U0 = 9.0545
+R = 91000 # Опір Rд, Ом
+r_OUT = 0.09 # Зовнішній радіус, м
+r_IN = 0.0055 # Внутрішній радіус, м
+U0 = 9.0545 # U0, В
 
-S_I = 0.000001
-S_R = 910
-S_r = 0.0005
-S_U0 = 0.09
-S_r_IN = 0.0001
+S_I = 0.000001 # Похибка I
+S_R = 910 # Похибка Rд
+S_r = 0.0005 # Похибка зовнішнього радіусу
+S_U0 = 0.09 # Похибка U0
+S_r_IN = 0.0001 # Похибка внутрішнього радіусу
 
+# Список радіусів в метрах
 r_table = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08]
 
+# Список експериментальних напруженостей ел. поля, В/м
 E_exp_table = [
     178.13250,
     234.55250,
@@ -24,6 +26,7 @@ E_exp_table = [
     45.04500
 ]
 
+# Список виміряних I, мкА
 I_table = [79.7, 78.8, 80.7, 80.5,
     53.6, 55.1, 53.8, 54.1,
     39.8, 40.1, 40.1, 39.5,
@@ -33,11 +36,16 @@ I_table = [79.7, 78.8, 80.7, 80.5,
     8.9, 9.3, 9.2, 9.3,
     4.3, 4.2, 4.2, 4.2]
 
+# Знаходжу середній радіус в метрах
 r = adr_r = sum(r_table)/len(r_table)
+
+# Знаходжу середню експериментальну напруженість ел. поля
 adr_e = sum(E_exp_table)/len(E_exp_table)
 
+# Знаходжу середню силу струму I, А (тому що множу на 1e-6)
 adr_I = sum(I_table)/len(I_table) * 1e-6
 
+# Формула розрахунку похибки I
 def I_mistake():
 
     abs_result = 0
@@ -52,6 +60,7 @@ def I_mistake():
 
     return abs_result, relative
 
+# Формула розрахунку похибки U_expr
 def U_expr_mistake():
 
     abs_result = sqrt((R*S_I)**2 + (adr_I*S_R)**2)
@@ -59,6 +68,7 @@ def U_expr_mistake():
 
     return abs_result, relative
 
+# Формула розрахунку похибки U_theor
 def U_theor_mistake():
 
     a1 = log(r_OUT/r)*S_U0/log(r_OUT/r_IN)
@@ -76,6 +86,7 @@ def U_theor_mistake():
 
     return abs_result, relative
 
+# Формула розрахунку похибки E_expr
 def E_expr_mistake():
 
     abs_result = 0
@@ -90,6 +101,7 @@ def E_expr_mistake():
 
     return abs_result, relative
 
+# Формула розрахунку похибки E_theor
 def E_theor_mistake():
 
     a1 = S_U0/(r*log(r_OUT/r_IN))
@@ -107,6 +119,7 @@ def E_theor_mistake():
 
     return abs_result, relative
 
+#Вивід результатів
 print(f"Похибка I: абсолютна = {I_mistake()[0]*1000000:.3f} мкА, відн.похибка ~ {I_mistake()[1]:.2f}%")
 print(f"Похибка U_expr: абсолютна = {U_expr_mistake()[0]:.2f} В, відн.похибка ~ {U_expr_mistake()[1]:.2f}%")
 print(f"Похибка U_theor: абсолютна = {U_theor_mistake()[0]:.2f} В, відн.похибка ~ {U_theor_mistake()[1]:.2f}%")

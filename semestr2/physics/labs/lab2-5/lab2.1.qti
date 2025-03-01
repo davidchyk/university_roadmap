@@ -1,0 +1,319 @@
+QtiPlot 0.9.7 project file
+<scripting-lang>	muParser
+<windows>	5
+<table>
+Table1	30	3	28.02.2025 10:25:12
+geometry	956	44	445	220	
+header	r[X]	U-exp[Y]	U-theor[Y]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13	0;0/13
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		2
+<data>
+0	1.00000000000000e-02	7.27317500000000e+00	7.11782900000000e+00
+1	2.00000000000000e-02	4.92765000000000e+00	4.87240400000000e+00
+2	3.00000000000000e-02	3.62862500000000e+00	3.55891400000000e+00
+3	4.00000000000000e-02	2.67540000000000e+00	2.62697900000000e+00
+4	5.00000000000000e-02	1.94285000000000e+00	1.90411300000000e+00
+5	6.00000000000000e-02	1.32405000000000e+00	1.31348900000000e+00
+6	7.00000000000000e-02	8.34925000000000e-01	8.14124000000000e-01
+7	8.00000000000000e-02	3.84475000000000e-01	3.81554000000000e-01
+</data>
+</table>
+<multiLayer>
+Graph1	1	1	28.02.2025 10:28:08
+geometry	919	5	510	430	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	5	5	489	368
+PlotTitle	Графік залежності напруг U<sub>теор.</sub> та U<sub>експ.</sub> в залежності від відстані r між зондом та центральним електродом	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	r, м	U, В			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	8	75	0	0	0
+AxisFont0	MS Shell Dlg 2	8	50	0	0	0
+AxisFont1	MS Shell Dlg 2	8	50	0	0	0
+AxisFont2	MS Shell Dlg 2	8	50	0	0	0
+AxisFont3	MS Shell Dlg 2	8	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table1_r	Table1_U-exp	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+curve	Table1_r	Table1_U-theor	1	0	#ff0000	0	1	7	2	#ff0000	#ff0000	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>F1</Title>
+<Expression>(9.054500/ln(0.09/0.0055)) * ln(0.09/x)</Expression>
+<Variable>x</Variable>
+<Range>0.01	0.08</Range>
+<Points>1000</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#800080</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+scale	0	0	8	0	8	5	0	0
+scale	1	0	8	0	8	5	0	0
+scale	2	0	0.09	0	8	5	0	0
+scale	3	0	0.09	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.01965371024735</x>
+<y>7.7042513863216</y>
+<right>0.0889187279151943</right>
+<bottom>6.47689463955638</bottom>
+<Text>
+\l(1) U<sub>експ.</sub> (точки; вимірювальні значення) - обчислена експериментально напруга між зондом та зовнішнім електродом
+\l(2) U<sub>теор.</sub> (точки; вимірювальні значення) - обчислена теоретично напруга між зондом та зовнішнім електродом
+\l(3)  U<sub>теор.</sub> (функція; формула)
+</Text>
+<Font>MS Shell Dlg 2	8	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<multiLayer>
+Graph2	1	1	28.02.2025 10:29:28
+geometry	510	0	510	430	hidden
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	5	5	487	364
+PlotTitle	Title	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	X Axis Title	Y Axis Title			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	10	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	8	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	8	75	0	0	0
+AxisFont0	MS Shell Dlg 2	8	50	0	0	0
+AxisFont1	MS Shell Dlg 2	8	50	0	0	0
+AxisFont2	MS Shell Dlg 2	8	50	0	0	0
+AxisFont3	MS Shell Dlg 2	8	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+<Function>
+<Type>0</Type>
+<Title>F3</Title>
+<Expression>(9.054500/ln(0.09/0.0055)) * ln(0.09/x)</Expression>
+<Variable>x</Variable>
+<Range>0.01	0.08</Range>
+<Points>1000</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#00ff00</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+scale	0	0	8	0	8	5	0	0
+scale	1	0	8	0	8	5	0	0
+scale	2	0	0.09	0	8	5	0	0
+scale	3	0	0.09	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.0046046511627907</x>
+<y>7.7111913357401</y>
+<right>0.0252835051546392</right>
+<bottom>6.84870848708487</bottom>
+<Text>
+\l(1)%(1)
+</Text>
+<Font>MS Shell Dlg 2	8	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<table>
+Table2	30	3	28.02.2025 13:30:23
+geometry	71	57	445	220	
+header	r[X]	E-exp[Y]	E-theor[Y]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13	0;0/13
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		2
+<data>
+0	5.00000000000000e-03	1.78132500000000e+02	3.23946350000000e+02
+1	1.50000000000000e-02	2.34552500000000e+02	1.61973180000000e+02
+2	2.50000000000000e-02	1.29902500000000e+02	1.07982120000000e+02
+3	3.50000000000000e-02	9.53225000000000e+01	8.09865900000000e+01
+4	4.50000000000000e-02	7.32550000000000e+01	6.47892700000000e+01
+5	5.50000000000000e-02	6.18800000000000e+01	5.39910600000000e+01
+6	6.50000000000000e-02	4.89125000000000e+01	4.62780500000000e+01
+7	7.50000000000000e-02	4.50450000000000e+01	4.04932900000000e+01
+</data>
+</table>
+<multiLayer>
+Graph3	1	1	28.02.2025 13:32:42
+geometry	maximized	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	15	9	1490	663
+PlotTitle	Title	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	X Axis Title	Y Axis Title			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	18	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	15	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	15	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	15	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	15	75	0	0	0
+AxisFont0	MS Shell Dlg 2	15	50	0	0	0
+AxisFont1	MS Shell Dlg 2	15	50	0	0	0
+AxisFont2	MS Shell Dlg 2	15	50	0	0	0
+AxisFont3	MS Shell Dlg 2	15	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table2_r	Table2_E-exp	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+curve	Table2_r	Table2_E-theor	1	0	#ff0000	0	1	7	2	#ff0000	#ff0000	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>F1</Title>
+<Expression>(9.054500/ln(0.09/0.0055)) * 1/x</Expression>
+<Variable>x</Variable>
+<Range>0	0.8</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#00ff00</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+scale	0	0	350	0	8	5	0	0
+scale	1	0	350	0	8	5	0	0
+scale	2	-0.2	1	0	8	5	0	0
+scale	3	-0.2	1	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.39694545454545</x>
+<y>337.03703703704</y>
+<right>0.485090909090909</right>
+<bottom>281.296296296296</bottom>
+<Text>
+\l(1) E<sub>експ.</sub>
+\l(2) E<sub>теор.</sub>
+\l(3)%(3)
+</Text>
+<Font>MS Shell Dlg 2	15	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<open>1</open>

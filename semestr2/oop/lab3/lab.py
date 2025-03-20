@@ -68,7 +68,7 @@ text = """
 """
 
 # Шукані слова
-words = ["кого", "Крила", "Я", "з", "А", "має", "Gilbert"]
+words = ["кого", "Крила", "Я", "з", "А", "має", "Gilbert","буде"]
 
 ex = LabSolver(text, words)
 ex.main_method()

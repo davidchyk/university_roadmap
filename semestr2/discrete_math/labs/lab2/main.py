@@ -195,7 +195,9 @@ class Window2(tk.Toplevel):
 
 # Вікно 3: Відображення множин і матричних представлень відношень S та R
 class Window3(tk.Toplevel):
+
     def __init__(self, master):
+
         super().__init__(master)
         self.title("Вікно 3: Відношення S та R")
         # Збільшуємо розміри вікна, щоб умістити більші текстові поля:

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743302914.61051 "c:/Users/artem/OneDrive/Desktop/reps/university_roadmap/semestr2/physics/labs/ФПЕ-10/FPE-10.tex" "FPE-10.pdf" "FPE-10" 1743302915.80628 0
+["pdflatex"] 1743363562.73929 "c:/Users/artem/OneDrive/Desktop/reps/university_roadmap/semestr2/physics/labs/ФПЕ-10/FPE-10.tex" "FPE-10.pdf" "FPE-10" 1743363564.14876 0
   "3.1.png" 1743154637 54762 34fee2df02d67e5edfabb9901c594165 ""
   "3.2.png" 1743155495 17324 5f6a4a7405742289fd67b0475f6f0181 ""
   "3.3.png" 1743161877 30178 f5de7995eac1c12478edae7bbf3d2b2b ""
@@ -17,6 +17,8 @@
   "C:/Users/artem/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1737393072 11986913 8c4a54038621f88436691c49ee797764 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t2a.enc" 1001770740 3141 82d5616418ed8d5de703b3951bedecb4 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1001775420 2900 1537cc8184ad1792082cd229ecc269f4 ""
+  "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm0600.tfm" 993062506 1456 d21918d95ca20f07aa266303b9a0a14c ""
+  "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm0800.tfm" 993062506 1444 e35ead393df86aae37b5564284d9aa05 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1200.tfm" 993062508 1444 95ffe0f19b974d50849790c8225c7ef7 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -42,6 +44,7 @@
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb" 1215618300 140176 d0f50dba675c56d445f84a32c1f93a79 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1440.pfb" 1215618300 135942 aecb5af344df420d6ec421db27dedf62 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1728.pfb" 1215618300 139826 3796482349bae544f13f54da58f9706d ""
+  "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb" 1215618300 164227 41439fae96b3b30186924e9dd2fcff30 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1200.pfb" 1215618300 136101 b18d10b3436f8cb0cd04046deb340fe7 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1440.pfb" 1215618300 131078 3adc08bf3d7686c3b3220602214807d7 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb" 1215618300 198221 29e050730bc4b56b13a53cd149c0a42c ""
@@ -87,9 +90,9 @@
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstmisc.sty" 1727541453 77051 be68720e5402397a830abb9eed5a2cb4 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstpatch.sty" 1727541453 353 9024412f43e92cd5b21fe9ded82d0610 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "FPE-10.aux" 1743302915 1620 228ca05c2c382c0da5433822bb49a4b8 "pdflatex"
-  "FPE-10.tex" 1743302912 39010 4cba5dc2cd3c9a81985f5a91f617708b ""
-  "c:/Users/artem/OneDrive/Desktop/reps/university_roadmap/semestr2/physics/labs/ФПЕ-10/FPE-10.tex" 1743302912 39010 4cba5dc2cd3c9a81985f5a91f617708b ""
+  "FPE-10.aux" 1743363563 1620 8feb8e1e86cedc53081809f81a1959c2 "pdflatex"
+  "FPE-10.tex" 1743363562 49987 f0c756636184e68653a591f7a34b26ba ""
+  "c:/Users/artem/OneDrive/Desktop/reps/university_roadmap/semestr2/physics/labs/ФПЕ-10/FPE-10.tex" 1743363562 49987 f0c756636184e68653a591f7a34b26ba ""
   "graph.png" 1743291459 98992 b6bac51dbd4c21edd67ac5a842c69167 ""
   "table1_results.png" 1743293117 33893 b19c318525b8ae0b5256afbaaff8806f ""
   (generated)

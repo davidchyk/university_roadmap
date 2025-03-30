@@ -1,0 +1,17 @@
+\setlength{\parindent}{0pt}
+
+    Результат виконання програми з Лістингу 3.2:
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1\textwidth]{mistake1_photo.png}
+    \end{figure}
+
+    \vspace{2em} % вручну задаєте відступ
+
+    \textbf{\large Завдання №2:}
+    \vspace{1em} % вручну задаєте відступ
+
+    \setlength{\parindent}{1.5em}
+
+    TODO

@@ -1,0 +1,167 @@
+QtiPlot 0.9.7 project file
+<scripting-lang>	muParser
+<windows>	2
+<table>
+Table1	30	3	29.03.2025 12:55:05
+geometry	267	98	445	220	
+header	1[X]	2[Y]	3[Y]
+ColWidth	100	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13	0;0/13
+ReadOnlyColumn	0	0	0
+HiddenColumn	0	0	0
+Comments				
+WindowLabel		2
+<data>
+0	1.00000000000000e+02	2.35900000000000e-01	
+1	2.00000000000000e+02	3.91900000000000e-01	
+2	3.00000000000000e+02	5.63000000000000e-01	
+3	4.00000000000000e+02	7.14100000000000e-01	
+4	5.00000000000000e+02	8.70900000000000e-01	
+5	6.00000000000000e+02	9.98800000000000e-01	
+</data>
+</table>
+<multiLayer>
+Graph1	1	1	29.03.2025 12:55:28
+geometry	maximized	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	6	13	1868	866
+PlotTitle	Залежність логарифмічного декременту затухання λ від магазинного опору R<sub>m</sub>	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	1	1	1	1	#a0a0a4	0	0.1	#a0a0a4	2	0.1	#a0a0a4	0	0.1	#a0a0a4	2	0.1	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Магазинний опір R<sub>m</sub>, Ом	λ (логарифмічний декремент затухання), безрозмірний			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	24	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	19	75	0	0	0
+AxisFont0	MS Shell Dlg 2	19	50	0	0	0
+AxisFont1	MS Shell Dlg 2	19	50	0	0	0
+AxisFont2	MS Shell Dlg 2	19	50	0	0	0
+AxisFont3	MS Shell Dlg 2	19	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table1_1	Table1_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+scale	0	0	1.2	0	6	5	0	0
+scale	1	0	1.2	0	8	5	0	0
+scale	2	-100	700	0	8	5	0	0
+scale	3	-100	700	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<line>	35.4913294797688	0.0829875518672199	35.4913294797688	0.0829875518672199	1	#000000	SolidLine	0	0	4	45	1</line>
+<line>	595.491329479769	1.02738589211618	96.9942196531792	0.232365145228216	1	#000000	SolidLine	0	0	4	45	1</line>
+<line>	97.4566473988439	0.23402489626556	-63.0057803468208	-0.0066390041493776	1	#000000	DashLine	0	0	4	45	1</line>
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-92.483852025837</x>
+<y>1.1799721835883</y>
+<right>656.782149148561</right>
+<bottom>1.05813630041725</bottom>
+<Text>
+\l(1) Експериментально визначені значення логарифмічного декременту затухання напруги між пластинами конденсатора C від опору R<sub>m</sub>
+\l() r<sub>k</sub> – значення опору котушки індуктивності, Ом
+</Text>
+<Font>MS Sans Serif	19	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>1</TeXOutput>
+</Legend>
+<Ellipse>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-61.859917598587</x>
+<y>0.0049723756906077</y>
+<right>-58.5638610947616</right>
+<bottom>-0.00994475138121547</bottom>
+<Background>#000000</Background>
+<Alpha>255</Alpha>
+<BrushColor>#000000</BrushColor>
+<BrushStyle>0</BrushStyle>
+</Ellipse>
+<Legend>
+<Frame>0</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-68.452030606239</x>
+<y>0.069613259668508</y>
+<right>-51.5008828722778</right>
+<bottom>0.00331491712707182</bottom>
+<Text>
+r<sub>k</sub>
+</Text>
+<Font>MS Sans Serif	19	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>1</TeXOutput>
+</Legend>
+<Ellipse>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-63.828537874339</x>
+<y>0.0033379694019471</y>
+<right>-59.1309453904874</right>
+<bottom>-0.0166898470097357</bottom>
+<Background>#000000</Background>
+<Alpha>255</Alpha>
+<BrushColor>#000000</BrushColor>
+<BrushStyle>0</BrushStyle>
+</Ellipse>
+<Legend>
+<Frame>0</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-69.465648854962</x>
+<y>0.085118219749652</y>
+<right>-50.6752789195537</right>
+<bottom>0.0066759388038943</bottom>
+<Text>
+r<sub>k</sub>
+</Text>
+<Font>MS Shell Dlg 2	22	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>0</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<open>1</open>

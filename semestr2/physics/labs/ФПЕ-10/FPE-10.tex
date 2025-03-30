@@ -575,7 +575,7 @@
     \setlength{\parindent}{1.5em}
 
     В ході виконання завдання №1, використовувались такі величини: експериментально визначені значення (пряме вимірювання) $R_m$, $l$, $l_1$, $A_i$, де $i = \overline{1, 3}$ та $r_k$;
-    теретично визначені значення (непрямі вимірювання) $\lambda$, $\beta$, $L$, $C$, $R$ та $R_{cr}$. Почнемо розгляд з експериментально визначених величин.
+    теретично визначені значення (непрямі вимірювання) $T$, $\lambda$, $\beta$, $R$, $L$, $C$ та $R_{cr}$. Почнемо розгляд з експериментально визначених величин.
 
     Величини $R_m$ та $r_k$ які являються опорами, тобто теоретично їх можна розглядати, як опір 2 резисторів. Зазвичай, резистори,
     які використовуються в лабораторній роботі мають клас точності 5\%, тобто відносна похибка для резистора $R$ та $r_k \approx$ 5\% = 0,05. Абсолютну похибку
@@ -624,11 +624,11 @@
 
     \vspace{1em} % вручну задаєте відступ
 
-    Щодо величин $A_i$, то вони також були виміряні за допомогою екрану осцилографа, а це значить, що формули для обчислення похибок залишуться такими ж самими, але проблема в тому, що
-    даних $A_i$ є купа, а це значить, що потрібно визначати середнє значення, а саме середньоквадратичне відхилення абсолютних та відносних їх похибок, а разом із ним, потрібно буде помножити на коефіцієнт
+    Щодо величин $A$, то вони також були виміряні за допомогою екрану осцилографа, а це значить, що формули для обчислення похибок залишуться такими ж самими, але проблема в тому, що
+    даних $A$ є купа, а це значить, що потрібно визначати середнє значення, а саме середньоквадратичне відхилення абсолютних та відносних їх похибок, а разом із ним, потрібно буде помножити на коефіцієнт
     Стьюдента, який при довірчому коефіцієнту $\alpha = 0,9$ та кількістю вимірювань $i = 18$, буде дорівнювати $t_{(0,9; 18)} = 1,73$.
 
-    Так як даних багато, я викорстаю Python код (Лістинг 3.2) для розрахунку похибок, і не тільки $A_i$ (див. далі). Результат виконання програми показує, що $\Delta A_i = ...$, $\varepsilon_{A_i} = ...$
+    Так як даних багато, я викорстаю Python код (Лістинг 3.2) для розрахунку похибок, і не тільки для $A$ (див. далі). Результат виконання програми показує, що $\Delta A \approx 0,0108$ В, $\varepsilon_{A} \approx 2,3358$ \%.
 
     Щодо теоретичних величин, то для обчислення похибок для непрямих вимірів використовуватимемо Гаусові формули для поширення похибок:
 
@@ -657,15 +657,40 @@
             \frac{\partial \ln f}{\partial b}\Bigg|_{\substack{a=\langle a\rangle \\ b=\langle b\rangle \\ \dots}}
         \right)^{2} S_{(b)}^{2}
         \;+\;\dots
-        }
+        } \cdot 100 \%
     \]
 
     \vspace{1em} % вручну задаєте відступ
 
+    Почнемо з величини $T$ --- ця функція залежить від 3 змінних: $l_1$, $l$ та $\nu$. Відповідно,
+
+    \begin{center}
+
+        $\displaystyle T = \frac{l}{l_1 \nu}$; $\displaystyle \frac{\partial T}{\partial l_1} = -\frac{l}{l_1^2 \nu}$; $\displaystyle \frac{\partial T}{\partial l} = \frac{1}{l_1 \nu}$; $\displaystyle \frac{\partial T}{\partial \nu} = -\frac{l}{l_1 \nu^2}$;
+        $\displaystyle \frac{\partial \ln T}{\partial l_1} = -\frac{1}{l_1}$; $\displaystyle \frac{\partial \ln T}{\partial l} = \frac{1}{l}$; $\displaystyle \frac{\partial \ln T}{\partial \nu} = -\frac{1}{\nu}$;
+
+    \end{center}
+
+    \begin{center}
+
+        $\displaystyle \Delta T = \sqrt{\left( \frac{\text{⟨}l\text{⟩}}{\text{⟨}l_1^2\text{⟩} \text{⟨}\nu\text{⟩}} S_{l_1} \right)^2 + \left( \frac{S_l}{\text{⟨}l_1\text{⟩} \text{⟨}\nu\text{⟩}} \right)^2 + \left(\frac{\text{⟨}l\text{⟩}}{\text{⟨}l_1\text{⟩} \text{⟨}\nu\text{⟩}^2} S_{\nu}  \right)^2}$,
+
+    \end{center}
+
+    \begin{center}
+
+        $\displaystyle \varepsilon_T = \sqrt{\left( \frac{S_{l_1}}{\text{⟨}l_1\text{⟩}} \right)^2 + \left( \frac{S_l}{\text{⟨}l\text{⟩}} \right)^2 + \left( \frac{S_{\nu }}{\text{⟨}\nu \text{⟩}} \right)^2} \cdot 100 \%$,
+
+    \end{center}
+
+    де $\text{⟨}l_1\text{⟩} = l_1 = 0,4$ c, $\text{⟨}l\text{⟩} = l = 0,5$ с, $\text{⟨}\nu\text{⟩} = \nu = 250$ Гц. Значення $S_{l_1}$ та $S_l$ були попередньо визначені, та дорівнюють $S_{l_1} = S_l = T_c = 2 \cdot 10^{-4}$ с.
+    Значення для $S_{\nu}$ можна визначити, що генератор звукових сигналів ГЗ-111 має клас точності 0,1\% в середньому, тобто $\varepsilon_{\nu} = 0,1$ \%, а це значить, що $\Delta \nu = S_{\nu} = \nu \cdot 0,001 = 0,25$ Гц.
+    Вiдповiдно, за результатами програми з Лiстингу 3.2, $\Delta T \approx 2 \cdot 10^{-6}$ с, $\varepsilon_T \approx 5$ \%.
+
     Розглянемо величину $\lambda$, яка залежить за формулою від 2 змінних: $A_i$ та $A_{i+1}$, але насправді, ми обчислювали її 3 рази, для різних значень $A_i$, а потім знаходили середнє арифметичне.
-    Тобто на значення $\lambda$ впливали 3 змінні: $A_i$, $A_{i+1}$ та $A_{i+2}$. Тобто в нашій роботі, ця функція залежить від 3 змінних, причому таких, що $S_{A_i} = S_{A_{i+1}} = S_{A_{i+2}}$.
+    Тобто на значення $\lambda$ впливали 3 змінні: $A_i$, $A_{i+1}$ та $A_{i+2}$. Тобто в нашій роботі, ця функція залежить від 3 змінних.
     Значить формула для $\lambda$ це 
-        
+
     \begin{center}
         $\displaystyle \lambda_i = \frac{\ln \frac{A_i}{A_{i+1}} + \ln \frac{A_i}{A_{i+2}} + \ln \frac{A_{i+1}}{A_{i+2}}}{3}$,
     \end{center}
@@ -686,6 +711,19 @@
         $\displaystyle \frac{\partial \ln \lambda_i}{\partial A_i} = \frac{1}{\ln \frac{A_i}{A_{i+2}}}$; $\displaystyle \frac{\partial \ln \lambda_i}{\partial A_{i+2}} = -\frac{1}{\ln \frac{A_i}{A_{i+2}}}$;
     \end{center}
 
+    Відповідно, вирази для обчислення похибок для $\lambda$:
+
+    \begin{center}
+        $\displaystyle \Delta \lambda = \sqrt{\left( \frac{2}{3\text{⟨}A_i\text{⟩}} S_{A_i} \right)^2 + \left( \frac{2}{3\text{⟨}A_{i+2}\text{⟩}} S_{A_{i+2}}\right)^2}$,
+    \end{center}
+
+    \begin{center}
+        $\displaystyle \varepsilon_{\lambda} = \sqrt{\left( \frac{S_{A_i}}{\ln \frac{\text{⟨}A_i\text{⟩}}{\text{⟨}A_{i+2}\text{⟩}}}\right)^2 + \left( \frac{S_{A_{i+2}}}{\ln \frac{\text{⟨}A_i\text{⟩}}{\text{⟨}A_{i+2}\text{⟩}}} \right)^2} \cdot 100 \% =
+        \frac{\sqrt{S_{A_i}^2 + S_{A_{i+2}}^2}}{\ln \frac{\text{⟨}A_i\text{⟩}}{\text{⟨}A_{i+2}\text{⟩}}} \cdot 100 \% = \frac{\sqrt{S_{A_i}^2 + S_{A_{i+2}}^2}}{\ln \text{⟨}A_i\text{⟩} - \ln \text{⟨}A_{i+2}\text{⟩}} \cdot 100 \%$
+    \end{center}
+
+    де
+
     \begin{center}
         ⟨$\displaystyle A_i$⟩ = $\displaystyle \frac{5,4547 + 4,8768 + 4,3710 + 3,9014 + 3,4679 + 3,0706}{6} \approx 4,1904$ В,
     \end{center}
@@ -694,17 +732,114 @@
         ⟨$\displaystyle A_{i+2}$⟩ = $\displaystyle \frac{3,8292 + 2,7093 + 1,8785 + 1,3366 + 0,9392 + 0,6864}{6} \approx 1,8965$ В.
     \end{center}
 
+    Ціна однієї поділки на екрані осцилографа по вертикалі дорівнює $\Delta u = $2,26 В --- звідси похибка вимірювання дорівнює $\Delta u \cdot 0,02 = 2,26 \cdot 0,2 = 0,452$ В.
+    Відповідно, за результатами програми з Лістингу 3.2, $S_{A_i} = 0,003$ В, $S_{A_{i+2}} = 0,0028$ В, а, відповідно $\Delta \lambda \approx 0,0091$, $\varepsilon_{\lambda} \approx 0,52$ \%.
 
+    Щодо $\beta$: функція залежить від 2 змінних: $\lambda$ та $T$.
 
+    Відповідно
 
+    \begin{center}
+        $\displaystyle \beta = \frac{\lambda}{T}$; $\displaystyle \frac{\partial \beta}{\partial \lambda} = \frac{1}{T}$; $\displaystyle \frac{\partial \beta}{\partial T} = -\frac{\lambda}{T^2}$;
+        $\displaystyle \frac{\partial \ln \beta}{\partial \lambda} = \frac{1}{\lambda}$; $\displaystyle \frac{\partial \ln \beta}{\partial T} = -\frac{1}{T}$;
+    \end{center}
 
+    \begin{center}
+        $\displaystyle \Delta \beta = \sqrt{\left( \frac{S_{\lambda}}{\text{⟨}T\text{⟩}} \right)^2 + \left( \frac{\text{⟨}\lambda\text{⟩}}{\text{⟨}T\text{⟩}^2} S_T \right)^2} =
+        \frac{1}{\text{⟨}T\text{⟩}^2} \sqrt{\left(\text{⟨}T\text{⟩} S_{\lambda}\right)^2 + \left(\text{⟨}\lambda\text{⟩} S_T\right)^2}$
+    \end{center}
 
+    \begin{center}
+        $\displaystyle \varepsilon_{\beta} = \sqrt{\left( \frac{S_{\lambda}}{\text{⟨}\lambda\text{⟩} }\right)^2 +
+        \left(\frac{S_T}{\text{⟨}T\text{⟩}} \right)^2} \cdot 100 \%$
+    \end{center}
 
+    де
 
+    \begin{center}
+        ⟨$\lambda$⟩ = $\displaystyle \frac{0,2359 + 0,3919 + 0,5630 + 0,7141 + 0,8709 + 0,9988}{6} \approx 0,6039$, ⟨$T$⟩ = $T$ = 0,4 с,
+    \end{center}
 
+    а за попередніми розрахунками $S_{\lambda} = 0,0091$, $S_T = 2 \cdot 10^{-6}$ c. Вiдповiдно, за результатами
+    програми з Лiстингу 3.2 $\Delta \beta \approx 0,0228 \text{ с}^{-1}$, $\varepsilon_{\beta} \approx 1,51$ \%.
 
+    Щодо функції $R$, то вона залежить від 2 змінних: $R_m$ та $r_k$. Відповідно
 
+    \begin{center}
+        $\displaystyle R = R_m + r_k$; $\displaystyle \frac{\partial R}{\partial R_m} = 1$; $\displaystyle \frac{\partial R}{\partial r_k} = 1$;
+        $\displaystyle \frac{\partial \ln R}{\partial R_m} = \frac{\partial \ln R}{\partial r_k} = \frac{1}{R}$;
+    \end{center}
 
+    \begin{center}
+        $\displaystyle \Delta R = \sqrt{S_{R_m}^2 + S_{r_k}^2}$;
+        $\displaystyle \varepsilon_R = \sqrt{\left( \frac{S_{R_m}}{\text{⟨}R_m\text{⟩}} \right)^2 + \left( \frac{S_{r_k}}{\text{⟨}r_k\text{⟩}} \right)^2} \cdot 100 \%$;
+    \end{center}
+
+    де
+
+    \begin{center}
+
+        $\displaystyle \text{⟨}R_m\text{⟩} = \frac{100+200+300+400+500+600}{6} = 350$ Ом, $\text{⟨}R_k\text{⟩} = r_k = 63,0058$ Ом,
+
+    \end{center}
+
+    а за попередніми розрахунками $S_{R_m} = \Delta R_m = 17,5$ Ом, $S_{r_k} = \Delta r_k = 3,15$ Ом. Вiдповiдно, за результатами
+    програми з Лiстингу 3.2 $\Delta R \approx 17,7812$ Ом, $\varepsilon_R \approx 7,07$ \%.
+
+    Тепер розглянемо функцію індуктивності $L$, яка залежить від 3 змінних: $R$, $\lambda$ та $T$. Відповідно
+
+    \begin{center}
+
+        $\displaystyle L = \frac{R}{2\lambda}T$; $\displaystyle \frac{\partial L}{\partial R} = \frac{T}{2\lambda}$; $\displaystyle \frac{\partial L}{\partial \lambda} = -\frac{R}{2\lambda^2}T$; $\displaystyle \frac{\partial L}{\partial T} = \frac{R}{2\lambda}$;
+        $\displaystyle \frac{\partial \ln L}{\partial R} = \frac{1}{R}$; $\displaystyle \frac{\partial \ln L}{\partial \lambda} = -\frac{1}{\lambda}$; $\displaystyle \frac{\partial \ln L}{\partial T} = \frac{1}{T}$;
+
+    \end{center}
+
+    \begin{center}
+
+        $\displaystyle \Delta L = \sqrt{\left( \frac{\text{⟨}T\text{⟩}}{2\text{⟨}\lambda\text{⟩}} S_{R} \right)^2 + \left( \frac{\text{⟨}R\text{⟩}}{2\text{⟨}\lambda^2\text{⟩}} \text{⟨}T\text{⟩} S_{R}\right)^2 + \left( \frac{\text{⟨}R\text{⟩}}{2\text{⟨}\lambda\text{⟩}} S_{\lambda} \right)^2}$;
+        $\displaystyle \varepsilon_L = \sqrt{\left( \frac{S_{R}}{\text{⟨}R\text{⟩}} \right)^2 + \left( \frac{S_{\lambda}}{\text{⟨}\lambda\text{⟩}} \right)^2 + \left( \frac{S_{T}}{\text{⟨}T\text{⟩}} \right)^2} \cdot 100 \%$;
+
+    \end{center}
+
+    де $\text{⟨}T\text{⟩}$ = 0,4 с, $\text{⟨}\lambda\text{⟩}$ = 0,6039 с, $\text{⟨}R\text{⟩}$ = 350 Ом, а також за попередніми розрахунками $S_R = \Delta R = 17,7812$ Ом, $S_T = \Delta T = 2 \cdot 10^{-6}$ c,
+    $S_{\lambda} = \Delta \lambda = 0,0091$. Вiдповiдно, за результатами програми з Лiстингу 3.2 $\Delta L \approx 7,3311$ Гн, $\varepsilon_L \approx 5,2991$ \%.
+
+    Тепер можемо переходити до функції ємності конденсатора $C$, яка залежить від 2 змінних: $L$ та $T$. Відповідно
+
+    \begin{center}
+        $\displaystyle C = \left( \frac{T}{2\pi} \right)^2 \cdot \frac{1}{L}$; $\displaystyle \frac{\partial C}{\partial L} = -\left( \frac{T}{2\pi L} \right)^2$; $\displaystyle \frac{\partial C}{\partial T} = \frac{T}{2\pi L^2}$;
+        $\displaystyle \frac{\partial \ln C}{\partial L} = -\frac{1}{L}$; $\displaystyle \frac{\partial \ln C}{\partial T} = \frac{2}{T}$;
+    \end{center}
+
+    \begin{center}
+        $\displaystyle \Delta C = \sqrt{\left( \left( \frac{\text{⟨}T\text{⟩}}{2\pi\text{⟨}L\text{⟩}} \right)^2 S_{L} \right)^2 + \left( \frac{\text{⟨}T\text{⟩}}{2\pi\text{⟨}L^2\text{⟩}} S_T \right)^2}$;
+        $\displaystyle \varepsilon_C = \sqrt{\left( \frac{S_{L}}{\text{⟨}L\text{⟩}} \right)^2 + \left( \frac{S_{T}}{\text{⟨}T\text{⟩}} \right)^2} \cdot 100 \%$;
+    \end{center}
+
+    де
+
+    ⟨$L$⟩ = $\displaystyle \frac{138,2 + 134,2 + 129 + 129,7 + 129,3 + 132,8}{6} \approx 132,2$ Гн, ⟨$T$⟩ = $T$ = 0,4 с, а значення для $S_L$ та $S_T$ були попередньо визначені, тобто $S_{L} = \Delta L = 7,3311$ Гн,
+    $S_T = \Delta T = 2 \cdot 10^{-6}$ c. Вiдповiдно, за результатами програми з Лiстингу 3.2 $\Delta C \approx 4,2502$ мкФ, $\varepsilon_C \approx 5,5455$ \%.
+
+    Функція $R_{cr}$ залежить від 2 змінних: $C$ та $L$. Відповідно
+
+    \begin{center}
+        $\displaystyle R_{cr} = 2 \sqrt{\frac{L}{C}}$; $\displaystyle \frac{\partial R_{cr}}{\partial C} = -\sqrt{\frac{L}{C^3}}$; $\displaystyle \frac{\partial R_{cr}}{\partial L} = \frac{1}{\sqrt{LC}}$;
+        $\displaystyle \frac{\partial \ln R_{cr}}{\partial C} = -\frac{1}{2C}$; $\displaystyle \frac{\partial \ln R_{cr}}{\partial L} = \frac{1}{2L}$;
+    \end{center}
+
+    \begin{center}
+    
+        $\displaystyle \Delta R_{cr} = \sqrt{\left( \sqrt{\frac{\text{⟨}L\text{⟩}}{\text{⟨}C\text{⟩}^3}} S_C\right)^2 + \left( \frac{S_L}{\sqrt{\text{⟨}L\text{⟩}\text{⟨}C\text{⟩}}} \right)^2}$;
+        $\displaystyle \varepsilon_{R_{cr}} = \sqrt{\left( \frac{S_C}{2\text{⟨}C\text{⟩}} \right)^2 + \left( \frac{S_L}{2\text{⟨}L\text{⟩}} \right)^2} \cdot 100 \%$;
+
+    \end{center}
+
+    \newpage
+
+    де ⟨$C$⟩ = $\displaystyle \frac{29,32 + 30,19 + 31,43 + 31,26 + 31,34 + 30,43}{6} \cdot 10^{-6} = 30,55 \cdot 10^{-6}$ Ф, ⟨$L$⟩ $\approx 132,2$ Гн, $S_C = \Delta C = 4,2502 \cdot 10^{-6}$ Ф, $S_L = \Delta L = 7,3311$ Гн.
+    Відповідно до результатів програми з Лістингу 3.2 $\Delta R_{cr} \approx ...$ Ом, $\varepsilon_{R_{cr}} \approx ... \%$.
 
     %\setlength{\parindent}{1.5em}
 

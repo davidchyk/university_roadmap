@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.20)  31 MAR 2025 23:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.20)  1 APR 2025 01:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -960,7 +960,7 @@ Package pdftex.def Info: table1.png  used on input line 556.
 [11]
 
 [12]
-<mistake1_photo.png, id=125, 717.43031pt x 404.26031pt>
+<mistake1_photo.png, id=129, 717.43031pt x 404.26031pt>
 File: mistake1_photo.png Graphic file (type png)
 <use mistake1_photo.png>
 Package pdftex.def Info: mistake1_photo.png  used on input line 838.
@@ -970,7 +970,7 @@ Overfull \hbox (7.82796pt too wide) in paragraph at lines 855--867
  [][] 
  []
 
-<table2.png, id=128, 705.38531pt x 258.9675pt>
+<table2.png, id=132, 705.38531pt x 258.9675pt>
 File: table2.png Graphic file (type png)
 <use table2.png>
 Package pdftex.def Info: table2.png  used on input line 882.
@@ -978,7 +978,7 @@ Package pdftex.def Info: table2.png  used on input line 882.
 
 
 [13 <./mistake1_photo.png>]
-<aperiodic2.jpg, id=137, 803.0pt x 602.25pt>
+<aperiodic2.jpg, id=141, 803.0pt x 602.25pt>
 File: aperiodic2.jpg Graphic file (type jpg)
 <use aperiodic2.jpg>
 Package pdftex.def Info: aperiodic2.jpg  used on input line 888.
@@ -986,7 +986,7 @@ Package pdftex.def Info: aperiodic2.jpg  used on input line 888.
 
 
 [14 <./table2.png> <./aperiodic2.jpg>]
-<YEY1.png, id=145, 550.30594pt x 406.51875pt>
+<YEY1.png, id=149, 550.30594pt x 406.51875pt>
 File: YEY1.png Graphic file (type png)
 <use YEY1.png>
 Package pdftex.def Info: YEY1.png  used on input line 896.
@@ -996,7 +996,7 @@ Package pdftex.def Info: YEY1.png  used on input line 896.
 [15 <./YEY1.png>]
 
 [16]
-<mistake2_photo.png, id=161, 717.43031pt x 143.78719pt>
+<mistake2_photo.png, id=166, 717.43031pt x 143.78719pt>
 File: mistake2_photo.png Graphic file (type png)
 <use mistake2_photo.png>
 Package pdftex.def Info: mistake2_photo.png  used on input line 969.
@@ -1006,77 +1006,84 @@ Package pdftex.def Info: mistake2_photo.png  used on input line 969.
 [17 <./mistake2_photo.png>]
 
 [18]
+Overfull \hbox (7.76488pt too wide) in paragraph at lines 1107--1107
+\T2A/cmr/bx/n/14.4 осци-ло-гра-фа для спо-сте-ре-же-н-ня за-га-са-ю-чих ко-ли-вань? Фа-зо-воЁ кри-
+ []
+
+
 
 [19]
-LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 1097.
+
+[20]
+LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 1143.
  (C:\Users\artem\AppData\Local\Programs\MiKTeX\tex/latex/cyrillic\t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-Overfull \hbox (14.23978pt too wide) in paragraph at lines 1205--1205
+Overfull \hbox (14.23978pt too wide) in paragraph at lines 1251--1251
 []\T2A/cmtt/m/n/10.95 # Вимiрянi значення 3 амплiтуд для рiзних значень опору R_m (змiню№ться з кожним рядком)[] 
  []
 
 
 
-[20]
-Overfull \hbox (19.89815pt too wide) in paragraph at lines 1205--1205
+[21]
+Overfull \hbox (19.89815pt too wide) in paragraph at lines 1251--1251
 []\T2A/cmtt/m/n/10.95 # Обчислю№мо загальний опiр, додавши до R_m значення r_k, опору котушки iндуктивностi, Ом[] 
  []
 
 
-Overfull \hbox (19.89815pt too wide) in paragraph at lines 1205--1205
+Overfull \hbox (19.89815pt too wide) in paragraph at lines 1251--1251
 []\T2A/cmtt/m/n/10.95 R_critical = 2 * np.sqrt(L_mean / C_mean * 1e6) - R_K # Обчислення критичного опору R, Ом[] 
  []
 
 
 
-[21]
-Overfull \hbox (19.89815pt too wide) in paragraph at lines 1335--1335
+[22]
+Overfull \hbox (19.89815pt too wide) in paragraph at lines 1381--1381
 []\T2A/cmtt/m/n/10.95 T_u = 0.006 # Обчислена похибка вирмiрювання горизонтальноЁ напруги на екранi осцилографа[] 
  []
 
 
-Overfull \hbox (2.92303pt too wide) in paragraph at lines 1335--1335
+Overfull \hbox (2.92303pt too wide) in paragraph at lines 1381--1381
 []\T2A/cmtt/m/n/10.95 Delta_I = np.sqrt((I_table * 0.03)**2 + T_u**2) # Масив абсолютних похибок вимiрювання[] 
  []
 
 
-
-[22]
 
 [23]
 
 [24]
 
 [25]
-Overfull \hbox (14.23978pt too wide) in paragraph at lines 1484--1484
+
+[26]
+Overfull \hbox (14.23978pt too wide) in paragraph at lines 1530--1530
 []\T2A/cmtt/m/n/10.95 for R_m_val, R_val, I_val, lambda_val in zip(R_m_table, R_table, I_table, lambda_table):[] 
  []
 
 
 
-[26]
-Overfull \hbox (2.92303pt too wide) in paragraph at lines 1610--1610
+[27]
+Overfull \hbox (2.92303pt too wide) in paragraph at lines 1656--1656
 []\T2A/cmtt/m/n/10.95 #============================U=============================== Обчислення похибки для U[] 
  []
 
 
-Overfull \hbox (19.89815pt too wide) in paragraph at lines 1610--1610
+Overfull \hbox (19.89815pt too wide) in paragraph at lines 1656--1656
 []\T2A/cmtt/m/n/10.95 T_u = 0.006 # Обчислена похибка вирмiрювання горизонтальноЁ напруги на екранi осцилографа[] 
  []
 
 
 
-[27]
-Overfull \hbox (2.92303pt too wide) in paragraph at lines 1610--1610
+[28]
+Overfull \hbox (2.92303pt too wide) in paragraph at lines 1656--1656
 []\T2A/cmtt/m/n/10.95 #============================I=============================== Обчислення похибки для I[] 
  []
 
 
 
-[28]
+[29]
 
-[29] (FPE-10.aux)
+[30] (FPE-10.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -1085,17 +1092,17 @@ Package rerunfilecheck Info: File `FPE-10.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14330 strings out of 473682
- 229329 string characters out of 5719216
+ 14339 strings out of 473682
+ 229466 string characters out of 5719216
  649734 words of memory out of 5000000
- 37174 multiletter control sequences out of 15000+600000
- 573464 words of font info for 69 fonts, out of 8000000 for 9000
+ 37178 multiletter control sequences out of 15000+600000
+ 574269 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,565b,596s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,863b,596s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1728.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx2074.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0800.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1440.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb><C:/Users/artem/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on FPE-10.pdf (30 pages, 754397 bytes).
+Output written on FPE-10.pdf (31 pages, 762419 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
- 76 named destinations out of 1000 (max. 500000)
+ 342 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

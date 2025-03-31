@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743453972.72562 "c:/Users/artem/OneDrive/Desktop/reps/university_roadmap/semestr2/physics/labs/ФПЕ-10/FPE-10.tex" "FPE-10.pdf" "FPE-10" 1743453974.44588 0
+["pdflatex"] 1743459113.33374 "c:/Users/artem/OneDrive/Desktop/reps/university_roadmap/semestr2/physics/labs/ФПЕ-10/FPE-10.tex" "FPE-10.pdf" "FPE-10" 1743459115.29855 0
   "3.1.png" 1743154637 54762 34fee2df02d67e5edfabb9901c594165 ""
   "3.2.png" 1743155495 17324 5f6a4a7405742289fd67b0475f6f0181 ""
   "3.3.png" 1743161877 30178 f5de7995eac1c12478edae7bbf3d2b2b ""
@@ -16,6 +16,7 @@
   "C:/Users/artem/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1095.tfm" 1743292139 3264 ead613d557baebcc53cf028c9c92d927 ""
   "C:/Users/artem/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1200.tfm" 1732700495 3240 c2435f2b5cd66d4930bc29b8df87967e ""
   "C:/Users/artem/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1732700497 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
+  "C:/Users/artem/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1728.tfm" 1732700494 3252 3140686608bdcae603a09a7973fb9e55 ""
   "C:/Users/artem/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/lati1200.tfm" 1743111129 3512 f3a56cfe95a159371df20f73d1eb107d ""
   "C:/Users/artem/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/latt1095.tfm" 1743292137 1276 e8f51803ab84b07f08acd5c6da2228c8 ""
   "C:/Users/artem/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1737393072 11986913 8c4a54038621f88436691c49ee797764 ""
@@ -121,13 +122,13 @@
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/artem/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "FPE-10.aux" 1743453974 2415 93dc694badadafabb74c3edf56b1af9a "pdflatex"
-  "FPE-10.out" 1743453973 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "FPE-10.tex" 1743453972 87801 38519e34b982f34c144766f975f7ec3a ""
+  "FPE-10.aux" 1743459114 2415 8d6588bd1cc0c217d0679a99e2903a06 "pdflatex"
+  "FPE-10.out" 1743459114 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "FPE-10.tex" 1743459110 93162 90a291ddda14346ab83fb123c1a218a6 ""
   "YEY1.png" 1743453620 7872 f31439dbae66d19a94f800dfdd47f702 ""
   "aperiodic1.jpg" 1743419712 39504 d00b39b42bd283dea566574591edb395 ""
   "aperiodic2.jpg" 1743280094 39975 7e99282d3827e73db4d7f865bd6cce78 ""
-  "c:/Users/artem/OneDrive/Desktop/reps/university_roadmap/semestr2/physics/labs/ФПЕ-10/FPE-10.tex" 1743453972 87801 38519e34b982f34c144766f975f7ec3a ""
+  "c:/Users/artem/OneDrive/Desktop/reps/university_roadmap/semestr2/physics/labs/ФПЕ-10/FPE-10.tex" 1743459110 93162 90a291ddda14346ab83fb123c1a218a6 ""
   "graph.png" 1743291459 98992 b6bac51dbd4c21edd67ac5a842c69167 ""
   "mistake1_photo.png" 1743439245 48704 67ccf77d95d946da784aaa1565ab0e78 ""
   "mistake2_photo.png" 1743447292 25574 7fb70ac39b70318cd294c6577ae36b02 ""

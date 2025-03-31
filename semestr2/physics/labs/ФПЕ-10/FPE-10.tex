@@ -1,37 +1,18 @@
 \documentclass[12pt,a4paper]{article}
-
-\usepackage{amsmath} % у преамбулі
-
-\usepackage{caption}
-\captionsetup[table]{name=Таблиця}  % замість "Табл." буде "Таблиця"
-
-\usepackage{listings}
-\usepackage{xcolor}
-
-\lstset{
-    language=Python,           % або інша мова програмування
-    basicstyle=\ttfamily\small,
-    numbers=left,              % нумерація рядків зліва
-    numberstyle=\tiny\color{gray},
-    stepnumber=1,
-    numbersep=5pt,
-    frame=single,              % рамка навколо коду
-    backgroundcolor=\color{white},
-    keywordstyle=\color{blue}\bfseries,
-    commentstyle=\color{green!50!black},
-    stringstyle=\color{red},
-    breaklines=true,           % перенос рядків
-    captionpos=b,              % підпис під лістингом
-    showstringspaces=false,
-    tabsize=4
-}
-
-
-\renewcommand{\thetable}{№\arabic{table}}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[ukrainian]{babel}
+\usepackage{fancyvrb}
+
+\usepackage{amsmath} % у преамбулі
+\usepackage{hyperref} % <-- Обов’язково підключіть цей пакет
+\usepackage{caption}
+\captionsetup[table]{name=Таблиця}  % замість "Табл." буде "Таблиця"
+
+\usepackage{xcolor}
+
+\renewcommand{\thetable}{№\arabic{table}}
+
 \usepackage{graphicx} % <-- Для роботи з \includegraphics
 \usepackage{geometry}
 \geometry{
@@ -57,7 +38,7 @@
         \vfill
 
         \begin{center}
-        \textbf{\Large Фізика}\\[2em]
+        \textbf{\LARGE Фізика}\\[2em]
         \textbf{\Large Лабораторна робота №ФПЕ-10}\\
         «Дослідження згасаючих коливань у коливальному контурі» 
         \end{center}
@@ -285,7 +266,7 @@
     Опір
 
     \begin{equation}
-        R_K = 2\sqrt{\frac{L}{C}}
+        R_{cr} = 2\sqrt{\frac{L}{C}}
         \tag{3.8}
     \end{equation}
 
@@ -506,16 +487,16 @@
 
     \vspace{1em} % вручну задаєте відступ
 
-    $l = 4 \cdot 10^{-3}$ с, $l_1 = 0,4$ с.
+    $l = 4 \cdot 10^{-3}$ с, $l_1 = 0,4 \cdot 10^{-3}$ с.
 
     \vspace{1em} % вручну задаєте відступ
 
-    Звідси $T$ = $\displaystyle \frac{l}{l_1 \nu} = \frac{0,4}{4 \cdot 10^{-3} \cdot 250} = \frac{0,4}{1} = 0,4$ с.
+    Звідси $T$ = $\displaystyle \frac{l}{l_1 \nu} = \frac{0,4 \cdot 10^{-3}}{4 \cdot 10^{-3} \cdot 250} = \frac{0,4 \cdot 10^{-3}}{1} = 0,4 \cdot 10^{-3}$ с.
 
     \vspace{1em} % вручну задаєте відступ
     \setlength{\parindent}{1.5em}
 
-    Далі змінюватиму $R_m$, вимірюватиму величини $A_1$, $A_2$, $A_3$ та за наявних даних, обчислю всі значення таблиці за допомогою Python коду (лістинг 1.1).
+    Далі змінюватиму $R_m$, вимірюватиму величини $A_1$, $A_2$, $A_3$ та за наявних даних, обчислю всі значення таблиці за допомогою Python коду (\hyperlink{listing1}{Лістинг 3.1}).
     Значення $r_k$ я знайду, побудувавши графік $\lambda(R_m)$ та знайшовши точку перетину з віссю абсцис (див. рис. 3.6).
 
     \begin{table}[h!]
@@ -525,12 +506,12 @@
             \hline
             $R_m$, Ом & $A_1$, В & $A_2$, В & $A_3$, В & $\lambda$ & $\beta$, c$^{-1}$ & $L$, Гн & $C$, мкФ & $r_k$, Ом & $R$, Ом \\[3pt]
             \hline
-            100 & 5,4547 & 4,5516 & 3,8292 & 0,2359 & 0,5897 & 138,2 & 29,32 & 63,0058 & 163 \\[3pt]
-            200 & 4,8768 & 3,6485 & 2,7093 & 0,3919 & 0,9797 & 134,2 & 30,19 & & 263 \\[3pt]
-            300 & 4,3710 & 2,8899 & 1,8785 & 0,5630 & 1,4080 & 129,0 & 31,43 & & 363 \\[3pt]
-            400 & 3,9014 & 2,2758 & 1,3366 & 0,7141 & 1,7850 & 129,7 & 31,26 & & 463 \\[3pt]
-            500 & 3,4679 & 1,8423 & 0,9392 & 0,8709 & 2,1770 & 129,3 & 31,34 & & 563 \\[3pt]
-            600 & 3,0706 & 1,4450 & 0,6864 & 0,9988 & 2,4970 & 132,8 & 30,53 & & 663 \\[3pt]
+            100 & 5,4547 & 4,5516 & 3,8292 & 0,2359 & 589,7 & 0,1382 & 0,0293 & 63,0058 & 163 \\[3pt]
+            200 & 4,8768 & 3,6485 & 2,7093 & 0,3919 & 979,7 & 0,1342 & 0,0301 & & 263 \\[3pt]
+            300 & 4,3710 & 2,8899 & 1,8785 & 0,5630 & 1408,0 & 0,1290 & 0,0314 & & 363 \\[3pt]
+            400 & 3,9014 & 2,2758 & 1,3366 & 0,7141 & 1785,0 & 0,1297 & 0,0312 & & 463 \\[3pt]
+            500 & 3,4679 & 1,8423 & 0,9392 & 0,8709 & 2177,0 & 0,1293 & 0,0313 & & 563 \\[3pt]
+            600 & 3,0706 & 1,4450 & 0,6864 & 0,9988 & 2497,0 & 0,1328 & 0,0305 & & 663 \\[3pt]
             \hline
         \end{tabular}
         \caption{Результати розрахунку $\lambda$, $\beta$, $R$, $L$, $C$ коливального контуру.}
@@ -556,15 +537,23 @@
     \vspace{1em} % вручну задаєте відступ
     \setlength{\parindent}{0pt}
 
-    ⟨$L$⟩ = 132,2 Гн; ⟨$C$⟩ = 29,32 мкФ;   $R_{cr}$ = 4088,5 Ом.
+    ⟨$L$⟩ = 0,1322 Гн; ⟨$C$⟩ = 0,0307 мкФ;   $R_{cr}$ = 4088,5 Ом.
 
     \newpage
 
-    Результат виконання програми з лістингу 1.1:
+    Графік, що демонструє аперіодичне коливання при критичному опорі контуру $R_{cr}$:
+
+    \begin{figure}[ht]
+        \includegraphics[width=0.9\textwidth]{aperiodic1.jpg}
+    \end{figure}
+
+    \vspace{1em}
+
+    Результат виконання програми з \hyperlink{listing1}{Лістингу 3.1}:
 
     \begin{figure}[ht]
         \centering
-        \includegraphics[width=1\textwidth]{table1_results.png}
+        \includegraphics[width=1\textwidth]{table1.png}
     \end{figure}
 
     \vspace{1em} % вручну задаєте відступ
@@ -604,11 +593,11 @@
 
     \vspace{1em} % вручну задаєте відступ
 
-    $\displaystyle \Delta T_k = 4 \cdot 10^{-3} \cdot 0,03 = 12 \cdot 10^{-5}$ c, $\displaystyle \Delta T_c = 10^{-3} \cdot 0,2 = 2 \cdot 10^{-4}$ c.
+    $\displaystyle \Delta T_k = 0,4 \cdot 10^{-3} \cdot 0,03 = 12 \cdot 10^{-6}$ c, $\displaystyle \Delta T_c = 10^{-3} \cdot 0,2 = 2 \cdot 10^{-4}$ c.
 
-    $\displaystyle \Delta l = \sqrt{\left( 12 \cdot 10^{-5}\right)^2 + \left(2 \cdot 10^{-4}\right)^2} = \sqrt{144 \cdot 10^{-10} + 4 \cdot 10^{-8}} \approx 23,32 \cdot 10^{-5}$ с.
+    $\displaystyle \Delta l = \sqrt{\left( 12 \cdot 10^{-6}\right)^2 + \left(2 \cdot 10^{-4}\right)^2} = \sqrt{144 \cdot 10^{-12} + 4 \cdot 10^{-8}} \approx 12 \cdot 10^{-6}$ с.
 
-    $\displaystyle \varepsilon_l = \frac{23,32 \cdot 10^{-5}}{4 \cdot 10^{-3}} \approx 0,0533 \approx 5,33\%$.
+    $\displaystyle \varepsilon_l = \frac{12 \cdot 10^{-6}}{4 \cdot 10^{-3}} \approx 3 \cdot 10^{-3} \approx 0,3\%$.
 
     \vspace{1em} % вручну задаєте відступ
 
@@ -616,11 +605,11 @@
 
     \vspace{1em} % вручну задаєте відступ
 
-    $\displaystyle \Delta T_k = 0,4 \cdot 0,03 = 12 \cdot 10^{-3}$ c, $\displaystyle \Delta T_c = 10^{-3} \cdot 0,2 = 2 \cdot 10^{-4}$ c.
+    $\displaystyle \Delta T_k = 4 \cdot 10^{-3} \cdot 0,03 = 12 \cdot 10^{-5}$ c, $\displaystyle \Delta T_c = 10^{-3} \cdot 0,2 = 2 \cdot 10^{-4}$ c.
 
-    $\displaystyle \Delta l_1 = \sqrt{\left( 12 \cdot 10^{-3}\right)^2 + \left(2 \cdot 10^{-4}\right)^2} = \sqrt{144 \cdot 10^{-6} + 4 \cdot 10^{-8}} \approx 12 \cdot 10^{-3}$ с.
+    $\displaystyle \Delta l_1 = \sqrt{\left( 12 \cdot 10^{-5}\right)^2 + \left(2 \cdot 10^{-4}\right)^2} = \sqrt{144 \cdot 10^{-10} + 4 \cdot 10^{-8}} \approx 12 \cdot 10^{-5}$ с.
 
-    $\displaystyle \varepsilon_{l_1} = \frac{12 \cdot 10^{-3}}{0,4} \approx 0,03 \approx 3\%$.
+    $\displaystyle \varepsilon_{l_1} = \frac{12 \cdot 10^{-5}}{4 \cdot 10^{-3}} \approx 0,03 \approx 3\%$.
 
     \vspace{1em} % вручну задаєте відступ
 
@@ -628,7 +617,7 @@
     даних $A$ є купа, а це значить, що потрібно визначати середнє значення, а саме середньоквадратичне відхилення абсолютних та відносних їх похибок, а разом із ним, потрібно буде помножити на коефіцієнт
     Стьюдента, який при довірчому коефіцієнту $\alpha = 0,9$ та кількістю вимірювань $i = 18$, буде дорівнювати $t_{(0,9; 18)} = 1,73$.
 
-    Так як даних багато, я викорстаю Python код (Лістинг 3.2) для розрахунку похибок, і не тільки для $A$ (див. далі). Результат виконання програми показує, що $\Delta A \approx 0,0108$ В, $\varepsilon_{A} \approx 2,3358$ \%.
+    Так як даних багато, я викорстаю Python код (\hyperlink{listing2}{Лістинг 3.2}) для розрахунку похибок, і не тільки для $A$ (див. далі). Результат виконання програми показує, що $\Delta A \approx 0,0108$ В, $\varepsilon_{A} \approx 2,3358$ \%.
 
     Щодо теоретичних величин, то для обчислення похибок для непрямих вимірів використовуватимемо Гаусові формули для поширення похибок:
 
@@ -683,9 +672,9 @@
 
     \end{center}
 
-    де $\text{⟨}l_1\text{⟩} = l_1 = 0,4$ c, $\text{⟨}l\text{⟩} = l = 0,5$ с, $\text{⟨}\nu\text{⟩} = \nu = 250$ Гц. Значення $S_{l_1}$ та $S_l$ були попередньо визначені, та дорівнюють $S_{l_1} = S_l = T_c = 2 \cdot 10^{-4}$ с.
+    де $\text{⟨}l_1\text{⟩} = l_1 = 4 \cdot 10^{-3}$ c, $\text{⟨}l\text{⟩} = l = 0,4 \cdot 10^{-3}$ с, $\text{⟨}\nu\text{⟩} = \nu = 250$ Гц. Значення $S_{l_1}$ та $S_l$ були попередньо визначені, та дорівнюють $S_{l_1} = \Delta l_1 = 12 \cdot 10^{-5}$ с, $S_l = \Delta l = 12 \cdot 10^{-6}$, с.
     Значення для $S_{\nu}$ можна визначити, що генератор звукових сигналів ГЗ-111 має клас точності 0,1\% в середньому, тобто $\varepsilon_{\nu} = 0,1$ \%, а це значить, що $\Delta \nu = S_{\nu} = \nu \cdot 0,001 = 0,25$ Гц.
-    Вiдповiдно, за результатами програми з Лiстингу 3.2, $\Delta T \approx 2 \cdot 10^{-6}$ с, $\varepsilon_T \approx 5$ \%.
+    Вiдповiдно, за результатами програми з Лiстингу 3.2, $\Delta T \approx 1,69 \cdot 10^{-5}$ с, $\varepsilon_T \approx 4,24$ \%.
 
     Розглянемо величину $\lambda$, яка залежить за формулою від 2 змінних: $A_i$ та $A_{i+1}$, але насправді, ми обчислювали її 3 рази, для різних значень $A_i$, а потім знаходили середнє арифметичне.
     Тобто на значення $\lambda$ впливали 3 змінні: $A_i$, $A_{i+1}$ та $A_{i+2}$. Тобто в нашій роботі, ця функція залежить від 3 змінних.
@@ -733,7 +722,7 @@
     \end{center}
 
     Ціна однієї поділки на екрані осцилографа по вертикалі дорівнює $\Delta u = $2,26 В --- звідси похибка вимірювання дорівнює $\Delta u \cdot 0,02 = 2,26 \cdot 0,2 = 0,452$ В.
-    Відповідно, за результатами програми з Лістингу 3.2, $S_{A_i} = 0,003$ В, $S_{A_{i+2}} = 0,0028$ В, а, відповідно $\Delta \lambda \approx 0,0091$, $\varepsilon_{\lambda} \approx 0,52$ \%.
+    Відповідно, за результатами програми з \hyperlink{listing2}{Лістингу 3.2}, $S_{A_i} = 0,003$ В, $S_{A_{i+2}} = 0,0028$ В, а, відповідно $\Delta \lambda \approx 0,0091$, $\varepsilon_{\lambda} \approx 0,52$ \%.
 
     Щодо $\beta$: функція залежить від 2 змінних: $\lambda$ та $T$.
 
@@ -757,11 +746,11 @@
     де
 
     \begin{center}
-        ⟨$\lambda$⟩ = $\displaystyle \frac{0,2359 + 0,3919 + 0,5630 + 0,7141 + 0,8709 + 0,9988}{6} \approx 0,6039$, ⟨$T$⟩ = $T$ = 0,4 с,
+        ⟨$\lambda$⟩ = $\displaystyle \frac{0,2359 + 0,3919 + 0,5630 + 0,7141 + 0,8709 + 0,9988}{6} \approx 0,6039$, ⟨$T$⟩ = $T$ = $0,4 \cdot 10^{-3}$ с,
     \end{center}
 
-    а за попередніми розрахунками $S_{\lambda} = 0,0091$, $S_T = 2 \cdot 10^{-6}$ c. Вiдповiдно, за результатами
-    програми з Лiстингу 3.2 $\Delta \beta \approx 0,0228 \text{ с}^{-1}$, $\varepsilon_{\beta} \approx 1,51$ \%.
+    а за попередніми розрахунками $S_{\lambda} = 0,0091$, $S_T = 1,69 \cdot 10^{-5}$ c. Вiдповiдно, за результатами
+    програми з Лiстингу 3.2 $\Delta \beta \approx 22,75 \text{ с}^{-1}$, $\varepsilon_{\beta} \approx 4,5$ \%.
 
     Щодо функції $R$, то вона залежить від 2 змінних: $R_m$ та $r_k$. Відповідно
 
@@ -797,30 +786,30 @@
 
     \begin{center}
 
-        $\displaystyle \Delta L = \sqrt{\left( \frac{\text{⟨}T\text{⟩}}{2\text{⟨}\lambda\text{⟩}} S_{R} \right)^2 + \left( \frac{\text{⟨}R\text{⟩}}{2\text{⟨}\lambda^2\text{⟩}} \text{⟨}T\text{⟩} S_{R}\right)^2 + \left( \frac{\text{⟨}R\text{⟩}}{2\text{⟨}\lambda\text{⟩}} S_{\lambda} \right)^2}$;
+        $\displaystyle \Delta L = \sqrt{\left( \frac{\text{⟨}T\text{⟩}}{2\text{⟨}\lambda\text{⟩}} S_{R} \right)^2 + \left( \frac{\text{⟨}R\text{⟩}}{2\text{⟨}\lambda^2\text{⟩}} \text{⟨}T\text{⟩} S_{\lambda}\right)^2 + \left( \frac{\text{⟨}R\text{⟩}}{2\text{⟨}\lambda\text{⟩}} S_T \right)^2}$;
         $\displaystyle \varepsilon_L = \sqrt{\left( \frac{S_{R}}{\text{⟨}R\text{⟩}} \right)^2 + \left( \frac{S_{\lambda}}{\text{⟨}\lambda\text{⟩}} \right)^2 + \left( \frac{S_{T}}{\text{⟨}T\text{⟩}} \right)^2} \cdot 100 \%$;
 
     \end{center}
 
-    де $\text{⟨}T\text{⟩}$ = 0,4 с, $\text{⟨}\lambda\text{⟩}$ = 0,6039 с, $\text{⟨}R\text{⟩}$ = 350 Ом, а також за попередніми розрахунками $S_R = \Delta R = 17,7812$ Ом, $S_T = \Delta T = 2 \cdot 10^{-6}$ c,
-    $S_{\lambda} = \Delta \lambda = 0,0091$. Вiдповiдно, за результатами програми з Лiстингу 3.2 $\Delta L \approx 7,3311$ Гн, $\varepsilon_L \approx 5,2991$ \%.
+    де $\text{⟨}T\text{⟩}$ = $0,4 \cdot 10^{-3}$ с, $\text{⟨}\lambda\text{⟩}$ = 0,6039, $\text{⟨}R\text{⟩}$ = 350 Ом, а також за попередніми розрахунками $S_R = \Delta R = 17,7812$ Ом, $S_T = \Delta T = 1,69 \cdot 10^{-5}$ c,
+    $S_{\lambda} = \Delta \lambda = 0,0091$. Вiдповiдно, за результатами програми з Лiстингу 3.2 $\Delta L \approx 0,0079$ Гн, $\varepsilon_L \approx 6,7773$ \%.
 
     Тепер можемо переходити до функції ємності конденсатора $C$, яка залежить від 2 змінних: $L$ та $T$. Відповідно
 
     \begin{center}
-        $\displaystyle C = \left( \frac{T}{2\pi} \right)^2 \cdot \frac{1}{L}$; $\displaystyle \frac{\partial C}{\partial L} = -\left( \frac{T}{2\pi L} \right)^2$; $\displaystyle \frac{\partial C}{\partial T} = \frac{T}{2\pi L^2}$;
+        $\displaystyle C = \left( \frac{T}{2\pi} \right)^2 \cdot \frac{1}{L}$; $\displaystyle \frac{\partial C}{\partial L} = -\left( \frac{T}{2\pi L} \right)^2$; $\displaystyle \frac{\partial C}{\partial T} = \frac{T}{2\pi^2 L}$;
         $\displaystyle \frac{\partial \ln C}{\partial L} = -\frac{1}{L}$; $\displaystyle \frac{\partial \ln C}{\partial T} = \frac{2}{T}$;
     \end{center}
 
     \begin{center}
-        $\displaystyle \Delta C = \sqrt{\left( \left( \frac{\text{⟨}T\text{⟩}}{2\pi\text{⟨}L\text{⟩}} \right)^2 S_{L} \right)^2 + \left( \frac{\text{⟨}T\text{⟩}}{2\pi\text{⟨}L^2\text{⟩}} S_T \right)^2}$;
+        $\displaystyle \Delta C = \sqrt{\left( \left( \frac{\text{⟨}T\text{⟩}}{2\pi\text{⟨}L\text{⟩}} \right)^2 S_{L} \right)^2 + \left( \frac{\text{⟨}T\text{⟩}}{2\pi^2\text{⟨}L\text{⟩}} S_T \right)^2}$;
         $\displaystyle \varepsilon_C = \sqrt{\left( \frac{S_{L}}{\text{⟨}L\text{⟩}} \right)^2 + \left( \frac{S_{T}}{\text{⟨}T\text{⟩}} \right)^2} \cdot 100 \%$;
     \end{center}
 
     де
 
-    ⟨$L$⟩ = $\displaystyle \frac{138,2 + 134,2 + 129 + 129,7 + 129,3 + 132,8}{6} \approx 132,2$ Гн, ⟨$T$⟩ = $T$ = 0,4 с, а значення для $S_L$ та $S_T$ були попередньо визначені, тобто $S_{L} = \Delta L = 7,3311$ Гн,
-    $S_T = \Delta T = 2 \cdot 10^{-6}$ c. Вiдповiдно, за результатами програми з Лiстингу 3.2 $\Delta C \approx 4,2502$ мкФ, $\varepsilon_C \approx 5,5455$ \%.
+    ⟨$L$⟩ = $\displaystyle \frac{0,1382 + 0,1342 + 0,1290 + 0,1297 + 0,1293 + 0,1328}{6} \approx 0,1322$ Гн, ⟨$T$⟩ = $T = 0,4 \cdot 10^{-3}$ с, а значення для $S_L$ та $S_T$ були попередньо визначені, тобто $S_{L} = \Delta L = 0,0079$ Гн,
+    $S_T = \Delta T = 1,69 \cdot 10^{-5}$ c. Вiдповiдно, за результатами програми з Лiстингу 3.2 $\Delta C \approx 0,0032$ мкФ, $\varepsilon_C \approx 7,3185$ \%.
 
     Функція $R_{cr}$ залежить від 2 змінних: $C$ та $L$. Відповідно
 
@@ -836,11 +825,789 @@
 
     \end{center}
 
+    де ⟨$C$⟩ = $\displaystyle \frac{0,0293 + 0,0301 + 0,0314 + 0,0312 + 0,0313 + 0,0305}{6} \cdot 10^{-6} = 0,0306 \cdot 10^{-6}$ Ф, ⟨$L$⟩ $\approx 0,1322$ Гн, $S_C = \Delta C = 0,0032 \cdot 10^{-6}$ Ф, $S_L = \Delta L = 0,0079$ Гн.
+    Відповідно до результатів програми з \hyperlink{listing2}{Лістингу 3.2} $\Delta R_{cr} \approx 250,3476$ Ом, $\varepsilon_{R_{cr}} \approx 6,0222 \%$.
+
+    \setlength{\parindent}{0pt}
+
     \newpage
 
-    де ⟨$C$⟩ = $\displaystyle \frac{29,32 + 30,19 + 31,43 + 31,26 + 31,34 + 30,43}{6} \cdot 10^{-6} = 30,55 \cdot 10^{-6}$ Ф, ⟨$L$⟩ $\approx 132,2$ Гн, $S_C = \Delta C = 4,2502 \cdot 10^{-6}$ Ф, $S_L = \Delta L = 7,3311$ Гн.
-    Відповідно до результатів програми з Лістингу 3.2 $\Delta R_{cr} \approx ...$ Ом, $\varepsilon_{R_{cr}} \approx ... \%$.
+    Результат виконання програми з \hyperlink{listing2}{Лістингу 3.2}:
 
-    %\setlength{\parindent}{1.5em}
+    \begin{figure}[ht]
+        \includegraphics[width=1\textwidth]{mistake1_photo.png}
+    \end{figure}
+
+    \vspace{2em} % вручну задаєте відступ
+
+    \textbf{\large Завдання №2:}
+    \vspace{1em} % вручну задаєте відступ
+
+    \setlength{\parindent}{1.5em}
+
+    Тут я змінюватиму значення $R_m$, вимірюватиму величини $U_1$ ($I_1$), $U_2$ ($I_2$) та $U_3$ ($I_3$) по горизонталі, що являється зміною напруги між клемами магазину опорів.
+    Вертикальні напруги $U_1$, $U_2$ та $U_3$ це напруги між пластинами конденсатора, тобто це ті самі значення напруги, що були в таблиці №1, а це значить, що деякі данні з таблиці №1 я перенесу в таблицю №2 задля
+    уникнення повторних вимірювань, що дадуть однаковий результат. Значення сил струмів, отримаю за допомогою 1 закона Ома. За наявних даних, обчислю всі значення таблиці №2 за допомогою Python коду (\hyperlink{listing3}{Лістинг 3.3}).
+
+    \begin{table}[h!]
+        \centering
+        \renewcommand{\arraystretch}{1.2} % відстань між рядками
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            $R_m$, Ом & $R_m + r_k$, Ом & $U_1$, В & $U_2$, В & $U_3$, В & $\lambda_U$ & $I_1$, мА & $I_2$, мА & $I_3$, мА & $\lambda_I$ \\ [3pt]
+            \hline
+            100 & 163 & 5,4547 & 4,5516 & 3,8292 & 0,2359 & 1,8770 & 1,5700 & 1,3100 & 0,2398 \\[3pt]
+            200 & 263 & 4,8768 & 3,6485 & 2,7093 & 0,3919 & 1,6380 & 1,2220 & 0,9050 & 0,3953 \\[3pt]
+            300 & 363 & 4,3710 & 2,8899 & 1,8785 & 0,5630 & 1,4110 & 0,9437 & 0,6350 & 0,5324 \\[3pt]
+            400 & 463 & 3,9014 & 2,2758 & 1,3366 & 0,7141 & 1,2310 & 0,7230 & 0,4303 & 0,7007 \\[3pt]
+            500 & 563 & 3,4679 & 1,8423 & 0,9392 & 0,8709 & 1,0590 & 0,5716 & 0,2942 & 0,8539 \\[3pt]
+            600 & 663 & 3,0706 & 1,4450 & 0,6864 & 0,9988 & 0,9118 & 0,4272 & 0,1972 & 1,0210 \\[3pt]
+            \hline
+        \end{tabular}
+        \caption{Результати розрахунку $\lambda_U$, $I_1$, $I_2$, $I_3$, $\lambda_I$ коливального контуру.}
+    \end{table}
+
+    Значення $\lambda_U$. З огляду на те, що у формулі знаходження логарифмічного декременту згасання оперують лише дві змінні, а у мене їх визначено 3, це значить, що $\lambda_I$ я буду брати як середнє
+    арфиметичне цих значень. Згідно результатам виконання програми, обчислені логарифмічний декременти спаданнання для $I$ дорівнює
+
+    \begin{center}
+        $\Delta \lambda_I = 0,4242$
+    \end{center}
+
+    \setlength{\parindent}{0pt}
+
+    Результат виконання програми з \hyperlink{listing3}{Лістингу 3.3}:
+
+    \begin{figure}[ht]
+        \includegraphics[width=1\textwidth]{table2.png}
+    \end{figure}
+
+    Графiк, що демонструє аперiодичне коливання при критичному опорi контуру $R_{cr}$:
+
+    \begin{figure}[ht]
+        \includegraphics[width=1\textwidth]{aperiodic2.jpg}
+    \end{figure}
+
+    \newpage
+
+    Графiк, що демонструє перiодичне незгасне фазове коливання:
+
+    \begin{figure}[ht]
+        \includegraphics[width=1\textwidth]{YEY1.png}
+    \end{figure}
+
+    \newpage
+
+    \textbf{\large Обчислення похибок для завдання №2:}
+
+    \setlength{\parindent}{1.5em}
+
+    \vspace{1em}
+
+    В ході виконання завдання №2, обислювались такі величини: $R_m + r_k$, $U_i$, $I_i$, $\lambda_U$, $\lambda_I$. Для значень
+    $R_m + r_k$, $U_i$ та $\lambda_U$ ми попередньо обчислювали. Теоретично обчислені значення: $I_i$ та $\lambda_I$.
+
+    Розглянемо функцію $I_i$, яка обчислювалась за формулою $\displaystyle I_i = \frac{U_i}{R_m}$, відповідно:
+
+    \begin{center}
+
+        $\displaystyle \frac{\partial I_i}{\partial U_i} = \frac{1}{R_m}$; $\displaystyle \frac{\partial I_i}{\partial R_m} = -\frac{U_i}{R_m^2}$;
+        $\displaystyle \frac{\partial \ln I_i}{\partial U_i} = \frac{1}{U_i}$; $\displaystyle \frac{\partial \ln I_i}{\partial R_m} = -\frac{1}{R_m}$;
+
+    \end{center}
+
+    \begin{center}
+
+        $\displaystyle \Delta I_i = \sqrt{\left( \frac{S_{U_i}}{\text{⟨}R_m\text{⟩}} \right)^2 + \left( \frac{\text{⟨}U_i\text{⟩}}{\text{⟨}R_m\text{⟩}^2} S_{R_m} \right)^2}$, 
+        $\displaystyle \varepsilon_{I_i} = \sqrt{\left( \frac{S_{U_i}}{\text{⟨}U_i\text{⟩}} \right)^2 + \left( \frac{S_{R_m}}{\text{⟨}R_m\text{⟩}} \right)^2} \cdot 100 \%$;
+    
+    \end{center}
+
+    де $S_{U_i}$ абсолютна похибка вимірювань величин, які ми будемо обчислювати так само, як і обчислювали похибку для $A_i$ і так само, я знайду $\text{⟨}U_i\text{⟩}$. $\text{⟨}R_m\text{⟩} = 350$ Ом, $S_{R_m} = 17,7812$ Ом.
+    Похибка вимірювання горизонтальної напруги на екрані (при ціні поділки $\Delta u = 0,03$ В) осцилографа дорівнює $\Delta u \cdot 0,2 = 0,03 \cdot 0,2 = 0,006$ В.
+    За результатами програми з Лiстингу 3.4 $\Delta I \approx 0,87 \cdot 10^{-6}$ А, $\varepsilon_I \approx 5,0803$ \%.
+
+    Функція $\lambda_I$ залежить від 3 змінних: $I_i$, $I_{i+1}$ та $I_{i+2}$ через те, що ми знаходимо середнє арифметичне цих окремих значень.
+    Але ми можемо сказати, за попереднім досвідом як ми спростили функцію $\lambda$ до 2 змінних, ця функція також буде залежати від 2 змінних: $I_i$ та $I_{i+1}$, відповідно:
+
+    \begin{center}
+        $\displaystyle \lambda_I = \frac{2}{3} \ln \frac{I_i}{I_{i+2}}$,
+    \end{center}
+
+    звідси
+
+    \begin{center}
+        $\displaystyle \frac{\partial \lambda_I}{\partial I_i} = \frac{2}{3I_i}$; $\displaystyle \frac{\partial \lambda_I}{\partial I_{i+2}} = -\frac{2}{3I_{i+2}}$;
+    \end{center}
+
+    \begin{center}
+        $\displaystyle \frac{\partial \ln \lambda_I}{\partial I_i} = \frac{1}{\ln \frac{I_i}{I_{i+2}}}$; $\displaystyle \frac{\partial \ln \lambda_I}{\partial I_{i+2}} = -\frac{1}{\ln \frac{I_i}{I_{i+2}}}$;
+    \end{center}
+
+    Відповідно, вирази для обчислення похибок для $\lambda_I$:
+
+    \begin{center}
+        $\displaystyle \Delta \lambda_I = \sqrt{\left( \frac{2}{3\text{⟨}I_i\text{⟩}} S_{I_i} \right)^2 + \left( \frac{2}{3\text{⟨}I_{i+2}\text{⟩}} S_{I_{i+2}}\right)^2}$,
+    \end{center}
+
+    \begin{center}
+        $\displaystyle \varepsilon_{\lambda_I} = \sqrt{\left( \frac{S_{I_i}}{\ln \frac{\text{⟨}I_i\text{⟩}}{\text{⟨}I_{i+2}\text{⟩}}}\right)^2 + \left( \frac{S_{I_{i+2}}}{\ln \frac{\text{⟨}I_i\text{⟩}}{\text{⟨}I_{i+2}\text{⟩}}} \right)^2} \cdot 100 \% =
+        \frac{\sqrt{S_{I_i}^2 + S_{I_{i+2}}^2}}{\ln \frac{\text{⟨}I_i\text{⟩}}{\text{⟨}I_{i+2}\text{⟩}}} \cdot 100 \% = \frac{\sqrt{S_{I_i}^2 + S_{I_{i+2}}^2}}{\ln \text{⟨}I_i\text{⟩} - \ln \text{⟨}I_{i+2}\text{⟩}} \cdot 100 \%$
+    \end{center}
+
+    де $S_{I_i} = S_{I_i}$ --- це середні абсолютні похибки вимірювань сил струмів, які нам видасть програма, а $\text{⟨}I_i\text{⟩}$ та $\text{⟨}I_{i+2}\text{⟩}$ --- середні значення сил струмів, також, видасть програма.
+    Відповідно до результатів програми з \hyperlink{listing4}{Лістингу 3.4} $\Delta \lambda_I \approx 0,23$ нА, $\varepsilon_{\lambda_I} \approx 0,34$ \%. Прошу помітити, що цей результат відрізняється від результату обчисленні похибки для $\lambda_I$ за формулою, яку ми обчислили у Лістингу 3.3.
+    Це свідчить у потребі додаткової перевірки точності способу вимірювання як у \hyperlink{listing3}{Лістингу 3.3}, так і у \hyperlink{listing4}{Лістингу 3.4} у вільний час, поза межею цієї лабораторної роботи.
+
+    \newpage
+
+    \setlength{\parindent}{0pt}
+
+    Результат виконання програми з \hyperlink{listing4}{Лістингу 3.4}:
+
+    \begin{figure}[ht]
+        \includegraphics[width=1\textwidth]{mistake2_photo.png}
+    \end{figure}
+
+    \vspace{3em}
+
+    \underline{\textbf{\large Висновок:}}
+
+    \vspace{1em}
+
+    У ході лабораторної роботи було точно визначено параметри загасаючих електричних коливань у реальному коливальному контурі.
+    Експериментально виміряні значення періоду, логарифмічного декременту, коефіцієнта загасання, індуктивності та
+    ємності контуру добре узгоджуються з теоретичними розрахунками. За допомогою аналізу залежності логарифмічного
+    декременту від опору було встановлено внутрішній опір котушки, що дозволило коректно розрахувати повний опір контуру
+    та критичний опір, при якому спостерігається аперіодичний розряд конденсатора.
+    Обчислення похибок показали високу точність вимірювань,
+    а використання Python для обробки даних сприяло ефективній оцінці результатів. Значення всіх виміряних похибок:
+
+    \vspace{1em}
+
+    $\Delta R_m \approx 17,5$ Ом, $\varepsilon_{R_m} \approx 5$ \%;
+
+    $\Delta l \approx 12 \cdot 10^{-6}$ с, $\varepsilon_l \approx 0,3$ \%;
+
+    $\Delta l_1 \approx 12 \cdot 10^{-5}$ с, $\varepsilon_{l_1} \approx 3$ \%;
+
+    $\Delta \nu \approx 0,25$ Гц, $\varepsilon_{\nu} \approx 0,1$ \%;
+
+    $\Delta T \approx 1,69 \cdot 10^{-5}$ с, $\varepsilon_T \approx 4,24$ \%;
+
+    $\Delta A \approx 0,0108$ В, $\varepsilon_A \approx 2,3358$ \%;
+
+    $\Delta \lambda_U \approx 0,0079$ Гн, $\varepsilon_{\lambda_U} \approx 0,52$ \%;
+
+    $\Delta \beta \approx 22,75 \text{ с}^{-1}$, $\varepsilon_{\beta} \approx 4,5$ \%;
+
+    $\Delta R \approx 17,7812$ Ом, $\varepsilon_R \approx 7,07$ \%;
+
+    $\Delta L \approx 0,0079$ Гн, $\varepsilon_L \approx 6,7773$ \%;
+
+    $\Delta C \approx 0,0032$ мкФ, $\varepsilon_C \approx 7,3185$ \%;
+
+    $\Delta R_{cr} \approx 250,3476$ Ом, $\varepsilon_{R_{cr}} \approx 6,0222$ \%.
+
+    $\Delta I \approx 0,87 \cdot 10^{-6}$ А, $\varepsilon_I \approx 5,0803$ \%;
+
+    $\Delta \lambda_I \approx 0,23$ нА, $\varepsilon_{\lambda_I} \approx 0,34$ \%.
+
+    \vspace{3em}
+
+    \newpage
+
+    \begin{center}
+        \textbf{\Large Контрольні запитання}
+    \end{center}
+
+    \subsection*{1. Виникнення коливань у коливальному контурі}
+    \textbf{Відповідь:}  
+    Замкнений контур складається з індуктивності $L$, ємності $C$ та опору $R$. Після зарядження конденсатора енергія періодично переходить з електричного поля конденсатора в магнітне поле котушки й навпаки, породжуючи коливання.
+
+    \subsection*{2. Рівняння коливального контуру з активним опором $R$}
+    \textbf{Відповідь:}  
+    За другим законом Кірхгофа:
+    \[
+    L\frac{dI}{dt} + RI + \frac{q}{C} = 0,
+    \]
+    де $q$ --- заряд конденсатора, а $I=-\frac{dq}{dt}$.
+
+    \subsection*{3. Розв’язок рівняння (загасаючі коливання)}
+    \textbf{Відповідь:}  
+    Загасаючий процес описується виразом:
+    \[
+    U(t)=U_0\, e^{-\beta t}\cos(\omega t+\varphi),\quad \beta=\frac{R}{2L}.
+    \]
+
+    \subsection*{4. Негасаючі коливання при $R=0$}
+    \textbf{Відповідь:}  
+    Якщо $R=0$, коливання незгасаючі:
+    \[
+    U(t)=U_0\cos\left(\frac{t}{\sqrt{LC}}\right),\quad I(t)=I_0\sin\left(\frac{t}{\sqrt{LC}}\right).
+    \]
+
+    \subsection*{5. Зміна енергії в конденсаторі та котушці}
+    \textbf{Відповідь:}  
+    Енергія електричного поля конденсатора:
+    \[
+    W_e=\frac{CU^2}{2},
+    \]
+    енергія магнітного поля котушки:
+    \[
+    W_m=\frac{LI^2}{2}.
+    \]
+    Енергія періодично переходить від одного виду до іншого.
+
+    \subsection*{6. Логарифмічний декремент загасання}
+    \textbf{Відповідь:}  
+    Логарифмічний декремент визначається як:
+    \[
+    \lambda=\ln\!\left(\frac{A(t)}{A(t+T)}\right)=\beta T,
+    \]
+    оскільки амплітуда експоненційно спадає.
+
+    \subsection*{7. Фазова площина та фазова крива}
+    \textbf{Відповідь:}  
+    На фазовій площині відображаються одночасні значення, наприклад, напруга $U$ та струм $I$. Фазова крива --- це траєкторія системи в координатах $(U,I)$.
+
+    \subsection*{8. Фізична інтерпретація фазової кривої}
+    \textbf{Відповідь:}  
+    При наявності опору ($R>0$) амплітуда коливань зменшується, і фазова крива «схлопується» (не є замкненою), що свідчить про загасання.
+
+    \subsection*{9. Власні коливання, незгасаючі та аперіодичний розряд}
+    \textbf{Відповідь:}  
+    Вільні (власні) коливання тривають без зовнішніх впливів. При $R=0$ коливання незгасаючі, а при $R\geq2\sqrt{L/C}$ виникає аперіодичний розряд конденсатора (коливань немає).
+
+    \subsection*{10. Фазова площина для відображення напруги та струму}
+    \textbf{Відповідь:}  
+    Для побудови фазової кривої одну осі використовують для напруги на конденсаторі ($U$), а іншу --- для струму ($I$, який можна визначити за законом Ома). 
+
+
+    \newpage
+
+    \hypertarget{listing1}{}
+
+    \textbf{\large Лістинг 3.1:}
+
+    \vspace{1em}
+
+    \small{
+
+    \begin{verbatim}[breaklines=true]
+import numpy as np # Задля обробки масивів даних
+from tabulate import tabulate # Задля красивоговиводу таблиці
+
+PERIOD = 0.4e-3 # Обчислений період, сек
+R_K = 63.0058 # Обчислений опір котушки індуктивності, Ом
+
+lamda_table = [] # Список логарифмічних декрементів для всіх значень опору R_m
+beta_table = [] # Список коефіцієнтів загасання для всіх значень опору R_m, 1/сек
+L_table = [] # Список значень індуктивності для всіх значень опору R_m, Гн
+C_table = [] # Список значень ємності для всіх значень опору R_m, мкФ
+R_table = [] # Список значень загального опору для всіх значень опору R_m, Ом
+
+MAIN_table_data = [] # Загальний список даних для таблиці
+
+# Виміряні значення 3 амплітуд для різних значень опору R_m (змінюється з кожним рядком)
+A_data = np.array([
+
+    [5.4547, 4.5516, 3.8292],
+    [4.8769, 3.6485, 2.7093],
+    [4.3710, 2.8899, 1.8785],
+    [3.9014, 2.2758, 1.3366],
+    [3.4679, 1.8423, 0.9392],
+    [3.0706, 1.4450, 0.6864]
+
+])
+
+# Значення опоів R_m з МО (магазину опорів), Ом
+R_m_table = np.array([
+
+    [100],
+    [200],
+    [300],
+    [400],
+    [500],
+    [600]
+
+])
+
+# Обчислюємо логарифмічні декременти для кожної пари, та потім комбінуємо
+їх до одного значення
+for row in A_data:
+
+    # Розраховуємо логарифми для всіх пар
+    val1 = np.log(row[0] / row[1])
+    val2 = np.log(row[0] / row[2])
+    val3 = np.log(row[1] / row[2])
+
+    # Середнє арифметичне трьох значень
+    mean_val = np.mean([val1, val2, val3])
+
+    # Додаємо в список
+    lamda_table.append(mean_val)
+
+# Перетворюємо список на масив (стовпець)
+lamda_table = np.array(lamda_table).reshape(-1, 1)
+
+# Обчислюємо коефіцієнт згасання, поділивши кожен елемент масиву
+логарифмічних декрементів на період, 1/сек
+beta_table = lamda_table / PERIOD
+
+# Обчислюємо загальний опір, додавши до R_m значення r_k, опору котушки індуктивності, Ом
+R_table = R_m_table + R_K
+
+# Обчислюємо значення індуктивності для кожного значення опору R_m, Гн
+for i, lambda_val in enumerate(lamda_table, start=0):
+
+    R = R_table[i][0]
+    L = PERIOD * R / (2*lambda_val)
+    L_table.append(L)
+
+# Перетворюємо список на масив (стовпець)
+L_table = np.array(L_table).reshape(-1, 1)
+
+# Обчислюємо значення ємності з кожного значення індуктивності L, мкФ
+for L_value in L_table:
+
+    C_value = PERIOD**2 / (4 * np.pi**2 * L_value) * 1e6
+    C_table.append(C_value)
+
+# Перетворюємо список на масив (стовпець)
+C_table = np.array(C_table).reshape(-1, 1)
+
+# Додаємо всі обчислені значення до загального списку даних для таблиці
+for R_m_val, lambda_val, beta_val, L_val, C_val, R_val in zip(R_m_table,
+lamda_table, beta_table, L_table, C_table, R_table):
+
+    MAIN_table_data.append([R_m_val[0], "...", lambda_val[0], beta_val[0],
+L_val[0], C_val[0], R_val[0]])
+
+# Виводимо таблицю
+print(tabulate(
+    MAIN_table_data,
+    headers=["R_m, Ом", "...", "lambda", "beta, c^(-1)", "L, Гн", "C, мкФ", "R, Ом"],
+    # назва стовпців
+    tablefmt="fancy_grid",    # «красиві» подвійні рамки
+    floatfmt=".4"           # науковий формат чисел (або ".6f" для звичайного)
+))
+
+L_mean = np.mean(L_table) # Обчислення середнього значення індуктивності L, Гн
+C_mean = np.mean(C_table) # Обчислення середнього значення ємності C, мкФ
+R_critical = 2 * np.sqrt(L_mean / C_mean * 1e6) - R_K # Обчислення критичного опору R, Ом
+
+# Виводимо середні обчисленні значення індуктивності L, Гн, ємності C, мкФ та
+критичного опору R, Ом
+print(f"\nСередній значення L = {L_mean:.4} Гн")
+print(f"Середній значення C = {C_mean:.4} мкФ")
+print(f"Критичний опір R = {round(R_critical, 1)} Ом")
+    \end{verbatim}}
+
+    \vspace{3em}
+
+    \hypertarget{listing2}{}
+
+    \textbf{\large Лістинг 3.2:}
+
+    \vspace{1em}
+
+    \small{
+
+    \begin{verbatim}[breaklines=true]
+import numpy as np # Задля обробки масивів даних
+from tabulate import tabulate # Задля красивоговиводу таблиці
+import math
+
+#============================U===============================
+Обчислення похибки для U
+
+STUDENT_COEF = 1.73 # Коефіцієнт Стьюдента
+T_u = 0.006 # Обчислена похибка вирмірювання горизонтальної напруги на екрані осцилографа
+
+# Масив виміряних горизонатних напруг для всіх значень опору R_m
+horizontal_U = np.array([
+
+    [0.1877, 0.1570, 0.1310],
+    [0.3275, 0.2443, 0.1810],
+    [0.4234, 0.2831, 0.1905],
+    [0.4923, 0.2892, 0.1721],
+    [0.5295, 0.2858, 0.1471],
+    [0.5471, 0.2563, 0.1183]
+
+])
+
+# Масив виміряних опорів R_m
+R_m_table = np.array([
+
+    [100],
+    [200],
+    [300],
+    [400],
+    [500],
+    [600]
+
+])
+
+I_table = horizontal_U / R_m_table # Масив виміряних сил струмів
+
+Delta_I = np.sqrt((I_table * 0.03)**2 + T_u**2) # Масив абсолютних похибок вимірювання
+сил струмів
+
+Delta_I_mean = np.mean(Delta_I) # Знаходження середнього значення абсолютної похибки
+вимірювання сил струмів
+
+Delta_I1_mean = np.mean(Delta_I[:, 0]) # Знаходження середнього значення абсолютної
+похибки вимірювання сил струмів для 1 стовпця
+Delta_I3_mean = np.mean(Delta_I[:, 1]) # Знаходження середнього значення абсолютної 
+охибки вимірювання сил струмів для 3 стовпця
+
+Delta_I_VALUE = np.sqrt(np.sum((Delta_I - Delta_I_mean)**2) /
+(len(Delta_I) * (len(Delta_I) - 1))) *
+STUDENT_COEF # Загальне обчислення абсолютної похибки вимірювання сил струмів
+
+# Вивід результатів обрахунків
+print(f"\nDelta_I = {Delta_I_VALUE} В")
+print(f"mean_I = {Delta_I_mean} В")
+
+#============================I===============================
+Обчислення похибки для I
+
+mean_R = 350 # Середнє значення опору R
+mean_I = Delta_I_mean # Середнє значення абсолютної похибки вимірювання сил струмів
+S_R = 17.7812 # Обчислена абсолютна похибка для R
+S_I = Delta_I_VALUE # Обчислена абсолютна похибка для I
+
+# Обчислення абсолютної похибки для I
+delta_I = math.sqrt(
+
+    (S_I / mean_R)**2 +
+    (S_R * mean_I / mean_R**2)**2
+
+) * 1e6 # для переводу в мкА
+
+# Обчислення відносної похибки для I
+Epsilon_I = math.sqrt(
+
+    (S_I / mean_I)**2 +
+    (S_R / mean_R)**2
+
+) * 100
+Epsilon_I = round(Epsilon_I, 4)
+
+# Вивід результатів обрахунків
+print(f"\nDelta_I = {delta_I} мкА")
+print(f"Epsilon_I = {Epsilon_I} %")
+
+#============================lambda===============================
+Обчислення похибки для lambda
+
+mean_I_i1 = np.mean(Delta_I[:, 0]) # Знаходження середнього
+значення абсолютної похибки
+вимірювання сил струмів для 1 стовпця
+mean_I_i3 = np.mean(Delta_I[:, 2]) # Знаходження середнього
+значення абсолютної похибки
+вимірювання сил струмів для 3 стовпця
+
+S_I_i1 = np.sqrt(np.sum((Delta_I[:, 0] - Delta_I1_mean)**2) /
+(len(Delta_I[:, 0]) * (len(Delta_I[:, 0]) - 1))) # Обчислення загальної
+абсолютної похибки вимірювання сил струмів для 1 стовпця
+
+S_I_i3 = np.sqrt(np.sum((Delta_I[:, 2] - Delta_I1_mean)**2) / 
+len(Delta_I[:, 2]) * (len(Delta_I[:, 2]) - 1))) # Обчислення загальної
+абсолютної похибки вимірювання сил струмів для 3 стовпця
+
+# Обчислення абсолютної похибки для lambda
+delta_lambda = math.sqrt(
+
+    ((2 * S_I_i1) / 3 * mean_I_i1)**2 +
+    ((2 * S_I_i3) / 3 * mean_I_i3)**2
+
+) * 1e9 # для переводу в нА
+
+# Обчислення відносної похибки для lambda
+Epsilon_lambda = math.sqrt(S_I_i1**2 + S_I_i3**2) / (math.log(mean_I_i1)
+- math.log(mean_I_i3)) * 100
+
+# Вивід результатів обрахунків
+print(f"\nDelta_lambda = {delta_lambda} * 10^{-9}")
+print(f"Epsilon_lambda = {Epsilon_lambda} %")
+    \end{verbatim}}
+
+    \vspace{3em}
+
+    \hypertarget{listing3}{}
+
+    \textbf{\large Лістинг 3.3:}
+
+    \vspace{1em}
+
+    \small{
+
+    \begin{verbatim}[breaklines=true]
+
+import numpy as np # Задля обробки масивів даних
+from tabulate import tabulate # Задля красивоговиводу таблиці
+
+R_K = 63.0058 # Обчислений опір котушки індуктивності, Ом
+VERTICAL_PRICE = 2.26 # Вертикальна ціна коливань, В
+
+lambda_table = [] # Список логарифмічних декрементів значень I_1, I_2, I_3,
+для всіх значень опору R_m
+I_table = [] # Список значень обчислених сил струмів, мА
+R_table = [] # Список значень загального опору для всіх значень опору R_m, Ом
+delta_I_table = [] # Список значень похибок вимірювання горионтальних
+напргуг для кожного зі значень опору R_m (через зміну масштабування)
+delta_I_lambda_table = [] # Список значень похибок вимірювання
+логарифмічних декрементів для кожного зі значень опору R_m
+
+MAIN_table_data = [] # Загальний список даних для таблиці
+
+# Масив обчислених горизонтальних напруг для кожного
+значення опору R_m (змінюється з кожним рядком)
+horizontal_U = np.array([
+
+[0.1877, 0.1570, 0.1310],
+[0.3275, 0.2443, 0.1810],
+[0.4234, 0.2831, 0.1905],
+[0.4923, 0.2892, 0.1721],
+[0.5295, 0.2858, 0.1471],
+[0.5471, 0.2563, 0.1183]
+
+])
+
+# Значення вертикальної напруги для кожного
+значення опору R_m (змінюється з кожним рядком)
+vertical_U = np.array([
+
+[5.4547, 4.5516, 3.8292],
+[4.8769, 3.6485, 2.7093],
+[4.3710, 2.8899, 1.8785],
+[3.9014, 2.2758, 1.3366],
+[3.4679, 1.8423, 0.9392],
+[3.0706, 1.4450, 0.6864]
+
+])
+
+# Значення опоів R_m з МО (магазину опорів), Ом
+R_m_table = np.array([
+
+[100],
+[200],
+[300],
+[400],
+[500],
+[600]
+
+])
+
+# Обчислюємо загальний опір, додавши до R_m значення r_k,
+опору котушки індуктивності, Ом
+R_table = R_m_table + R_K
+
+# Обчислюємо значення сил струмів, поділивши кожен елемен
+ масиву горизонтальних напруг на значення відповідного опору R_m, мА
+I_table = horizontal_U / R_m_table * 1000
+
+# Обчислюємо логарифмічні декременти для кожної пари,
+та потім комбінуємо їх до одного значення
+for row in horizontal_U:
+
+# Розраховуємо логарифми для всіх пар
+val_12 = np.log(row[0] / row[1])
+val_13 = np.log(row[0] / row[2])
+val_23 = np.log(row[1] / row[2])
+
+# Середнє арифметичне трьох значень
+mean_val = np.mean([val_12, val_13, val_23])
+
+# Додаємо в список
+lambda_table.append(mean_val)
+
+# Перетворюємо список на масив (стовпець)
+lambda_table = np.array(lambda_table).reshape(-1, 1)
+
+# Додаємо всі обчислені значення до загального списку даних для таблиці
+for R_m_val, R_val, I_val, lambda_val in zip(R_m_table, R_table, I_table, lambda_table):
+
+MAIN_table_data.append([R_m_val[0], R_val[0], "...", I_val[0],
+I_val[1], I_val[2], lambda_val[0]])
+
+# Список значень похибок вимірювання горионтальних напргуг
+(множимо 0.2 до кожного значення за формулою похибки для екранів осцилографа)
+delta_I_table = 0.2 * np.array([
+
+[0.06],
+[0.11],
+[0.17],
+[0.22],
+[0.26],
+[0.31]
+
+])
+
+# Обчислюємо похибки вимірювання логарифмічних
+декрементів для кожного зі значень опору R_m
+for i, row in enumerate(horizontal_U):
+
+# Знаходимо похибку вимірювання логарифмічних декрементів для всіх 3 пар
+delta_lambda_val_12 = np.sqrt(delta_I_table[i][0]**2
+/ row[0] + delta_I_table[i][0]**2 / row[1])
+delta_lambda_val_13 = np.sqrt(delta_I_table[i][0]**2
+/ row[0] + delta_I_table[i][0]**2 / row[2])
+delta_lambda_val_23 = np.sqrt(delta_I_table[i][0]**2
+/ row[1] + delta_I_table[i][0]**2 / row[2])
+
+# Обчислюємо середнє значення похибки вимірювання логарифмічних декрементів
+mean_delta_lambda_val = np.mean([delta_lambda_val_12,
+delta_lambda_val_13, delta_lambda_val_23])
+
+# Додаємо в список
+delta_I_lambda_table.append(mean_delta_lambda_val)
+
+# Обчислюємо загальне середнє значення похибки вимірювання логарифмічних декрементів
+delta_I_lambda_value = np.mean(delta_I_lambda_table)
+
+# Виводимо таблицю
+print(tabulate(
+MAIN_table_data,
+headers=["R_m, Ом", "R_m + r_k, Ом", "...", "I_1, мА",
+"I_2, мА", "I_3, мА", "lambda"],        # назва стовпців
+tablefmt="fancy_grid",    # «красиві» подвійні рамки
+floatfmt=".4"           # науковий формат чисел (або ".6f" для звичайного)
+))
+
+# Виводимо значення похибки вимірювання логарифмічних декрементів
+print(f"\nПохибка вимірювання логарифмічних
+декрементів сил струмів = {round(delta_I_lambda_value, 4)}")
+
+    \end{verbatim}}
+
+    \vspace{3em}
+
+    \hypertarget{listing4}{}
+
+    \textbf{\large Лістинг 3.4:}
+
+    \vspace{1em}
+
+    \small{
+
+    \begin{verbatim}[breaklines=true]
+import numpy as np # Задля обробки масивів даних
+from tabulate import tabulate # Задля красивоговиводу таблиці
+import math
+
+#============================U=============================== Обчислення похибки для U
+
+STUDENT_COEF = 1.73 # Коефіцієнт Стьюдента
+T_u = 0.006 # Обчислена похибка вирмірювання горизонтальної напруги на екрані осцилографа
+
+# Масив виміряних горизонатних напруг для всіх значень опору R_m
+horizontal_U = np.array([
+
+    [0.1877, 0.1570, 0.1310],
+    [0.3275, 0.2443, 0.1810],
+    [0.4234, 0.2831, 0.1905],
+    [0.4923, 0.2892, 0.1721],
+    [0.5295, 0.2858, 0.1471],
+    [0.5471, 0.2563, 0.1183]
+
+])
+
+# Масив виміряних опорів R_m
+R_m_table = np.array([
+
+    [100],
+    [200],
+    [300],
+    [400],
+    [500],
+    [600]
+
+])
+
+I_table = horizontal_U / R_m_table # Масив виміряних сил струмів
+
+Delta_I = np.sqrt((I_table * 0.03)**2 + T_u**2)
+# Масив абсолютних похибок вимірювання сил струмів
+
+Delta_I_mean = np.mean(Delta_I) # Знаходження середнього значення
+абсолютної похибки вимірювання сил струмів
+
+Delta_I1_mean = np.mean(Delta_I[:, 0]) # Знаходження середнього значення
+абсолютної похибки вимірювання сил струмів для 1 стовпця
+Delta_I3_mean = np.mean(Delta_I[:, 1]) # Знаходження середнього значення
+абсолютної похибки вимірювання сил струмів для 3 стовпця
+
+Delta_I_VALUE = np.sqrt(np.sum((Delta_I - Delta_I_mean)**2) /
+(len(Delta_I) * (len(Delta_I) - 1))) * STUDENT_COEF 
+ Загальне обчислення абсолютної похибки вимірювання сил струмів
+
+# Вивід результатів обрахунків
+print(f"\nDelta_I = {Delta_I_VALUE} В")
+print(f"mean_I = {Delta_I_mean} В")
+
+#============================I=============================== Обчислення похибки для I
+
+mean_R = 350 # Середнє значення опору R
+mean_I = Delta_I_mean # Середнє значення абсолютної похибки вимірювання сил струмів
+S_R = 17.7812 # Обчислена абсолютна похибка для R
+S_I = Delta_I_VALUE # Обчислена абсолютна похибка для I
+
+# Обчислення абсолютної похибки для I
+delta_I = math.sqrt(
+
+    (S_I / mean_R)**2 +
+    (S_R * mean_I / mean_R**2)**2
+
+) * 1e6 # для переводу в мкА
+
+# Обчислення відносної похибки для I
+Epsilon_I = math.sqrt(
+
+    (S_I / mean_I)**2 +
+    (S_R / mean_R)**2
+
+) * 100
+Epsilon_I = round(Epsilon_I, 4)
+
+# Вивід результатів обрахунків
+print(f"\nDelta_I = {delta_I} мкА")
+print(f"Epsilon_I = {Epsilon_I} %")
+
+#============================lambda===============================
+Обчислення похибки для lambda
+
+mean_I_i1 = np.mean(Delta_I[:, 0]) # Знаходження середнього значення
+абсолютної похибки вимірювання сил струмів для 1 стовпця
+mean_I_i3 = np.mean(Delta_I[:, 2]) # Знаходження середнього значення
+абсолютної похибки вимірювання сил струмів для 3 стовпця
+
+S_I_i1 = np.sqrt(np.sum((Delta_I[:, 0] - Delta_I1_mean)**2) /
+(len(Delta_I[:, 0]) * (len(Delta_I[:, 0]) - 1)))
+# Обчислення загальної абсолютної похибки вимірювання сил струмів для 1 стовпця
+
+S_I_i3 = np.sqrt(np.sum((Delta_I[:, 2] - Delta_I1_mean)**2) /
+(len(Delta_I[:, 2]) * (len(Delta_I[:, 2]) - 1)))
+# Обчислення загальної абсолютної похибки вимірювання сил струмів для 3 стовпця
+
+# Обчислення абсолютної похибки для lambda
+delta_lambda = math.sqrt(
+
+    ((2 * S_I_i1) / 3 * mean_I_i1)**2 +
+    ((2 * S_I_i3) / 3 * mean_I_i3)**2
+
+) * 1e9 # для переводу в нА
+
+# Обчислення відносної похибки для lambda
+Epsilon_lambda = math.sqrt(S_I_i1**2 + S_I_i3**2)
+/ (math.log(mean_I_i1) - math.log(mean_I_i3)) * 100
+
+# Вивід результатів обрахунків
+print(f"\nDelta_lambda = {delta_lambda} * 10^{-9}")
+print(f"Epsilon_lambda = {Epsilon_lambda} %")
+    \end{verbatim}
+    }
 
 \end{document}

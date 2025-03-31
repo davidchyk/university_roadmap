@@ -1,17 +1,3 @@
-\setlength{\parindent}{0pt}
-
-    Результат виконання програми з Лістингу 3.2:
-
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=1\textwidth]{mistake1_photo.png}
-    \end{figure}
-
-    \vspace{2em} % вручну задаєте відступ
-
-    \textbf{\large Завдання №2:}
-    \vspace{1em} % вручну задаєте відступ
-
-    \setlength{\parindent}{1.5em}
-
-    TODO
+Ще одна примітка: При обчисленні логарифмічного декременту сили струму можна користуватись як формулою, що включає в собі значення сил струмів: $\displaystyle \lambda_I = \ln \frac{I_i}{I_{i+1}}$, і,
+    якщо розписати сили струму за 1 законом Ома: $\displaystyle I_i = \frac{U_i}{R_m}$, то можна скоротити чисельник і знаменник на $R_m$ і отримати формулу $\displaystyle \lambda_I = \ln \frac{U_i}{U_{i+1}}$, тобто виміряних горизонтальних напруг.
+    

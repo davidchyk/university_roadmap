@@ -54,7 +54,7 @@ class Main:
         self.planes.append(Plane(model="Airbus A320", max_speed=871, flight_range=6150, load_factor=73500, passengers=180))
         self.planes.append(Plane(model="Sukhoi Superjet 100", max_speed=870, flight_range=4500, load_factor=12250, passengers=108))
         self.planes.append(Plane(model="Concorde", max_speed=2179, flight_range=7222, load_factor=11970, passengers=128))
-        self.planes.append(Plane(model="Cessna 172", max_speed=226, flight_range=1289, load_factor=400, passengers=4))
+        self.planes.append(Plane(model="Cessna 172", max_speed=220000006, flight_range=1289, load_factor=400, passengers=4))
 
     def sorting_models(self) -> None:
 

@@ -1,0 +1,484 @@
+QtiPlot 0.9.7 project file
+<scripting-lang>	muParser
+<windows>	4
+<table>
+Table1	30	4	06.04.2025 11:36:36
+geometry	701	189	601	629	active
+header	FREQ[X]	I0-1[Y]	I0-2[Y]	I0-3[Y]
+ColWidth	100	100	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13	0;0/13	0;0/13
+ReadOnlyColumn	0	0	0	0
+HiddenColumn	0	0	0	0
+Comments					
+WindowLabel		2
+<data>
+0	2.00000000000000e+00	3.50000000000000e-01	3.30000000000000e-01	3.10000000000000e-01
+1	3.00000000000000e+00	5.30000000000000e-01	5.30000000000000e-01	5.00000000000000e-01
+2	4.00000000000000e+00	7.90000000000000e-01	7.90000000000000e-01	8.60000000000000e-01
+3	5.00000000000000e+00	1.25000000000000e+00	1.27000000000000e+00	1.17000000000000e+00
+4	6.00000000000000e+00	2.09000000000000e+00	2.07000000000000e+00	1.66000000000000e+00
+5	7.00000000000000e+00	4.66000000000000e+00	4.70000000000000e+00	2.31000000000000e+00
+6	7.70000000000000e+00	1.92500000000000e+01	1.11400000000000e+01	2.65000000000000e+00
+7	7.90000000000000e+00	6.61200000000000e+01	1.36300000000000e+01	2.65000000000000e+00
+8	8.10000000000000e+00	2.90200000000000e+01	1.25000000000000e+01	2.60000000000000e+00
+9	9.00000000000000e+00	4.14000000000000e+00	4.61000000000000e+00	2.31000000000000e+00
+10	1.00000000000000e+01	2.54000000000000e+00	2.63000000000000e+00	1.87000000000000e+00
+11	1.10000000000000e+01	1.80000000000000e+00	1.83000000000000e+00	1.48000000000000e+00
+12	1.20000000000000e+01	1.39000000000000e+00	1.36000000000000e+00	1.27000000000000e+00
+13	1.30000000000000e+01	1.15000000000000e+00	1.13000000000000e+00	1.07000000000000e+00
+14	1.40000000000000e+01	9.40000000000000e-01	9.80000000000000e-01	9.60000000000000e-01
+15	1.50000000000000e+01	8.60000000000000e-01	9.40000000000000e-01	8.60000000000000e-01
+16	1.60000000000000e+01	7.90000000000000e-01	7.70000000000000e-01	7.80000000000000e-01
+</data>
+</table>
+<multiLayer>
+Graph1	1	1	06.04.2025 11:42:13
+geometry	0	896	1920	926	minimized	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	20	12	1904	891
+PlotTitle	Графік залежності амплітудної сили струму I<sub>0</sub> в залежності від частоти коливань та від значень магазинного опору R<sub>1</sub>	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	1	1	1	1	#a0a0a4	0	0.5	#a0a0a4	2	0.4	#a0a0a4	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	f (Частоти коливань), кГц	I<sub>0</sub> (сила струму в контурі), мА			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	24	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	20	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	20	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	20	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	20	75	0	0	0
+AxisFont0	MS Shell Dlg 2	20	50	0	0	0
+AxisFont1	MS Shell Dlg 2	20	50	0	0	0
+AxisFont2	MS Shell Dlg 2	20	50	0	0	0
+AxisFont3	MS Shell Dlg 2	20	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table1_FREQ	Table1_I0-1	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+curve	Table1_FREQ	Table1_I0-2	1	0	#ff0000	0	1	7	1	#ff0000	#ff0000	0	#000000	14	1	2	0	0	29	1
+curve	Table1_FREQ	Table1_I0-3	1	0	#00ff00	0	1	7	1	#00ff00	#00ff00	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>LorentzFit1</Title>
+<Expression>y0+2*A/PI*w/(4*(x-xc)^2+w^2)</Expression>
+<Variable>x</Variable>
+<Range>1.86	16.14</Range>
+<Points>100</Points>
+<Constant>A	29.8633666727769</Constant>
+<Constant>w	0.279303552699353</Constant>
+<Constant>xc	7.93171960881723</Constant>
+<Constant>y0	1.35622046100317</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#000000</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>LorentzFit2</Title>
+<Expression>y0+2*A/PI*w/(4*(x-xc)^2+w^2)</Expression>
+<Variable>x</Variable>
+<Range>1.86	16.14</Range>
+<Points>100</Points>
+<Constant>A	26.7699852387634</Constant>
+<Constant>w	1.36415846627364</Constant>
+<Constant>xc	7.98207997514519</Constant>
+<Constant>y0	0.743558767107483</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#ff0000</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>LorentzFit3</Title>
+<Expression>y0+2*A/PI*w/(4*(x-xc)^2+w^2)</Expression>
+<Variable>x</Variable>
+<Range>1.86	16.14</Range>
+<Points>100</Points>
+<Constant>A	18.031827278415</Constant>
+<Constant>w	5.07609625057203</Constant>
+<Constant>xc	8.28866403387123</Constant>
+<Constant>y0	0.392671406057589</Constant>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#00ff00</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F2</Title>
+<Expression>46.75</Expression>
+<Variable>x</Variable>
+<Range>0	8.00917</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#ff00ff</Color>
+	<Style>1</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F1</Title>
+<Expression>9.64</Expression>
+<Variable>x</Variable>
+<Range>0	8.29664</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#5555ff</Color>
+	<Style>1</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+scale	0	0	70	0	9	5	0	0
+scale	1	0	70	0	8	5	0	0
+scale	2	1.5	16.5	0	3	5	0	0
+scale	3	1.5	16.5	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<line>	7.92661	68.6676427525622	7.92661	-0.409956076134705	1	#000000	DashLine	0	0	4	45	1</line>
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>1.8354357798165</x>
+<y>66.92532942899</y>
+<right>7.08199541284404</right>
+<bottom>49.9121522693997</bottom>
+<Text>
+\l(1) Значення сил струмів I<sub>0</sub> при опорі R = 1 Ом
+\l(2) Значення сил струмів I<sub>0</sub> при опорі R = 500 Ом
+\l(3) Значення сил струмів I<sub>0</sub> при опорі R = 3000 Ом
+\l(7) Для R=1 Ом: значення I<sub>0<sub>max</sub></sub>/√2 = 46,75 мА
+\l(8)Для R=500 Ом: значення I<sub>0<sub>max</sub></sub>/√2 = 9,64 мА
+</Text>
+<Font>MS Shell Dlg 2	19	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>0</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+<Legend>
+<Frame>0</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>7.7270642201835</x>
+<y>0.71742313323572</y>
+<right>8.15711009174312</right>
+<bottom>-3.89458272327965</bottom>
+<Text>
+ω<sub>0</sub>
+</Text>
+<Font>MS Shell Dlg 2	20	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>0</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<table>
+Table2	30	2	06.04.2025 14:21:00
+geometry	126	22	563	415	
+header	C[X]	Z[Y]
+ColWidth	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13
+ReadOnlyColumn	0	0
+HiddenColumn	0	0
+Comments			
+WindowLabel		2
+<data>
+0	1.00000000000000e+00	1.33800000000000e+00
+1	2.00000000000000e+00	2.67700000000000e+00
+2	3.00000000000000e+00	4.01500000000000e+00
+3	4.00000000000000e+00	5.35300000000000e+00
+4	5.00000000000000e+00	6.69300000000000e+00
+5	6.00000000000000e+00	8.03100000000000e+00
+6	7.00000000000000e+00	9.36800000000000e+00
+7	8.00000000000000e+00	1.07100000000000e+01
+8	9.00000000000000e+00	1.20400000000000e+01
+9	1.00000000000000e+01	1.33900000000000e+01
+</data>
+</table>
+<multiLayer>
+Graph2	1	1	06.04.2025 14:23:02
+geometry	196	896	1920	926	minimized	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	20	12	1862	870
+PlotTitle	Графік залежності часової характеристики Z коливального контуру від певного значення ємності C	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	1	1	1	1	#a0a0a4	0	0.5	#a0a0a4	2	0.4	#a0a0a4	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	C (Ємність), нФ	Z (Часова характеристика), с<sup>2</sup>			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	24	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	19	75	0	0	0
+AxisFont0	MS Shell Dlg 2	19	50	0	0	0
+AxisFont1	MS Shell Dlg 2	19	50	0	0	0
+AxisFont2	MS Shell Dlg 2	19	50	0	0	0
+AxisFont3	MS Shell Dlg 2	19	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table2_C	Table2_Z	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>F2</Title>
+<Expression>1.338*x</Expression>
+<Variable>x</Variable>
+<Range>0	10</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#00ff00</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F3</Title>
+<Expression>1.338*x*1.05</Expression>
+<Variable>x</Variable>
+<Range>0	10</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F4</Title>
+<Expression>1.338*x*0.95</Expression>
+<Variable>x</Variable>
+<Range>0	10</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000a0</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+scale	0	0	15	0	10	5	0	0
+scale	1	0	15	0	8	5	0	0
+scale	2	0	10.5	0	8	5	0	0
+scale	3	0	10.5	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.24684633027523</x>
+<y>14.335180055402</y>
+<right>7.51978211009174</right>
+<bottom>11.5304709141274</bottom>
+<Text>
+\l(1) Обчислені значення Z при резонансній частоті, від значення ємності магазинного конденсатора С
+\l(2) Теоретична функціональна залежність Z(C)
+\l(3) Верхня межа (C + 5%) → супремум функції Z(C)
+\l(4) Нижня межа (C − 5%) → інфімум функції Z(C)
+</Text>
+<Font>MS Shell Dlg 2	19	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>0</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<open>1</open>
+<log>
+[06.04.2025 11:42:47	Plot: ''Graph1'']
+Boltzmann (Sigmoidal) Fit of dataset: Table1_I0-1, using function: A2+(A1-A2)/(1+exp((x-x0)/dx))
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0,0001
+From x = 2,000000000000000e+00 to x = 1,600000000000000e+01
+A1 (init value) = 1,352857142857144e+00 +/- nan
+A2 (final value) = 1,378444444444444e+01 +/- nan
+x0 (center) = 8,991678178080011e+00 +/- nan
+dx (time constant) = -6,703832987575055e-03 +/- nan
+--------------------------------------------------------------------------------------
+Chi^2/doF = 3,004257511600049e+02
+R^2 = 0,137984257506651
+Adjusted R^2 = -0,149354323324465
+RMSE (Root Mean Squared Error) = 17,3327940955867
+RSS (Residual Sum of Squares) = 3 905,53476508006
+---------------------------------------------------------------------------------------
+Iterations = 70
+Status = the iteration has not converged yet
+---------------------------------------------------------------------------------------
+[06.04.2025 11:43:12	Plot: ''Graph1'']
+Gauss Fit of dataset: Table1_I0-1, using function: y0+A*sqrt(2/PI)/w*exp(-2*((x-xc)/w)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0,0001
+From x = 2,000000000000000e+00 to x = 1,600000000000000e+01
+A (area) = 2,225852676560006e+01 +/- 5,458244133752153e-01
+xc (center) = 7,920493469006179e+00 +/- 3,855377489300019e-03
+w (width) = 2,724270232062688e-01 +/- 6,307004371539641e-03
+y0 (offset) = 1,662857141120638e+00 +/- 3,500038122582991e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1,715037358993028e+00
+R^2 = 0,99507901970218
+Adjusted R^2 = 0,99343869293624
+RMSE (Root Mean Squared Error) = 1,30959434902302
+RSS (Residual Sum of Squares) = 22,2954856669094
+---------------------------------------------------------------------------------------
+Iterations = 11
+Status = success
+---------------------------------------------------------------------------------------
+[06.04.2025 11:43:38	Plot: ''Graph1'']
+Lorentz Fit of dataset: Table1_I0-1, using function: y0+2*A/PI*w/(4*(x-xc)^2+w^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0,0001
+From x = 2,000000000000000e+00 to x = 1,600000000000000e+01
+A (area) = 2,986336667277688e+01 +/- 6,994529429699510e-01
+xc (center) = 7,931719608817231e+00 +/- 3,980296840182783e-03
+w (width) = 2,793035526993527e-01 +/- 8,919969795613544e-03
+y0 (offset) = 1,356220461003172e+00 +/- 2,423140430716243e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 7,907013654583452e-01
+R^2 = 0,997731229689851
+Adjusted R^2 = 0,996974972919801
+RMSE (Root Mean Squared Error) = 0,889213903095507
+RSS (Residual Sum of Squares) = 10,2791177509585
+---------------------------------------------------------------------------------------
+Iterations = 13
+Status = success
+---------------------------------------------------------------------------------------
+[06.04.2025 11:44:08	Plot: ''Graph1'']
+Lorentz Fit of dataset: Table1_I0-2, using function: y0+2*A/PI*w/(4*(x-xc)^2+w^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0,0001
+From x = 2,000000000000000e+00 to x = 1,600000000000000e+01
+A (area) = 2,676998523876336e+01 +/- 1,566870613490269e+00
+xc (center) = 7,982079975145192e+00 +/- 2,628865147724331e-02
+w (width) = 1,364158466273637e+00 +/- 7,887201292065375e-02
+y0 (offset) = 7,435587671074826e-01 +/- 1,332056816686443e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 1,455930688576444e-01
+R^2 = 0,993930071497415
+Adjusted R^2 = 0,991906761996553
+RMSE (Root Mean Squared Error) = 0,381566598194397
+RSS (Residual Sum of Squares) = 1,89270989514938
+---------------------------------------------------------------------------------------
+Iterations = 8
+Status = success
+---------------------------------------------------------------------------------------
+[06.04.2025 11:44:25	Plot: ''Graph1'']
+Lorentz Fit of dataset: Table1_I0-3, using function: y0+2*A/PI*w/(4*(x-xc)^2+w^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0,0001
+From x = 2,000000000000000e+00 to x = 1,600000000000000e+01
+A (area) = 1,803182727841500e+01 +/- 3,541442231088701e+00
+xc (center) = 8,288664033871230e+00 +/- 1,512241013023947e-01
+w (width) = 5,076096250572035e+00 +/- 7,846623098142056e-01
+y0 (offset) = 3,926714060575889e-01 +/- 1,592967230452682e-01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 3,851817210784690e-02
+R^2 = 0,948483801486846
+Adjusted R^2 = 0,931311735315795
+RMSE (Root Mean Squared Error) = 0,196260470059171
+RSS (Residual Sum of Squares) = 0,50073623740201
+---------------------------------------------------------------------------------------
+Iterations = 9
+Status = success
+---------------------------------------------------------------------------------------
+</log>

@@ -24,7 +24,7 @@ table_data = [
 print(tabulate(
     table_data,
     headers=[],
-    tablefmt="latex",
+    tablefmt="fancy_grid",
 ))
 
 # Вивід коефіцієнтів лінійної регресії: k та b

@@ -11,10 +11,13 @@
 \usepackage{caption}
 \usepackage{booktabs}
 \usepackage{subcaption} % для підписів (а), (б)
+\usepackage{breqn} % Пакет для автоматичного перенесення виразів
+\usepackage{mathtools} % Для додаткових можливостей, наприклад, для створення кастомних конструкцій
 
 \usepackage{xcolor}
 
 \renewcommand{\thetable}{№\arabic{table}}
+\captionsetup[table]{name=Таблиця}  % замість "Табл." буде "Таблиця"
 
 \usepackage{graphicx} % <-- Для роботи з \includegraphics
 \usepackage{geometry}
@@ -603,7 +606,7 @@
         Виміри п.п. 1-3 повторити 3 рази.
 
         \item Підрахувати загальну кількість смуг $N$, які можна розрізнити в полі
-        зору окуляра, та занести її до таблиці №2.
+        зору окуляра, та занести її до таблиці №1.
 
     \end{enumerate}
 
@@ -634,7 +637,7 @@
         \end{figure}
 
         \item Виміряти відстань $d$ від щілини до площини об'єктива.
-        Занести її та фокусну відстань об'єктива $F$ до таблиці №2.
+        Занести її та фокусну відстань об'єктива $F$ до таблиці №1.
 
         \item Для якогось одного світлофільтра за допомогою окуляра виміряти відстань
         $h$ між зображеннями когерентних джерел, як описано в п.1. 
@@ -678,13 +681,667 @@
 
     Прибрати світлофільтр і спостерігати інтерференційну картину в білому
     світлі $\lambda \approx (400 \div 800)$ нм;
-    підрахувати та занести до таблиці №2 максимальну кількість смуг $N'$, що спостерігаються.
+    підрахувати та занести до таблиці №1 максимальну кількість смуг $N'$, що спостерігаються.
 
-    % LETS GO
+    \newpage
 
     \begin{center} \textbf{Порядок виконання} \end{center}
 
-    sdlfjalsdkfj
+    \begin{enumerate}
+        \item \textbf{Підготовка установки:}
+        \begin{itemize}
+          \item Зібрав експериментальну установку з біпризмою Френеля.
+          \item Налаштував положення щілини та біпризми так, щоб світловий пучок рівномірно освітлював обидві половини біпризми.
+          \item Зменшував ширину щілини до отримання чіткої інтерференційної картини в окулярі.
+        \end{itemize}
+      
+        \item \textbf{Вимірювання ширини інтерференційної смуги:}
+        \begin{itemize}
+          \item Встановив візирну лінію на темну смугу №0 (лівий край) та зафіксував координату.
+          \item Визначив координату смуги з номером $n = 10$ праворуч.
+          \item Провів 3 серії вимірювань для кожного світлофільтра (червоного і зеленого).
+          \item Обчислив середнє значення $\langle x_i \rangle$ та ширину смуги $\displaystyle \Delta x = \frac{x}{n}$.
+        \end{itemize}
+      
+        \item \textbf{Визначення відстані між уявними джерелами:}
+        \begin{itemize}
+          \item Встановив допоміжний об’єктив між біпризмою та окуляром.
+          \item За допомогою окуляра провів 3 вимірювання відстані $h'$ між зображеннями уявних джерел та обчислив середнє.
+        \end{itemize}
+      
+        \item \textbf{Розрахунок довжини хвилі та спектральної ширини:}
+        \begin{itemize}
+          \item Виміряв відстані $d$ і $F$.
+          \item Обчислив довжину хвилі $\lambda$ за формулою:
+          \[
+          \lambda = \frac{\Delta x \cdot h' (d - F)^2}{d^2 F}
+          \]
+          \item Обчислив ширину смуги пропускання:
+          \[
+          \Delta \lambda \approx \frac{2\lambda}{N}
+          \]
+        \end{itemize}
+      
+        \item \textbf{Оцінка похибок:}
+        \begin{itemize}
+          \item Обчислив абсолютні та відносні похибки величин: $n$, $N$, $x_i$, $\Delta x$, $h_i'$, $F$, $d$, $\lambda$ та $\Delta \lambda$ за допомогою Python.
+        \end{itemize}
+
+        \textbf{Всi вимiрювання проводив у симуляторi лабораторної роботи OP31!}
+
+    \end{enumerate}
+
+    \newpage
+
+    В даній лабораторній роботі, ми фіксуємо (зупиняємось) 10 лінію, тобто $n = 10$.
+
+    \begin{table}[h!]
+
+        \centering
+        \begin{tabular}{|c|c|c|}
+        \hline
+        Світлофільтр & Червоний & Зелений \\
+        \hline
+        $N$ & 16,00 & 13,00 \\
+        \hline
+        $x_i$, мм & 2,58 & 1,95\\ \cline{2-3}
+        \empty & 2,53 & 2,05\\ \cline{2-3}
+        \empty & 2,51 & 2,11\\
+        \hline
+        $x = \langle x_i \rangle$, мм & 2,54 & 2,04\\
+        \hline
+        $\Delta x$, мм & 0,254 & 0,204\\
+        \hline
+        $h_i'$, мм & 0,61 & 0,61\\ \cline{2-3}
+        \empty & 0,62 & 0,60\\ \cline{2-3}
+        \empty & 0,61 & 0,58\\
+        \hline
+        $h' = \langle h_i' \rangle$, мм & 0,61 & 0,60\\
+        \hline
+        $F$, мм & 145,00 & 145,00\\
+        \hline
+        $d$, мм & 665,57 & 665,57\\
+        \hline
+        $\lambda$, нм & 656,26 & 516,40\\
+        \hline
+        $\Delta \lambda$, нм & 82,03 & 79,45\\
+        \hline
+        \end{tabular}
+        \caption{Результати вимірювань для різних світлофільтрів}
+        \label{tab:filters}
+
+    \end{table}
+
+    \setlength{\parindent}{0pt}
+
+    Для червоного світлофільтра:
+
+    \vspace{1em}
+
+    $\displaystyle x = \langle x_i \rangle = \frac{2,58 + 2,53 + 2,51}{3} = 2,54$ мм,
+    $\displaystyle h'= \langle h_i' \rangle = \frac{0,61 + 0,62 + 0,61}{3} \approx 0,61$ мм.
+
+    $\displaystyle \Delta x = \frac{x}{n} = \frac{2,54}{10} = 0,254$ мм.
+
+    \vspace{1em}
+
+    Обчислимо знаення $\lambda$ (за формулою 17) та $\Delta \lambda$ (за формулою 13) (обчислення проводились за допомогою Python (\hyperlink{listing1}{Лістинг 1.1})):
+
+    \vspace{1em}
+
+    $\displaystyle \lambda = \frac{\Delta xh' \left( d - F \right)^2}{d^2 F} \approx 656,26$ нм, 
+    $\displaystyle \Delta \lambda \approx \frac{2 \lambda}{N} \approx 82,03$ нм.
+
+    \vspace{1em}
+
+    Для зеленого світлофільтра:
+
+    \vspace{1em}
+
+    $\displaystyle x = \langle x_i \rangle = \frac{1,95 + 2,05 + 2,11}{3} \approx 2,04$ мм,
+    $\displaystyle h'= \langle h_i' \rangle = \frac{0,61 + 0,60 + 0,58}{3} \approx 0,60$ мм.
+
+    $\displaystyle \Delta x = \frac{x}{n} = \frac{2,04}{10} = 0,204$ мм.
+
+    \vspace{1em}
+
+    Обчислимо знаення $\lambda$ (за формулою 17) та $\Delta \lambda$ (за формулою 13) (обчислення проводились за допомогою Python (\hyperlink{listing1}{Лістинг 1.1})):
+
+    \vspace{1em}
+
+    $\displaystyle \lambda = \frac{\Delta xh' \left( d - F \right)^2}{d^2 F} \approx 516,40$ нм,
+    $\displaystyle \Delta \lambda \approx \frac{2 \lambda}{N} \approx 79,45$ нм.
+
+    \newpage
+    \begin{center} \textbf{Обчислення похибок} \end{center}
+
+    \setlength{\parindent}{1em}
+
+    В даній лабораторні роботі, ми оперували такими величинами: $n$, $N$, $x_i$, $\Delta x$, $h_i'$, $F$, $d$, $\lambda$ та $\Delta \lambda$.
+    Тут величини $n$ та $N$ --- цілі числа, які виникли під час лічби, тому їх похибка дорівнює нулю.
+    Щодо інших, то розділимо їх на дві групи: величини, які вимірювались безпосередньо (пряме вимірювання) та величини, які обчислювались за формулами (непряме вимірювання).
+
+    Величини прямих вимірювань: $x_i$, $h_i'$, $F$, $d$.
+    Величини непрямих вимірювань: $\Delta x$, $\lambda$, $\Delta \lambda$.
+
+    Всі розрахунки похибок виконані за допомогою Python коду (\hyperlink{listing2}{Лістинг 1.2})!
+
+    Почнемо розрахунок похибок із величин прямих вимірювань.
+
+    Для обчислення похибки $x_i$ скорстаємося формулою середньоквадратичної похибки (U-оцінник дисперсії), помноженої на коефіцієнт Стьюдента: з 6 кількістю вимірювань та довірчим коефіцієнтом $\alpha = 0,9$
+    коефіцієнт Стьюдента дорівнює $t_{k=6, \alpha = 0,9} = 2,02$. Але так як величину $x_i$ вимірювали при різних світлофільтрах, то я використаю середнє значення абсолютних похибок для окремих світлофільтрів.
+
+    Відносну ж похибку я обчислюватиму як середнє значення відносних похибок для окремих світлофільтрів, які обчислювались як частка абсолютної похибки та значення величини $\langle x_i \rangle$. Тобто
+
+    \begin{center}
+
+        $\displaystyle \delta x_i = \frac{2,02}{2} \cdot \left( \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n \left( x_{1i} - \langle x_1 \rangle \right)^2 } +
+        \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n \left( x_{2i} - \langle x_2 \rangle \right)^2} \right)$ \\
+
+        $\displaystyle \varepsilon_{x_i} = \frac{1}{2} \left( \frac{\delta x_1}{\langle x_1 \rangle} + \frac{\delta x_2}{\langle x_2 \rangle} \right) \cdot 100\%$
+
+    \end{center}
+
+    За результатами розрахунків програми, $\delta x_i \approx 0,0681$ мм, $\varepsilon_{x_i} \approx 3,14$ \%.
+
+    Щодо величини $h_i'$, то судження тут такі самі. Тобто
+
+    \begin{center}
+
+        $\displaystyle \delta h_i' = \frac{2,02}{2} \cdot \left( \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n \left( h_{1i}' - \langle h_{1i}' \rangle \right)^2 } +
+        \sqrt{\frac{1}{n(n-1)} \sum_{i=1}^n \left( h_{2i}' - \langle h_{2i}' \rangle \right)^2} \right)$ \\
+
+        $\displaystyle \varepsilon_{h_i'} = \frac{1}{2} \left( \frac{\delta h_1'}{\langle h_1' \rangle} + \frac{\delta h_2'}{\langle h_2' \rangle} \right) \cdot 100\%$
+
+    \end{center}
+
+    За результатами розрахунків програми, $\delta h_i' \approx 0,012$ мм,  $\varepsilon_{h_i'} \approx 2,04$ \%.
+
+    Щодо величини $F$, то вона вимірювалась за допомогою лінійки. Тобто задача знаходження абсолютної та відносної похибок $F$
+    зводиться до знаходження абсолютної та відносної похибок лінійки. Нехай найменша поділка лінійки дорівнює 1 мм. Тоді абсолютну похибку
+    можна обчислити як половину від найменшої поділки лінійки, тобто $\delta F = 0,5$ мм. Відносну ж похибку можна обчислити як частку
+    абсолютної похибки та значення величини $F$, тобто $\displaystyle \varepsilon_F = \frac{\delta F}{F} \cdot 100\% = \frac{0,5\cdot 10^{-3}}{145 \cdot 10^{-3}} \approx 0,34 \%$.
+
+    Щодо величини $d$, то судження тут такі самі, як і у $F$. Тобто $\delta d = 0,5$ мм, $\displaystyle \varepsilon_d = \frac{\delta d}{d} = \frac{0,5 \cdot 10^{-3}}{665,57 \cdot 10^{-3}} \approx 0,075 \%$.
+
+    Тепер розглянемо величини непрямих вимірювань.
+
+    Для обчислення похибки $\Delta x$ визначимо, від яких величин вона залежить за її ж формулою:
+
+    \begin{center}
+        $\displaystyle \Delta x = \frac{x}{n} = \frac{\langle x_i \rangle}{n}$
+    \end{center}
+
+    \newpage
+
+    Тобто $\Delta x$ залежить від величин $\langle x_i \rangle$ та $n$, але оскільки величина $n$ має нульову похибку, то насправді похибка $\Delta x$ прямо залежить від похибки $\langle x_i \rangle$, яку у свою чергу
+    ми обчислили раніше, як $\delta x_i$. Тобто $\delta \Delta x = \delta x_i \approx 0,0681$ мм, та $\varepsilon_{\Delta x} = \varepsilon_{x_i} \approx 3,14$ \%.
+
+    Щодо величини $\lambda$, то вона залежить від величин $\Delta x$, $h'$, $d$ та $F$. Тоді абсолютну та відносні похибки я буду обчислювати за Гаусовими формулами обчислення похибок:
+
+    \[
+        \delta y \;=\;
+        \sqrt{
+        \left(
+            \frac{\partial f}{\partial a}\Bigg|_{\substack{a=\langle a\rangle \\ b=\langle b\rangle \\ \dots}}
+        \right)^{2} S_{(a)}^{2}
+        \;+\;
+        \left(
+            \frac{\partial f}{\partial b}\Bigg|_{\substack{a=\langle a\rangle \\ b=\langle b\rangle \\ \dots}}
+        \right)^{2} S_{(b)}^{2}
+        \;+\;\dots
+        }
+    \]
+
+    \[
+        \varepsilon_y \;=\;
+        \sqrt{
+        \left(
+            \frac{\partial \ln f}{\partial a}\Bigg|_{\substack{a=\langle a\rangle \\ b=\langle b\rangle \\ \dots}}
+        \right)^{2} S_{(a)}^{2}
+        \;+\;
+        \left(
+            \frac{\partial \ln f}{\partial b}\Bigg|_{\substack{a=\langle a\rangle \\ b=\langle b\rangle \\ \dots}}
+        \right)^{2} S_{(b)}^{2}
+        \;+\;\dots
+        } \cdot 100 \%
+    \]
+
+    Функція $\lambda$ має такий формульний вигляд:
+
+    \begin{center}
+        $\displaystyle \lambda = \frac{\Delta xh' \left( d - F \right)^2}{d^2 F}$
+    \end{center}
+
+    Звідси
+
+    \begin{center}
+    
+        $\displaystyle \frac{\partial \lambda}{\partial \Delta x} = \frac{h' (d - F)^2}{d^2 F}, \quad
+        \frac{\partial \lambda}{\partial h'} = \frac{\Delta x (d - F)^2}{d^2 F}, \quad$ \\[0.5em]
+        $\displaystyle \frac{\partial \lambda}{\partial d} = 2\frac{\Delta x h' (d - F)}{d^3 F}, \quad
+        \frac{\partial \lambda}{\partial F} = -\frac{\Delta x h' \left( d^2 - F^2 \right)}{d^2 F^2}$.
+
+    \end{center}
+
+    \begin{center}
+        $\displaystyle \frac{\partial \ln \lambda}{\partial \Delta x} = \frac{1}{\Delta x}, \quad
+        \frac{\partial \ln \lambda}{\partial h'} = \frac{1}{h'}, \quad
+        \frac{\partial \ln \lambda}{\partial d} = \frac{2}{d - F} - \frac{2}{d}, \quad
+        \frac{\partial \ln \lambda}{\partial F} = -\frac{2}{d - F} - \frac{1}{F}.$
+    \end{center}
+
+    Звідси формули для розрахунку абсолютної та відносної похибок $\lambda$ будуть:
+
+    \begin{center}
+        $\displaystyle \delta \lambda = \left(
+            \left(\frac{\langle h' \rangle (d - F)^2}{d^2 F}\,\delta  \Delta x \right)^2 +
+            \left(\frac{\langle \Delta x \rangle (d - F)^2}{d^2 F}\,\delta h'\right)^2 +
+            \left(2\frac{\langle \Delta x \rangle \langle h' \rangle (d - F)}{d^3 F} \cdot \delta d\right)^2 +
+        \right.$ \\
+        $\displaystyle \left.
+            +\left( \frac{\langle \Delta x \rangle \langle h' \rangle \left( d^2 - F^2 \right)}{d^2 F^2} \cdot \delta F\right)^2 \right)^{1/2}$
+    \end{center}
+
+    \begin{center}
+        $\displaystyle \varepsilon_\lambda =
+        \sqrt{
+        \left( \frac{\delta \Delta x}{\langle \Delta x \rangle} \right)^2 +
+        \left( \frac{\delta h'}{\langle h' \rangle} \right)^2 +
+        \left( \left( \frac{2}{d} - \frac{2}{d - F} \right) \cdot \delta d \right)^2 +
+        \left( \left( \frac{1}{F} + \frac{2}{d - F} \right) \cdot \delta F \right)^2
+        } \cdot 100 \%$
+    \end{center}
+
+    За $\langle \Delta x \rangle$ беремо середнє значення: $\displaystyle \langle \Delta x \rangle = \frac{\Delta x_1 + \Delta x_2}{2} = \frac{0,254 + 0,204}{2} = 0,229$ мм.
+
+    $\displaystyle \langle h' \rangle = \frac{\langle h_1' \rangle + \langle h_2' \rangle}{2} = \frac{0,61 + 0,60}{2} = 0,605$ мм.
+
+    \vspace{1em}
+
+    За результатами виконання програми з \hyperlink{listing2}{Лістингу 1.2}: $\delta \lambda \approx 174,4 \text{нм}, \varepsilon_{\lambda} \approx 29,84$ \%.
+
+    Щодо величини $\Delta \lambda$, то вона має такий формульний вигляд:
+
+    \begin{center}
+        $\displaystyle \Delta \lambda \approx \frac{2\lambda}{N}$,
+    \end{center}
+
+    тобто вона залежить від 2 змінних: $\lambda$ та $N$, але так як $N$ виникла під час лічби, то вона має нульову похибку, а число 2 --- є константою.
+    Це значить, що похибка величини $\Delta \lambda$ прямо залежить тільки від похибки величини $\lambda$, а це значить, що вони співпадають.
+    Тобто $\delta \Delta \lambda = \delta \lambda \approx 174,4 \text{нм}, \varepsilon_{\Delta \lambda} = \varepsilon_{\lambda} \approx 29,84$ \%.
+
+    \newpage
+
+    \setlength{\parindent}{0pt}
+
+    \textbf{\underline{Висновок:}}
+    \vspace{1em}
+
+    \setlength{\parindent}{1.5em}
+
+    У роботі досліджено інтерференцію світла за допомогою біпризми Френеля. Виміряно ширину інтерференційних смуг та обчислено довжини хвиль:
+
+    \begin{itemize}
+        \item $\lambda_{\text{червоного}} \approx 656{,}26\,\text{нм}$;
+        \item $\lambda_{\text{зеленого}} \approx 516{,}40\,\text{нм}$.
+    \end{itemize}
+
+    Оцінено ширину смуги пропускання світлофільтрів:
+
+    \begin{itemize}
+        \item $\Delta \lambda_{\text{червоного}} \approx 82{,}03\,\text{нм}$;
+        \item $\Delta \lambda_{\text{зеленого}} \approx 79{,}45\,\text{нм}$.
+    \end{itemize}
+
+    Результати узгоджуються з теоретичними розрахунками. Також були обчислені похибки величин:
+
+    \vspace{1em}
+
+    $\delta x_i \approx 0,0681$ мм, $\varepsilon_{x_i} \approx 3,14$ \%,
+    
+    $\delta h_i' \approx 0,012$ мм, $\varepsilon_{h_i'} \approx 2,04$ \%,
+
+    $\delta F \approx 0,5$ мм, $\varepsilon_F \approx 0,34$ \%,
+
+    $\delta d \approx 0,5$ мм, $\varepsilon_d \approx 0,075$ \%,
+
+    $\delta \Delta x \approx 0,0681$ мм, $\varepsilon_{\Delta x} \approx 3,14$ \%,
+
+    $\delta \lambda \approx 174,4$ мм, $\varepsilon_{\lambda} \approx 29,84$ \%,
+
+    $\delta \Delta \lambda \approx 174,4$ мм, $\varepsilon_{\Delta \lambda} \approx 29,84$ \%.
+
+    \newpage
+
+    \begin{center} \textbf{\large Контрольні питання} \end{center}
+
+    \setlength{\parindent}{0pt}
+
+    \textbf{1. Що називається інтерференцією світла? Виведіть формули (1.1) та (1.2).}
+
+    \setlength{\parindent}{1.5em}
+
+    Інтерференція світла — це явище просторового перерозподілу інтенсивності при накладанні двох або більше когерентних світлових хвиль. \\
+    Нехай дві хвилі з електричними полями:
+    \[ E_1 = E_{01} \cos(\omega t - k_1 l_1 + \varphi_{01}) = E_{01} \cos(\omega t - \alpha_1), \]
+    \[ E_2 = E_{02} \cos(\omega t - k_2 l_2 + \varphi_{02}) = E_{02} \cos(\omega t - \alpha_2). \]
+    Різниця фаз:
+    \[ \delta = \alpha_1 - \alpha_2 = (k_2 l_2 - k_1 l_1) - \delta_0, \quad \text{де } \delta_0 = \varphi_{02} - \varphi_{01}. \]
+    Інтенсивність:
+    \[ I = I_1 + I_2 + 2\sqrt{I_1 I_2} \cos \delta. \]
+    
+    \vspace{1em}
+    \setlength{\parindent}{0pt}
+
+    \textbf{2. Які хвилі називаються когерентними? Чому світлові хвилі, що випромінюються незалежними джерелами, некогерентні?}
+    \setlength{\parindent}{1.5em}
+
+    Когерентні хвилі — це хвилі з однаковою частотою, сталою різницею фаз і сталим напрямком коливань. Незалежні джерела випромінюють цуги з випадковими фазами, тому різниця фаз між хвилями змінюється з часом, що робить їх некогерентними.
+
+    \vspace{1em}
+
+    \setlength{\parindent}{0pt}
+
+    \textbf{3. Поясніть принцип отримання когерентних світлових хвиль та наведіть приклади.}
+
+    \setlength{\parindent}{1.5em}
+
+    Когерентні хвилі можна отримати поділом світлового пучка від одного джерела на два. Приклади: інтерферометр Юнга, пластинка Ллойда, інтерферометр Маха-Цендера.
+
+    \vspace{1em}
+
+    \setlength{\parindent}{0pt}
+
+    \textbf{4. Чи обов'язково буде інтерференція при накладанні когерентних хвиль:}
+
+    \setlength{\parindent}{1.5em}
+
+    \begin{itemize}
+    \item[а)] Звукові хвилі — так, завжди, оскільки вони легко когерентні;
+    \item[б)] Світлові хвилі — не завжди; необхідна висока когерентність (монохроматичність, стабільна фаза).
+    \end{itemize}
+
+    \vspace{1em}
+    \setlength{\parindent}{0pt}
+
+    \textbf{5. Що називається оптичною та геометричною різницею ходу променів?}
+
+    \setlength{\parindent}{1.5em}
+
+    \begin{itemize}
+    \item Геометрична різниця ходу: $\Delta l = l_2 - l_1$;
+    \item Оптична різниця ходу: $\Delta = n_2 l_2 - n_1 l_1$.
+    \end{itemize}
+
+    \vspace{1em}
+    \setlength{\parindent}{0pt}
+
+    \textbf{6. Виведіть формулу (1.3). Запишіть $\delta$ через $\lambda'$ у однорідному середовищі.}
+    \setlength{\parindent}{1.5em}
+
+    \[ \delta = \frac{2\pi}{\lambda_0} (n_2 l_2 - n_1 l_1) = \frac{2\pi}{\lambda'} \Delta. \]
+
+    \vspace{1em}
+    \setlength{\parindent}{0pt}
+
+    \textbf{7. Виведіть умову (1.4).}
+
+    \setlength{\parindent}{1.5em}
+
+    Максимум інтенсивності при $\cos\delta = 1$:
+
+    \[ \delta = 2\pi m \Rightarrow \Delta = m \lambda. \]
+
+    Мінімум при $\cos\delta = -1$:
+    \[ \delta = (2m + 1)\pi \Rightarrow \Delta = (2m+1)\frac{\lambda}{2}. \]
+
+    \vspace{1em}
+
+    \setlength{\parindent}{0pt}
+
+    \textbf{8. Виведіть формули (1.5) і (1.6). Чому кути біпризми повинні бути малими?}
+
+    \setlength{\parindent}{1.5em}
+
+    Геометрія інтерференції від лінійних джерел
+
+    \[ \Delta(x) = \frac{h}{l}x. \]
+
+    координати максимумів:
+
+    \[ x_m = m \frac{\lambda l}{h}, \quad \Delta x = \frac{\lambda l}{h}. \]
+
+    Малі кути дозволяють отримати малі $h$, що збільшує ширину смуги $\Delta x$ до помітного розміру.
+
+    \vspace{1em}
+
+    \setlength{\parindent}{0pt}
+
+    \textbf{9. Оцінка максимального кута біпризми.}
+
+    \setlength{\parindent}{1.5em}
+
+    За $\Delta x_0 = 0{,}2$ мм, $a = b = 0{,}5$ м, $\lambda = 600$ нм:
+    \[ h = \frac{\lambda(a+b)}{\Delta x_0} = \frac{600 \cdot 10^{-9} \cdot 1}{0{,}2 \cdot 10^{-3}} = 3{,}0 \cdot 10^{-3}\ \text{м}. \]
+    \[ \theta = \frac{h}{2a(n - 1)} = \frac{3 \cdot 10^{-3}}{2 \cdot 0{,}5 (1{,}5 - 1)} = 6 \cdot 10^{-3} = 0{,}343^\circ. \]
+
+    \vspace{1em}
+    \setlength{\parindent}{0pt}
+
+    \textbf{10. Закон розподілення інтенсивності $I(x)$.}
+
+    \setlength{\parindent}{1.5em}
+
+    \[ I(x) = I_1 + I_2 + 2\sqrt{I_1 I_2} \cos \left(\frac{2\pi}{\lambda} \cdot \frac{hx}{l} \right). \]
+
+    \vspace{1em}
+    \setlength{\parindent}{0pt}
+
+    \textbf{11. * Вплив неповної монохроматичності. Вивід (1.7).}
+
+    \setlength{\parindent}{1.5em}
+
+    Смуги зникають, коли максимум однієї довжини хвилі збігається з мінімумом іншої:
+
+    \[ m' = \frac{\lambda}{2\Delta\lambda}, \quad m_{\text{max}} = \frac{\lambda}{\Delta\lambda}. \]
+    \vspace{1em}
+    \setlength{\parindent}{0pt}
+
+    \textbf{12. Вплив розмірів джерела. Вираз для $b_{\text{max}}$.}
+    \setlength{\parindent}{1.5em}
+
+    \[ b < \Delta x = \frac{\lambda l}{h}, \quad \Rightarrow b_{\text{max}} = \frac{\lambda l}{h}. \]
+
+    \newpage
+
+    \setlength{\parindent}{0pt}
+
+    \hypertarget{listing1}{}
+
+    \textbf{\large Лістинг 1.1:}
+
+    \vspace{1em}
+
+    \small{ 
+
+\begin{verbatim}
+# Фокусна відстань об'єктива, м
+F = 145e-3 
+
+# Відстань від щілини до об'єктива, м
+d = 665.57e-3 
+
+# Середнє значення h' для червоного та зеленого світлофільтрів, м
+h1 = 0.61e-3  # Червоний світлофільтр
+h2 = 0.60e-3  # Зелений світлофільтр
+
+# Кількість інтерференційних смуг для кожного світлофільтра
+N1 = 16  # Червоний світлофільтр
+N2 = 13  # Зелений світлофільтр
+
+# Ширина інтерференційної смуги для кожного світлофільтра, м
+Delta_x1 = 0.255e-3  # Червоний світлофільтр
+Delta_x2 = 0.204e-3  # Зелений світлофільтр
+
+# Розрахунок довжини хвилі лямда для кожного світлофільтра за формулою (17)
+lambda1 = (Delta_x1 * h1 * (d - F)**2) / (d**2 * F) * 1e9  # Переводимо в нанометри
+lambda2 = (Delta_x2 * h2 * (d - F)**2) / (d**2 * F) * 1e9  # Переводимо в нанометри
+
+# Округлення результатів до двох знаків після коми
+lambda1 = round(lambda1, 2)
+lambda2 = round(lambda2, 2)
+
+# Розрахунок ширини смуги пропускання дельта лямда за формулою (13)
+Delta_lambda1 = (2 * lambda1) / N1  # Для червоного світлофільтра
+Delta_lambda2 = (2 * lambda2) / N2  # Для зеленого світлофільтра
+
+# Округлення результатів до двох знаків після коми
+Delta_lambda1 = round(Delta_lambda1, 2)
+Delta_lambda2 = round(Delta_lambda2, 2)
+
+# Виведення результатів для довжини хвиль
+print(f"Лямда 1: {lambda1}")  # Довжина хвилі для червоного світлофільтра
+print(f"Лямда 2: {lambda2}")  # Довжина хвилі для зеленого світлофільтра
+
+# Виведення результатів для довжини хвиль
+print(f"Лямда 1, нм: {lambda1}")  # Довжина хвилі для червоного
+світлофільтра
+print(f"Лямда 2, нм: {lambda2}")  # Довжина хвилі для зеленого
+світлофільтра
+
+# Виведення результатів для ширини смуги пропускання
+print(f"Дельта лямда 1, нм: {Delta_lambda1}")  # Ширина смуги
+пропускання для червоного світлофільтра
+print(f"Дельта лямда 2, нм: {Delta_lambda2}")  # Ширина смуги
+пропускання для зеленого світлофільтра
+\end{verbatim}
+}
+
+    \newpage
+
+    Результат виконання програми з Лістингу 1.1:
+    \begin{figure}[ht]
+        \includegraphics[width=1.0\textwidth]{listing1.png}
+    \end{figure}
+
+    \vspace{3em}
+
+    \hypertarget{listing2}{}
+
+    \textbf{\large Лістинг 1.2:}
+
+    \vspace{1em}
+
+    \small{ 
+
+\begin{verbatim}
+import numpy as np
+import math
+
+# Коефіцієнт Стьюдента для 6 вимірювань і довірчого рівня 90%
+STUDENT_COEF = 2.02
+
+# Таблиця виміряних значень x_i для червоного і зеленого
+світлофільтрів (у метрах)
+X_table = np.array([
+    [2.58e-3, 1.95e-3],  # Перше вимірювання
+    [2.53e-3, 2.05e-3],  # Друге вимірювання
+    [2.51e-3, 2.11e-3]   # Третє вимірювання
+])
+
+# Таблиця виміряних значень h_i' для червоного і зеленого
+світлофільтрів (у метрах)
+h_table = np.array([
+    [0.61e-3, 0.61e-3],  # Перше вимірювання
+    [0.62e-3, 0.60e-3],  # Друге вимірювання
+    [0.61e-3, 0.58e-3]   # Третє вимірювання
+])
+
+# ============= X =============
+
+# Абсолютна похибка x_i для кожного світлофільтра
+delta_X_vector = np.sqrt(np.var(X_table, ddof=1, axis=0) /
+X_table.shape[0]) * STUDENT_COEF
+delta_X = np.mean(delta_X_vector)  # Середнє значення абсолютної
+похибки
+print(f"Абсолютна похибка x_i, мм: {delta_X * 1e3:.3f}")
+
+# Відносна похибка x_i для кожного світлофільтра
+relivate1_X = delta_X_vector[0] / np.mean(X_table[:, 0]) * 100 
+# Для червоного світлофільтра
+relivate2_X = delta_X_vector[1] / np.mean(X_table[:, 1]) * 100 
+# Для зеленого світлофільтра
+
+# Середнє значення відносної похибки x_i
+relivate_X = (relivate1_X + relivate2_X) / 2
+print(f"Відносна похибка x_i, %: {relivate_X:.3f}")
+
+# ============= h' =============
+
+# Абсолютна похибка h_i' для кожного світлофільтра
+delta_h_vector = np.sqrt(np.var(h_table, ddof=1, axis=0) /
+h_table.shape[0]) * STUDENT_COEF
+delta_h = np.mean(delta_h_vector)  # Середнє значення абсолютної похибки
+print(f"\nАбсолютна похибка h, мм: {delta_h * 1e3:.3f}")
+
+# Відносна похибка h_i' для кожного світлофільтра
+relivate1_h = delta_h_vector[0] / np.mean(h_table[:, 0]) * 100 
+# Для червоного світлофільтра
+relivate2_h = delta_h_vector[1] / np.mean(h_table[:, 1]) * 100 
+# Для зеленого світлофільтра
+
+# Середнє значення відносної похибки h_i'
+relivate_h = (relivate1_h + relivate2_h) / 2
+print(f"Відносна похибка h: {relivate_h:.3f}")
+
+# ============= lambda =============
+
+# Середнє значення ширини інтерференційної смуги (Delta x)
+mean_Delta_x = 0.229e-3  # У метрах
+delta_d = delta_F = 0.5e-3  # Абсолютна похибка вимірювань d і
+F (у метрах)
+mean_h = 0.605e-3  # Середнє значення h' (у метрах)
+delta_Delta_x = delta_X  # Абсолютна похибка Delta x
+
+# Виміряні значення F і d (у метрах)
+F = 145.0e-3
+d = 665.57e-3
+
+# Абсолютна похибка довжини хвилі lambda (за формулою для похибок)
+delta_lambda = math.sqrt(
+    (mean_h * (d - F)**2 * delta_Delta_x / (d**2 * F))**2 +  #
+    Вклад похибки Delta x
+    (mean_Delta_x * (d - F)**2 * delta_h / (d**2 * F))**2 +  #
+    Вклад похибки h'
+    (2 * mean_Delta_x * mean_h * (d - F) * delta_d / d**3)**2 +  #
+    Вклад похибки d
+    (mean_Delta_x * mean_h * (d**2 - F**2) * delta_F / (d**2 * F**2))**2 
+    # Вклад похибки F
+)
+delta_lambda = round(delta_lambda * 1e9, 2)  # Переводимо в нанометри
+та округлюємо
+
+# Відносна похибка довжини хвилі lambda (за формулою для відносних похибок)
+relivate_lambda = math.sqrt(
+    (delta_Delta_x / mean_Delta_x)**2 +  # Вклад відносної похибки Delta x
+    (delta_h / mean_h)**2 +  # Вклад відносної похибки h'
+    ((2 / d - 2 / (d - F)) * delta_d)**2 +  # Вклад відносної похибки d
+    ((1 / F + 2 / (d - F)) * delta_F)**2  # Вклад відносної похибки F
+) * 100
+relivate_lambda = round(relivate_lambda, 2)  # Округлюємо до двох
+знаків після коми
+
+# Виведення результатів для похибок lambda
+print(f"\nАбсолютна похибка lambda, нм: {delta_lambda}")
+print(f"Відносна похибка lambda, %: {relivate_lambda}")
+\end{verbatim}
+}
+
+Результат виконання програми з Лістингу 1.2:
+\begin{figure}[ht]
+    \includegraphics[width=1.0\textwidth]{listing2.png}
+\end{figure}
 
 
 \end{document}

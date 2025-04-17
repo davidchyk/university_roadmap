@@ -1,0 +1,191 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+\usepackage{geometry}
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+    paperwidth=24.4cm,
+    paperheight=28.5cm
+}
+
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption} % обов'язково в преамбулі
+\usepackage{multirow}  % Для об'єднання рядків
+\usepackage{makecell}         % для багато­рядкових комірок
+\usepackage{pdflscape}       % або можна використати lscape
+
+\begin{document}
+
+    \setlength{\parindent}{0pt}
+
+    \setcounter{page}{9}
+
+    Таблиця станів регістрів:
+
+    \vspace{1em}
+
+    $M_N = M_Z \cdot M_Y = ,101011 \ \times \ ,100001:$
+
+    \begin{table}[h!]
+
+        \begin{tabular}{|c|c|c|c|c|p{9cm}|}
+        \hline
+        \textbf{№} &
+        \makecell{\textbf{RG2} \\ \\ 7 \qquad \empty \quad 1} &    % <-- Одна комірка замість двох
+        \makecell{\textbf{RG1} \\ \\ 6 \qquad \empty \quad 1} &
+        \makecell{\textbf{RG3} \\ \\ 6 \qquad \empty \quad 1} &
+        \makecell{\textbf{CT}  \\ \\ 3 \qquad \empty \quad 1} &
+        \textbf{Мікрооперації} \\
+        \hline
+        \textbf{--} & \textbf{1}010110 & 000000 & 100001 & 110 &
+        \makecell[l]{\texttt{RG3 := 0.Y, RG2 := X.0, RG1 := 0;}\\
+        \texttt{CT := n := 6; CT = CT - 1;}} \\ 
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{1} &
+        \makecell{1010110\\[1em] \textit{Після зсуву:}\\ \textbf{0}101101} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +000000 \\
+        \ \ 100001 \\
+        \hline
+        100001
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        000010
+        } 
+        & \empty & 101 &
+        \makecell[l]{\texttt{RG1 := RG1 + RG3, RG2 := RG2 + 0 + CI;} \\
+        \texttt{RG1 := l(RG1).0, RG2 := l(RG2).RG1[6];} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{2} &
+        \makecell{0101101\\[1em]
+        \textit{Після зсуву:}\\ \textbf{1}011010} &
+        \makecell{000010\\[1em]
+        \textit{Після зсуву:}\\ 000100} &
+        \empty &
+        100 &
+        \makecell[l]{\texttt{RG1 := l(RG1).0, RG2 := l(RG2).RG1[6];}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{3} &
+        \makecell{1011010\\[1em] \textit{Після зсуву:}\\ \textbf{0}110101} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +000100 \\
+        \ \ 100001 \\
+        \hline
+        100101
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        001010
+        } &
+        \empty & 011 &
+        \makecell[l]{\texttt{RG1 := RG1 + RG3, RG2 := RG2 + 0 + CI;} \\
+        \texttt{RG1 := l(RG1).0, RG2 := l(RG2).RG1[6];} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{4} &
+        \makecell{0110101\\[1em]
+        \textit{Після зсуву:}\\ \textbf{1}101010} &
+        \makecell{001010\\[1em]
+        \textit{Після зсуву:}\\ 010100} &
+        \empty &
+        010 &
+        \makecell[l]{\texttt{RG1 := l(RG1).0, RG2 := l(RG2).RG1[6];}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{5} &
+        \makecell{1101010\\[1em] \textit{Після зсуву:}\\ \textbf{1}010101} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +010100 \\
+        \ \ 100001 \\
+        \hline
+        110101
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        101010
+        } &
+        \empty & 001 &
+        \makecell[l]{\texttt{RG1 := RG1 + RG3, RG2 := RG2 + 0 + CI;} \\
+        \texttt{RG1 := l(RG1).0, RG2 := l(RG2).RG1[6];} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{6} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +1010101 \\
+        \ \ 0000001 \\
+        \hline
+        1010110
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        0101100
+        } &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +101010 \\
+        \ \ 100001 \\
+        \hline
+        001011
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        010110
+        } &
+        \empty & \textbf{000} &
+        \makecell[l]{\texttt{RG1 := RG1 + RG3, RG2 := RG2 + 0 + CI;} \\
+        \texttt{RG1 := l(RG1).0, RG2 := l(RG2).RG1[6];} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \hline
+
+        \end{tabular}
+
+    \end{table}
+
+    Знаковий біт мантиси $M_N: 1 \oplus 0 = 1$ (число від'ємне). Тобто $M_N = 1,010110001011$, а $P_N = P_Z + P_Y = 6_{10} + 3_{10} = 9_{10} = 1001_2$.
+    Але старший біт (без знакового) мантиси $M_N$ не дорвінює 1, тому нормалізуємо, і отримаємо:
+
+    $M_N = 1,101100010110$, $P_N = 1000$.
+
+    Також звернемо увагу, що потрібно виділити 6 бітів (без знакового) в мантисі, тому потрібно виконати округлення до 6 розрядів. Помітимо, що 7 біт мантиси = 0, це значить, що округлення можна провести шляхом
+    відкидання бітів, окрім перших 6. Тобто, $M_N \approx 1,101100$, $P_N = 1000$. Звідси
+    \begin{flalign*}
+        &
+        \begin{array}{r@{\ =\ }c c c c}
+        N & \fbox{0}     & \fbox{1000} & \fbox{1} & \fbox{101100}
+        \end{array}
+        &
+    \end{flalign*}
+
+\end{document}

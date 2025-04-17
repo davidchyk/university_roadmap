@@ -1,0 +1,161 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+\usepackage{geometry}
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+    paperwidth=24.4cm,
+    paperheight=28cm
+}
+
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption} % обов'язково в преамбулі
+\usepackage{multirow}  % Для об'єднання рядків
+\usepackage{makecell}         % для багато­рядкових комірок
+\usepackage{pdflscape}       % або можна використати lscape
+
+\begin{document}
+
+    \setlength{\parindent}{0pt}
+
+    \setcounter{page}{4}
+
+    Таблиця станів регістрів:
+
+    \vspace{1em}
+
+    $M_Z = M_X \cdot M_Y = ,101010 \ \times \ ,100001:$
+
+    \begin{table}[h!]
+
+        \begin{tabular}{|c|c|c|c|c|p{9cm}|}
+        \hline
+        \textbf{№} &
+        \makecell{\textbf{RG1} \\ \\ 7 \qquad \empty \quad 1} &    % <-- Одна комірка замість двох
+        \makecell{\textbf{RG2} \\ \\ 6 \qquad \empty \quad 1} &
+        \makecell{\textbf{RG3} \\ \\ 7 \qquad \empty \quad 1} &
+        \makecell{\textbf{CT}  \\ \\ 3 \qquad \empty \quad 1} &
+        \textbf{Мікрооперації} \\
+        \hline
+        \textbf{--} & 0000000 & 10101\textbf{0} & 0100001 & 110 &
+        \makecell[l]{\texttt{RG1 = 0, RG2 = X, RG3 = 0.Y;}\\
+        \texttt{CT = n = 6;}} \\ 
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{1} &
+        \makecell{0000000\\[1em] \textit{Після зсуву:}\\ 0000000} &
+        \makecell{101010\\[1em] \textit{Після зсуву:}\\ 01010\textbf{1}} & \empty & 101 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[1].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{2} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +0000000 \\
+        \ \ 0100001 \\
+        \hline
+        0100001
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        0010000
+        } &
+        \makecell{010101\\[1em]
+        \textit{Після зсуву:}\\ 10101\textbf{0}} &
+        \empty &
+        100 &
+        \makecell[l]{\texttt{RG1 = RG1 + RG3;}\\
+        \texttt{RG1 = 0.r[RG1], RG2 = RG1[1].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{3} &
+        \makecell{0010000\\[1em] \textit{Після зсуву:}\\ 0001000} &
+        \makecell{101010\\[1em] \textit{Після зсуву:}\\ 01010\textbf{1}} & \empty & 011 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[1].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{4} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +0001000 \\
+        \ \ 0100001 \\
+        \hline
+        0101001
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        0010100
+        } &
+        \makecell{010101\\[1em]
+        \textit{Після зсуву:}\\ 10101\textbf{0}} &
+        \empty &
+        010 &
+        \makecell[l]{\texttt{RG1 = RG1 + RG3;}\\
+        \texttt{RG1 = 0.r[RG1], RG2 = RG1[1].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{5} &
+        \makecell{0010100\\[1em] \textit{Після зсуву:}\\ 0001010} &
+        \makecell{101010\\[1em] \textit{Після зсуву:}\\ 01010\textbf{1}} & \empty & 001 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[1].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{6} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +0001010 \\
+        \ \ 0100001 \\
+        \hline
+        0101011
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        0010101
+        } &
+        \makecell{010101\\[1em]
+        \textit{Після зсуву:}\\ 101010} &
+        \empty &
+        \textbf{000} &
+        \makecell[l]{\texttt{RG1 = RG1 + RG3;}\\
+        \texttt{RG1 = 0.r[RG1], RG2 = RG1[1].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \hline
+
+        \end{tabular}
+
+    \end{table}
+
+    Знаковий біт мантиси $M_Z: 1 \oplus 0 = 1$ (число від'ємне). Тобто $M_Z = 1,010101101010$, а $P_Z = P_X + P_Y = 4_{10} + 3_{10} = 7_{10} = 0111_2$.
+    Але старший біт (без знакового) мантиси $M_Z$ не дорвінює 1, тому нормалізуємо, і отримаємо:
+
+    $M_Z = 1,10101101010$, $P_Z = 0110$.
+
+    Також звернемо увагу, що потрібно виділити 6 бітів (без знакового) в мантисі, тому потрібно виконати округлення до 6 розрядів. Помітимо, що 7 біт мантиси = 0, це значить, що округлення можна провести шляхом
+    відкидання бітів, окрім перших 6. Тобто, $M_Z \approx 1,101011$, $P_Z = 0110$. Звідси
+    \begin{flalign*}
+        &
+        \begin{array}{r@{\ =\ }c c c c}
+        Z & \fbox{0}     & \fbox{0110} & \fbox{1} & \fbox{101011}
+        \end{array}
+        &
+    \end{flalign*}
+
+\end{document}

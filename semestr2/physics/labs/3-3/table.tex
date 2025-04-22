@@ -1,0 +1,96 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+\usepackage{fancyvrb}
+\usepackage{pdflscape}
+
+\usepackage{amsmath} % у преамбулі
+\usepackage{array, multirow}
+\usepackage{hyperref} % <-- Обов’язково підключіть цей пакет
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{subcaption} % для підписів (а), (б)
+\usepackage{breqn} % Пакет для автоматичного перенесення виразів
+\usepackage{mathtools} % Для додаткових можливостей, наприклад, для створення кастомних конструкцій
+
+\usepackage{xcolor}
+
+\renewcommand{\thetable}{№\arabic{table}}
+\captionsetup[table]{name=Таблиця}  % замість "Табл." буде "Таблиця"
+
+\usepackage{graphicx} % <-- Для роботи з \includegraphics
+\usepackage{geometry}
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+    paperwidth=33.3cm,
+    paperheight=20cm
+}
+
+\begin{document}
+
+    \setcounter{page}{5}
+    \setlength{\parindent}{0pt}
+
+    Завдання №1
+
+    $\lambda = b_{max} \cdot 10^{-3} = 0,30 \cdot 10^{-3} \cdot 10^{-3} \text{ м} = 0,30 \cdot 10^{-6} \text{ м} = 300 \cdot 10^{-9} \text{ м} = 300 \text{ нм}$
+
+    Ширина щілини $b=0{,}12\,$мм; Відстань від щілини до екрану $L = 450$ мм, $b_{min} = 0{,}03$ мм, $b_{max} = 0{,}21$ мм, $\lambda = 0{,}63$ мкм.
+
+    \begin{table}[ht]
+        \begin{tabular}{|l|*{17}{l}|}
+        \hline
+        $X_i$, мм 
+            & 0 & 0,4 & 1 & 2 & 4 &
+            5 & 6 & 7 & 8 & 8,5 &
+            9 & 10 & 10,6 & 11 & 11,6 & 13 & 13,8 \\
+        $U_i$, В
+            & 2600 & 2200 & 2000 & 800 & 40 & 60 
+            & 120 & 60 & 20 & 30 & 45 & 25 
+            & 15 & 20 & 30 & 10 & 15 \\
+        $\varphi_i$, рад
+        & 0 & 0,0009 & 0,0022 & 0,0044 & 0,0089 & 0,0111 & 0,0133 & 0,0156 & 0,0178 & 0,0189 & 0,0200 & 0,0222
+        & 0,0236 & 0,0244 & 0,0258 & 0,0289 & 0,0307 \\
+        $\left( I(\varphi) \slash I_0 \right)_{theor}$
+        & 1 & 0,9092 & 0,5333 & 0,0304 & 0,0239 & 0,0029 & 0,0155 & 0,0002 & 0,0078 & 0,0071 & 0,0022 & 0,0025
+        & 0,0050 & 0,0036 & 0,0003 & 0,0033 & 0,0007 \\
+        $\left( I(\varphi) \slash I_0 \right)_{exper}$
+        & 1 & 0,8462 & 0,7692 & 0,3077 & 0,0154 & 0,0231 & 0,0462 & 0,0231 & 0,0077 & 0,0115 & 0,0173 & 0,0096
+        & 0,0058 & 0,0077 & 0,0115 & 0,0038 & 0,0058 \\
+        \hline
+        \end{tabular}
+    \end{table}
+
+    Примітка. Значення $\left( I(\varphi) \slash I_0 \right)_{theor}$ при $\varphi_i = 0$ не існує, тому взяв границю, тобто
+
+    \[
+    \lim_{\varphi \rightarrow 0} \left( I(\varphi) \slash I_0 \right)_{theor} = \lim_{\varphi \rightarrow 0} \left( \frac{\sin(\pi b \lambda^{-1} \sin \varphi)}{\pi b \lambda^{-1} \sin \varphi} \right)^2=
+    \Big| x = \pi b \lambda^{-1} \sin \varphi \Big| = \lim_{x \rightarrow 0} \left( \frac{\sin x}{x} \right)^2 = 1^2 = 1.
+    \]
+
+    Завдання №2
+
+    Число видимих головних максимумів $q = 13$, відстань від гратки до екрана $L = 270$ мм.
+
+    \begin{table}[ht]
+        \begin{tabular}{|l|*{7}{l}|}
+        \hline
+        $i$
+            & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+        \hline
+        $X_i$, мм
+            & 0 & 2 & 4 & 6.5 & 9.5 & 12 & 15 \\
+        $\varphi_i$, рад
+        & 0 & 1,436608 & 1,503399 & 1,529282 & 1,542383 & 1,548300
+        & 1,552798 \\
+        $\sin(\varphi_i)$
+        & 0 & 0,991010 & 0,997730 & 0,999138 & 0,999596 & 0,999747 & 0,999838 \\
+        \hline
+        \end{tabular}
+    \end{table}
+
+\end{document}

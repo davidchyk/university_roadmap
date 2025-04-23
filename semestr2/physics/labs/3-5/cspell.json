@@ -1,0 +1,9 @@
+{
+    "version": "0.2",
+    "ignorePaths": ["*.py"],
+    "dictionaryDefinitions": [],
+    "dictionaries": ["uk-ua"],
+    "words": [],
+    "ignoreWords": ["Френеля", "Колган", "Брюстера", "ФІОТ", "Малюса", ],
+    "import": []
+}

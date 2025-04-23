@@ -67,22 +67,40 @@ phi_vector = np.array([0.0111, 0.0133, 0.0156, 0.0178, 0.0200, 0.0236, 0.0258, 0
 # Масив порядкових номерів максимумів (m)
 m_vector = np.array([1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5])
 
-# Обчислення довжини хвилі для кожного максимуму
-lambda_vector = b / m_vector * phi_vector
+# Лінійна апроксимація залежності phi*b від m
+(lambda_var, intercept), residuals, *_ = np.polyfit(m_vector, phi_vector * b, 1, full=True)
 
-# Середнє значення довжини хвилі
-lambda_var = np.mean(lambda_vector)
+# Обчислення залишкової суми квадратів
+residual_sum_of_squares = residuals[0]
 
-# Стандартне відхилення довжини хвилі
-lambda_std = np.std(lambda_vector, ddof=1)
+# Обчислення середньоквадратичної похибки (RMSE)
+rmse = np.sqrt(residual_sum_of_squares / len(phi_vector))
 
-# Виведення середньої довжини хвилі та її стандартного відхилення (в нанометрах)
-print(f"\n{'Третя таблиця':^50}")
-print(f"Середня довжина хвилі: {round(lambda_var * 1e9, 2)} нм")
-print(f"Стандартне відхилення: {round(lambda_std * 1e9, 2)} нм")
+# Виведення результатів для довжини хвилі
+print(f"\nλ: {lambda_var*1e9:.2f} нм")  # Довжина хвилі в нанометрах
+print(f"delta λ = {rmse*1e9:.2f} нм")  # Похибка довжини хвилі в нанометрах
 
 # Обчислення відношення мінімальної ширини щілини до довжини хвилі
 print(f"\nВідношення b_min / λ: {round(b_min / lambda_var, 2)}")
 
 # Обчислення відношення максимальної ширини щілини до довжини хвилі
 print(f"Відношення b_max / λ: {round(b_max / lambda_var, 2)}")
+
+# Масив значень sin(phi) для четвертої таблиці
+sin_vector = np.array([0, 0.991010, 0.997730, 0.999138, 0.999596, 0.999747, 0.999838])
+
+# Масив порядкових номерів максимумів (m)
+m_vector = np.array([0, 1, 2, 3, 4, 5, 6])
+
+# Лінійна апроксимація залежності m від sin(phi)
+(coef, intercept), residuals, *_ = np.polyfit(sin_vector, m_vector, 1, full=True)
+
+# Обчислення залишкової суми квадратів
+residual_sum_of_squares = residuals[0]
+
+# Обчислення середньоквадратичної похибки (RMSE)
+rmse = np.sqrt(residual_sum_of_squares / len(sin_vector))
+
+# Виведення результатів для періоду решітки
+print(f"\nd: {lambda_var/coef*1e10:.2f} мкм")  # Період решітки в мікрометрах
+print(f"delta d = {rmse:.2f} мкм")  # Похибка періоду решітки в мікрометрах

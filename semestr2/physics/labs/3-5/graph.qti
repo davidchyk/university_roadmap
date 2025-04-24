@@ -1,0 +1,232 @@
+QtiPlot 0.9.7 project file
+<scripting-lang>	muParser
+<windows>	3
+<table>
+Table1	30	5	24.04.2025 11:38:20
+geometry	0	0	702	538	
+header	1[X]	exp-perp[Y]	theor-perp[Y]	exp-paral[Y]	theor-paral[Y]
+ColWidth	100	100	100	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13	0;0/13	0;0/13	0;0/13
+ReadOnlyColumn	0	0	0	0	0
+HiddenColumn	0	0	0	0	0
+Comments						
+WindowLabel		2
+<data>
+0	1.00000000000000e+01	3.02200000000000e-01	2.04100000000000e-01	2.92500000000000e-01	1.95900000000000e-01
+1	2.00000000000000e+01	3.20500000000000e-01	2.17000000000000e-01	2.76700000000000e-01	1.82900000000000e-01
+2	3.00000000000000e+01	3.44600000000000e-01	2.40400000000000e-01	2.48700000000000e-01	1.58900000000000e-01
+3	4.00000000000000e+01	3.86900000000000e-01	2.77800000000000e-01	2.03100000000000e-01	1.19600000000000e-01
+4	5.00000000000000e+01	4.46400000000000e-01	3.34700000000000e-01	1.32200000000000e-01	5.72000000000000e-02
+5	6.00000000000000e+01	5.30800000000000e-01	4.20200000000000e-01	2.24000000000000e-02	-4.24000000000000e-02
+6	7.00000000000000e+01	7.49700000000000e-01	5.47400000000000e-01	1.53600000000000e-01	-2.06100000000000e-01
+7	8.00000000000000e+01	7.99500000000000e-01	7.33900000000000e-01	4.50200000000000e-01	-4.86600000000000e-01
+</data>
+</table>
+<multiLayer>
+Graph1	1	1	24.04.2025 11:44:53
+geometry	0	896	1920	926	minimized	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	20	12	1862	871
+PlotTitle	Графіки теоретичної та експериментальної залежності паралельних та перпендикулярних амплітуд відбитих хвиль від кута падіння	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	1	1	1	1	#a0a0a4	0	0.5	#a0a0a4	2	0.4	#a0a0a4	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Кут падіння, °	Відношення амплітуд E/E<sub>0</sub>, безрозмірна			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	24	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	19	75	0	0	0
+AxisFont0	MS Shell Dlg 2	19	50	0	0	0
+AxisFont1	MS Shell Dlg 2	19	50	0	0	0
+AxisFont2	MS Shell Dlg 2	19	50	0	0	0
+AxisFont3	MS Shell Dlg 2	19	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table1_1	Table1_exp-perp	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+curve	Table1_1	Table1_theor-perp	1	0	#ff0000	0	1	7	2	#ff0000	#ff0000	0	#000000	14	1	2	0	0	29	1
+curve	Table1_1	Table1_exp-paral	1	0	#00ff00	0	1	7	3	#00ff00	#00ff00	0	#000000	14	1	2	0	0	29	1
+curve	Table1_1	Table1_theor-paral	1	0	#0000ff	0	1	7	4	#0000ff	#0000ff	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>F2</Title>
+<Expression>sin(x*3.1415/180 - asin(2/3 * sin(x*3.1415/180)))/sin(x*3.1415/180 + asin(2/3 * sin(x*3.1415/180)))</Expression>
+<Variable>x</Variable>
+<Range>10	80</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#ff0000</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F3</Title>
+<Expression>tan(x*3.1415/180 - asin(2/3 * sin(x*3.1415/180)))/tan(x*3.1415/180 + asin(2/3 * sin(x*3.1415/180)))</Expression>
+<Variable>x</Variable>
+<Range>10	80</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F1</Title>
+<Expression>0.6288*sin(1.266 * x * 3.1415/180 - 1.9498) + 0.9352</Expression>
+<Variable>x</Variable>
+<Range>10	80</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#000000</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F5</Title>
+<Expression>8.88 * 10^(-6) * x^3 - 1.01 * 10^(-3) * x^2 + 2.86 * 10^(-2) * x + 7.72 * 10^(-2)</Expression>
+<Variable>x</Variable>
+<Range>10	80</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#00ff00</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F4</Title>
+<Expression>1.62389431 * 10^(-7) * x^4 - 2.19629124 * 10^(-5) * x^3 + 8.50926134 * 10^(-4) * x^2 - 1.41393092 * 10^(-2) * x + 3.68003571 * 10^(-1)</Expression>
+<Variable>x</Variable>
+<Range>10	80</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#00ffff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+<Function>
+<Type>0</Type>
+<Title>F6</Title>
+<Expression>1.67933053 * 10^(-7) * x^4 - 2.19627773 * 10^(-5) * x^3 + 8.50926136 * 10^(-4) * x^2 - 1.41393092 * 10^(-2) * x + 3.68003571 * 10^(-1)</Expression>
+<Variable>x</Variable>
+<Range>10	80</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#ff00ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+scale	0	-0.6	1	0	8	5	0	0
+scale	1	-0.6	1	0	8	5	0	0
+scale	2	0	90	0	8	5	0	0
+scale	3	0	90	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>1.2105263157895</x>
+<y>0.05592972181552</y>
+<right>32.9473684210526</right>
+<bottom>-0.555490483162518</bottom>
+<Text>
+\l(1) Експериментально обчислені значення відношення E<sub>⊥</sub>/E<sub>⊥0</sub>
+\l(2) Теоретично обчислені значення відношення E<sub>⊥</sub>/E<sub>⊥0</sub>
+\l(3) Експериментально обчислені значення відношення E<sub>∥</sub>/E<sub>∥0</sub>
+\l(4) Теоретично обчислені значення відношення E<sub>∥</sub>/E<sub>∥0</sub>
+\l(5) Теоретична крива відношення E<sub>⊥</sub>/E<sub>⊥0</sub>
+\l(6) Теоретична крива відношення E<sub>∥</sub>/E<sub>∥0</sub>
+\l(7) Експериментально підібрана крива відношення E<sub>⊥</sub>/E<sub>⊥0</sub>
+\l(8) Експериментально підібрана крива відношення E<sub>∥</sub>/E<sub>∥0</sub>
+\l(9)%(9)
+\l(10)%(10)
+</Text>
+<Font>MS Shell Dlg 2	15	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<table>
+Table2	30	2	24.04.2025 14:51:01
+geometry	794	76	445	220	active
+header	1[X]	2[Y]
+ColWidth	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13
+ReadOnlyColumn	0	0
+HiddenColumn	0	0
+Comments			
+WindowLabel		2
+<data>
+</data>
+</table>
+<open>1</open>

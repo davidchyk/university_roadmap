@@ -1,2 +1,4 @@
-*.lfs
+*.fls
 *.bkp
+*.log
+*.fdb_latexmk

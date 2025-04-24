@@ -1,6 +1,6 @@
 QtiPlot 0.9.7 project file
 <scripting-lang>	muParser
-<windows>	3
+<windows>	4
 <table>
 Table1	30	5	24.04.2025 11:38:20
 geometry	0	0	702	538	
@@ -26,7 +26,7 @@ WindowLabel		2
 </table>
 <multiLayer>
 Graph1	1	1	24.04.2025 11:44:53
-geometry	0	896	1920	926	minimized	
+geometry	maximized	active
 WindowLabel		2
 Margins	5	5	5	5
 Spacing	5	5
@@ -216,7 +216,7 @@ LabelsRotation	0	0
 </multiLayer>
 <table>
 Table2	30	2	24.04.2025 14:51:01
-geometry	794	76	445	220	active
+geometry	686	2	562	656	
 header	1[X]	2[Y]
 ColWidth	100	100	
 <com>
@@ -227,6 +227,115 @@ HiddenColumn	0	0
 Comments			
 WindowLabel		2
 <data>
+0	1.00000000000000e+00	3.72630000000000e+02
+1	9.90000000000000e-01	3.67400000000000e+02
+2	9.70000000000000e-01	3.60580000000000e+02
+3	9.30000000000000e-01	3.46450000000000e+02
+4	8.80000000000000e-01	3.27140000000000e+02
+5	8.20000000000000e-01	3.05110000000000e+02
+6	7.50000000000000e-01	2.78290000000000e+02
+7	6.70000000000000e-01	2.48940000000000e+02
+8	5.90000000000000e-01	2.17820000000000e+02
+9	5.00000000000000e-01	1.86140000000000e+02
+10	4.10000000000000e-01	1.53110000000000e+02
+11	3.30000000000000e-01	1.22640000000000e+02
+12	2.50000000000000e-01	9.28400000000000e+01
+13	1.80000000000000e-01	6.61800000000000e+01
+14	1.20000000000000e-01	4.33400000000000e+01
+15	7.00000000000000e-02	2.48700000000000e+01
+16	3.00000000000000e-02	1.12300000000000e+01
+17	1.00000000000000e-02	2.83000000000000e+00
 </data>
 </table>
+<multiLayer>
+Graph2	1	1	24.04.2025 17:14:10
+geometry	196	896	1920	926	minimized	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	19	12	1862	870
+PlotTitle	Графік залежності інтенсивності світла, що пройшло крізь поляризатор відносно значення cos<sup>2</sup>α.<br>Перевірка виконання закону Малюса	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	1	1	1	1	#a0a0a4	0	0.5	#a0a0a4	2	0.4	#a0a0a4	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	 значення cos<sup>2</sup>α, безрозмірна	Значення напруги фотодатчика U, В			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	24	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	19	75	0	0	0
+AxisFont0	MS Shell Dlg 2	19	50	0	0	0
+AxisFont1	MS Shell Dlg 2	19	50	0	0	0
+AxisFont2	MS Shell Dlg 2	19	50	0	0	0
+AxisFont3	MS Shell Dlg 2	19	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table2_1	Table2_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>F1</Title>
+<Expression>372.62*x</Expression>
+<Variable>x</Variable>
+<Range>0.01	1</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#ff0000</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+scale	0	0	400	0	10	5	0	0
+scale	1	0	400	0	8	5	0	0
+scale	2	0	1.2	0	8	5	0	0
+scale	3	0	1.2	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>0.026573426573427</x>
+<y>390.62957540264</y>
+<right>0.779020979020979</right>
+<bottom>354.904831625183</bottom>
+<Text>
+\l(1) Експериментально виміряні точки, на основі твердження про пряму пропорційність напруги від інтенсивності
+\l(2) Теоретична пряма, числове значення кутового коефіцієнт якої k ≈ 372,62
+
+Тут кут α - кут між напрямком світлового променя та нормаллю до поверхні
+</Text>
+<Font>MS Shell Dlg 2	15	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
 <open>1</open>

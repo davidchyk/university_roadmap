@@ -2,3 +2,9 @@
 *.bkp
 *.log
 *.fdb_latexmk
+*.aux
+*.out
+*.qti~
+*synctex.gz
+
+cspell.json

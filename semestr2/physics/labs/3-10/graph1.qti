@@ -1,0 +1,335 @@
+QtiPlot 0.9.7 project file
+<scripting-lang>	muParser
+<windows>	4
+<table>
+Table1	30	6	03.05.2025 15:29:12
+geometry	0	896	863	695	minimized	
+header	1[X]	2[Y]	3[X]	4[Y]	5[X]	6[Y]
+ColWidth	100	100	100	100	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13	0;0/13	0;0/13	0;0/13	0;0/13
+ReadOnlyColumn	0	0	0	0	0	0
+HiddenColumn	0	0	0	0	0	0
+Comments							
+WindowLabel		2
+<data>
+0	0.00000000000000e+00	0.00000000000000e+00	1.95800000000000e+01	-5.00000000000000e+00	4.19500000000000e+01	-5.00000000000000e+00
+1	2.00000000000000e+00	0.00000000000000e+00	1.95800000000000e+01	3.00900000000000e+01	4.19500000000000e+01	4.31700000000000e+01
+2	4.00000000000000e+00	0.00000000000000e+00				
+3	6.00000000000000e+00	0.00000000000000e+00				
+4	8.00000000000000e+00	2.00000000000000e+00				
+5	1.00000000000000e+01	1.20000000000000e+01				
+6	1.20000000000000e+01	1.70000000000000e+01				
+7	1.40000000000000e+01	2.00000000000000e+01				
+8	1.60000000000000e+01	2.40000000000000e+01				
+9	1.80000000000000e+01	2.60000000000000e+01				
+10	2.00000000000000e+01	3.00000000000000e+01				
+11	2.20000000000000e+01	3.20000000000000e+01				
+12	2.40000000000000e+01	3.00000000000000e+01				
+13	2.60000000000000e+01	2.30000000000000e+01				
+14	2.80000000000000e+01	1.40000000000000e+01				
+15	3.00000000000000e+01	1.80000000000000e+01				
+16	3.20000000000000e+01	2.20000000000000e+01				
+17	3.40000000000000e+01	2.80000000000000e+01				
+18	3.60000000000000e+01	3.50000000000000e+01				
+19	3.80000000000000e+01	3.80000000000000e+01				
+20	4.00000000000000e+01	4.20000000000000e+01				
+21	4.20000000000000e+01	4.10000000000000e+01				
+22	4.40000000000000e+01	4.00000000000000e+01				
+23	4.60000000000000e+01	4.00000000000000e+01				
+24	4.80000000000000e+01	3.80000000000000e+01				
+25	5.00000000000000e+01	3.90000000000000e+01				
+26	5.20000000000000e+01	4.00000000000000e+01				
+27	5.40000000000000e+01	4.20000000000000e+01				
+</data>
+</table>
+<multiLayer>
+Graph1	1	1	03.05.2025 15:30:12
+geometry	196	896	1920	926	minimized	
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	19	12	1863	871
+PlotTitle	Вольт-амперна характеристика (ВАХ) тиратрона в режимі збудження атомів	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	1	1	1	1	#a0a0a4	0	0.5	#a0a0a4	2	0.4	#a0a0a4	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Напруга U, В	Сила стуму I, мкА			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	24	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	19	75	0	0	0
+AxisFont0	MS Shell Dlg 2	19	50	0	0	0
+AxisFont1	MS Shell Dlg 2	19	50	0	0	0
+AxisFont2	MS Shell Dlg 2	19	50	0	0	0
+AxisFont3	MS Shell Dlg 2	19	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table1_1	Table1_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>F4</Title>
+<Expression>0.2145591 - 1.08892124*x + 0.52586759*x^2 - 0.12828468*x^3 + 0.01947222*x^4 - 0.00146317*x^5 + (5.78695415*10^(-5))* x^6 - (1.24148652*10^(-6))*x^7 + (1.37051583*10^(-8))*x^8 - (6.10844132*10^(-11))*x^9</Expression>
+<Variable>x</Variable>
+<Range>0	54</Range>
+<Points>1000</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#800000</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+curve	Table1_3	Table1_4	2	1	#008000	0	1	7	1	#008000	#008000	0	#000000	14	1	2	0	0	29	1
+curve	Table1_5	Table1_6	2	1	#008080	0	1	7	1	#008080	#008080	0	#000000	14	1	2	0	0	29	1
+scale	0	-1	50	0	7	5	0	0
+scale	1	-1	50	0	8	5	0	0
+scale	2	-2	60	0	8	5	0	0
+scale	3	-2	60	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-0.50773638968481</x>
+<y>48.377593360996</y>
+<right>23.7948424068768</right>
+<bottom>38.8547717842324</bottom>
+<Text>
+\l(1) Експериментально виміряні точки сил струмів
+\l(2) Аналітично підібрана крива ВАХ (поліном 9 порядку)
+\l(3) Перший максимум, U<sub>1</sub> ≈ 19,58 В
+\l(4) Другий максимум, U<sub>2</sub> ≈ 41,95 B 
+</Text>
+<Font>MS Shell Dlg 2	19	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<table>
+Table2	30	4	03.05.2025 16:51:46
+geometry	583	116	819	456	
+header	1[X]	2[Y]	3[X]	4[Y]
+ColWidth	100	100	100	100	
+<com>
+</com>
+ColType	0;0/13	0;0/13	0;0/13	0;0/13
+ReadOnlyColumn	0	0	0	0
+HiddenColumn	0	0	0	0
+Comments					
+WindowLabel		2
+<data>
+0	0.00000000000000e+00	0.00000000000000e+00	2.59528000000000e+01	-5.00000000000000e+01
+1	2.00000000000000e+00	0.00000000000000e+00	2.59528000000000e+01	-2.06400000000000e-02
+2	4.00000000000000e+00	0.00000000000000e+00		
+3	6.00000000000000e+00	0.00000000000000e+00		
+4	8.00000000000000e+00	0.00000000000000e+00		
+5	1.00000000000000e+01	0.00000000000000e+00		
+6	1.20000000000000e+01	0.00000000000000e+00		
+7	1.40000000000000e+01	0.00000000000000e+00		
+8	1.60000000000000e+01	0.00000000000000e+00		
+9	1.80000000000000e+01	0.00000000000000e+00		
+10	2.00000000000000e+01	0.00000000000000e+00		
+11	2.20000000000000e+01	0.00000000000000e+00		
+12	2.40000000000000e+01	0.00000000000000e+00		
+13	2.60000000000000e+01	0.00000000000000e+00		
+14	2.80000000000000e+01	0.00000000000000e+00		
+15	3.00000000000000e+01	-2.00000000000000e+00		
+16	3.20000000000000e+01	-1.00000000000000e+01		
+17	3.40000000000000e+01	-1.40000000000000e+01		
+18	3.60000000000000e+01	-1.60000000000000e+01		
+19	3.80000000000000e+01	-1.70000000000000e+01		
+20	4.00000000000000e+01	-1.80000000000000e+01		
+21	4.20000000000000e+01	-2.00000000000000e+01		
+22	4.40000000000000e+01	-2.00000000000000e+01		
+23	4.60000000000000e+01	-2.20000000000000e+01		
+24	4.80000000000000e+01	-2.40000000000000e+01		
+25	5.00000000000000e+01	-2.60000000000000e+01		
+26	5.20000000000000e+01	-3.00000000000000e+01		
+27	5.40000000000000e+01	-3.30000000000000e+01		
+28	5.50000000000000e+01	-3.40000000000000e+01		
+</data>
+</table>
+<multiLayer>
+Graph2	1	1	03.05.2025 16:52:39
+geometry	maximized	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	414	319
+Alignement	0	0
+<graph>
+ggeometry	19	12	1862	870
+PlotTitle	Вольт-амперна характеристика (ВАХ) тиратрона в режимі іонізації	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#000000
+grid	1	1	1	1	#a0a0a4	0	0.5	#a0a0a4	2	0.4	#a0a0a4	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Напруга U, В	Сила стуму I, мкА			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+TitleFont	MS Shell Dlg 2	24	75	0	0	0
+ScaleFont0	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont1	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont2	MS Shell Dlg 2	19	75	0	0	0
+ScaleFont3	MS Shell Dlg 2	19	75	0	0	0
+AxisFont0	MS Shell Dlg 2	19	50	0	0	0
+AxisFont1	MS Shell Dlg 2	19	50	0	0	0
+AxisFont2	MS Shell Dlg 2	19	50	0	0	0
+AxisFont3	MS Shell Dlg 2	19	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table2_1	Table2_2	1	0	#000000	0	1	7	1	#000000	#000000	0	#000000	14	1	2	0	0	29	1
+<Function>
+<Type>0</Type>
+<Title>F3</Title>
+<Expression>0.25093742 - 1.35809908*x + 0.6431029*x^2 - 0.10932124*x^3 + 0.00879093*x^4 - 0.0003696*x^5 + (8.25097532*10^(-6))*x^6 - (9.04616206*10^(-8))*x^7 + (3.32849926*10^(-10))*x^8 + (7.19734523*10^(-13))*x^9</Expression>
+<Variable>x</Variable>
+<Range>0	55</Range>
+<Points>100</Points>
+<Style>0</Style>
+<LineStyle>1</LineStyle>
+<Pen>
+	<Color>#0000ff</Color>
+	<Style>0</Style>
+	<Width>1</Width>
+</Pen>
+<xAxis>2</xAxis>
+<yAxis>0</yAxis>
+<Visible>1</Visible>
+</Function>
+curve	Table2_3	Table2_4	2	1	#ff0000	0	1	7	1	#ff0000	#ff0000	0	#000000	14	1	2	0	0	29	1
+scale	0	-40	4	0	8	5	0	0
+scale	1	-40	4	0	8	5	0	0
+scale	2	-2	58	0	8	5	0	0
+scale	3	-2	58	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>-0.29663962920046</x>
+<y>-3.6786703601108</y>
+<right>24.5932792584009</right>
+<bottom>-11.9058171745152</bottom>
+<Text>
+\l(1) Експериментально виміряні точки сил струмів
+\l(2) Аналітично підібрана крива ВАХ (поліном 9 порядку)
+\l(3) Значення напруги U, при якій з'являється іонний струм;
+U ≈ 25,94 В
+</Text>
+<Font>MS Shell Dlg 2	19	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>255</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+</multiLayer>
+<open>1</open>
+<log>
+[03.05.2025 15:30:29	Plot: ''Graph1'']
+Lorentz Fit of dataset: Table1_2, using function: y0+2*A/PI*w/(4*(x-xc)^2+w^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0,0001
+From x = 0,000000000000000e+00 to x = 5,400000000000000e+01
+A (area) = 1,091173638022390e+07 +/- 1,672681172349306e+09
+xc (center) = 6,207537284265582e+01 +/- 3,979919873324500e+01
+w (width) = 1,345964285668102e+03 +/- 6,958278004851023e+04
+y0 (offset) = -5,119426519587535e+03 +/- 5,243316278750343e+05
+--------------------------------------------------------------------------------------
+Chi^2/doF = 3,872383709919885e+01
+R^2 = 0,837557860540831
+Adjusted R^2 = 0,809307053678367
+RMSE (Root Mean Squared Error) = 6,22284798940154
+RSS (Residual Sum of Squares) = 929,372090380772
+---------------------------------------------------------------------------------------
+Iterations = 1000
+Status = the iteration has not converged yet
+---------------------------------------------------------------------------------------
+[03.05.2025 15:30:43	Plot: ''Graph1'']
+Gauss Fit of dataset: Table1_2, using function: y0+A*sqrt(2/PI)/w*exp(-2*((x-xc)/w)^2)
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0,0001
+From x = 0,000000000000000e+00 to x = 5,400000000000000e+01
+A (area) = 4,469660109065481e+06 +/- 1,100985192900908e+09
+xc (center) = 6,219162123834637e+01 +/- 4,015344171601805e+01
+w (width) = 8,571462834563329e+02 +/- 7,089499248521820e+04
+y0 (offset) = -4,118959681920074e+03 +/- 6,807297798136411e+05
+--------------------------------------------------------------------------------------
+Chi^2/doF = 3,871085877414470e+01
+R^2 = 0,837612303154123
+Adjusted R^2 = 0,809370964572232
+RMSE (Root Mean Squared Error) = 6,22180510576671
+RSS (Residual Sum of Squares) = 929,060610579473
+---------------------------------------------------------------------------------------
+Iterations = 1000
+Status = the iteration has not converged yet
+---------------------------------------------------------------------------------------
+[03.05.2025 15:30:56	Plot: ''Graph1'']
+Boltzmann (Sigmoidal) Fit of dataset: Table1_2, using function: A2+(A1-A2)/(1+exp((x-x0)/dx))
+Weighting Method: No weighting
+Scaled Levenberg-Marquardt algorithm with tolerance = 0,0001
+From x = 0,000000000000000e+00 to x = 5,400000000000000e+01
+A1 (init value) = -1,431680478519405e+06 +/- 1,086295686330731e+11
+A2 (final value) = 5,096679942065651e+01 +/- 3,670517981777429e+01
+x0 (center) = -3,205087340249610e+02 +/- 2,390082840457467e+06
+dx (time constant) = 3,148782537726332e+01 +/- 9,351676167742646e+01
+--------------------------------------------------------------------------------------
+Chi^2/doF = 3,773780001151823e+01
+R^2 = 0,841694175175628
+Adjusted R^2 = 0,814162727380085
+RMSE (Root Mean Squared Error) = 6,14310996251233
+RSS (Residual Sum of Squares) = 905,707200276437
+---------------------------------------------------------------------------------------
+Iterations = 1000
+Status = the iteration has not converged yet
+---------------------------------------------------------------------------------------
+</log>

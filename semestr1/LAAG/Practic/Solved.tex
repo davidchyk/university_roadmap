@@ -1,0 +1,665 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+\usepackage{fancyvrb}
+\usepackage{pdflscape}
+
+\usepackage{amsmath} % у преамбулі
+\usepackage{array, multirow}
+\usepackage{hyperref} % <-- Обов’язково підключіть цей пакет
+\usepackage{caption}
+\usepackage{booktabs}
+
+\usepackage{xcolor}
+
+\renewcommand{\thetable}{№\arabic{table}}
+\captionsetup[table]{name=Таблиця}  % замість "Табл." буде "Таблиця"
+
+\usepackage{graphicx} % <-- Для роботи з \includegraphics
+\usepackage{geometry}
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm
+}
+
+\begin{document}
+
+    \begin{titlepage}
+
+        \thispagestyle{empty}
+        \begin{center}
+            \large
+            Національний технічний університет України\\
+            «Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+            Факультет інформатики та обчислювальної техніки\\
+            Кафедра обчислювальної техніки
+        \end{center}
+
+        \vfill
+
+        \begin{center}
+            \textbf{\LARGE Лінійна алгебра та аналітична геометрія}\\[2em]
+            \textbf{\Large Вирішення задач практикуму}\\[0.5em]
+            (за збірником \textit{І. В. Алексєєвої, В. О. Гайдея,\\
+            О. О. Диховичного, Л. Б. Федорової})
+        \end{center}
+
+        \vfill
+
+        \begin{flushright}
+            Виконав: студент 1 курсу ФІОТ, гр. ІО-41\\
+            \textit{Давидчук А. М.}\\
+        \end{flushright}
+
+        \vfill
+
+        \begin{center}
+            Київ -- 2025
+        \end{center}
+
+    \end{titlepage}
+
+    \noindent \textbf{№ 1.4:}
+
+    Матриця 
+    \( A = 
+    \begin{pmatrix}
+    a & b \\
+    c & d \\
+    e & f
+    \end{pmatrix}
+    \)
+    має розмірність $3\times2$; $a_{21} = c, a_{32} = f$; Елемент $d$ знаходиться на позиції $a_{22}$, тобто має індекси: $i = 2, j = 2$.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.5:}
+
+    \vspace{1em}
+    1) Розмірність: $2\times3$; Рядки: \( a_{1j} = 
+    \begin{pmatrix}
+    4 & -7 & 5 
+    \end{pmatrix}
+    \), \( a_{2j} = 
+    \begin{pmatrix}
+    -6 & 8 & -1 
+    \end{pmatrix}
+    \); Стовпці: \( a_{i1} = 
+    \begin{pmatrix}
+    4 \\
+    -6
+    \end{pmatrix}
+    \), \( a_{i2} = 
+    \begin{pmatrix}
+    -7 \\
+    8
+    \end{pmatrix}
+    \), \( a_{i3} = 
+    \begin{pmatrix}
+    5 \\
+    -1
+    \end{pmatrix}
+    \); $a_{23} = -1, a_{32}$ не існує.
+
+    \vspace{1em}
+    2) Розмірність: $2\times4$; Рядки: \( a_{1j} = 
+    \begin{pmatrix}
+    -6 & 4 & -1 & 0 
+    \end{pmatrix}
+    \), \( a_{2j} = 
+    \begin{pmatrix}
+    -9 & 0 & 1/2 & 2 
+    \end{pmatrix}
+    \); Стовпці: \( a_{i1} = 
+    \begin{pmatrix}
+    -6 \\
+    -9
+    \end{pmatrix}
+    \), \( a_{i2} = 
+    \begin{pmatrix}
+    4 \\
+    0
+    \end{pmatrix}
+    \), \( a_{i3} = 
+    \begin{pmatrix}
+    -1 \\
+    1/2
+    \end{pmatrix}
+    \), \( a_{i4} = 
+    \begin{pmatrix}
+    0 \\
+    2
+    \end{pmatrix}
+    \); $a_{23} = 1/2, a_{32}$ не існує.
+
+    \vspace{1em}
+    3) Розмірність: $3\times3$; Рядки: \( a_{1j} = 
+    \begin{pmatrix}
+    1 & -2 & 3 
+    \end{pmatrix}
+    \), \( a_{2j} = 
+    \begin{pmatrix}
+    -4 & 5 & -6
+    \end{pmatrix}\), \( a_{3j} = 
+    \begin{pmatrix}
+    7 & -8 & 9
+    \end{pmatrix}
+    \); Стовпці: \( a_{i1} = 
+    \begin{pmatrix}
+    1 \\
+    -4 \\
+    7
+    \end{pmatrix}
+    \), \( a_{i2} = 
+    \begin{pmatrix}
+    -2 \\
+    5 \\
+    -8
+    \end{pmatrix}
+    \), \( a_{i3} = 
+    \begin{pmatrix}
+    3 \\
+    -6 \\
+    9
+    \end{pmatrix}
+    \)
+    ; $a_{23} = -6, a_{32} = -8$.
+
+    \vspace{1em}
+    4) Розмірність: $3\times2$; Рядки: \( a_{1j} = 
+    \begin{pmatrix}
+    -1 & 0 
+    \end{pmatrix}
+    \), \( a_{2j} = 
+    \begin{pmatrix}
+    3 & 4
+    \end{pmatrix}\), \( a_{3j} = 
+    \begin{pmatrix}
+    -7 & 5
+    \end{pmatrix}
+    \); Стовпці: \( a_{i1} = 
+    \begin{pmatrix}
+    -1 \\
+    4 \\
+    -7
+    \end{pmatrix}
+    \), \( a_{i2} = 
+    \begin{pmatrix}
+    0 \\
+    4 \\
+    5
+    \end{pmatrix}
+    \); $a_{23}$ не існує, $a_{32} = 5$.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.6:}
+
+    Матриця $A$ --- квадратна порядку 2, матриця $C$ --- квадратна 3 порядку;
+    Для матриці $A$ головна діагональ: \(
+    \begin{pmatrix}
+    3 & 0 
+    \end{pmatrix}
+    \), побічна діагональ:  \(
+    \begin{pmatrix}
+    -2 & 4 
+    \end{pmatrix}
+    \); Для матриці $C$ головна діагональ: \(
+    \begin{pmatrix}
+    c_{11} & c_{22} & c_{33} 
+    \end{pmatrix}
+    \), побічна діагональ:  \(
+    \begin{pmatrix}
+    c_{13} & c_{22} & c_{31} 
+    \end{pmatrix}
+    \).
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.7:}
+
+    Верхня трикутна матриця: $C$; Нижня трикутна матриця: $B$; Діагональна матриця: $A$.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.8:}
+
+    1) Ні. 2) Ні. 3) Так. Одинична матриця 4-го порядку $E_{4\times4}$:
+    \(
+    \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+    \end{pmatrix}
+    \)
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.9:}
+
+    Матриця $A$: квадратна 3-го порядку;
+    Матриця $B$: квадратна 2-го порядку, верхня трикутна;
+    Матриця $C$: квадратна 3-го порядку, одинична, діагональна; 
+    Матриця $D$: квадратна 3-го порядку;
+    Матриця $F$: матриця-стовпець (вектор-стовпець);
+    Матриця $G$: матриця-рядок (вектор-рядок).
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.10:}
+
+    1) $x = -3, y = 5$; 
+    2) $x = -3/2, y = 5$; 
+    3) $x = -1, y = 1$; 
+    4) $x = 1, y = -5$; 
+    5) $x = -1, y = 3, z = 4$;
+    6) $x = 2, y = 9, z = 0$.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.11:}
+
+    Ні; Так, нульову матрицю.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.12:}
+
+    Для узгоджених (кількість стовпців першого множника дорівнює кільості рядків другого множника);
+    Так, можна. Кожен елемент кожного рядка першого множника помножити на відповідний їм кожен елемент кожного стовпця другого множника
+    (або інкаше кажучи, якщо взяти числа координати елемента добутку матриць $i, j$, то індекс $i$ вказуватиме на $i$ рядок першого множника, а
+    індекс $j$ на $j$ стовпець другого множника, які потрібно почленно помножити, тобто $\displaystyle (AB)_{ij} = \sum_{k=1}^{n} a_{ik} \cdot b_{kj}$).
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.13:}
+
+    Ні, вони не узгоджені. Коли матриці $A$ та $B$ є квадратними одного порядку;
+    Коли матриця $A$ є квадратною матрицею.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.14:}
+
+    Не для всіх довільних матриць $A$ та $B$; Так, можлива.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.15:}
+
+    1) Ні; 
+    2) Так; 
+    3) Так;
+    4) Ні;
+    5) Ні.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.16:}
+
+    1) $m = 2, n = 3$; 
+    2) $m = 3, n = 4$; 
+    3) $m = 4, n = 3$; 
+    4) $m = n = 2$; 
+    5) $m = 9, n = 1$; 
+    6) $m = 7, n = 6$; 
+    7) $m = 2, n = 3$; 
+    8) $m = 5, n = 4$.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.17:}
+
+    Будуть такі: $n \times m$; Якщо елемент $a_{ij}$ це елемент матриці $A_{m\times n}$, 
+    то в транспонованій матриці він стане $a_{ji}$.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.18:}
+
+    Для кожної. $\displaystyle \left( A^T \right)^T = A$; Так, можуть, як приклад, симетричні матриці.
+
+    \vspace{1em}
+
+    \noindent \textbf{№ 1.19:}
+
+    Будемо вважати, що $\vec{a}_i$ --- це $i$-тий стовпець певної матриці. Тоді
+    $\vec{a}_1$ = \(
+    \begin{pmatrix}
+    1 \\
+    2 
+    \end{pmatrix}
+    \), $\vec{a}_2$ = \(
+    \begin{pmatrix}
+    -1 \\
+    0 
+    \end{pmatrix}
+    \), а також $\vec{b}_1$ = \(
+    \begin{pmatrix}
+    1 \\
+    -2 
+    \end{pmatrix}
+    \), $\vec{b}_2$ = \(
+    \begin{pmatrix}
+    1 \\
+    3 
+    \end{pmatrix}
+    \). 
+
+    1) $\vec{a}_1 + \vec{a}_2 = $ \(
+    \begin{pmatrix}
+    1 \\
+    2 
+    \end{pmatrix} +
+    \begin{pmatrix}
+    -1 \\
+    0 
+    \end{pmatrix}
+     = \begin{pmatrix}
+    0 \\
+    2 
+    \end{pmatrix},
+    \vec{a}_1 - \vec{a}_2 = \begin{pmatrix}
+    1 \\
+    2 
+    \end{pmatrix} -
+    \begin{pmatrix}
+    -1 \\
+    0 
+    \end{pmatrix}
+     = \begin{pmatrix}
+    2 \\
+    -2 
+    \end{pmatrix}
+    ,
+    2\vec{a}_1 + 3\vec{a}_2 = 2\begin{pmatrix}
+    1 \\
+    2 
+    \end{pmatrix}+
+    \)
+
+    \(
+    +3\begin{pmatrix}
+    -1 \\
+    0 
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    2 \\
+    4 
+    \end{pmatrix} +
+    \begin{pmatrix}
+    -3 \\
+    0 
+    \end{pmatrix} = \begin{pmatrix}
+    -1 \\
+    4 
+    \end{pmatrix}
+    ,
+    \alpha \vec{a}_1 + \beta \vec{a}_2 = 
+    \alpha \begin{pmatrix}
+    1 \\
+    2 
+    \end{pmatrix} + \beta \begin{pmatrix}
+    -1 \\
+    0 
+    \end{pmatrix} = \begin{pmatrix}
+    \alpha \\
+    2 \alpha
+    \end{pmatrix} + \begin{pmatrix}
+    -\beta \\
+    0 
+    \end{pmatrix}
+    =\)
+
+    \(
+    = \begin{pmatrix}
+    \alpha-\beta \\
+    2\alpha
+    \end{pmatrix};
+    \)
+
+    % 2 потрібно переробити, тому що там не вектор-стовпці, а вектор-рядки
+
+    2) $\vec{b}_1 + \vec{b}_2 = $ \(
+    \begin{pmatrix}
+    1 \\
+    -2 
+    \end{pmatrix} +
+    \begin{pmatrix}
+    1 \\
+    3 
+    \end{pmatrix}
+     = \begin{pmatrix}
+    2 \\
+    1 
+    \end{pmatrix},
+    \vec{b}_1 - \vec{b}_2 = \begin{pmatrix}
+    1 \\
+    -2 
+    \end{pmatrix} -
+    \begin{pmatrix}
+    1 \\
+    3 
+    \end{pmatrix}
+     = \begin{pmatrix}
+    0 \\
+    -5 
+    \end{pmatrix}
+    ,
+    2\vec{b}_1 + 3\vec{b}_2 = 2\begin{pmatrix}
+    1 \\
+    -2 
+    \end{pmatrix}+
+    \)
+
+    \(
+    +3\begin{pmatrix}
+    1 \\
+    3 
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    2 \\
+    -4 
+    \end{pmatrix} +
+    \begin{pmatrix}
+    3 \\
+    9 
+    \end{pmatrix} = \begin{pmatrix}
+    5 \\
+    5 
+    \end{pmatrix}
+    ,
+    \alpha \vec{b}_1 + \beta \vec{b}_2 = 
+    \alpha \begin{pmatrix}
+    1 \\
+    -2 
+    \end{pmatrix} + \beta \begin{pmatrix}
+    1 \\
+    3 
+    \end{pmatrix} = \begin{pmatrix}
+    \alpha \\
+    -2 \alpha
+    \end{pmatrix} + \begin{pmatrix}
+    \beta \\
+    3\beta 
+    \end{pmatrix}
+    =\)
+
+    \(
+    = \begin{pmatrix}
+    \alpha+\beta \\
+    3\beta - 2\alpha
+    \end{pmatrix};
+    \)
+
+    3) \(A + B = 
+    \begin{pmatrix}
+    1 & -1\\
+    2 & 0 
+    \end{pmatrix} + 
+    \begin{pmatrix}
+    1 & 1\\
+    -2 & 3 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    2 & 0\\
+    0 & 3 
+    \end{pmatrix}
+    ,
+    A - B = 
+    \begin{pmatrix}
+    1 & -1\\
+    2 & 0 
+    \end{pmatrix} - 
+    \begin{pmatrix}
+    1 & 1\\
+    -2 & 3 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    0 & -2\\
+    4 & -3 
+    \end{pmatrix},
+    \)
+
+    \(
+    2A + 3B = 
+    2\begin{pmatrix}
+    1 & -1\\
+    2 & 0 
+    \end{pmatrix} + 
+    3\begin{pmatrix}
+    1 & 1\\
+    -2 & 3 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    2 & -2\\
+    4 & 0 
+    \end{pmatrix} + 
+    \begin{pmatrix}
+    3 & 3\\
+    -6 & 9
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    5 & 1\\
+    -2 & 9 
+    \end{pmatrix},
+    A - C
+    \) ---
+    
+    неможливо провести додавання через різну розмірність,
+    \(A - \lambda E_2 = 
+    \begin{pmatrix}
+    1 & -1\\
+    2 & 0 
+    \end{pmatrix} - 
+    \lambda\begin{pmatrix}
+    1 & 0\\
+    0 & 1 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    1 & -1\\
+    2 & 0 
+    \end{pmatrix} - 
+    \begin{pmatrix}
+    \lambda & 0\\
+    0 & \lambda 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    1-\lambda & -1\\
+    2 & -\lambda 
+    \end{pmatrix};
+    \)
+
+    4) \(C + D = 
+    \begin{pmatrix}
+    1 & 2\\
+    4 & 0 \\
+    5 & 7 
+    \end{pmatrix} + 
+    \begin{pmatrix}
+    3 & -1 \\
+    1 & 0 \\
+    4 & -1 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    4 & 1 \\
+    5 & 0 \\
+    9 & 6 
+    \end{pmatrix}
+    ,
+    C - D = 
+    \begin{pmatrix}
+    1 & 2\\
+    4 & 0 \\
+    5 & 7 
+    \end{pmatrix} - 
+    \begin{pmatrix}
+    3 & -1 \\
+    1 & 0 \\
+    4 & -1 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    -2 & 3 \\
+    3 & 0 \\
+    1 & 8 
+    \end{pmatrix},
+    \)
+
+    \(
+    D - C= 
+    \begin{pmatrix}
+    3 & -1 \\
+    1 & 0 \\
+    4 & -1 
+    \end{pmatrix} - 
+    \begin{pmatrix}
+    1 & 2\\
+    4 & 0 \\
+    5 & 7 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    2 & -3\\
+    -3 & 0 \\
+    -1 & -8 
+    \end{pmatrix},
+    D - B
+    \) ---  неможливо провести додавання через різну розмірність,
+    \(B - \lambda E_2 = 
+    \begin{pmatrix}
+    1 & 1\\
+    -2 & 3 
+    \end{pmatrix} - 
+    \lambda\begin{pmatrix}
+    1 & 0\\
+    0 & 1 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    1 & 1\\
+    -2 & 3 
+    \end{pmatrix} - 
+    \begin{pmatrix}
+    \lambda & 0\\
+    0 & \lambda 
+    \end{pmatrix} = 
+    \begin{pmatrix}
+    1-\lambda & 1\\
+    -2 & 3-\lambda 
+    \end{pmatrix};
+    \)
+
+    5)
+
+
+
+
+
+
+
+
+\end{document}

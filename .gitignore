@@ -5,6 +5,7 @@
 *.aux
 *.out
 *.qti~
+*.pyc
 *synctex.gz
 
 cspell.json

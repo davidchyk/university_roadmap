@@ -1,0 +1,93 @@
+********************************************************************************
+***                            Micro-Cap 9.0.7.0                             ***
+***                             Micro-Cap 9.0.7                              ***
+***                            Spectrum Software                             ***
+***                       DC Analysis of keyFieldStZt                        ***
+********************************************************************************
+Limits
+======
+Variable 1 Method Auto
+Variable 1 Name   VG
+Variable 1 Range  10,0,.5
+Variable 2 Method Linear
+Variable 2 Name   VD
+Variable 2 Range  5,5,5
+Temperature       Linear 27
+Number of Points  51
+Maximum Change %  50
+Run Options       Normal
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     VD=5                      ***
+*****************************************************
+
+Temperature=27 VD=5 
+
+Model parameters for devices of type Mosfet NMOS
+================================================
+Instance:              M1   
+Using model:        BS170   
+LEVEL           UNDEFINED(*)
+AF                 1.000 (*)
+CBD               44.091p   
+CBS                0.000 (*)
+CGBO               0.000 (*)
+CGDO               1.653n   
+CGSO               1.653n   
+CJ                 0.000 (*)
+CJSW               0.000 (*)
+DELTA              0.000 (*)
+ETA                0.000 (*)
+FC               500.000m(*)
+GAMMA              0.000    
+GDSNOI             0.000    
+IS                10.000f   
+JS                10.000n   
+JSW                0.000 (*)
+KAPPA           UNDEFINED(*)
+KF                 0.000 (*)
+KP                20.000u   
+L                  2.000u   
+LAMBDA           455.328f   
+LD                 0.000 (*)
+MJ               500.000m(*)
+MJSW             330.000m(*)
+N                  1.000 (*)
+NEFF               1.000 (*)
+NFS                0.000 (*)
+NLEV               0.000    
+NSS             UNDEFINED(*)
+NSUB               0.000    
+PB               800.000m(*)
+PBSW             800.000m(*)
+PHI              600.000m   
+RB                 0.000 (*)
+RD                 0.000 (*)
+RDS              1.000MEG   
+RG                10.000    
+RS                 0.000 (*)
+RSH                0.000 (*)
+T_ABS           UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)
+THETA              0.000 (*)
+TOX                0.000    
+TPG                1.000    
+TT                 0.000 (*)
+UCRIT             10.000K(*)
+UEXP               0.000 (*)
+UO               600.000    
+UTRA               0.000 (*)
+VMAX               0.000 (*)
+VTO                1.596    
+W                  8.087m   
+WD                 0.000 (*)
+XJ                 0.000 (*)
+XQC                1.000 (*)
+(*) Default Parameter
+
+
+

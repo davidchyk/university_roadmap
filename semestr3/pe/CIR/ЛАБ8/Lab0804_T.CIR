@@ -1,0 +1,1408 @@
+[Main]
+FileType=CIR
+Version=9.00
+Program=Micro-Cap
+Screen=1600,900
+MCAPVersion=9.0.3.0
+Key ID=2 233 293 684
+NLCnt=91
+TXCnt=5
+
+[shapedef]
+Name=And2
+Root="And.root",0,-4,0
+
+[shapedef]
+Name=Nand2
+Root="Nand.root",0,-4,0
+
+[shapedef]
+Name=Or2
+Root="Or.root",0,-18,0
+
+[shapedef]
+Name=Inv
+Root="Inv.root",0,-16,0
+
+[shapedef]
+Name=Inv.root
+Line=8,-16,8,16
+Line=8,-16,40,0
+Line=8,16,40,0
+Line=0,0,8,0
+Ellipse=40,-2,44,2
+Line=44,0,47,0
+Line=46,0,48,0
+
+[shapedef]
+Name=Nand.root
+Line=0,0,8,0
+Line=8,20,8,-4
+Line=0,16,8,16
+Line=25,20,8,20
+Line=8,-4,25,-4
+Ellipse=40,6,44,10
+Line=44,8,48,8
+Arc=11,-4,40,20 , 25,24,24,-6
+
+[shapedef]
+Name=Or.root
+Line=42,8,48,8
+Line=0,0,10,0
+Line=0,16,10,16
+Line=24,-4,6,-4
+Line=6,20,24,20
+Arc=5,-4,43,34 , 42,8,24,-4
+Arc=0,-4,12,20 , 6,20,6,-4
+Arc=5,-18,43,20 , 24,20,42,8
+
+[shapedef]
+Name=And.root
+Line=0,0,9,0
+Line=0,16,9,16
+Line=9,20,9,-4
+Line=27,20,9,20
+Line=9,-4,27,-4
+Line=40,8,48,8
+Arc=12,-4,40,20 , 28,32,28,-16
+
+[shapedef]
+Name=STIM1
+Arc=50,-8,62,8 , 56,8,62,0
+Arc=50,-8,62,8 , 62,0,56,-8
+Line=13,8,57,8
+Arc=8,-8,18,8 , 13,-8,8,0
+Ellipse=53,-3,59,3,SOLID
+Line=64,0,72,0
+Arc=8,-8,18,8 , 8,0,13,8
+Line=13,-8,57,-8
+Line=56,0,64,0
+Line=17,4,22,4
+Line=22,4,22,-5
+Line=22,-5,29,-5
+Line=29,-5,29,4
+Line=29,4,33,4
+Line=33,4,33,-5
+Line=33,-5,36,-5
+Line=36,-5,36,4
+Line=36,4,41,4
+Line=41,4,41,-5
+Line=41,-5,43,-5
+
+[shapedef]
+Name=StimClock
+Arc=50,-8,62,8 , 56,8,62,0
+Arc=50,-8,62,8 , 62,0,56,-8
+Line=13,8,57,8
+Arc=8,-8,18,8 , 13,-8,8,0
+Ellipse=53,-3,59,3,SOLID
+Line=64,0,72,0
+Arc=8,-8,18,8 , 8,0,13,8
+Line=13,-8,57,-8
+Line=56,0,64,0
+Line=16,4,20,4
+Line=20,4,20,-4
+Line=20,-4,24,-4
+Line=24,-4,24,4
+Line=24,4,28,4
+Line=28,4,28,-4
+Line=28,-4,32,-4
+Line=32,-4,32,4
+Line=32,4,36,4
+Line=36,4,36,-4
+Line=36,-4,40,-4
+Line=40,-4,40,4
+Line=40,4,44,4
+Line=44,4,44,-4
+Line=44,-4,48,-4
+Line=48,-4,48,4
+Line=48,4,52,4
+
+[compdef]
+Name=DClock
+Definition=Macro
+Shape=StimClock
+Mask=4096
+memo=Digital Clock Stimulus Macro
+Link=http://www.spectrum-soft.com/news/fall2003/dclock.shtm
+Label Offset=29,10,12,21
+PinCnt=1
+Pin="Out",d,9,0
+
+[compdef]
+Name=Nand2
+Definition=NAND
+Shape=Nand2
+Mask=5123
+Data1=2
+memo=2 Input Generic NAND Gate
+Label Offset=14,4,8,9
+PinCnt=3
+Pin="In0",0,0,-8,-2
+Pin="In1",0,2,-8,-1
+Pin="Out",6,1,-9,-1
+
+[compdef]
+Name=Inverter
+Definition=INV
+Shape=Inv
+Mask=4611
+Data1=1
+memo=Generic Inverter Gate
+Label Offset=12,-6,11,21
+PinCnt=2
+Pin="In",0,0,-4,-2
+Pin="Out",6,0,-10,-2
+
+[compdef]
+Name=Stim1
+Definition=STIM
+Shape=STIM1
+Mask=5123
+Data2=1
+memo=1-Bit Digital Stimulus
+Label Offset=-10,-6,13,20
+PinCnt=1
+Pin="Out0",9,0,-5,-3
+
+[compdef]
+Name=Or2
+Definition=OR
+Shape=Or2
+Mask=4099
+Data1=2
+memo=2 Input Generic OR Gate
+Label Offset=15,4,7,10
+PinCnt=3
+Pin="In0",0,0,-6,-3
+Pin="In1",0,2,-6,-2
+Pin="Out",6,1,-7,-1
+
+[compdef]
+Name=And2
+Definition=AND
+Shape=And2
+Mask=4867
+Data1=2
+memo=2 Input Generic AND Gate
+Label Offset=12,21,8,8
+PinCnt=3
+Pin="In0",0,0,-6,-1
+Pin="In1",0,2,-6,-1
+Pin="Out",6,1,-7,-1
+
+[Circuit]
+Window Placement=2,3, -1,-1, -8,-31, 26,26,676,495
+Default Object=Color=#000080
+Default Object Font=Height=-15,FStyle=0,Color=#000080,Name=Arial
+Default Object Apply Border To Text=No
+Default Object Apply Fill To Text=No
+WinBackGround Color=#FFFFFF
+Select Color=#FF0000
+Select Box Color=#000080
+Grid Text Color=Height=-12,FStyle=0,Color=#0000FF,Name=Verdana
+Component Color=#0000FF
+Attribute Text=Height=-12,FStyle=0,Color=#008000,Name=Verdana
+Wire Color=#008000
+Bus Color=#008000
+Pin Connection=Height=-10,FStyle=0,Color=#FF0000,Name=Arial
+Node Number=Height=-11,FStyle=0,Color=#FF00FF,Name=Arial
+Node Voltage Color=#000000
+Dynamic AC Voltage Color=#E4E4E4
+Text Banner Text=Height=-15,FStyle=0,Color=#800000,Name=Arial
+Title Block Background=#C0C0C0
+Current=Height=-11,FStyle=0,Color=#0000FF,Name=Arial
+Power/Condition=Height=-11,FStyle=0,Color=#FF0000,Name=Arial
+Digital Path Color=#FF0000
+Title Block=Height=-15,FStyle=0,Color=#000000,Name=Arial
+Disabled	Color=#C0C0C0
+KeyWord Color=#0000FF
+Error	Color=#FF0000
+Digital 0 Color=#000000
+Digital R Color=#FFFF00
+Digital F Color=#FFFF00
+Digital 1 Color=#FF0000
+Digital X Color=#C0C0C0
+Digital Z Color=#808080
+Window Placement in Transient Analysis=2,3, -1,-1, -8,-31, 0,52,775,521
+SpiceType=AMBIGUOUS
+Block Select Color=#51F998
+TitleBlock Field_1=$name
+TitleBlock Field_2=$user $company
+TitleBlock Field_3
+TitleBlock Field_4=$date
+TitleBlock Field_5=Page $page of $maxpage
+TitleBlock One Title=False
+Title_Block_Border=False
+Title_Block=False
+Show Nodes=False
+Show Voltages=False
+Show Current=False
+Show Power=False
+Show Condition=False
+Show Pin Connections=False
+Show Cross=False
+Show Attribute Text=True
+Show Grid Text=True
+
+[Wire]
+Grids=16,25,18,25
+
+[Comp]
+Name=DClock
+Grid=9,25
+
+[Attr]
+ONV=29,10,PART,X2
+Style=8192
+
+[Attr]
+ONV=29,24,FILE,DClock
+
+[Attr]
+ONV=29,52,Param:ZEROWIDTH,250n
+
+[Attr]
+ONV=29,66,Param:ONEWIDTH,250n
+
+[Wire]
+Grids=28,21,28,25
+
+[Wire]
+Grids=28,25,28,29
+
+[Wire]
+Grids=47,21,49,21
+
+[Wire]
+Grids=47,33,48,33
+
+[Wire]
+Grids=49,21,49,30
+
+[Wire]
+Grids=49,21,61,21
+
+[Wire]
+Grids=42,30,42,32
+
+[Wire]
+Grids=51,26,51,33
+
+[Wire]
+Grids=41,26,51,26
+
+[Wire]
+Grids=51,33,61,33
+
+[Wire]
+Grids=41,22,41,26
+
+[Comp]
+Name=Nand2
+Grid=41,22
+Rot=4
+
+[Attr]
+ONV=14,-18,PART,U3
+Style=8192
+
+[Attr]
+ONV=14,-32,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=14,-46,I/O MODEL,IO_STD
+
+[Attr]
+ONV=14,-60,MNTYMXDLY,0
+
+[Attr]
+ONV=14,-72,IO_LEVEL,0
+
+[Attr]
+ONV=14,-72,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=14,-72,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Nand2
+Grid=42,34
+Rot=4
+
+[Attr]
+ONV=14,-18,PART,U4
+Style=8192
+
+[Attr]
+ONV=14,-32,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=14,-46,I/O MODEL,IO_STD
+
+[Attr]
+ONV=14,-60,MNTYMXDLY,0
+
+[Attr]
+ONV=14,-74,IO_LEVEL,0
+
+[Attr]
+ONV=14,-88,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=14,-102,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Nand2
+Grid=28,21
+Rot=4
+
+[Attr]
+ONV=14,-18,PART,U1
+Style=8192
+
+[Attr]
+ONV=14,-32,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=14,-46,I/O MODEL,IO_STD
+
+[Attr]
+ONV=14,-60,MNTYMXDLY,0
+
+[Attr]
+ONV=14,-72,IO_LEVEL,0
+
+[Attr]
+ONV=14,-72,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=14,-72,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Nand2
+Grid=28,31
+Rot=4
+
+[Attr]
+ONV=14,-18,PART,U2
+Style=8192
+
+[Attr]
+ONV=14,-32,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=14,-46,I/O MODEL,IO_STD
+
+[Attr]
+ONV=14,-60,MNTYMXDLY,0
+
+[Attr]
+ONV=14,-72,IO_LEVEL,0
+
+[Attr]
+ONV=14,-72,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=14,-72,GROUND NODE,$G_DGND
+
+[Wire]
+Grids=61,23,61,28
+
+[Wire]
+Grids=67,8,67,22
+
+[Wire]
+Grids=80,23,81,23
+
+[Wire]
+Grids=80,35,81,35
+
+[Wire]
+Grids=87,23,87,40
+
+[Wire]
+Grids=85,15,85,35
+
+[Wire]
+Grids=74,28,84,28
+
+[Wire]
+Grids=74,24,74,28
+
+[Comp]
+Name=Nand2
+Grid=75,24
+Rot=4
+
+[Attr]
+ONV=15,-17,PART,U8
+Style=8192
+
+[Attr]
+ONV=14,-32,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=14,-46,I/O MODEL,IO_STD
+
+[Attr]
+ONV=14,-60,MNTYMXDLY,0
+
+[Attr]
+ONV=14,-72,IO_LEVEL,0
+
+[Attr]
+ONV=14,-72,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=14,-72,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Nand2
+Grid=75,36
+Rot=4
+
+[Attr]
+ONV=14,-17,PART,U9
+Style=8192
+
+[Attr]
+ONV=14,-32,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=14,-46,I/O MODEL,IO_STD
+
+[Attr]
+ONV=14,-60,MNTYMXDLY,0
+
+[Attr]
+ONV=14,-74,IO_LEVEL,0
+
+[Attr]
+ONV=14,-88,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=14,-102,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Nand2
+Grid=61,23
+Rot=4
+
+[Attr]
+ONV=14,-18,PART,U6
+Style=8192
+
+[Attr]
+ONV=14,-32,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=14,-46,I/O MODEL,IO_STD
+
+[Attr]
+ONV=14,-60,MNTYMXDLY,0
+
+[Attr]
+ONV=14,-72,IO_LEVEL,0
+
+[Attr]
+ONV=14,-72,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=14,-72,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Nand2
+Grid=61,33
+Rot=4
+
+[Attr]
+ONV=14,-18,PART,U7
+Style=8192
+
+[Attr]
+ONV=14,-32,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=14,-46,I/O MODEL,IO_STD
+
+[Attr]
+ONV=14,-60,MNTYMXDLY,0
+
+[Attr]
+ONV=14,-72,IO_LEVEL,0
+
+[Attr]
+ONV=14,-72,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=14,-72,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Inverter
+Grid=45,45
+Rot=4
+
+[Attr]
+ONV=12,-8,PART,U5
+Style=8192
+
+[Attr]
+ONV=12,-22,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=12,-36,I/O MODEL,IO_STD
+
+[Attr]
+ONV=12,-50,MNTYMXDLY,0
+
+[Attr]
+ONV=12,-64,IO_LEVEL,0
+
+[Attr]
+ONV=12,-78,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=12,-92,GROUND NODE,$G_DGND
+
+[Wire]
+Grids=20,25,20,45
+
+[Wire]
+Grids=20,45,45,45
+
+[Wire]
+Grids=20,25,28,25
+
+[Wire]
+Grids=51,45,58,45
+
+[Wire]
+Grids=58,28,58,45
+
+[Wire]
+Grids=58,28,61,28
+
+[Wire]
+Grids=61,28,61,31
+
+[Wire]
+Grids=48,33,51,33
+
+[Wire]
+Grids=42,30,49,30
+
+[Wire]
+Grids=75,32,75,34
+
+[Wire]
+Grids=25,15,25,19
+
+[Wire]
+Grids=25,40,87,40
+
+[Wire]
+Grids=25,31,25,40
+
+[Wire]
+Grids=25,31,28,31
+
+[Wire]
+Grids=25,15,85,15
+
+[Wire]
+Grids=25,19,28,19
+
+[Wire]
+Grids=87,23,89,23
+
+[Wire]
+Grids=85,35,88,35
+
+[Wire]
+Grids=84,28,84,35
+
+[Wire]
+Grids=84,35,85,35
+
+[Wire]
+Grids=82,23,82,32
+
+[Wire]
+Grids=82,23,87,23
+
+[Comp]
+Name=Stim1
+Grid=2,16
+Rot=4
+
+[Attr]
+ONV=-10,-8,PART,U18
+Style=8192
+
+[Attr]
+ONV=-10,-22,FORMAT,1
+
+[Attr]
+ONV=-10,-36,COMMAND,_00250N1
+
+[Attr]
+ONV=-10,-50,I/O MODEL,IO_STD
+
+[Attr]
+ONV=-10,-64,TIMESTEP,0
+
+[Attr]
+ONV=-10,-78,IO_LEVEL,0
+
+[Attr]
+ONV=-10,-92,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=-10,-106,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Or2
+Grid=35,6
+
+[Attr]
+ONV=13,1,PART,U15
+Style=8192
+
+[Attr]
+ONV=15,18,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=15,32,I/O MODEL,IO_STD
+
+[Attr]
+ONV=15,46,MNTYMXDLY,0
+
+[Attr]
+ONV=15,60,IO_LEVEL,0
+
+[Attr]
+ONV=15,74,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=15,88,GROUND NODE,$G_DGND
+
+[Comp]
+Name=Or2
+Grid=69,6
+
+[Attr]
+ONV=12,-2,PART,U19
+Style=8192
+
+[Attr]
+ONV=15,18,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=15,32,I/O MODEL,IO_STD
+
+[Attr]
+ONV=15,46,MNTYMXDLY,0
+
+[Attr]
+ONV=15,60,IO_LEVEL,0
+
+[Attr]
+ONV=15,74,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=15,88,GROUND NODE,$G_DGND
+
+[Comp]
+Name=And2
+Grid=34,50
+
+[Attr]
+ONV=12,0,PART,U14
+Style=8192
+
+[Attr]
+ONV=-65,-36,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=-55,-50,I/O MODEL,IO_STD
+
+[Attr]
+ONV=-16,-64,MNTYMXDLY,0
+
+[Attr]
+ONV=-16,-78,IO_LEVEL,0
+
+[Attr]
+ONV=-71,-92,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=-69,-106,GROUND NODE,$G_DGND
+
+[Comp]
+Name=And2
+Grid=69,50
+
+[Attr]
+ONV=11,1,PART,U20
+Style=8192
+
+[Attr]
+ONV=-65,-36,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=-55,-50,I/O MODEL,IO_STD
+
+[Attr]
+ONV=-16,-64,MNTYMXDLY,0
+
+[Attr]
+ONV=-16,-78,IO_LEVEL,0
+
+[Attr]
+ONV=-71,-92,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=-69,-106,GROUND NODE,$G_DGND
+
+[Wire]
+Grids=14,4,33,4
+
+[Wire]
+Grids=33,4,69,4
+
+[Wire]
+Grids=33,4,33,6
+
+[Wire]
+Grids=33,6,35,6
+
+[Wire]
+Grids=14,10,14,16
+
+[Wire]
+Grids=3,22,11,22
+
+[Wire]
+Grids=3,22,3,56
+
+[Wire]
+Grids=3,56,33,56
+
+[Wire]
+Grids=69,52,69,56
+
+[Wire]
+Grids=33,52,33,56
+
+[Wire]
+Grids=33,52,34,52
+
+[Wire]
+Grids=33,56,69,56
+
+[Wire]
+Grids=41,7,41,20
+
+[Wire]
+Grids=40,34,40,51
+
+[Wire]
+Grids=40,34,42,34
+
+[Wire]
+Grids=34,8,34,20
+
+[Wire]
+Grids=67,32,67,50
+
+[Wire]
+Grids=75,36,75,51
+
+[Comp]
+Name=Inverter
+Grid=14,10
+Rot=5
+
+[Attr]
+ONV=12,-8,PART,U21
+Style=8192
+
+[Attr]
+ONV=12,-22,TIMING MODEL,D0_GATE
+
+[Attr]
+ONV=12,-36,I/O MODEL,IO_STD
+
+[Attr]
+ONV=12,-50,MNTYMXDLY,0
+
+[Attr]
+ONV=12,-64,IO_LEVEL,0
+
+[Attr]
+ONV=12,-78,POWER NODE,$G_DPWR
+
+[Attr]
+ONV=12,-92,GROUND NODE,$G_DGND
+
+[Wire]
+Grids=34,8,35,8
+
+[Wire]
+Grids=35,6,36,6
+
+[Wire]
+Grids=35,8,36,8
+
+[Wire]
+Grids=67,50,69,50
+
+[Wire]
+Grids=81,35,84,35
+
+[Wire]
+Grids=11,16,14,16
+
+[Wire]
+Grids=11,16,11,22
+
+[Wire]
+Grids=18,25,20,25
+
+[Wire]
+Grids=69,4,69,6
+
+[Wire]
+Grids=67,8,69,8
+
+[Wire]
+Grids=75,7,75,22
+
+[Wire]
+Grids=81,23,82,23
+
+[Wire]
+Grids=74,24,75,24
+
+[Wire]
+Grids=75,32,82,32
+
+[Wire]
+Grids=34,30,34,50
+
+[Grid Text]
+Text="R"
+Grid=23,32
+CBorder=NONE
+
+[Grid Text]
+Text="S"
+Grid=23,20
+CBorder=NONE
+
+[Grid Text]
+Text="C"
+Grid=18,25
+CBorder=NONE
+
+[Grid Text]
+Text="notQ"
+Grid=88,35
+CBorder=NONE
+
+[Grid Text]
+Text="Q"
+Grid=89,23
+CBorder=NONE
+
+[Schematic]
+CurrentSection 0=0
+CurrentSection 1=0
+CurrentSection 2=0
+CurrentSection 3=0
+Splitter.xs=0
+Splitter.ys=0
+TextQuad=4099
+Scale=0.6666666666666666
+PrinterScale=1
+GridUser=10
+ShapeGroups="Main","DeMorgan","Euro","Polarity","Electrolytic"
+CalcRMS=False
+CalcAVG=False
+CalcPeak=False
+DisplayMeasure=Last
+
+[Tools]
+Pos=Top
+PROBE=Yes
+SELECT=Yes
+COMP=Yes
+TEXT=Yes
+WIRE=Yes
+WIRED=Yes
+BUS=Yes
+GRAPHIC=Yes
+LINE=No
+ELLIPSE=No
+RECT=No
+DIAM=No
+ARC=No
+PIE=No
+LEFTBRK=No
+RIGHTBRK=No
+BOTHBRK=No
+FLAG=Yes
+META=No
+INFO=Yes
+HELP=Yes
+LINK=Yes
+REGION_ENABLE=Yes
+DIGTRC=No
+DIGTRC2=No
+DIGALL=No
+GRIDTEXT=Yes
+COMPTEXT=Yes
+NODE=Yes
+MEASURED=Yes
+NODEV=Yes
+CURRENT=Yes
+POWER=Yes
+CONDITIN=Yes
+PIN=Yes
+CROSS=No
+GRID=Yes
+BORDER=No
+TITLE=Yes
+RUBBER=Yes
+PROPERTY=Yes
+STEP=Yes
+MIRROR=Yes
+ROTATE=Yes
+FLIPY=Yes
+FLIPX=Yes
+FINDCOMP=Yes
+FIND=Yes
+REPEAT=No
+MODEL=Yes
+CIR2CKT=No
+ATTDISP=No
+ENABLE=Yes
+DISABLE=Yes
+TOFRONT=Yes
+TOBACK=Yes
+SELNEXT=No
+PAGEADD=No
+PAGEDEL=No
+ZOOMIN=Yes
+ZOOMOUT=Yes
+GOTOFLAG=No
+UPLEVEL=Yes
+COLOR=Yes
+FONT=Yes
+
+[Section]
+Index=0
+Name="Lab0804T-triger222222"
+Type=Main
+Enable=True
+CurrentPage 0=0
+CurrentPage 1=0
+CurrentPage 2=0
+CurrentPage 3=0
+TabSize 0=425
+TabSize 1=425
+TabSize 2=425
+TabSize 3=425
+
+[Page]
+Index=0
+Section=0
+Print=True
+Enable=True
+Name=Main
+Scale 0=1
+Scale 1=1
+Scale 2=1
+SB 3=0,23
+Scale 3=0.6666666666666666
+Grid=108,17
+
+[Page]
+Index=1
+Section=0
+Type=Text
+Print=False
+Enable=True
+Name=Text
+SB 0=0,7
+
+[Page]
+Index=2
+Section=0
+Type=Text
+Print=False
+Enable=True
+Name=Models
+
+[Page]
+Index=3
+Section=0
+Type=Info
+Print=False
+Enable=True
+Name=Info
+
+[Text Area]
+Section=0
+Page=1
+Font=Height=-16,FStyle=0,Color=#000000,Name=Courier New
+Comment Color=#008000
+Background Color=#FFFFFF
+Len=75
+
+.define Set 
+ +0ns 0
+ +250n 1
+
+.define _00250N1 
+ +0ns 0
+ +250n 1
+
+
+[Text Area]
+Section=0
+Page=2
+Font=Height=-16,FStyle=0,Color=#000000,Name=Courier New
+Comment Color=#008000
+Background Color=#FFFFFF
+Len=0
+
+
+[Transient]
+Window Placement=2,3, -1,-1, -8,-31, 0,52,775,521
+Font=Height=-15,FStyle=0,Color=#0000FF,Name=Arial
+WinBackGround Color=#FFFFFF
+Select Color=#FF0000
+Select Box Color=#000080
+Title
+AutoTitle=Yes
+Grid Color=#808080
+Grid Weight=1
+Grid Pattern=Dot6
+Tracker Foreground=Height=-15,FStyle=0,Color=#000000,Name=Arial
+Tracker Background=#FFFF00
+Baseline color=#0000FF
+Static Grids=False
+PlusMark=False
+MinorLog25=Off
+LabelMinor=Off
+OperPoint=True
+OperPointOnly=False
+AutoScaleRanges=False
+DataPoints=False
+Token=False
+Ruler=False
+XAxisGrids=True
+YAxisGrids=True
+MinorLogGrids=True
+BaseLine=False
+Graph Background=#FFFFFF
+Tracker Intercept=False
+Tracker Mouse=True
+Tracker Cursor=True
+Tracker Cursor BranchInfo=False
+Horizontal Cursor=False
+Same Y Scales=Yes
+Enable X Scaling=True
+Enable Y Scaling=True
+Keep X Scales The Same=False
+Number of Grids X=5
+Number of Grids Y=5
+Cursor Select Color Primary=#C0C0C0
+Cursor Select Color Secondary=#FF0000
+Data Point Labels Color Fore=Height=-15,FStyle=0,Color=#000000,Name=Arial
+Data Point Labels Color Back=#FFFF00
+FFT_NPts="1024"
+FFT_IncludeDCHarmonic=False
+FFT_AutoScale_Harmonics="10"
+PrinterAutoTile=No
+PrinterBlackBorder=No
+MonMaxShow=5
+MonPageWidth=66
+MonPlotWidth=21
+MonExprXWidth=142
+MonExprYWidth=260
+MonRangeXWidth=90
+MonRangeYWidth=90
+AnimateWait=0
+AnimateWaitTime=500
+Save_For_Future=No
+Reduce_Display=1
+Reduce_Save=1
+Num Out Header Left
+Num Out Header Center="$MC\n$user\n$company\n$Analysis of $name"
+Num Out Header Right
+Num Out Delimiter=32
+Num Out Write=True
+Num Out Write Main Header=True
+Num Out Write Limits=True
+Num Out Write Branch Header=True
+Num Out Write Models=True
+Num Out Write Zero Models=True
+Num Out Write Undefined Models=True
+Num Out Write Operating Point=True
+Num Out Write Values=True
+Num Out Write Waveform Header=True
+Num Out Low="TMIN"
+Num Out High="TMAX"
+Num Out Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
+
+[Tools]
+Pos=Top
+SELECT=Yes
+GRAPHIC=Yes
+LINE=No
+ELLIPSE=No
+RECT=No
+DIAM=No
+ARC=No
+PIE=No
+LEFTBRK=No
+RIGHTBRK=No
+BOTHBRK=No
+POLYCLOS=No
+SCALE=Yes
+CURSOR=Yes
+MEASUREH=Yes
+MEASUREV=Yes
+TAG=Yes
+PTAG=Yes
+TEXT=Yes
+PROPERTY=Yes
+START=Yes
+STOP=Yes
+PAUSE=Yes
+DATAPTS=Yes
+TOKENS=Yes
+RULER=Yes
+PLUS=Yes
+XAXIS=Yes
+YAXIS=Yes
+MINORLOG=Yes
+LOG25=Yes
+BASELINE=Yes
+HORIZCUR=Yes
+GOTOX=Yes
+GOTOY=Yes
+GOTOPERF=Yes
+GOTOBRNC=Yes
+CLEAR_ACCUMULATED=Yes
+PDELETE_ALL_PLOTS=Yes
+NEXT=Yes
+NEXTIN=Yes
+PEAK=Yes
+VALLEY=Yes
+HIGH=Yes
+LOW=Yes
+INFLECTN=Yes
+GHIGH=Yes
+GLOW=Yes
+BOTTOM=Yes
+TOP=Yes
+WAVEFORMBUFFER=Yes
+AOUTPUT=Yes
+PKEY=Yes
+ENXSCALE=Yes
+ENYSCALE=Yes
+ZOOMIN=Yes
+ZOOMOUT=Yes
+AUTOSCALE=Yes
+COLOR=Yes
+FONT=Yes
+SELNEXT=No
+
+[APage]
+Analysis=Transient
+Name="Main"
+
+[Monte Carlo Options]
+Analysis=Transient
+Status=Off
+Zero Tolerance=False
+Distribution=Normal
+Number of Runs=10
+Seed=0
+
+[Limits]
+Analysis=Transient
+TRange=8u
+TStep=0
+NPts=51
+Temp=27
+RetraceRuns=1
+StateVar=Zero
+RunOption=Normal
+Temperature Type=Linear
+Accumulate Plots=False
+
+[WaveForm]
+Analysis=Transient
+AliasID=1
+XExp=T
+YExp=d(C)
+XRng=8e-6
+YRng=Auto
+Options=LINEARX,LINEARY
+Range Grid X=1.6e-6
+Line Color=#0000FF
+Text Color=#0000FF
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=3
+SFmtY=3
+
+[WaveForm]
+Analysis=Transient
+Plt=2
+AliasID=2
+XExp=T
+YExp=d(15)
+XRng=8e-6
+YRng=Auto
+Options=LINEARX,LINEARY
+Range Grid X=1.6e-6
+Line Color=#FF0000
+Text Color=#FF0000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=3
+SFmtY=3
+
+[WaveForm]
+Analysis=Transient
+Plt=1
+AliasID=5
+XExp=T
+YExp=d(C)
+XRng=8e-6
+YRng=Auto
+Options=LINEARX,LINEARY
+Range Grid X=1.6e-6
+Line Color=#008000
+Text Color=#008000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=3
+SFmtY=3
+
+[WaveForm]
+Analysis=Transient
+Plt=1
+AliasID=3
+XExp=T
+YExp=d(Q)
+XRng=8e-6
+YRng=Auto
+Options=LINEARX,LINEARY
+Range Grid X=1.6e-6
+Line Color=#FF00FF
+Text Color=#FF00FF
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=3
+SFmtY=3
+
+[WaveForm]
+Analysis=Transient
+Plt=1
+AliasID=4
+XExp=T
+YExp=d(notQ)
+XRng=8e-6
+YRng=Auto
+Options=LINEARX,LINEARY
+Range Grid X=1.6e-6
+Line Color=#000000
+Text Color=#000000
+Rainbow=False
+VFmtX=3
+VFmtY=3
+ScaleFactorX="None"
+ScaleFactorY="None"
+ScaleUnitsX="Auto"
+ScaleUnitsY="Auto"
+SFmtX=3
+SFmtY=3
+
+[Limits]
+Analysis=DynamicAC
+FirstValueDisplay=Mag
+SecondValueDisplay=PhaseDeg
+PlaceText=True
+
+[Limits]
+Analysis=DynamicDC
+PlaceText=True
+
+[Pane]
+Analysis=Transient
+CurrentPage 0="Main"
+
+[Pane]
+Analysis=AC
+
+[Pane]
+Analysis=DC
+
+[Pane]
+Analysis=Distortion
+
+[Watch]
+Analysis=Transient
+Format=3
+ExprPercentWidth=80
+
+[OPMethods]
+Analysis=Transient
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=AC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=DC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0

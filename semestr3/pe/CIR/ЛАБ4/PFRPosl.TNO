@@ -1,0 +1,138 @@
+********************************************************************************
+***                            Micro-Cap 9.0.7.0                             ***
+***                             Micro-Cap 9.0.7                              ***
+***                            Spectrum Software                             ***
+***                      Transient Analysis of PFRPosl                       ***
+********************************************************************************
+Limits
+======
+Time Range           5m
+Maximum Time Step    0
+Number of Points     51
+Temperature          Linear 27
+Run Options          Normal
+State Variables      Zero
+Operating Point      On
+Operating Point Only Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27 
+
+Model parameters for devices of type Diode
+==========================================
+Instance:              D1              D2   
+Using model:     $GENERIC        $GENERIC   
+LEVEL                   1(*)            1(*)
+AF                 1.000 (*)       1.000 (*)
+BV               500.000         500.000    
+CJO                2.500p          2.500p   
+EG                 1.110 (*)       1.110 (*)
+FC               500.000m(*)     500.000m(*)
+IBV              100.000p(*)     100.000p(*)
+IBVL               0.000 (*)       0.000 (*)
+IKF                0.000 (*)       0.000 (*)
+IS                 8.000n          8.000n   
+ISR                0.000 (*)       0.000 (*)
+KF                 0.000 (*)       0.000 (*)
+M                100.000m        100.000m   
+N                  2.000           2.000    
+NBV                1.000 (*)       1.000 (*)
+NBVL               1.000 (*)       1.000 (*)
+NR                 2.000 (*)       2.000 (*)
+RL                 5.000G          5.000G   
+RS               400.000m        400.000m   
+T_ABS           UNDEFINED(*)    UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)    UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)    UNDEFINED(*)
+TBV1               0.000 (*)       0.000 (*)
+TBV2               0.000 (*)       0.000 (*)
+TIKF               0.000 (*)       0.000 (*)
+TRS1               0.000 (*)       0.000 (*)
+TRS2               0.000 (*)       0.000 (*)
+TT                 1.000n          1.000n   
+VJ               700.000m        700.000m   
+XTI                3.000 (*)       3.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Pulse
+==========================================
+Instance:              V2   
+Using model:       SQUARE   
+P1                 0.000    
+P2                 1.000u   
+P3               500.000u   
+P4               501.000u   
+P5                 1.000m   
+VONE              11.000    
+VZERO            -11.000    
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+1           -11.000   OUT        -140.693u  3             4.000  
+IN          -11.000  
+
+
+Operating point for devices of type Diode
+=========================================
+Instance:                 D1              D2
+Using model:        $GENERIC        $GENERIC
+ID                  -10.211n         -8.804n
+VD                  -11.000          -4.000 
+REQ                   4.975G          4.975G
+CAP                   1.886p          2.067p
+
+DC Power Terms:
+PD                  112.319n         35.217n
+PS                    0.000           0.000 
+
+DC Pin Currents:
+Id                  -10.211n         -8.804n
+
+Condition:
+State                    OFF             OFF
+
+
+
+Operating point for devices of type Resistor
+============================================
+Instance:                  R1              R2
+DC Power Terms:
+PD                   521.319f        197.946f
+
+DC Pin Currents:
+Ir                   -10.211n          1.407n
+
+
+
+Operating point for devices of type Pulse
+=========================================
+Instance:                  V2
+Using model:           SQUARE
+DC Power Terms:
+PG                   112.321n
+
+DC Pin Currents:
+ISource               10.211n
+
+
+
+Operating point for devices of type SPICE Source
+================================================
+Instance:                 V1
+DC Power Terms:
+PG                   35.216n
+
+DC Pin Currents:
+ISource              -8.804n
+
+

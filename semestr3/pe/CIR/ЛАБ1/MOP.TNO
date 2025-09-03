@@ -1,0 +1,287 @@
+********************************************************************************
+***                            Micro-Cap 9.0.7.0                             ***
+***                             Micro-Cap 9.0.7                              ***
+***                            Spectrum Software                             ***
+***                        Transient Analysis of MOP                         ***
+********************************************************************************
+Limits
+======
+Time Range           10
+Maximum Time Step    0.0001
+Number of Points     51
+Temperature          Linear 27
+Run Options          Normal
+State Variables      Zero
+Operating Point      On
+Operating Point Only Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27 
+
+Model parameters for devices of type Sine Source
+================================================
+Instance:                V2   
+Using model:           60HZ   
+A                   50.000m   
+DC                   0.000 (*)
+F                    1.000    
+PH                   0.000 (*)
+RP                   0.000 (*)
+RS                  10.000m   
+TAU                  0.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+IN            0.000   2             9.804   3             7.843  
+4            15.000   OUT           0.000  
+
+
+Operating point for devices of type EKV NMOS
+============================================
+Instance:                               M1
+Using model:                        $EKV_N
+Cbd(at v=0)                         0.000 
+Cbdsw(at v=0)                       0.000 
+Cbs(at v=0)                         0.000 
+Cbssw(at v=0)                       0.000 
+drain lead resistance               0.000 
+source lead resistance              0.000 
+gate lead resistance                0.000 
+bulk lead resistance                0.000 
+drain vcrit                       722.251m
+gbd                                 1.527p
+gbs                                 1.527p
+gds                                 1.325u
+gm                                389.127u
+gmb                               105.856u
+gms                               496.308u
+ib                                 -4.134p
+Ibd                                -4.134p
+Ibs                                 0.000 
+Id                                  2.309m
+If                                 22.145K
+ig                                  0.000 
+ir                                170.084m
+irprime                             8.263 
+is                                 -2.309m
+isub                            4.916E-053
+n_slope                             1.119 
+power                              18.107m
+qbd                                 0.000 
+qbs                                 0.000 
+rd                                  0.000 
+rs                                  0.000 
+sourcevcrit                       722.251m
+taf                               997.224m
+tau                                 0.000 
+tcbd                                0.000 
+tcbs                                0.000 
+tcj                               801.431u
+tcjsw                             300.322p
+tibb                            350.000MEG
+tis                                13.634f
+tjs                                10.907u
+tjsw                              204.508p
+tkp                               148.503u
+tpb                               897.501m
+tpbsw                             494.818m
+tphi                              968.189m
+trd                                 0.000 
+trdc                                0.000 
+trs                                 0.000 
+trsc                                0.000 
+trsh                              510.000 
+tucrit                            4.551MEG
+tvto                              597.000m
+vbd                                -7.843 
+vbs                                 0.000 
+vds                                 7.843 
+vdsat                               3.817 
+vgeff                               8.731 
+vgprime                            10.874 
+vgs                                 9.804 
+vgstar                             10.874 
+vp                                  7.801 
+vth                                 1.073 
+
+Device Variables:
+l                                 100.000u
+l(eff)                             99.950u
+w                                 100.000u
+w(eff)                             99.980u
+ad                                  0.000 
+ad(eff)                             0.000 
+as                                  0.000 
+as(eff)                             0.000 
+pd                                  0.000 
+pd(eff)                             0.000 
+ps                                  0.000 
+ps(eff)                             0.000 
+nrd                                 0.000 
+nrs                                 0.000 
+vds                                 0.000 
+vgs                                 0.000 
+vbs                                 0.000 
+np                                  1.000 
+ns                                  1.000 
+nrb                                 0.000 
+nrg                                 0.000 
+scale                               1.000 
+geo                                 0.000 
+temp                              300.150 
+
+
+
+Operating point for devices of type Resistor
+============================================
+Instance:                 RS_V2                R1                R2                R3
+DC Power Terms:
+PD                       0.000           961.169n           16.523m            0.000 
+
+DC Pin Currents:
+Ir                       0.000            98.039n           -2.309m            0.000 
+
+
+Instance:                    R4
+DC Power Terms:
+PD                     509.419n
+
+DC Pin Currents:
+Ir                      98.039n
+
+
+
+Operating point for devices of type Capacitor
+=============================================
+Instance:                    C1                C2
+DC Power Terms:
+PS                       0.000             0.000 
+
+DC Pin Currents:
+Ic                       0.000             0.000 
+
+
+
+Operating point for devices of type Sine Source
+===============================================
+Instance:                    V2
+Using model:               60HZ
+DC Power Terms:
+PG                       0.000 
+
+DC Pin Currents:
+ISource                  0.000 
+
+
+
+Operating point for devices of type SPICE Source
+================================================
+Instance:                   V1
+DC Power Terms:
+PG                     34.632m
+
+DC Pin Currents:
+ISource                -2.309m
+
+

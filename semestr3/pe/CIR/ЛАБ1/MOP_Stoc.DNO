@@ -1,0 +1,1130 @@
+********************************************************************************
+***                            Micro-Cap 10.0.4.0                            ***
+***                                                                          ***
+***                                                                          ***
+***                         DC Analysis of MOP_Stoc                          ***
+********************************************************************************
+Limits
+======
+Variable 1 Method Linear
+Variable 1 Name   V1
+Variable 1 Range  10,0,.05
+Variable 2 Method Linear
+Variable 2 Name   V2
+Variable 2 Range  10,0,1
+Temperature       Linear 27
+Number of Points  51
+Maximum Change %  5
+Run Options       Normal
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=0                      ***
+*****************************************************
+
+Temperature=27 V2=0 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=1                      ***
+*****************************************************
+
+Temperature=27 V2=1 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=2                      ***
+*****************************************************
+
+Temperature=27 V2=2 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=3                      ***
+*****************************************************
+
+Temperature=27 V2=3 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=4                      ***
+*****************************************************
+
+Temperature=27 V2=4 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=5                      ***
+*****************************************************
+
+Temperature=27 V2=5 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=6                      ***
+*****************************************************
+
+Temperature=27 V2=6 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=7                      ***
+*****************************************************
+
+Temperature=27 V2=7 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=8                      ***
+*****************************************************
+
+Temperature=27 V2=8 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=9                      ***
+*****************************************************
+
+Temperature=27 V2=9 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     V2=10                     ***
+*****************************************************
+
+Temperature=27 V2=10 
+
+Model parameters for devices of type EKV NMOS
+=============================================
+Instance:                M1   
+Using model:         $EKV_N   
+LEVEL                    44   
+ACM                  0.000 (*)
+AF                   1.000    
+AGAMMA               0.000    
+AKP                  0.000    
+AVTO                 0.000    
+BEX                 -1.500    
+CBD                  0.000 (*)
+CBS                  0.000 (*)
+CGBO               400.000p   
+CGDO               150.000p   
+CGSO               150.000p   
+CJ                 800.000u   
+CJGATE               0.000 (*)
+CJSW               300.000p   
+COX                  3.450m   
+DL                 -50.000n   
+DW                 -20.000n   
+E0                88.000MEG   
+EKVDYN               1.000 (*)
+EKVINT               0.000 (*)
+FC                 500.000m   
+GAMMA              710.000m   
+GDSNOI               1.000 (*)
+HDIF               900.000n   
+IBA              200.000MEG   
+IBB              350.000MEG   
+IBBT                 0.000    
+IBN                  1.000    
+IS                  10.000f(*)
+JS                   8.000u   
+JSW                150.000p   
+KF               1.000E-027   
+KP                 150.000u   
+L                 UNDEFINED(*)
+LAMBDA             230.000m   
+LD                   0.000 (*)
+LDIF                 0.000 (*)
+LETA               280.000m   
+LK                 500.000n   
+MJ                 500.000m   
+MJSW               300.000m   
+N                    1.500    
+NLEV              UNDEFINED(*)
+NLEVEL               1.000 (*)
+NSUB              UNDEFINED(*)
+PB                 900.000m   
+PBSW               500.000m   
+PHI                970.000m   
+Q0                 280.000u   
+RB                UNDEFINED(*)
+RBSH              UNDEFINED(*)
+RD                   0.000 (*)
+RDC                  0.000 (*)
+RG                UNDEFINED(*)
+RGSH              UNDEFINED(*)
+RS                   0.000 (*)
+RSC                  0.000 (*)
+RSH                510.000    
+SATLIM              54.598 (*)
+SCALM                1.000 (*)
+T_ABS             UNDEFINED(*)
+T_MEASURED        UNDEFINED(*)
+T_REL_GLOBAL      UNDEFINED(*)
+T_REL_LOCAL       UNDEFINED(*)
+TCV                  1.500m   
+THETA                0.000 (*)
+TNOM                25.000    
+TOX               UNDEFINED(*)
+TR1                  0.000 (*)
+TR2                  0.000 (*)
+TT                   0.000 (*)
+UCEX                 1.700    
+UCRIT              4.500MEG   
+UO                UNDEFINED(*)
+UPDATE               2.600    
+VFB               UNDEFINED(*)
+VMAX              UNDEFINED(*)
+VTO                600.000m   
+W                 UNDEFINED(*)
+WETA                50.000m   
+WMLT                 1.000 (*)
+XJ                 150.000n   
+XQC                400.000m   
+XTI                  0.000    
+(*) Default Parameter
+
+
+

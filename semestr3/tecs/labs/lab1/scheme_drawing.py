@@ -1,70 +1,82 @@
 # pip install schemdraw
-import matplotlib as mpl
 import schemdraw
 import schemdraw.elements as elm
+import matplotlib as mpl
 
-# Use local LaTeX for high-quality text rendering
-# Requires a LaTeX distribution (MiKTeX/TeX Live) and dvipng/ghostscript.
+# LaTeX-рендеринг (потрібен встановлений TeX)
 mpl.rcParams.update({
     'text.usetex': True,
     'font.family': 'serif',
-    # Enable Cyrillic support if you label in Ukrainian/Russian
-    'text.latex.preamble': r'\usepackage[utf8]{inputenc}\usepackage[T2A]{fontenc}\usepackage[ukrainian,english]{babel}'
+    'font.size': 30,
+    'text.latex.preamble': r'\usepackage{amsmath}\usepackage{amssymb}'
 })
 
 d = schemdraw.Drawing(unit=1.0)
-d.config(lw=2, fontsize=12)
+d.config(lw=2, fontsize=30)
 
-# ---- Сітка вузлів (щоб все було рівно) ----
-xL, xM, xR = 0, 8, 16   # ліво, центр, право
-yT, yM, yB = 10, 6, 2   # верх, середина, низ
+# ---- компактні координати по X ----
+xL, xM, xR = 0, 6, 12     # <— було 0,8,16; тепер вужче
+yT, yM, yB = 10, 6, 2
 
 TL = (xL, yT); TM = (xM, yT); TR = (xR, yT)
 ML = (xL, yM); MC = (xM, yM); MR = (xR, yM)
 BL = (xL, yB); BR = (xR, yB)
 
-# ---- Верхня гілка (дріт + вузол по центру) ----
+# Верхня шина
 d.add(elm.Line().at(TL).to(TR))
 d.add(elm.Dot().at(TM))
+d.add(elm.Arrow().right().at((xL+0.8, yT+0.6)).length(2.4).label(r'$I_1$', loc='top'))
+d.add(elm.Arrow().right().at((xM+0.6, yT+0.6)).length(2.4).label(r'$I_6$', loc='top'))
 
-# ---- Ліва вертикальна: R (TL -> ML) ----
+# Ліва вертикаль: R1
 d.add(elm.Resistor().down().at(TL).to(ML))
 d.add(elm.Dot().at(ML))
+d.add(elm.Label().at((TL[0]-0.9, (TL[1]+ML[1])/2)).label(r'$R_1$'))
 
-# ---- Права вертикальна: R (TR -> MR) ----
+# Права вертикаль: R6
 d.add(elm.Resistor().down().at(TR).to(MR))
 d.add(elm.Dot().at(MR))
+d.add(elm.Label().at((TR[0]+0.6, (TR[1]+MR[1])/2)).label(r'$R_6$'))
 
-# ---- Середня горизонталь: R (ML -> MC), R (MC -> MR) ----
+# Середня гілка: R2, R4
 d.add(elm.Resistor().right().at(ML).to(MC))
 d.add(elm.Dot().at(MC))
 d.add(elm.Resistor().right().at(MC).to(MR))
+d.add(elm.Label().at(((ML[0]+MC[0])/2, yM+0.8)).label(r'$R_2$'))
+d.add(elm.Label().at(((MC[0]+MR[0])/2, yM+0.8)).label(r'$R_4$'))
+d.add(elm.Arrow().left().at((MC[0]-1.0, yM-0.7)).length(2.0).label(r'$I_2$', loc='bottom'))
+d.add(elm.Arrow().left().at((MR[0]-1.0, yM-0.7)).length(2.0).label(r'$I_4$', loc='bottom'))
 
-# ---- Центральна вертикальна: джерело НАПРУГИ (E2) вгору MC -> TM ----
-# Полярність за замовчуванням: «+» зверху, «-» знизу
-d.add(elm.SourceV().up().at(MC).to(TM).label('$E_2$', loc='right'))
+# Центральна гілка: E2
+d.add(elm.SourceV().up().at(MC).to(TM))
+d.add(elm.Label().at((xM+1.0, (yM+yT)/2)).label(r'$E_2$'))
 
-# ---- Нижня гілка зліва вниз від ML до BL ----
+# Нижня гілка: E1 і R3
 d.add(elm.Line().down().at(ML).to(BL))
+e1 = d.add(elm.SourceV().right().at(BL).length(4))
+d.add(elm.Label().at((BL[0]+1.5, yB+0.9)).label(r'$E_1$'))
 
-# ---- Джерело НАПРУГИ (E1) горизонтально праворуч на нижній гілці ----
-# Якщо хочеш «+» зліва — додай .reverse()
-d.add(elm.SourceV().right().at(BL).length(4).label('$E_1$', loc='bottom'))
-
-# ---- Резистор праворуч на нижній гілці ----
-d.add(elm.Resistor().right().length(6))
-
-# ---- Доводимо дріт до правого низу BR, піднімаємось до MR і втикаємось у вузол ----
+d.add(elm.Resistor().right().length(6))     # резистор буде з x=4 до x=10
 d.add(elm.Line().right().to(BR))
 d.add(elm.Line().up().to(MR))
 
-# ---- (необов’язково) Крапки для видимих вузлів ---
-d.add(elm.Dot().at(ML))
-d.add(elm.Dot().at(MC))
-d.add(elm.Dot().at(MR))
-d.add(elm.Dot().at(TM))
+# Підпис R3 — у центрі резистора на нижній гілці (x ~ 7)
+d.add(elm.Label().at((BL[0]+4+3, yB-0.9)).label(r'$R_3$'))
 
-# ---- Фінал ----
+# Стрілка I3 (вліво) — трохи правіше центра нижньої гілки
+d.add(elm.Arrow().left().at((xM+1.8, yB+1.0)).length(3.2).label(r'$I_3$', loc='bottom'))
+
+# Дублюємо видимі вузли
+for pt in (ML, MC, MR):
+    d.add(elm.Dot().at(pt))
+
+# ---- Нумерація вузлів (притиснуто до точок) ----
+o = 0.33
+d.add(elm.Label().at((TM[0], TM[1] + o)).label(r'1'))        # над TM
+d.add(elm.Label().at((MR[0] + o, MR[1])).label(r'2'))        # праворуч від MR
+d.add(elm.Label().at((MC[0], MC[1] - o)).label(r'3'))        # під MC
+d.add(elm.Label().at((ML[0] - o, ML[1])).label(r'4'))        # ліворуч від ML
+
+# Малюємо/зберігаємо з мінімальними полями
 d.draw()
-d.save('scheme_ansi_v.png')
-print('Saved: scheme_ansi_v.png')
+# d.save('scheme_compact.png', bbox_inches='tight', pad_inches=0.05, dpi=200)

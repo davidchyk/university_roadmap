@@ -1,2 +1,2 @@
-lection page: 62
-book page: 23
+lection InLesson page: 82
+book Theory page: 29

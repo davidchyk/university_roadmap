@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="lab1-artem" default="lab1_2" basedir=".">
+    <!-- Author: Artem Davydchyk, Group: IO-41 -->
+    <property name="out.dir" value="${basedir}/out"/>
+    <property name="archive.name" value="sources_web.jar"/>
+
+    <target name="init">
+        <mkdir dir="${out.dir}"/>
+    </target>
+
+    <target name="jar.sources.web" depends="init">
+        <jar destfile="${out.dir}/${archive.name}">
+            <fileset dir="${basedir}">
+                <include name="**/*.java"/>
+                <include name="**/*.js"/>
+                <include name="**/*.html"/>
+                <include name="**/*.htm"/>
+                <exclude name="out/**"/>
+                <exclude name=".idea/**"/>
+                <exclude name="**/*.class"/>
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="lab1_2" depends="jar.sources.web">
+        <copy file="${out.dir}/${archive.name}" todir="${basedir}"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${out.dir}"/>
+        <delete file="${basedir}/${archive.name}"/>
+    </target>
+</project>

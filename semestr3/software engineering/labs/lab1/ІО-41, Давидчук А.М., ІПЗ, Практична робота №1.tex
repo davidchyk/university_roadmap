@@ -1,0 +1,279 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+\usepackage{graphicx}
+\usepackage{array,multirow}
+\usepackage{booktabs}
+\usepackage{caption}
+\renewcommand{\thetable}{№\arabic{table}}
+
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+
+\usepackage{minted}
+
+\usemintedstyle{friendly} % або monokai / vs / colorful
+\setminted{linenos, breaklines, frame=single, fontsize=\small}
+
+\begin{document}
+
+    \begin{titlepage}
+
+        % Картинка шапки (по центру, з відступом від верху)
+        \begin{center}\includegraphics[width=0.7\textwidth]{letterhead.png}\end{center}
+
+        \begin{center}
+            \large Національний технічний університет України\\
+            «Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+            Факультет інформатики та обчислювальної техніки\\
+            Кафедра обчислювальної техніки
+        \end{center}
+
+        \vfill
+
+        \begin{center}
+            \textbf{\LARGE Інженерія програмного забезпечення}\\[2em]
+            \textbf{\Large Практична робота №1}\\
+            «Підготовка програмного проекту. Збірка проекту за допомогою Ant, Maven та Gradle»
+        \end{center}
+
+        \vfill
+
+        \begin{flushright}
+            Виконав: студент 2 курсу ФІОТ, гр. ІО-41\\
+            \textit{Давидчук А.~М.}\\
+            Залікова книжка № 4106\\[1em]
+            Перевірив: \textit{Васильєва М.~Д.}
+        \end{flushright}
+
+        \vfill
+
+        \begin{center}Київ --- 2025\end{center}
+
+    \end{titlepage}
+
+    % Основний документ:
+
+    \setlength{\parindent}{0em}
+
+    \textbf{\underline{Тема:}} «Підготовка програмного проекту. Збірка проекту за допомогою Ant, Maven та Gradle».
+    
+    \vspace{1em}
+
+    \textbf{\underline{Мета:}} Отримання базових навичок з використання мови XML.
+    Вивчення структури типового програмного проекту, форматів стандартних файлів опису проекту.
+    Вивчення формату JAR. Здобуття навичок з використання засобів автоматизації процесу збірки програмних проектів на мові Java - Apache ANT (Another Neat Tool),
+    Maven, Gradle.
+
+    \begin{center} \textbf{\Large Практична частина} \end{center}
+
+    \setlength{\parindent}{1.5em}
+
+    Мій номер залікової книги: 4106. Звідси мій варіант до 1 завдання: $4106\text{ mod }9 = 2$, звідси я маю
+    створити в каталозі out jar-архів з усіх файлів проекту з розширеннями java, js, html, htm. Скопіювати архів в корінь проекту.
+
+    \setlength{\parindent}{0em}
+
+    \vspace{1em}
+
+    \textbf{\underline{Програмний код для завдання №1 (\texttt{project1$\backslash$build.xml}):}}
+
+    \begin{minted}{xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="lab1-artem" default="variant2" basedir=".">
+    <!-- Author: Artem Davydchyk, Group: IO-41 -->
+    <property name="out.dir" value="${basedir}/out"/>
+    <property name="archive.name" value="sources_web.jar"/>
+    <target name="init">
+        <mkdir dir="${out.dir}"/>
+    </target>
+    <target name="jar.sources.web" depends="init">
+        <jar destfile="${out.dir}/${archive.name}">
+            <fileset dir="${basedir}">
+                <include name="**/*.java"/>
+                <include name="**/*.js"/>
+                <include name="**/*.html"/>
+                <include name="**/*.htm"/>
+                <exclude name="out/**"/>
+                <exclude name=".idea/**"/>
+                <exclude name="**/*.class"/>
+            </fileset>
+        </jar>
+    </target>
+    <target name="variant2" depends="jar.sources.web">
+        <copy file="${out.dir}/${archive.name}" todir="${basedir}"/>
+    </target>
+    <target name="clean">
+        <delete dir="${out.dir}"/>
+        <delete file="${basedir}/${archive.name}"/>
+    </target>
+</project>
+    \end{minted}
+
+    \newpage
+
+    \textbf{\underline{Результат виконання коду для завдання №1:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project1> ant lab1_2
+Buildfile: C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project1\build.xml
+init:
+    [mkdir] Created dir: C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project1\out
+jar.sources.web:
+      [jar] Building jar: C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project1\out\sources_web.jar
+lab1_2:
+     [copy] Copying 1 file to C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project1
+BUILD SUCCESSFUL
+Total time: 0 second
+    \end{minted}
+
+    \textbf{\underline{Програмний код для завдання №2: (\texttt{project2$\backslash$pom.xml})}}
+
+    \begin{minted}{xml}
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ua.artem</groupId>
+    <artifactId>project2</artifactId>
+    <version>1.0.0</version>
+    <name>project2</name>
+
+    <build>
+        <finalName>project2</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <createDependencyReducedPom>false
+                            </createDependencyReducedPom>
+                            <transformers>
+                                <transformer implementation=
+          "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>ua.artem.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+    </dependencies>
+</project>
+    \end{minted}
+
+    \textbf{\underline{Додатково Gradle \texttt{project2$\backslash$build.gradle}}}:
+
+    \begin{minted}{text}
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'ua.artem'
+
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+
+repositories { mavenCentral() }
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.11.0'
+}
+
+application {
+    mainClass = 'ua.artem.Main'
+}
+
+tasks.jar {
+    archiveBaseName = 'project2'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest { attributes 'Main-Class': application.mainClass }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+    \end{minted}
+
+    \textbf{\underline{\texttt{project2$\backslash$src$\backslash$main$\backslash$java$\backslash$ua$\backslash$artem$\backslash$Main.java}}}:
+
+    \begin{minted}{java}
+package ua.artem;
+import com.google.gson.Gson;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) {
+        Map<String, String> obj = Map.of(
+                "name", "Artem",
+                "lastName", "Davydchuk",
+                "group", "IO-41"
+        );
+        String json = new Gson().toJson(obj);
+        System.out.println(json);
+    }
+}
+    \end{minted}
+
+    \textbf{\underline{Результат виконання завдання №2 (Maven та Gradle):}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project2\project2> mvn -q -U clean package      
+PS C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project2\project2> java -jar target\project2.jar
+{"name":"Artem","lastName":"Davydchuk","group":"IO-41"}
+PS C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project2\project2> gradle clean jar                 
+
+BUILD SUCCESSFUL in 1s
+3 actionable tasks: 3 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.1.0/userguide/configuration_cache_enabling.html
+PS C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab1\project2\project2> java -jar build/libs/project2.jar
+{"name":"Artem","lastName":"Davydchuk","group":"IO-41"
+    \end{minted}
+
+    \textbf{\underline{Висновок:}} У ході виконання практичної роботи я ознайомився з процесом підготовки та
+збірки програмних проєктів мовою Java за допомогою систем автоматизації
+Apache Ant, Maven та Gradle. Для Ant було розроблено власний сценарій
+збірки (build.xml), який автоматизує створення архівів JAR та копіювання їх у
+потрібні каталоги. Для Maven і Gradle було створено окремі конфігураційні
+файли (pom.xml та build.gradle), у які додано сторонню бібліотеку Gson із
+репозиторію Maven Central. Було налаштовано формування виконуваного
+FatJar-файлу, що містить усі залежності, та реалізовано клас з головним
+методом, який виводить у консоль JSON-об’єкт з моїми даними. Робота дозволила закріпити навички роботи з XML-форматом, зрозуміти
+структуру типових проєктів на Java та засвоїти принципи використання
+інструментів автоматизації збірки.
+
+\end{document}

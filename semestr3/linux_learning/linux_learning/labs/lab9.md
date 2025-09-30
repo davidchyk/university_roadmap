@@ -311,3 +311,29 @@ sudo lvcreate -n single2 -L 700M vg_lab
 sudo mkfs.ext4 /dev/vg_lab/single1
 sudo mkfs.reiserfs /dev/vg_lab/single2
 ```
+
+---
+
+# Перелік команд і опцій, що використовуються в ЛР №9 (LVM, файлові системи, loop-пристрої)
+
+## Підготовка (спільна для всіх варіантів)
+- `dd if=/dev/zero of=diskX.img bs=1M count=<SIZE_MB>` — створює файл-заглушку (`diskX.img`) розміром `<SIZE_MB>` мегабайт, заповнений нулями (імітація диска).
+- `sudo losetup /dev/loopN diskX.img` — прив’язує файл як **loop-пристрій**, щоб працювати з ним як з диском.
+- `sudo pvcreate /dev/loopN` — створює **фізичний том (PV)** для LVM.
+- `sudo vgcreate vg_lab /dev/loopN ...` — створює **групу томів (VG)** під назвою `vg_lab`.
+- `sudo lvcreate -n <lv_name> -L <size>M vg_lab` — створює **логічний том (LV)** з вказаним розміром `<size>` МБ у групі `vg_lab`.
+- `sudo mkfs.<fstype> /dev/vg_lab/<lv_name>` — створює **файлову систему** у логічному томі (`ext4`, `ext3`, `reiserfs`, `msdos` тощо).
+- `sudo mkdir -p /mnt/<lv_name>` — створює каталог для монтування.
+- `sudo mount /dev/vg_lab/<lv_name> /mnt/<lv_name>` — монтує файлову систему в каталог.
+
+## Основні інструменти
+- **LVM (Logical Volume Manager):**
+  - **PV (Physical Volume)** → фізичний носій (у нас `loop`-файл).
+  - **VG (Volume Group)** → об’єднання фізичних томів.
+  - **LV (Logical Volume)** → розділ усередині VG, який можна форматувати.
+
+- **mkfs:**
+  - `mkfs.ext4` — створює файлову систему **ext4** (стандарт для Linux).
+  - `mkfs.ext3` — файлову систему **ext3** (журналювання, попередник ext4).
+  - `mkfs.reiserfs` — **ReiserFS** (рідко використовується, але підтримується).
+  - `mkfs.msdos` — створює **FAT16/FAT32** файлову систему (сумісна з Windows).

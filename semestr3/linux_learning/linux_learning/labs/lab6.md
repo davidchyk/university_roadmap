@@ -7,328 +7,337 @@
 
 # ========================= ВАРІАНТ 1 =========================
 ```bash
-# A: Lucia, Maria, Sofia
-useradd -m -d /home/lucia lucia
-useradd -m -d /home/maria maria
-useradd -m -d /home/sofia sofia
+useradd -m -d /home/lucia lucia          # створити користувача lucia з домашнім /home/lucia
+useradd -m -d /home/maria maria          # створити користувача maria
+useradd -m -d /home/sofia sofia          # створити користувача sofia
 
-passwd lucia
-passwd maria
-passwd sofia
+passwd lucia                              # встановити пароль lucia
+passwd maria                              # встановити пароль maria
+passwd sofia                              # встановити пароль sofia
 
-# B: прізвища Rodriguez, Fernandez, Gonzalez
-usermod -c "Rodriguez" lucia
-usermod -c "Fernandez" maria
-usermod -c "Gonzalez" sofia
+usermod -c "Rodriguez" lucia              # GECOS-коментар (прізвище) для lucia
+usermod -c "Fernandez" maria              # коментар для maria
+usermod -c "Gonzalez" sofia               # коментар для sofia
 
-# Перенесення домашнього каталогу 3-го користувача
-usermod -d /home/gonzalez -m sofia
+usermod -d /home/gonzalez -m sofia        # перенести домашній каталог sofia → /home/gonzalez (із копіюванням)
 
-# C: група spain
-groupadd spain
-usermod -aG spain lucia
-usermod -aG spain maria
-usermod -aG spain sofia
+groupadd spain                            # створити групу spain
+usermod -aG spain lucia                   # додати lucia у групу spain
+usermod -aG spain maria                   # додати maria у групу spain
+usermod -aG spain sofia                   # додати sofia у групу spain
 
-# Каталог /home/spain
-mkdir /home/spain
-chown lucia:spain /home/spain
+mkdir /home/spain                         # створити каталог /home/spain
+chown lucia:spain /home/spain             # власник lucia, група spain
 
-# test.txt з правами тільки для lucia (читати) і root
-su - lucia -c 'echo hello > /home/spain/test.txt'
-chmod 600 /home/spain/test.txt
-ls -l /home/spain/test.txt
-
-# Дати групі spain право писати, lucia (власник) право читати
-chmod 620 /home/spain/test.txt
+su - lucia -c 'echo hello > /home/spain/test.txt'  # створити файл test.txt від імені lucia
+chmod 600 /home/spain/test.txt            # права: rw------- (лише власник)
+chmod 620 /home/spain/test.txt            # права: rw- (owner), -w- (group), --- (others)
 ```
 # ========================= ВАРІАНТ 2 =========================
 ```bash
 
-# A: Hugo, Daniel, Pablo
-useradd -m -d /home/hugo hugo
-useradd -m -d /home/daniel daniel
-useradd -m -d /home/pablo pablo
-passwd hugo; passwd daniel; passwd pablo
+useradd -m -d /home/hugo hugo             # створити користувача hugo з домівкою /home/hugo
+useradd -m -d /home/daniel daniel         # створити користувача daniel
+useradd -m -d /home/pablo pablo           # створити користувача pablo
+passwd hugo; passwd daniel; passwd pablo  # встановити паролі трьом користувачам
 
-# B: Garcia, Lopez, Martinez
-usermod -c "Garcia" hugo
-usermod -c "Lopez" daniel
-usermod -c "Martinez" pablo
+usermod -c "Garcia" hugo                  # коментар (прізвище) для hugo
+usermod -c "Lopez" daniel                 # коментар для daniel
+usermod -c "Martinez" pablo               # коментар для pablo
 
-# move home of 3rd user
-usermod -d /home/martinez -m pablo
+usermod -d /home/martinez -m pablo        # перенести домівку pablo → /home/martinez
 
-# C: group spain
-groupadd spain
-usermod -aG spain hugo daniel pablo
-mkdir /home/spain
-chown hugo:spain /home/spain
+groupadd spain                            # створити групу spain
+usermod -aG spain hugo                    # додати hugo у spain
+usermod -aG spain daniel                  # додати daniel у spain
+usermod -aG spain pablo                   # додати pablo у spain
+mkdir /home/spain                         # створити каталог групи
+chown hugo:spain /home/spain              # власник hugo, група spain
 
-# test.txt права
-su - hugo -c 'echo hi > /home/spain/test.txt'
-chmod 600 /home/spain/test.txt
-chmod 620 /home/spain/test.txt
+su - hugo -c 'echo hi > /home/spain/test.txt'  # створити test.txt від імені hugo
+chmod 600 /home/spain/test.txt            # rw------- (лише власник)
+chmod 620 /home/spain/test.txt            # rw- для власника, -w- для групи
+
 ```
 # ========================= ВАРІАНТ 3 =========================
 ```bash
 
-# A: Gabriel, Adam, Raphael
-useradd -m gabriel; useradd -m adam; useradd -m raphael
-passwd gabriel; passwd adam; passwd raphael
+useradd -m gabriel                        # створити користувача gabriel (домівка /home/gabriel)
+useradd -m adam                           # створити користувача adam
+useradd -m raphael                        # створити користувача raphael
+passwd gabriel; passwd adam; passwd raphael   # встановити паролі трьом
 
-# B: Martin, Bernard, Dubois
-usermod -c "Martin" gabriel
-usermod -c "Bernard" adam
-usermod -c "Dubois" raphael
+usermod -c "Martin" gabriel               # коментар (прізвище) для gabriel
+usermod -c "Bernard" adam                 # коментар для adam
+usermod -c "Dubois" raphael               # коментар для raphael
 
-usermod -d /home/dubois -m raphael
+usermod -d /home/dubois -m raphael        # перенести домівку raphael → /home/dubois
 
-# C: france
-groupadd france
-usermod -aG france gabriel adam raphael
-mkdir /home/france
-chown gabriel:france /home/france
+groupadd france                           # створити групу france
+usermod -aG france gabriel                # додати gabriel у france
+usermod -aG france adam                   # додати adam у france
+usermod -aG france raphael                # додати raphael у france
+mkdir /home/france                        # створити /home/france
+chown gabriel:france /home/france         # власник gabriel, група france
+
+
 ```
 # ========================= ВАРІАНТ 4 =========================
 ```bash
 
-# A: Louise, Alice, Chloe
-useradd -m louise; useradd -m alice; useradd -m chloe
-passwd louise; passwd alice; passwd chloe
+useradd -m louise                         # створити louise
+useradd -m alice                          # створити alice
+useradd -m chloe                          # створити chloe
+passwd louise; passwd alice; passwd chloe # паролі
 
-# B: Durand, Leroy, Moreau
-usermod -c "Durand" louise
-usermod -c "Leroy" alice
-usermod -c "Moreau" chloe
+usermod -c "Durand" louise                # коментар для louise
+usermod -c "Leroy" alice                  # коментар для alice
+usermod -c "Moreau" chloe                 # коментар для chloe
 
-usermod -d /home/moreau -m chloe
+usermod -d /home/moreau -m chloe          # перенести домівку chloe → /home/moreau
 
-# C: france
-groupadd france
-usermod -aG france louise alice chloe
-mkdir /home/france
-chown louise:france /home/france
+groupadd france                           # створити групу france
+usermod -aG france louise                 # додати louise
+usermod -aG france alice                  # додати alice
+usermod -aG france chloe                  # додати chloe
+mkdir /home/france                        # створити каталог групи
+chown louise:france /home/france          # власник louise, група france
+
 ```
 # ========================= ВАРІАНТ 5 =========================
 ```bash
 
-# A: Lukas, Maximilian, Jakob
-useradd -m lukas; useradd -m maximilian; useradd -m jakob
-passwd lukas; passwd maximilian; passwd jakob
+useradd -m lukas                          # створити lukas
+useradd -m maximilian                     # створити maximilian
+useradd -m jakob                          # створити jakob
+passwd lukas; passwd maximilian; passwd jakob  # паролі
 
-# B: Gruber, Huber, Bauer
-usermod -c "Gruber" lukas
-usermod -c "Huber" maximilian
-usermod -c "Bauer" jakob
+usermod -c "Gruber" lukas                 # коментар для lukas
+usermod -c "Huber" maximilian             # коментар для maximilian
+usermod -c "Bauer" jakob                  # коментар для jakob
 
-usermod -d /home/bauer -m jakob
+usermod -d /home/bauer -m jakob           # перенести домівку jakob → /home/bauer
 
-# C: austria
-groupadd austria
-usermod -aG austria lukas maximilian jakob
-mkdir /home/austria
-chown lukas:austria /home/austria
+groupadd austria                          # створити групу austria
+usermod -aG austria lukas                 # додати lukas
+usermod -aG austria maximilian            # додати maximilian
+usermod -aG austria jakob                 # додати jakob
+mkdir /home/austria                       # створити /home/austria
+chown lukas:austria /home/austria         # власник lukas, група austria
+
 ```
 # ========================= ВАРІАНТ 6 =========================
 ```bash
 
-# A: Ana, Sophia, Emma
-useradd -m ana; useradd -m sophia; useradd -m emma
-passwd ana; passwd sophia; passwd emma
+useradd -m ana                            # створити ana
+useradd -m sophia                         # створити sophia
+useradd -m emma                           # створити emma
+passwd ana; passwd sophia; passwd emma    # паролі
 
-# B: Wagner, Muller, Pichler
-usermod -c "Wagner" ana
-usermod -c "Muller" sophia
-usermod -c "Pichler" emma
+usermod -c "Wagner" ana                   # коментар для ana
+usermod -c "Muller" sophia                # коментар для sophia
+usermod -c "Pichler" emma                 # коментар для emma
 
-usermod -d /home/pichler -m emma
+usermod -d /home/pichler -m emma          # перенести домівку emma → /home/pichler
 
-# C: austria
-groupadd austria
-usermod -aG austria ana sophia emma
-mkdir /home/austria
-chown ana:austria /home/austria
+groupadd austria                          # група austria
+usermod -aG austria ana                   # додати ana
+usermod -aG austria sophia                # додати sophia
+usermod -aG austria emma                  # додати emma
+mkdir /home/austria                       # створити /home/austria
+chown ana:austria /home/austria           # власник ana, група austria
 ```
 # ========================= ВАРІАНТ 7 =========================
 ```bash
 
-# A: Sofia, Giulia, Aurora
-useradd -m sofia; useradd -m giulia; useradd -m aurora
-passwd sofia; passwd giulia; passwd aurora
+useradd -m sofia                          # створити sofia
+useradd -m giulia                         # створити giulia
+useradd -m aurora                         # створити aurora
+passwd sofia; passwd giulia; passwd aurora  # паролі
 
-# B: Rossi, Ricci, Conti
-usermod -c "Rossi" sofia
-usermod -c "Ricci" giulia
-usermod -c "Conti" aurora
+usermod -c "Rossi" sofia                  # коментар для sofia
+usermod -c "Ricci" giulia                 # коментар для giulia
+usermod -c "Conti" aurora                 # коментар для aurora
 
-usermod -d /home/conti -m aurora
+usermod -d /home/conti -m aurora          # перенести домівку aurora → /home/conti
 
-# C: italy
-groupadd italy
-usermod -aG italy sofia giulia aurora
-mkdir /home/italy
-chown sofia:italy /home/italy
+groupadd italy                            # створити групу italy
+usermod -aG italy sofia                   # додати sofia
+usermod -aG italy giulia                  # додати giulia
+usermod -aG italy aurora                  # додати aurora
+mkdir /home/italy                         # створити /home/italy
+chown sofia:italy /home/italy             # власник sofia, група italy
+
 ```
 # ========================= ВАРІАНТ 8 =========================
 ```bash
 
-# A: Francesco, Alessandro, Lorenzo
-useradd -m francesco; useradd -m alessandro; useradd -m lorenzo
-passwd francesco; passwd alessandro; passwd lorenzo
+useradd -m francesco                      # створити francesco
+useradd -m alessandro                     # створити alessandro
+useradd -m lorenzo                        # створити lorenzo
+passwd francesco; passwd alessandro; passwd lorenzo  # паролі
 
-# B: Marino, Lombardi, Barbieri
-usermod -c "Marino" francesco
-usermod -c "Lombardi" alessandro
-usermod -c "Barbieri" lorenzo
+usermod -c "Marino" francesco             # коментар для francesco
+usermod -c "Lombardi" alessandro          # коментар для alessandro
+usermod -c "Barbieri" lorenzo             # коментар для lorenzo
 
-usermod -d /home/barbieri -m lorenzo
+usermod -d /home/barbieri -m lorenzo      # перенести домівку lorenzo → /home/barbieri
 
-# C: italy
-groupadd italy
-usermod -aG italy francesco alessandro lorenzo
-mkdir /home/italy
-chown francesco:italy /home/italy
+groupadd italy                            # група italy
+usermod -aG italy francesco               # додати francesco
+usermod -aG italy alessandro              # додати alessandro
+usermod -aG italy lorenzo                 # додати lorenzo
+mkdir /home/italy                         # створити /home/italy
+chown francesco:italy /home/italy         # власник francesco, група italy
+
 ```
 # ========================= ВАРІАНТ 9 =========================
 ``` bash
-# A: Jakub, Jan, Tomas
-useradd -m jakub; useradd -m jan; useradd -m tomas
-passwd jakub; passwd jan; passwd tomas
+useradd -m jakub                          # створити jakub
+useradd -m jan                            # створити jan
+useradd -m tomas                          # створити tomas
+passwd jakub; passwd jan; passwd tomas    # паролі
 
-# B: Novak, Svoboda, Novotny
-usermod -c "Novak" jakub
-usermod -c "Svoboda" jan
-usermod -c "Novotny" tomas
+usermod -c "Novak" jakub                  # коментар для jakub
+usermod -c "Svoboda" jan                  # коментар для jan
+usermod -c "Novotny" tomas                # коментар для tomas
 
-usermod -d /home/novotny -m tomas
+usermod -d /home/novotny -m tomas         # перенести домівку tomas → /home/novotny
 
-# C: czech
-groupadd czech
-usermod -aG czech jakub jan tomas
-mkdir /home/czech
-chown jakub:czech /home/czech
+groupadd czech                            # створити групу czech
+usermod -aG czech jakub                   # додати jakub
+usermod -aG czech jan                     # додати jan
+usermod -aG czech tomas                   # додати tomas
+mkdir /home/czech                         # створити /home/czech
+chown jakub:czech /home/czech             # власник jakub, група czech
+
 ```
 # ========================= ВАРІАНТ 10 =========================
 ```bash
 
-# A: Eliska, Tereza, Anna
-useradd -m eliska; useradd -m tereza; useradd -m anna
-passwd eliska; passwd tereza; passwd anna
+useradd -m eliska                         # створити eliska
+useradd -m tereza                         # створити tereza
+useradd -m anna                           # створити anna
+passwd eliska; passwd tereza; passwd anna # паролі
 
-# B: Dvorakova, Cerna, Vesela
-usermod -c "Dvorakova" eliska
-usermod -c "Cerna" tereza
-usermod -c "Vesela" anna
+usermod -c "Dvorakova" eliska             # коментар для eliska
+usermod -c "Cerna" tereza                 # коментар для tereza
+usermod -c "Vesela" anna                  # коментар для anna
 
-usermod -d /home/vesela -m anna
+usermod -d /home/vesela -m anna           # перенести домівку anna → /home/vesela
 
-# C: czech
-groupadd czech
-usermod -aG czech eliska tereza anna
-mkdir /home/czech
-chown eliska:czech /home/czech
+groupadd czech                            # група czech
+usermod -aG czech eliska                  # додати eliska
+usermod -aG czech tereza                  # додати tereza
+usermod -aG czech anna                    # додати anna
+mkdir /home/czech                         # створити /home/czech
+chown eliska:czech /home/czech            # власник eliska, група czech
+
 ```
 # ========================= ВАРІАНТ 11 =========================
 ```bash
 
-# A: Emma, Nora, Sara
-useradd -m emma; useradd -m nora; useradd -m sara
-passwd emma; passwd nora; passwd sara
+useradd -m emma                           # створити emma
+useradd -m nora                           # створити nora
+useradd -m sara                           # створити sara
+passwd emma; passwd nora; passwd sara     # паролі
 
-# B: Hansen, Olsen, Johansen
-usermod -c "Hansen" emma
-usermod -c "Olsen" nora
-usermod -c "Johansen" sara
+usermod -c "Hansen" emma                  # коментар для emma
+usermod -c "Olsen" nora                   # коментар для nora
+usermod -c "Johansen" sara                # коментар для sara
 
-usermod -d /home/johansen -m sara
+usermod -d /home/johansen -m sara         # перенести домівку sara → /home/johansen
 
-# C: norway
-groupadd norway
-usermod -aG norway emma nora sara
-mkdir /home/norway
-chown emma:norway /home/norway
+groupadd norway                           # група norway
+usermod -aG norway emma                   # додати emma
+usermod -aG norway nora                   # додати nora
+usermod -aG norway sara                   # додати sara
+mkdir /home/norway                        # створити /home/norway
+chown emma:norway /home/norway            # власник emma, група norway
+
 ```
 # ========================= ВАРІАНТ 12 =========================
 ```bash
 
-# A: William, Mathias, Oliver
-useradd -m william; useradd -m mathias; useradd -m oliver
-passwd william; passwd mathias; passwd oliver
+useradd -m william                        # створити william
+useradd -m mathias                        # створити mathias
+useradd -m oliver                         # створити oliver
+passwd william; passwd mathias; passwd oliver  # паролі
 
-# B: Larsen, Andersen, Nilsen
-usermod -c "Larsen" william
-usermod -c "Andersen" mathias
-usermod -c "Nilsen" oliver
+usermod -c "Larsen" william               # коментар для william
+usermod -c "Andersen" mathias             # коментар для mathias
+usermod -c "Nilsen" oliver                # коментар для oliver
 
-usermod -d /home/nilsen -m oliver
+usermod -d /home/nilsen -m oliver         # перенести домівку oliver → /home/nilsen
 
-# C: norway
-groupadd norway
-usermod -aG norway william mathias oliver
-mkdir /home/norway
-chown william:norway /home/norway
+groupadd norway                           # група norway
+usermod -aG norway william                # додати william
+usermod -aG norway mathias                # додати mathias
+usermod -aG norway oliver                 # додати oliver
+mkdir /home/norway                        # створити /home/norway
+chown william:norway /home/norway         # власник william, група norway
 ```
 # ========================= ВАРІАНТ 13 =========================
 ```bash
+useradd -m andrei                         # створити andrei
+useradd -m alexandru                      # створити alexandru
+useradd -m stefan                         # створити stefan
+passwd andrei; passwd alexandru; passwd stefan  # паролі
 
-# A: Andrei, Alexandru, Stefan
-useradd -m andrei; useradd -m alexandru; useradd -m stefan
-passwd andrei; passwd alexandru; passwd stefan
+usermod -c "Radu" andrei                  # коментар для andrei
+usermod -c "Stan" alexandru               # коментар для alexandru
+usermod -c "Popescu" stefan               # коментар для stefan
 
-# B: Radu, Stan, Popescu
-usermod -c "Radu" andrei
-usermod -c "Stan" alexandru
-usermod -c "Popescu" stefan
+usermod -d /home/popescu -m stefan        # перенести домівку stefan → /home/popescu
 
-usermod -d /home/popescu -m stefan
-
-# C: romania
-groupadd romania
-usermod -aG romania andrei alexandru stefan
-mkdir /home/romania
-chown andrei:romania /home/romania
+groupadd romania                          # група romania
+usermod -aG romania andrei                # додати andrei
+usermod -aG romania alexandru             # додати alexandru
+usermod -aG romania stefan                # додати stefan
+mkdir /home/romania                       # створити /home/romania
+chown andrei:romania /home/romania        # власник andrei, група romania
 ```
 # ========================= ВАРІАНТ 14 =========================
 ```bash
 
-# A: Ana-Maria, Maria, Elena
-useradd -m anamaria; useradd -m maria; useradd -m elena
-passwd anamaria; passwd maria; passwd elena
+useradd -m anamaria                       # створити anamaria (без дефіса у login)
+useradd -m maria                          # створити maria
+useradd -m elena                          # створити elena
+passwd anamaria; passwd maria; passwd elena  # паролі
 
-# B: Ciobanu, Ionescu, Dimitru
-usermod -c "Ciobanu" anamaria
-usermod -c "Ionescu" maria
-usermod -c "Dimitru" elena
+usermod -c "Ciobanu" anamaria             # коментар для anamaria
+usermod -c "Ionescu" maria                # коментар для maria
+usermod -c "Dimitru" elena                # коментар для elena
 
-usermod -d /home/dimitru -m elena
+usermod -d /home/dimitru -m elena         # перенести домівку elena → /home/dimitru
 
-# C: romania
-groupadd romania
-usermod -aG romania anamaria maria elena
-mkdir /home/romania
-chown anamaria:romania /home/romania
+groupadd romania                          # група romania
+usermod -aG romania anamaria              # додати anamaria
+usermod -aG romania maria                 # додати maria
+usermod -aG romania elena                 # додати elena
+mkdir /home/romania                       # створити /home/romania
+chown anamaria:romania /home/romania      # власник anamaria, група romania
+
 ```
 # ========================= ВАРІАНТ 15 =========================
 ```bash
+useradd -m nikola                         # створити nikola
+useradd -m luca                           # створити luca
+useradd -m stefan                         # створити stefan
+passwd nikola; passwd luca; passwd stefan # паролі
 
-# A: Nikola, Luca, Stefan
-useradd -m nikola; useradd -m luca; useradd -m stefan
-passwd nikola; passwd luca; passwd stefan
+usermod -c "Jovanovic" nikola             # коментар для nikola
+usermod -c "Petrovic" luca                # коментар для luca
+usermod -c "Nikolic" stefan               # коментар для stefan
 
-# B: Jovanovic, Petrovic, Nikolic
-usermod -c "Jovanovic" nikola
-usermod -c "Petrovic" luca
-usermod -c "Nikolic" stefan
+usermod -d /home/nikolic -m stefan        # перенести домівку stefan → /home/nikolic
 
-usermod -d /home/nikolic -m stefan
-
-# C: serbia
-groupadd serbia
-usermod -aG serbia nikola luca stefan
-mkdir /home/serbia
-chown nikola:serbia /home/serbia
-```
+groupadd serbia                           # група serbia
+usermod -aG serbia nikola                 # додати nikola
+usermod -aG serbia luca                   # додати luca
+usermod -aG serbia stefan                 # додати stefan
+mkdir /home/serbia                        # створити /home/serbia
+chown nikola:serbia /home/serbia          # власник nikola, група serbia
 
 ---
 

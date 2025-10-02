@@ -1,26 +1,33 @@
 ********************************************************************************
-***                            Micro-Cap 9.0.7.0                             ***
-***                             Micro-Cap 9.0.7                              ***
-***                            Spectrum Software                             ***
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
 ***                        Transient Analysis of MOP                         ***
 ********************************************************************************
 Limits
 ======
-Time Range           10
-Maximum Time Step    0.0001
-Number of Points     51
-Temperature          Linear 27
-Run Options          Normal
-State Variables      Zero
-Operating Point      On
-Operating Point Only Off
+Maximum Run Time           10
+Output Start Time (tstart) 0
+Maximum Time Step          0.0001
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          Off
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
 
 
 *****************************************************
 ***                Temperature=27                 ***
 *****************************************************
 
-Temperature=27 
+Temperature=27
 
 Model parameters for devices of type Sine Source
 ================================================
@@ -28,7 +35,7 @@ Instance:                V2
 Using model:           60HZ   
 A                   50.000m   
 DC                   0.000 (*)
-F                    1.000    
+F                    6.000    
 PH                   0.000 (*)
 RP                   0.000 (*)
 RS                  10.000m   
@@ -137,25 +144,26 @@ IN            0.000   2             9.804   3             7.843
 4            15.000   OUT           0.000  
 
 
-Operating point for devices of type EKV NMOS
+Operating Point for Devices of Type EKV NMOS
 ============================================
 Instance:                               M1
 Using model:                        $EKV_N
+
+Capacitance Terms:
 Cbd(at v=0)                         0.000 
 Cbdsw(at v=0)                       0.000 
 Cbs(at v=0)                         0.000 
 Cbssw(at v=0)                       0.000 
-drain lead resistance               0.000 
-source lead resistance              0.000 
-gate lead resistance                0.000 
-bulk lead resistance                0.000 
-drain vcrit                       722.251m
+
+Conductance Terms:
 gbd                                 1.527p
 gbs                                 1.527p
 gds                                 1.325u
 gm                                389.127u
 gmb                               105.856u
 gms                               496.308u
+
+Current Terms:
 ib                                 -4.134p
 Ibd                                -4.134p
 Ibs                                 0.000 
@@ -166,13 +174,22 @@ ir                                170.084m
 irprime                             8.263 
 is                                 -2.309m
 isub                            4.916E-053
+
 n_slope                             1.119 
+
+Power Terms:
 power                              18.107m
+
+Charge Terms:
 qbd                                 0.000 
 qbs                                 0.000 
+
+Resistance Terms:
 rd                                  0.000 
 rs                                  0.000 
-sourcevcrit                       722.251m
+rg                                  0.000 
+rb                                  0.000 
+
 taf                               997.224m
 tau                                 0.000 
 tcbd                                0.000 
@@ -194,6 +211,10 @@ trsc                                0.000
 trsh                              510.000 
 tucrit                            4.551MEG
 tvto                              597.000m
+
+Voltage Terms:
+vcrit_drain                       722.251m
+vcrit_source                      722.251m
 vbd                                -7.843 
 vbs                                 0.000 
 vds                                 7.843 
@@ -233,41 +254,56 @@ temp                              300.150
 
 
 
-Operating point for devices of type Resistor
+Operating Point for Devices of Type Resistor
 ============================================
-Instance:                 RS_V2                R1                R2                R3
-DC Power Terms:
+Instance:                 V2.RS                R1                R2                R3
+V                        0.000             9.804            -7.157             0.000 
+Power DC Terms:
 PD                       0.000           961.169n           16.523m            0.000 
 
 DC Pin Currents:
 Ir                       0.000            98.039n           -2.309m            0.000 
 
+Device Variables:
+tc1                      0.000             0.000             0.000             0.000 
+tc2                      0.000             0.000             0.000             0.000 
+
 
 Instance:                    R4
-DC Power Terms:
+V                        5.196 
+Power DC Terms:
 PD                     509.419n
 
 DC Pin Currents:
 Ir                      98.039n
 
+Device Variables:
+tc1                      0.000 
+tc2                      0.000 
 
 
-Operating point for devices of type Capacitor
+
+Operating Point for Devices of Type Capacitor
 =============================================
 Instance:                    C1                C2
-DC Power Terms:
+V                        7.843            -9.804 
+Power DC Terms:
 PS                       0.000             0.000 
 
 DC Pin Currents:
 Ic                       0.000             0.000 
 
+Device Variables:
+ic                       0.000             0.000 
 
 
-Operating point for devices of type Sine Source
+
+Operating Point for Devices of Type Sine Source
 ===============================================
 Instance:                    V2
 Using model:               60HZ
-DC Power Terms:
+V                        0.000 
+Power DC Terms:
 PG                       0.000 
 
 DC Pin Currents:
@@ -275,10 +311,11 @@ ISource                  0.000
 
 
 
-Operating point for devices of type SPICE Source
+Operating Point for Devices of Type SPICE Source
 ================================================
 Instance:                   V1
-DC Power Terms:
+V                      15.000 
+Power DC Terms:
 PG                     34.632m
 
 DC Pin Currents:

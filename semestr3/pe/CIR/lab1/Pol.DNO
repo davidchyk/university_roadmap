@@ -1,21 +1,24 @@
 ********************************************************************************
-***                            Micro-Cap 9.0.7.0                             ***
-***                                 Анатолий                                 ***
-***                                    1                                     ***
-***              Анализ по постоянному току DC Analysis of Pol               ***
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                            DC Analysis of Pol                            ***
 ********************************************************************************
 Limits
 ======
-Variable 1 Method Auto
-Variable 1 Name   V1
-Variable 1 Range  30,0,.5
-Variable 2 Method None
-Variable 2 Name   
-Variable 2 Range  
-Temperature       Linear 27
-Number of Points  51
-Maximum Change %  5
-Run Options       Normal
+Variable 1 Method        Auto
+Variable 1 Name          V1
+Variable 1 Range         30,0,.5
+Variable 2 Method        None
+Variable 2 Name          
+Variable 2 Range         
+Temperature              Linear 27
+Number of Points         51
+Maximum Change %         5
+Run Options              Normal
+Auto Scale Ranges        Off
+Accumulate Plots         Off
+Ignore Expression Errors Off
 
 Stepping Options
 ================
@@ -42,7 +45,7 @@ Instance:                V3
 Using model:           60HZ   
 A                   50.000m   
 DC                   0.000 (*)
-F                    3.000    
+F                    6.000    
 PH                   0.000 (*)
 RP                   0.000 (*)
 RS                   1.000m(*)
@@ -56,15 +59,19 @@ Model parameters for devices of type Jfet NJF
 Instance:                J1   
 Using model:          VCR7N   
 AF                 501.474m   
+ALPHA                0.000 (*)
 BETA                25.363u   
 BETATCE              0.000 (*)
 CGD                337.341f   
 CGS                  1.052p   
 FC                 500.000m(*)
 IS                  10.000f   
+ISR                  0.000 (*)
 KF               1.846E-019   
 LAMBDA              24.000m   
 M                  500.000m(*)
+N                    1.000 (*)
+NR                   2.000 (*)
 PB                  10.000    
 RD                   0.000 (*)
 RS                   1.000K   
@@ -72,6 +79,7 @@ T_ABS             UNDEFINED(*)
 T_MEASURED        UNDEFINED(*)
 T_REL_GLOBAL      UNDEFINED(*)
 T_REL_LOCAL       UNDEFINED(*)
+VK                   0.000 (*)
 VTO                 -3.157    
 VTOTC                0.000 (*)
 XTI                  3.000 (*)
@@ -82,10 +90,10 @@ XTI                  3.000 (*)
 
 *****************************************************
 ***                Temperature=27                 ***
-***                   V2=-500m                    ***
+***                    V2=-.5                     ***
 *****************************************************
 
-Temperature=27 V2=-500m
+Temperature=27 V2=-.5
 
 Model parameters for devices of type Sine Source
 ================================================
@@ -93,7 +101,7 @@ Instance:                V3
 Using model:           60HZ   
 A                   50.000m   
 DC                   0.000 (*)
-F                    3.000    
+F                    6.000    
 PH                   0.000 (*)
 RP                   0.000 (*)
 RS                   1.000m(*)
@@ -107,15 +115,19 @@ Model parameters for devices of type Jfet NJF
 Instance:                J1   
 Using model:          VCR7N   
 AF                 501.474m   
+ALPHA                0.000 (*)
 BETA                25.363u   
 BETATCE              0.000 (*)
 CGD                337.341f   
 CGS                  1.052p   
 FC                 500.000m(*)
 IS                  10.000f   
+ISR                  0.000 (*)
 KF               1.846E-019   
 LAMBDA              24.000m   
 M                  500.000m(*)
+N                    1.000 (*)
+NR                   2.000 (*)
 PB                  10.000    
 RD                   0.000 (*)
 RS                   1.000K   
@@ -123,6 +135,7 @@ T_ABS             UNDEFINED(*)
 T_MEASURED        UNDEFINED(*)
 T_REL_GLOBAL      UNDEFINED(*)
 T_REL_LOCAL       UNDEFINED(*)
+VK                   0.000 (*)
 VTO                 -3.157    
 VTOTC                0.000 (*)
 XTI                  3.000 (*)
@@ -144,7 +157,7 @@ Instance:                V3
 Using model:           60HZ   
 A                   50.000m   
 DC                   0.000 (*)
-F                    3.000    
+F                    6.000    
 PH                   0.000 (*)
 RP                   0.000 (*)
 RS                   1.000m(*)
@@ -158,15 +171,19 @@ Model parameters for devices of type Jfet NJF
 Instance:                J1   
 Using model:          VCR7N   
 AF                 501.474m   
+ALPHA                0.000 (*)
 BETA                25.363u   
 BETATCE              0.000 (*)
 CGD                337.341f   
 CGS                  1.052p   
 FC                 500.000m(*)
 IS                  10.000f   
+ISR                  0.000 (*)
 KF               1.846E-019   
 LAMBDA              24.000m   
 M                  500.000m(*)
+N                    1.000 (*)
+NR                   2.000 (*)
 PB                  10.000    
 RD                   0.000 (*)
 RS                   1.000K   
@@ -174,6 +191,7 @@ T_ABS             UNDEFINED(*)
 T_MEASURED        UNDEFINED(*)
 T_REL_GLOBAL      UNDEFINED(*)
 T_REL_LOCAL       UNDEFINED(*)
+VK                   0.000 (*)
 VTO                 -3.157    
 VTOTC                0.000 (*)
 XTI                  3.000 (*)
@@ -195,7 +213,7 @@ Instance:                V3
 Using model:           60HZ   
 A                   50.000m   
 DC                   0.000 (*)
-F                    3.000    
+F                    6.000    
 PH                   0.000 (*)
 RP                   0.000 (*)
 RS                   1.000m(*)
@@ -209,15 +227,19 @@ Model parameters for devices of type Jfet NJF
 Instance:                J1   
 Using model:          VCR7N   
 AF                 501.474m   
+ALPHA                0.000 (*)
 BETA                25.363u   
 BETATCE              0.000 (*)
 CGD                337.341f   
 CGS                  1.052p   
 FC                 500.000m(*)
 IS                  10.000f   
+ISR                  0.000 (*)
 KF               1.846E-019   
 LAMBDA              24.000m   
 M                  500.000m(*)
+N                    1.000 (*)
+NR                   2.000 (*)
 PB                  10.000    
 RD                   0.000 (*)
 RS                   1.000K   
@@ -225,6 +247,7 @@ T_ABS             UNDEFINED(*)
 T_MEASURED        UNDEFINED(*)
 T_REL_GLOBAL      UNDEFINED(*)
 T_REL_LOCAL       UNDEFINED(*)
+VK                   0.000 (*)
 VTO                 -3.157    
 VTOTC                0.000 (*)
 XTI                  3.000 (*)
@@ -246,7 +269,7 @@ Instance:                V3
 Using model:           60HZ   
 A                   50.000m   
 DC                   0.000 (*)
-F                    3.000    
+F                    6.000    
 PH                   0.000 (*)
 RP                   0.000 (*)
 RS                   1.000m(*)
@@ -260,15 +283,19 @@ Model parameters for devices of type Jfet NJF
 Instance:                J1   
 Using model:          VCR7N   
 AF                 501.474m   
+ALPHA                0.000 (*)
 BETA                25.363u   
 BETATCE              0.000 (*)
 CGD                337.341f   
 CGS                  1.052p   
 FC                 500.000m(*)
 IS                  10.000f   
+ISR                  0.000 (*)
 KF               1.846E-019   
 LAMBDA              24.000m   
 M                  500.000m(*)
+N                    1.000 (*)
+NR                   2.000 (*)
 PB                  10.000    
 RD                   0.000 (*)
 RS                   1.000K   
@@ -276,6 +303,7 @@ T_ABS             UNDEFINED(*)
 T_MEASURED        UNDEFINED(*)
 T_REL_GLOBAL      UNDEFINED(*)
 T_REL_LOCAL       UNDEFINED(*)
+VK                   0.000 (*)
 VTO                 -3.157    
 VTOTC                0.000 (*)
 XTI                  3.000 (*)

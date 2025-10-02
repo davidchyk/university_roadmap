@@ -1,26 +1,33 @@
 ********************************************************************************
-***                            Micro-Cap 9.0.7.0                             ***
-***                             Micro-Cap 9.0.7                              ***
-***                            Spectrum Software                             ***
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
 ***                        Transient Analysis of FixU                        ***
 ********************************************************************************
 Limits
 ======
-Time Range           1
-Maximum Time Step    0.0001
-Number of Points     51
-Temperature          Linear 27
-Run Options          Normal
-State Variables      Zero
-Operating Point      On
-Operating Point Only Off
+Maximum Run Time           1
+Output Start Time (tstart) 0
+Maximum Time Step          0.0001
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          On
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
 
 
 *****************************************************
 ***                Temperature=27                 ***
 *****************************************************
 
-Temperature=27 
+Temperature=27
 
 Model parameters for devices of type Sine Source
 ================================================
@@ -28,7 +35,7 @@ Instance:              V2
 Using model:         60HZ   
 A                 10.000m   
 DC                 0.000 (*)
-F                  5.000    
+F                  6.000    
 PH                 0.000 (*)
 RP                 0.000 (*)
 RS                 1.000m(*)
@@ -50,6 +57,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -69,9 +77,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -89,9 +100,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -108,28 +121,42 @@ Node         Voltage  Node         Voltage  Node         Voltage
 OUT           0.000   IN            0.000  
 
 
-Operating point for devices of type Bipolar Junction Transistors NPN
+Operating Point for Devices of Type Bipolar Junction Transistors NPN
 ====================================================================
 Instance:                 Q1
 Using model:           2N699
-IB                   38.358u
-IC                    2.377m
-VBE                 868.048m
-VBC                  -1.755 
-VCE                   2.623 
+
+Beta Terms:
 BETADC               61.965 
-GM                   70.941m
-RPI                 971.929 
-RX                    0.000 
-RO                   42.811K
+BETAAC               68.950 
+
+Capacitance Terms:
 CPI                 192.638p
 CMU                  32.373p
 CBX                   0.000 
 CJS                   0.000 
-BETAAC               68.950 
+
+Conductance Terms:
+GM                   70.941m
+
+Current Terms:
+IB                   38.358u
+IC                    2.377m
+
+Resistance Terms:
+RPI                 971.929 
+RX                    0.000 
+RO                   42.811K
+
+Voltage Terms:
+VBE                 868.048m
+VBC                  -1.755 
+VCE                   2.623 
+
+Frequency Terms:
 FT                 50.178MEG
 
-DC Power Terms:
+Power DC Terms:
 PD                    6.268m
 PS                    0.000 
 
@@ -142,43 +169,63 @@ Is                    0.000
 Condition:
 State                    LIN
 
+Device Variables:
+area                  1.000 
+vbe                   0.000 
+vce                   0.000 
 
 
-Operating point for devices of type Resistor
+
+Operating Point for Devices of Type Resistor
 ============================================
 Instance:                  R1              R2              R3              R4
-DC Power Terms:
+V                      0.000          -2.377          -4.132        -868.048m
+Power DC Terms:
 PD                     0.000           5.649m        992.618u        175.234u
 
 DC Pin Currents:
 Ir                     0.000          -2.377m       -240.230u       -201.872u
 
+Device Variables:
+tc1                    0.000           0.000           0.000           0.000 
+tc2                    0.000           0.000           0.000           0.000 
 
-Instance:               RS_V2
-DC Power Terms:
+
+Instance:               V2.RS
+V                      0.000 
+Power DC Terms:
 PD                     0.000 
 
 DC Pin Currents:
 Ir                     0.000 
 
+Device Variables:
+tc1                    0.000 
+tc2                    0.000 
 
 
-Operating point for devices of type Capacitor
+
+Operating Point for Devices of Type Capacitor
 =============================================
 Instance:                  C1              C2
-DC Power Terms:
+V                    868.048m         -2.623 
+Power DC Terms:
 PS                     0.000           0.000 
 
 DC Pin Currents:
 Ic                     0.000           0.000 
 
+Device Variables:
+ic                     0.000           0.000 
 
 
-Operating point for devices of type Sine Source
+
+Operating Point for Devices of Type Sine Source
 ===============================================
 Instance:                  V2
 Using model:             60HZ
-DC Power Terms:
+V                      0.000 
+Power DC Terms:
 PG                     0.000 
 
 DC Pin Currents:
@@ -186,10 +233,11 @@ ISource                0.000
 
 
 
-Operating point for devices of type SPICE Source
+Operating Point for Devices of Type SPICE Source
 ================================================
 Instance:                 V1
-DC Power Terms:
+V                     5.000 
+Power DC Terms:
 PG                   13.085m
 
 DC Pin Currents:

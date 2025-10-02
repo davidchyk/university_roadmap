@@ -1,21 +1,24 @@
 ********************************************************************************
-***                            Micro-Cap 10.0.4.0                            ***
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
 ***                                                                          ***
 ***                                                                          ***
 ***                      DC Analysis of MOP_Stoc_Zatvor                      ***
 ********************************************************************************
 Limits
 ======
-Variable 1 Method Linear
-Variable 1 Name   V2
-Variable 1 Range  10,0,.05
-Variable 2 Method Linear
-Variable 2 Name   V1
-Variable 2 Range  8,0,1
-Temperature       Linear 27
-Number of Points  51
-Maximum Change %  5
-Run Options       Normal
+Variable 1 Method        Linear
+Variable 1 Name          V2
+Variable 1 Range         10,0,.05
+Variable 2 Method        Linear
+Variable 2 Name          V1
+Variable 2 Range         8,0,1
+Temperature              Linear 27
+Number of Points         51
+Maximum Change %         5
+Run Options              Normal
+Auto Scale Ranges        Off
+Accumulate Plots         Off
+Ignore Expression Errors Off
 
 
 *****************************************************
@@ -23,7 +26,7 @@ Run Options       Normal
 ***                     V1=0                      ***
 *****************************************************
 
-Temperature=27 V1=0 
+Temperature=27 V1=0
 
 Model parameters for devices of type EKV NMOS
 =============================================
@@ -124,7 +127,7 @@ XTI                  0.000
 ***                     V1=1                      ***
 *****************************************************
 
-Temperature=27 V1=1 
+Temperature=27 V1=1
 
 Model parameters for devices of type EKV NMOS
 =============================================
@@ -225,7 +228,7 @@ XTI                  0.000
 ***                     V1=2                      ***
 *****************************************************
 
-Temperature=27 V1=2 
+Temperature=27 V1=2
 
 Model parameters for devices of type EKV NMOS
 =============================================
@@ -326,7 +329,7 @@ XTI                  0.000
 ***                     V1=3                      ***
 *****************************************************
 
-Temperature=27 V1=3 
+Temperature=27 V1=3
 
 Model parameters for devices of type EKV NMOS
 =============================================
@@ -427,7 +430,7 @@ XTI                  0.000
 ***                     V1=4                      ***
 *****************************************************
 
-Temperature=27 V1=4 
+Temperature=27 V1=4
 
 Model parameters for devices of type EKV NMOS
 =============================================
@@ -528,7 +531,7 @@ XTI                  0.000
 ***                     V1=5                      ***
 *****************************************************
 
-Temperature=27 V1=5 
+Temperature=27 V1=5
 
 Model parameters for devices of type EKV NMOS
 =============================================
@@ -629,7 +632,7 @@ XTI                  0.000
 ***                     V1=6                      ***
 *****************************************************
 
-Temperature=27 V1=6 
+Temperature=27 V1=6
 
 Model parameters for devices of type EKV NMOS
 =============================================
@@ -730,7 +733,7 @@ XTI                  0.000
 ***                     V1=7                      ***
 *****************************************************
 
-Temperature=27 V1=7 
+Temperature=27 V1=7
 
 Model parameters for devices of type EKV NMOS
 =============================================
@@ -831,7 +834,7 @@ XTI                  0.000
 ***                     V1=8                      ***
 *****************************************************
 
-Temperature=27 V1=8 
+Temperature=27 V1=8
 
 Model parameters for devices of type EKV NMOS
 =============================================

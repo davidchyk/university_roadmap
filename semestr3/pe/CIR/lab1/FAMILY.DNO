@@ -1,21 +1,24 @@
 ********************************************************************************
-***                            Micro-Cap 9.0.7.0                             ***
-***                                 Анатолий                                 ***
-***                                    1                                     ***
-***             Анализ по постоянному току DC Analysis of FAMILY             ***
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                          DC Analysis of FAMILY                           ***
 ********************************************************************************
 Limits
 ======
-Variable 1 Method Auto
-Variable 1 Name   V1
-Variable 1 Range  5,0,.5
-Variable 2 Method Linear
-Variable 2 Name   I1
-Variable 2 Range  70u,0.001u,5u
-Temperature       List 27
-Number of Points  51
-Maximum Change %  3
-Run Options       Normal
+Variable 1 Method        Auto
+Variable 1 Name          V1
+Variable 1 Range         5,0,.5
+Variable 2 Method        Linear
+Variable 2 Name          I1
+Variable 2 Range         70u,0.001u,5u
+Temperature              List 27
+Number of Points         51
+Maximum Change %         3
+Run Options              Normal
+Auto Scale Ranges        Off
+Accumulate Plots         Off
+Ignore Expression Errors Off
 
 
 *****************************************************
@@ -23,7 +26,7 @@ Run Options       Normal
 ***                   I1=1e-009                   ***
 *****************************************************
 
-Temperature=27 I1=1e-009 
+Temperature=27 I1=1e-009
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -38,6 +41,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -57,9 +61,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -77,9 +84,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -95,7 +104,7 @@ XTI                3.000 (*)
 ***                 I1=5.001e-006                 ***
 *****************************************************
 
-Temperature=27 I1=5.001e-006 
+Temperature=27 I1=5.001e-006
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -110,6 +119,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -129,9 +139,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -149,9 +162,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -167,7 +182,7 @@ XTI                3.000 (*)
 ***                I1=1.0001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=1.0001e-005 
+Temperature=27 I1=1.0001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -182,6 +197,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -201,9 +217,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -221,9 +240,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -239,7 +260,7 @@ XTI                3.000 (*)
 ***                I1=1.5001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=1.5001e-005 
+Temperature=27 I1=1.5001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -254,6 +275,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -273,9 +295,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -293,9 +318,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -311,7 +338,7 @@ XTI                3.000 (*)
 ***                I1=2.0001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=2.0001e-005 
+Temperature=27 I1=2.0001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -326,6 +353,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -345,9 +373,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -365,9 +396,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -383,7 +416,7 @@ XTI                3.000 (*)
 ***                I1=2.5001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=2.5001e-005 
+Temperature=27 I1=2.5001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -398,6 +431,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -417,9 +451,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -437,9 +474,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -455,7 +494,7 @@ XTI                3.000 (*)
 ***                I1=3.0001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=3.0001e-005 
+Temperature=27 I1=3.0001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -470,6 +509,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -489,9 +529,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -509,9 +552,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -527,7 +572,7 @@ XTI                3.000 (*)
 ***                I1=3.5001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=3.5001e-005 
+Temperature=27 I1=3.5001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -542,6 +587,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -561,9 +607,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -581,9 +630,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -599,7 +650,7 @@ XTI                3.000 (*)
 ***                I1=4.0001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=4.0001e-005 
+Temperature=27 I1=4.0001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -614,6 +665,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -633,9 +685,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -653,9 +708,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -671,7 +728,7 @@ XTI                3.000 (*)
 ***                I1=4.5001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=4.5001e-005 
+Temperature=27 I1=4.5001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -686,6 +743,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -705,9 +763,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -725,9 +786,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -743,7 +806,7 @@ XTI                3.000 (*)
 ***                I1=5.0001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=5.0001e-005 
+Temperature=27 I1=5.0001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -758,6 +821,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -777,9 +841,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -797,9 +864,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -815,7 +884,7 @@ XTI                3.000 (*)
 ***                I1=5.5001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=5.5001e-005 
+Temperature=27 I1=5.5001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -830,6 +899,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -849,9 +919,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -869,9 +942,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -887,7 +962,7 @@ XTI                3.000 (*)
 ***                I1=6.0001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=6.0001e-005 
+Temperature=27 I1=6.0001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -902,6 +977,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -921,9 +997,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -941,9 +1020,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -959,7 +1040,7 @@ XTI                3.000 (*)
 ***                I1=6.5001e-005                 ***
 *****************************************************
 
-Temperature=27 I1=6.5001e-005 
+Temperature=27 I1=6.5001e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -974,6 +1055,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -993,9 +1075,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -1013,9 +1098,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)
@@ -1031,7 +1118,7 @@ XTI                3.000 (*)
 ***                   I1=7e-005                   ***
 *****************************************************
 
-Temperature=27 I1=7e-005 
+Temperature=27 I1=7e-005
 
 Model parameters for devices of type Bipolar Junction Transistors NPN
 =====================================================================
@@ -1046,6 +1133,7 @@ CJE                2.000p
 CJS                0.000 (*)
 EG                 1.110 (*)
 FC               500.000m(*)
+GAMMA             10.000p(*)
 IKF              149.835m   
 IKR              209.192    
 IRB                0.000 (*)
@@ -1065,9 +1153,12 @@ NK               500.000m(*)
 NR                 1.000 (*)
 NS                 1.000 (*)
 PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
 RB                 0.000 (*)
 RBM                0.000 (*)
 RC                 0.000 (*)
+RCO                0.000 (*)
 RE                 2.000    
 T_ABS           UNDEFINED(*)
 T_MEASURED      UNDEFINED(*)
@@ -1085,9 +1176,11 @@ TRM1               0.000 (*)
 TRM2               0.000 (*)
 VAF              100.000    
 VAR                0.000 (*)
+VG                 1.206 (*)
 VJC              700.227m   
 VJE              750.000m(*)
 VJS              750.000m(*)
+VO                10.000 (*)
 VTF               10.000    
 XCJC               1.000 (*)
 XTB                0.000 (*)

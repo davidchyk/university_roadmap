@@ -1,27 +1,33 @@
 ********************************************************************************
-***                            Micro-Cap 10.0.4.0                            ***
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
 ***                                                                          ***
 ***                                                                          ***
 ***                      Transient Analysis of Pol(os)                       ***
 ********************************************************************************
 Limits
 ======
-Time Range           10
-Maximum Time Step    0.0001
-Number of Points     51
-Temperature          Linear 27
-Retrace Runs         1
-Run Options          Normal
-State Variables      Zero
-Operating Point      On
-Operating Point Only Off
+Maximum Run Time           10
+Output Start Time (tstart) 0
+Maximum Time Step          0.0001
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          Off
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
 
 
 *****************************************************
 ***                Temperature=27                 ***
 *****************************************************
 
-Temperature=27 
+Temperature=27
 
 Model parameters for devices of type Sine Source
 ================================================
@@ -29,7 +35,7 @@ Instance:                V3
 Using model:           60HZ   
 A                   50.000m   
 DC                   0.000 (*)
-F                    1.000    
+F                    6.000    
 PH                   0.000 (*)
 RP                   0.000 (*)
 RS                   1.000m(*)
@@ -43,15 +49,19 @@ Model parameters for devices of type Jfet NJF
 Instance:                J1   
 Using model:          VCR7N   
 AF                 501.474m   
+ALPHA                0.000 (*)
 BETA                25.363u   
 BETATCE              0.000 (*)
 CGD                337.341f   
 CGS                  1.052p   
 FC                 500.000m(*)
 IS                  10.000f   
+ISR                  0.000 (*)
 KF               1.846E-019   
 LAMBDA              24.000m   
 M                  500.000m(*)
+N                    1.000 (*)
+NR                   2.000 (*)
 PB                  10.000    
 RD                   0.000 (*)
 RS                   1.000K   
@@ -59,6 +69,7 @@ T_ABS             UNDEFINED(*)
 T_MEASURED        UNDEFINED(*)
 T_REL_GLOBAL      UNDEFINED(*)
 T_REL_LOCAL       UNDEFINED(*)
+VK                   0.000 (*)
 VTO                 -3.157    
 VTOTC                0.000 (*)
 XTI                  3.000 (*)
@@ -80,14 +91,14 @@ Using model:             VCR7N
 
 Capacitance Terms:
 CGS                     1.031p
-CGD                   287.117f
+CGD                   287.123f
 
 Conductance Terms:
-GM                    150.533u
+GM                    150.529u
 GDS                     4.584u
 
 Current Terms:
-ID                    206.547u
+ID                    206.538u
 
 Voltage Terms:
 VGS                  -206.534m
@@ -95,13 +106,13 @@ VDS                     3.597
 VGD                    -3.804 
 
 Power DC Terms:
-PD                    743.151u
+PD                    742.983u
 PS                      0.000 
 
 DC Pin Currents:
 Ig                     -4.237p
-Id                    206.547u
-Is                   -206.547u
+Id                    206.538u
+Is                   -206.538u
 
 Condition:
 State                      SAT

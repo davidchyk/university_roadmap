@@ -1,0 +1,25 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+PS C:\PYGZbs{}Users\PYGZbs{}artem\PYGZbs{}OneDrive\PYGZbs{}Desktop\PYGZbs{}reps\PYGZbs{}university\PYGZus{}roadmap\PYGZbs{}semestr3\PYGZbs{}software engineering\PYGZbs{}labs\PYGZbs{}lab2\PYGZbs{}project1\PYGZgt{} ant
+Buildfile: C:\PYGZbs{}Users\PYGZbs{}artem\PYGZbs{}OneDrive\PYGZbs{}Desktop\PYGZbs{}reps\PYGZbs{}university\PYGZus{}roadmap\PYGZbs{}semestr3\PYGZbs{}software engineering\PYGZbs{}labs\PYGZbs{}lab2\PYGZbs{}project1\PYGZbs{}build.xml
+
+compile:
+     [echo] Комп?ляц?я завершена. Клас\PYGZhy{}файли збережено у \PYGZsq{}out\PYGZsq{}.
+
+javadoc:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+     [echo] JavaDoc усп?шно згенеровано у каталоз? \PYGZsq{}doc\PYGZsq{}.
+
+run:
+     [echo] Запуск програми lab2.Main...
+     [java] Cl1: meth1
+     [java] Cl2: meth2
+     [java] Cl3: meth3
+     [echo] Програму завершено.
+
+all:
+     [echo] Проєкт повн?стю з?брано, задокументовано та виконано.
+
+BUILD SUCCESSFUL
+Total time: 1 second
+\end{MintedVerbatim}

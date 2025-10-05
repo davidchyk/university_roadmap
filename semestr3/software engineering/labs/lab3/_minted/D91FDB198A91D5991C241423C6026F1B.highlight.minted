@@ -1,0 +1,29 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package}\PYG{+w}{ }\PYG{n+nn}{lab2}\PYG{p}{;}
+
+\PYG{c+cm}{/**}
+\PYG{c+cm}{ * Базовий інтерфейс If1.}
+\PYG{c+cm}{ * Містить три методи meth1(), meth2(), meth3().}
+\PYG{c+cm}{ * Використовується як основа для If2 і If3.}
+\PYG{c+cm}{ * @author Artem Davydchuk}
+\PYG{c+cm}{ * @version 1.0}
+\PYG{c+cm}{ */}
+
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{interface} \PYG{n+nc}{If1}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Перший метод інтерфейсу If1.}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{meth1}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Другий метод інтерфейсу If1.}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{meth2}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Третій метод інтерфейсу If1.}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{meth3}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\end{MintedVerbatim}

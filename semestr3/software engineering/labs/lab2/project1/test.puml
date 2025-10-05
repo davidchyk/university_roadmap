@@ -1,0 +1,49 @@
+@startuml
+interface lab2.If2 {
+}
+class lab2.Main {
++ {static} void main(String[])
+}
+
+class lab2.Cl2 {
++ void meth1()
++ void meth2()
++ void meth3()
+}
+
+class lab2.Cl1 {
+- Cl2 part2
+- Cl3 part3
+- List<Cl1> children
++ void meth1()
++ void meth2()
++ void meth3()
++ void setPart2(Cl2)
++ void setPart3(Cl3)
++ void addChild(Cl1)
+}
+
+
+interface lab2.If3 {
+}
+interface lab2.If1 {
+~ void meth1()
+~ void meth2()
+~ void meth3()
+}
+
+class lab2.Cl3 {
++ void meth1()
++ void meth2()
++ void meth3()
+}
+
+
+
+lab2.If1 <|-- lab2.If2
+lab2.If2 <|.. lab2.Cl2
+lab2.If1 <|.. lab2.Cl1
+lab2.If1 <|-- lab2.If3
+lab2.If3 <|.. lab2.Cl3
+lab2.Cl2 <|-- lab2.Cl3
+@enduml

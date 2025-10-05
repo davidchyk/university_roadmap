@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Lab2_Project1" default="all" basedir=".">
+
+    <!-- ===== Налаштування шляхів ===== -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="out"/>
+    <property name="doc.dir" value="doc"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="main.class" value="lab2.Main"/>
+
+    <!-- ===== 1. Компіляція Java-файлів ===== -->
+    <target name="compile" description="Компіляція вихідних Java-файлів у теку out">
+        <mkdir dir="${build.dir}"/>
+        <javac
+                includeantruntime="false"
+                encoding="UTF-8"
+                srcdir="${src.dir}"
+                destdir="${build.dir}">
+        </javac>
+        <echo message="Компіляція завершена. Клас-файли збережено у '${build.dir}'."/>
+    </target>
+
+    <!-- ===== 2. Генерація JavaDoc ===== -->
+    <target name="javadoc" description="Створення HTML-документації в каталозі doc">
+        <mkdir dir="${doc.dir}"/>
+        <!-- additionalparam="-Xdoclint:none -quiet" Щоб видалити попередження про конструктор класів -->
+        <javadoc
+                sourcepath="${src.dir}"
+                destdir="${doc.dir}"
+                encoding="UTF-8"
+                docencoding="UTF-8"
+                charset="UTF-8"
+                author="true"
+                version="true"
+                use="true"
+                additionalparam="-Xdoclint:none -quiet"
+                windowtitle="JavaDoc – Lab2 Project1"
+                doctitle="Документація до лабораторної роботи №2 – UML">
+            <fileset dir="${src.dir}" includes="**/*.java"/>
+        </javadoc>
+        <echo message="JavaDoc успішно згенеровано у каталозі '${doc.dir}'."/>
+    </target>
+
+    <!-- ===== 3. Запуск програми ===== -->
+    <target name="run" depends="compile" description="Запуск програми після компіляції">
+        <echo message="Запуск програми ${main.class}..."/>
+        <java classname="${main.class}" fork="true">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+            </classpath>
+        </java>
+        <echo message="Програму завершено."/>
+    </target>
+
+    <!-- ===== 4. Об'єднана команда ===== -->
+    <target name="all" depends="compile, javadoc, run" description="Компіляція + JavaDoc + запуск">
+        <echo message="Проєкт повністю зібрано, задокументовано та виконано."/>
+    </target>
+
+</project>

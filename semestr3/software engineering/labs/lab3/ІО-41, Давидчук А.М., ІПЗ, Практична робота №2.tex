@@ -1,0 +1,108 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+\usepackage{graphicx}
+\usepackage{array,multirow}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{comment}
+
+\usepackage{tcolorbox}
+
+\renewcommand{\thetable}{№\arabic{table}}
+\captionsetup[table]{name=Таблиця}
+
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+
+\usepackage{minted}
+
+\usemintedstyle{vs}
+\setminted{linenos, breaklines, frame=single, fontsize=\small}
+
+\begin{document}
+
+    \begin{titlepage}
+
+        % Картинка шапки (по центру, з відступом від верху)
+        \begin{center}\includegraphics[width=0.7\textwidth]{../../../TITLES/letterhead.png}\end{center}
+
+        \begin{center}
+            \large Національний технічний університет України\\
+            «Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+            Факультет інформатики та обчислювальної техніки\\
+            Кафедра обчислювальної техніки
+        \end{center}
+
+        \vfill
+
+        \begin{center}
+            \textbf{\LARGE Інженерія програмного забезпечення}\\[2em]
+            \textbf{\Large Практична робота №3}\\
+            «Структурні шаблони проектування ПЗ. Composite, Decorator, Proxy, Flyweight, Adapter, Bridge, Facade»
+        \end{center}
+
+        \vfill
+
+        \begin{flushright}
+            Виконав: студент 2 курсу ФІОТ, гр. ІО-41\\
+            \textit{Давидчук А.~М.}\\
+            Залікова книжка № 4106\\[1em]
+            Перевірив: \textit{Васильєва М.~Д.}
+        \end{flushright}
+
+        \vfill
+
+        \begin{center}Київ --- 2025\end{center}
+
+    \end{titlepage}
+
+    % Основний документ:
+
+    \setlength{\parindent}{0em}
+
+    \textbf{\underline{Тема:}} «Структурні шаблони проектування ПЗ. Composite, Decorator, Proxy, Flyweight, Adapter, Bridge, Facade».
+    
+    \vspace{1em}
+
+    \textbf{\underline{Мета:}} Ознайомлення з видами шаблонів проектування ПЗ. Вивчення структурних
+    шаблонів. Отримання базових навичок з застосування шаблонів Composite, Decorator, Proxy,
+    Flyweight, Adapter, Bridge, Facade.
+
+    \begin{center} \textbf{\Large Практична частина} \end{center}
+
+    \begin{comment}
+
+        \begin{figure}[h!]
+
+            \renewcommand{\thefigure}{\arabic{figure}} % робимо "3.1", "3.2" і т.д.
+
+            \centering
+            % Підставляєте потрібний шлях та розмір зображення:
+            \includegraphics[width=0.33\textwidth]{UMLDiagram.pdf}
+            % Підпис (зазвичай під малюнком):
+            \caption{UML-діаграма класів та інтерфейсів}
+            % Мітка для посилань у тексті (\ref{fig:...})
+            \label{fig1:UML_diagram}
+
+        \end{figure}
+
+        \textbf{\underline{Програмний код (\texttt{project1$\backslash$src$\backslash$lab2$\backslash$Main.java}):}}
+
+        \begin{minted}{java}
+        \end{minted}
+
+    \end{comment}
+
+    \textbf{\underline{Висновок:}}
+
+\end{document}

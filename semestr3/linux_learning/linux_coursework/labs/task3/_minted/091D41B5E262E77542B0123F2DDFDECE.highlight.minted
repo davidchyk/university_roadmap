@@ -1,0 +1,16 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+davydchuk@artem\PYGZhy{}laptop:\PYGZti{}/Desktop/lab\PYGZdl{}\PYG{+w}{ }tree\PYG{+w}{ }\PYGZhy{}\PYGZhy{}charset\PYG{o}{=}ascii
+.
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }1file
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }file
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }numbers.txt
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo0.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo1.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo2.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo3.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo4\PYGZus{}main.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo4\PYGZus{}terminal.sh
+\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo5.sh
+
+\PYG{l+m}{2}\PYG{+w}{ }directories,\PYG{+w}{ }\PYG{l+m}{9}\PYG{+w}{ }files
+\end{MintedVerbatim}

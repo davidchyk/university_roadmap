@@ -6,128 +6,39 @@
   <component name="ChangeListManager">
     <list default="true" id="625a684e-59fd-40af-bbf2-3de2b361ae0b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../lab1/project1/out/sources_web.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project1/sources_web.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project1/sources_web.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab1/project1/sources_web.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/build/classes/java/main/ua/artem/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/build/libs/project2.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../lab1/project2/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/expanded/expanded.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/9.1.0/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/project2/src/main/java/ua/artem/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/target/classes/ua/artem/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/target/original-project2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/target/project2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Cl1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Cl2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Cl3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/If1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/If2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/If3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/allclasses-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/allpackages-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/class-use/Cl1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/class-use/Cl2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/class-use/Cl3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/class-use/If1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/class-use/If2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/class-use/If3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/class-use/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/copy.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/element-list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/help-doc.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index-all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/If1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/If2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/If3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/class-use/Cl1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/class-use/Cl2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/class-use/Cl3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/class-use/If1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/class-use/If2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/class-use/If3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/class-use/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/package-use.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/legal/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/legal/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/legal/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/legal/jquery.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/legal/jqueryUI.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/link.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/member-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/module-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/overview-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/package-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/package-use.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/resources/glass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/resources/x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/script-dir/jquery-3.7.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/script-dir/jquery-ui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/script-dir/jquery-ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/search-page.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/tag-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/type-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/uml_from_code.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/lab2/Cl1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/lab2/Cl2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/lab2/Cl3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/lab2/If1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/lab2/If2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/lab2/If3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/lab2/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/allclasses-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/Cl1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/Cl2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl3.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/Cl3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/If1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/If1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/If2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/If2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/If3.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/If3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/lab2/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,30 +59,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Artem Davydchuk/Desktop/reps/university_roadmap/semestr3/software engineering/labs/lab2/project1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Artem Davydchuk/Desktop/reps/university_roadmap/semestr3/software engineering/labs/lab2/project1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\artem\OneDrive\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab2\project1\src\lab2" />

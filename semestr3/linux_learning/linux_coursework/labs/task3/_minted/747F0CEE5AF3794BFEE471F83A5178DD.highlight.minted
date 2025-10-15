@@ -1,0 +1,45 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/usr/bin/env bash}
+\PYG{c+c1}{\PYGZsh{} taskNo4\PYGZus{}terminal.sh \PYGZhy{} відкрити НОВЕ вікно терміналу, запустити taskNo4\PYGZus{}main.sh і залишити вікно відкритим}
+\PYG{n+nb}{set}\PYG{+w}{ }\PYGZhy{}euo\PYG{+w}{ }pipefail
+
+\PYG{n+nv}{SELF\PYGZus{}DIR}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{k}{\PYGZdl{}(}\PYG{n+nb}{cd}\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{k}{\PYGZdl{}(}dirname\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{BASH\PYGZus{}SOURCE}\PYG{p}{[0]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{k}{)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n+nb}{pwd}\PYG{+w}{ }\PYGZhy{}P\PYG{k}{)}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n+nv}{MAIN}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}SELF\PYGZus{}DIR}\PYG{l+s+s2}{/taskNo4\PYGZus{}main.sh\PYGZdq{}}
+
+\PYG{c+c1}{\PYGZsh{} 1) Визначаємо ціль: якщо не задано \PYGZhy{} беремо поточну директорію В МОМЕНТ ЗАПУСКУ і робимо її абсолютною}
+\PYG{n+nv}{RAW\PYGZus{}TARGET}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{1}\PYG{k}{:\PYGZhy{}\PYGZdl{}(}\PYG{n+nb}{pwd}\PYG{+w}{ }\PYGZhy{}P\PYG{k}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{c+c1}{\PYGZsh{} realpath з фолбеком}
+\PYG{k}{if}\PYG{+w}{ }!\PYG{+w}{ }\PYG{n+nv}{TARGET}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{k}{\PYGZdl{}(}realpath\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}RAW\PYGZus{}TARGET}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYG{l+m}{2}\PYGZgt{}/dev/null\PYG{k}{)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{  }\PYG{n+nv}{TARGET}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}RAW\PYGZus{}TARGET}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{k}{fi}
+
+\PYG{o}{[[}\PYG{+w}{ }\PYGZhy{}x\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}MAIN}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{]]}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nb}{echo}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}Помилка: зроби виконуваним }\PYG{n+nv}{\PYGZdl{}MAIN}\PYG{l+s+s2}{ (chmod +x taskNo4\PYGZus{}main.sh)\PYGZdq{}}\PYG{+w}{ }\PYGZgt{}\PYG{p}{\PYGZam{}}\PYG{l+m}{2}\PYG{p}{;}\PYG{+w}{ }\PYG{n+nb}{exit}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{\PYGZcb{}}
+
+\PYG{c+c1}{\PYGZsh{} Якщо немає GUI \PYGZhy{} виконаємо в поточному терміналі з паузою}
+\PYG{k}{if}\PYG{+w}{ }\PYG{o}{[[}\PYG{+w}{ }\PYGZhy{}z\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{DISPLAY}\PYG{k}{:\PYGZhy{}}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYGZhy{}z\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{WAYLAND\PYGZus{}DISPLAY}\PYG{k}{:\PYGZhy{}}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{]]}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{  }bash\PYG{+w}{ }\PYGZhy{}\PYGZhy{}noprofile\PYG{+w}{ }\PYGZhy{}\PYGZhy{}norc\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}MAIN}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}TARGET}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n+nb}{true}
+\PYG{+w}{  }\PYG{n+nb}{read}\PYG{+w}{ }\PYGZhy{}r\PYG{+w}{ }\PYGZhy{}p\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}Натисни Enter, щоб завершити...\PYGZdq{}}\PYG{+w}{ }\PYGZus{}
+\PYG{+w}{  }\PYG{n+nb}{exit}\PYG{+w}{ }\PYG{l+m}{0}
+\PYG{k}{fi}
+
+\PYG{c+c1}{\PYGZsh{} Команда для нового вікна: просто викликаємо main з АБСОЛЮТНОЮ ціллю, потім пауза}
+\PYG{n+nv}{inner}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}\PYG{n+nb}{printf}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}\PYGZpc{}q \PYGZdq{}}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}MAIN}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}TARGET}\PYG{l+s+s2}{\PYGZdq{}}\PYG{k}{)}
+\PYG{n+nv}{inner}\PYG{o}{+=}\PYG{l+s+s1}{\PYGZdl{}\PYGZsq{}; echo; echo \PYGZdq{}Завершено\PYGZdq{}; read \PYGZhy{}n1 \PYGZhy{}s \PYGZhy{}r \PYGZhy{}p \PYGZdq{}Натисни будь\PYGZhy{}яку клавішу, щоб закрити...\PYGZdq{}\PYGZsq{}}
+
+\PYG{k}{if}\PYG{+w}{ }\PYG{n+nb}{command}\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }gnome\PYGZhy{}terminal\PYG{+w}{ }\PYGZgt{}/dev/null\PYG{+w}{ }\PYG{l+m}{2}\PYGZgt{}\PYG{p}{\PYGZam{}}\PYG{l+m}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{  }gnome\PYGZhy{}terminal\PYG{+w}{ }\PYGZhy{}\PYGZhy{}\PYG{+w}{ }bash\PYG{+w}{ }\PYGZhy{}\PYGZhy{}noprofile\PYG{+w}{ }\PYGZhy{}\PYGZhy{}norc\PYG{+w}{ }\PYGZhy{}c\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}inner}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{k}{elif}\PYG{+w}{ }\PYG{n+nb}{command}\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }konsole\PYG{+w}{ }\PYGZgt{}/dev/null\PYG{+w}{ }\PYG{l+m}{2}\PYGZgt{}\PYG{p}{\PYGZam{}}\PYG{l+m}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{  }konsole\PYG{+w}{ }\PYGZhy{}\PYGZhy{}noclose\PYG{+w}{ }\PYGZhy{}e\PYG{+w}{ }bash\PYG{+w}{ }\PYGZhy{}\PYGZhy{}noprofile\PYG{+w}{ }\PYGZhy{}\PYGZhy{}norc\PYG{+w}{ }\PYGZhy{}c\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}inner}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{k}{elif}\PYG{+w}{ }\PYG{n+nb}{command}\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }xfce4\PYGZhy{}terminal\PYG{+w}{ }\PYGZgt{}/dev/null\PYG{+w}{ }\PYG{l+m}{2}\PYGZgt{}\PYG{p}{\PYGZam{}}\PYG{l+m}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{  }xfce4\PYGZhy{}terminal\PYG{+w}{ }\PYGZhy{}\PYGZhy{}hold\PYG{+w}{ }\PYGZhy{}e\PYG{+w}{ }bash\PYG{+w}{ }\PYGZhy{}\PYGZhy{}noprofile\PYG{+w}{ }\PYGZhy{}\PYGZhy{}norc\PYG{+w}{ }\PYGZhy{}c\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}inner}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{k}{elif}\PYG{+w}{ }\PYG{n+nb}{command}\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }kitty\PYG{+w}{ }\PYGZgt{}/dev/null\PYG{+w}{ }\PYG{l+m}{2}\PYGZgt{}\PYG{p}{\PYGZam{}}\PYG{l+m}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{  }kitty\PYG{+w}{ }bash\PYG{+w}{ }\PYGZhy{}\PYGZhy{}noprofile\PYG{+w}{ }\PYGZhy{}\PYGZhy{}norc\PYG{+w}{ }\PYGZhy{}c\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}inner}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{k}{elif}\PYG{+w}{ }\PYG{n+nb}{command}\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }alacritty\PYG{+w}{ }\PYGZgt{}/dev/null\PYG{+w}{ }\PYG{l+m}{2}\PYGZgt{}\PYG{p}{\PYGZam{}}\PYG{l+m}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{  }alacritty\PYG{+w}{ }\PYGZhy{}e\PYG{+w}{ }bash\PYG{+w}{ }\PYGZhy{}\PYGZhy{}noprofile\PYG{+w}{ }\PYGZhy{}\PYGZhy{}norc\PYG{+w}{ }\PYGZhy{}c\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}inner}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{k}{elif}\PYG{+w}{ }\PYG{n+nb}{command}\PYG{+w}{ }\PYGZhy{}v\PYG{+w}{ }xterm\PYG{+w}{ }\PYGZgt{}/dev/null\PYG{+w}{ }\PYG{l+m}{2}\PYGZgt{}\PYG{p}{\PYGZam{}}\PYG{l+m}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{then}
+\PYG{+w}{  }xterm\PYG{+w}{ }\PYGZhy{}hold\PYG{+w}{ }\PYGZhy{}e\PYG{+w}{ }bash\PYG{+w}{ }\PYGZhy{}\PYGZhy{}noprofile\PYG{+w}{ }\PYGZhy{}\PYGZhy{}norc\PYG{+w}{ }\PYGZhy{}c\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}inner}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{k}{else}
+\PYG{+w}{  }\PYG{n+nb}{echo}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}Не знайдено відомого GUI\PYGZhy{}термінала. Встанови, напр.: sudo pacman \PYGZhy{}S xterm\PYGZdq{}}\PYG{+w}{ }\PYGZgt{}\PYG{p}{\PYGZam{}}\PYG{l+m}{2}
+\PYG{+w}{  }\PYG{n+nb}{exit}\PYG{+w}{ }\PYG{l+m}{1}
+\PYG{k}{fi}
+\end{MintedVerbatim}

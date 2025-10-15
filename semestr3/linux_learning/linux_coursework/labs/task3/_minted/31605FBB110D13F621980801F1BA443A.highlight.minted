@@ -1,0 +1,36 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+davydchuk@artem\PYGZhy{}laptop:\PYGZti{}/Desktop/lab\PYGZdl{}\PYG{+w}{ }./taskNo2.sh
+0file\PYG{+w}{ }є\PYG{+w}{ }директорією
+1file\PYG{+w}{ }є\PYG{+w}{ }директорією
+emptyfile.txt\PYG{+w}{ }переміщений
+taskNo0.sh\PYG{+w}{ }переміщений
+taskNo1.sh\PYG{+w}{ }переміщений
+taskNo2.sh\PYG{+w}{ }переміщений
+taskNo3.sh\PYG{+w}{ }переміщений
+taskNo4\PYGZus{}main.sh\PYG{+w}{ }переміщений
+taskNo4\PYGZus{}terminal.sh\PYG{+w}{ }переміщений
+taskNo5.sh\PYG{+w}{ }переміщений
+davydchuk@artem\PYGZhy{}laptop:\PYGZti{}/Desktop/lab\PYGZdl{}\PYG{+w}{ }tree\PYG{+w}{ }\PYGZhy{}\PYGZhy{}charset\PYG{o}{=}ascii
+.
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }0file
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }1file
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }file
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }emptyfile.txt\PYGZus{}dir
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }emptyfile.txt
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo0.sh\PYGZus{}dir
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo0.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo1.sh\PYGZus{}dir
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo1.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo2.sh\PYGZus{}dir
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo2.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo3.sh\PYGZus{}dir
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo3.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo4\PYGZus{}main.sh\PYGZus{}dir
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo4\PYGZus{}main.sh
+\PYG{p}{|}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo4\PYGZus{}terminal.sh\PYGZus{}dir
+\PYG{p}{|}\PYG{+w}{   }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo4\PYGZus{}terminal.sh
+\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo5.sh\PYGZus{}dir
+\PYG{+w}{    }\PYG{l+s+sb}{`}\PYGZhy{}\PYGZhy{}\PYG{+w}{ }taskNo5.sh
+
+\PYG{l+m}{11}\PYG{+w}{ }directories,\PYG{+w}{ }\PYG{l+m}{9}\PYG{+w}{ }files
+\end{MintedVerbatim}

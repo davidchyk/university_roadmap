@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+davydchuk@artem\PYGZhy{}laptop:\PYGZti{}/Desktop/lab\PYGZdl{} tree \PYGZhy{}\PYGZhy{}charset=ascii
+.
+|\PYGZhy{}\PYGZhy{} 0file
+|\PYGZhy{}\PYGZhy{} 1file
+|   `\PYGZhy{}\PYGZhy{} file
+|\PYGZhy{}\PYGZhy{} emptyfile.txt
+|\PYGZhy{}\PYGZhy{} taskNo0.sh
+|\PYGZhy{}\PYGZhy{} taskNo1.sh
+|\PYGZhy{}\PYGZhy{} taskNo2.sh
+|\PYGZhy{}\PYGZhy{} taskNo3.sh
+|\PYGZhy{}\PYGZhy{} taskNo4\PYGZus{}main.sh
+|\PYGZhy{}\PYGZhy{} taskNo4\PYGZus{}terminal.sh
+`\PYGZhy{}\PYGZhy{} taskNo5.sh
+
+3 directories, 9 files
+\end{MintedVerbatim}

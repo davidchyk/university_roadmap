@@ -5,40 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="625a684e-59fd-40af-bbf2-3de2b361ae0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../lab1/project1/out/sources_web.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project1/sources_web.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/9.1.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab1/project2/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/build/classes/java/main/ua/artem/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/build/libs/project2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab1/project2/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opam1.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opam1.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamDifId.TNO" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamDifId.TNO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamDifId.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamDifId.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamInt.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamInt.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamInvert.TNO" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamInvert.TNO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamInvert.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamInvert.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamNoInvert.TNO" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamNoInvert.TNO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamNoInvert.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab2/opamNoInvert.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pe/page.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/page.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/Cl1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/Cl2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/Cl3.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/Cl3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/If1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/If1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/If2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/If2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/If3.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/If3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/lab2/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/lab2/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

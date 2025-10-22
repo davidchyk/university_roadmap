@@ -1,0 +1,218 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                      Transient Analysis of keyOtkr                       ***
+********************************************************************************
+Limits
+======
+Maximum Run Time           5u
+Output Start Time (tstart) 0
+Maximum Time Step          0.0001u
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          Off
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+
+Model parameters for devices of type Bipolar Junction Transistors NPN
+=====================================================================
+Instance:              Q1   
+Using model:       2N2219   
+LEVEL                   1(*)
+AF                 1.000 (*)
+BF               200.641    
+BR               155.279m   
+CJC               36.644p   
+CJE               42.424p   
+CJS                0.000 (*)
+EG                 1.110 (*)
+FC               500.000m(*)
+GAMMA             10.000p(*)
+IKF                1.237    
+IKR              990.687    
+IRB                0.000 (*)
+IS                10.017f   
+ISC                9.164p   
+ISE              999.947f   
+ISS                0.000 (*)
+ITF               10.287m   
+KF                 0.000 (*)
+MJC              558.066m   
+MJE              642.887m   
+MJS                0.000 (*)
+NC                 2.000 (*)
+NE                 1.834    
+NF               979.990m   
+NK               500.000m(*)
+NR                 1.000 (*)
+NS                 1.000 (*)
+PTF                0.000 (*)
+QCO                0.000 (*)
+QUASIMOD           0.000 (*)
+RB                 0.000 (*)
+RBM                0.000 (*)
+RC                 0.000 (*)
+RCO                0.000 (*)
+RE               668.817m   
+T_ABS           UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)
+TF               407.084p   
+TR                 2.267u   
+TRB1               0.000 (*)
+TRB2               0.000 (*)
+TRC1               0.000 (*)
+TRC2               0.000 (*)
+TRE1               0.000 (*)
+TRE2               0.000 (*)
+TRM1               0.000 (*)
+TRM2               0.000 (*)
+VAF              100.000    
+VAR                0.000 (*)
+VG                 1.206 (*)
+VJC              700.000m   
+VJE              700.000m   
+VJS              750.000m(*)
+VO                10.000 (*)
+VTF               10.000    
+XCJC               1.000 (*)
+XTB                0.000 (*)
+XTF              500.021m   
+XTI                3.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Pulse
+==========================================
+Instance:              V1   
+Using model:       SQUARE   
+P1                 1.000u   
+P2                 1.000u   
+P3                 4.000u   
+P4                 4.000u   
+P5                10.000u   
+VONE               2.000    
+VZERO              0.000 (*)
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+IN            0.000   2           674.983m  3             4.000  
+OUT          79.812m 
+
+
+Operating Point for Devices of Type Bipolar Junction Transistors NPN
+====================================================================
+Instance:                 Q1
+Using model:          2N2219
+
+Beta Terms:
+BETADC                3.990 
+BETAAC              184.219 
+
+Capacitance Terms:
+CPI                 163.431p
+CMU                   8.730n
+CBX                   0.000 
+CJS                   0.000 
+
+Conductance Terms:
+GM                  127.928m
+
+Current Terms:
+IB                  655.024u
+IC                    2.613m
+
+Resistance Terms:
+RPI                   1.440K
+RX                    0.000 
+RO                  261.983 
+
+Voltage Terms:
+VBE                 674.983m
+VBC                 595.171m
+VCE                  79.812m
+
+Frequency Terms:
+FT                  2.289MEG
+
+Power DC Terms:
+PD                  650.714u
+PS                    0.000 
+
+DC Pin Currents:
+Ib                  655.024u
+Ic                    2.613m
+Ie                   -3.268m
+Is                    0.000 
+
+Condition:
+State                    SAT
+
+Device Variables:
+area                  1.000 
+vbe                   0.000 
+vce                   0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                  R1              R2              R3
+V                   -674.983m          3.920           3.325 
+Power DC Terms:
+PD                   455.602u         10.245m          4.422m
+
+DC Pin Currents:
+Ir                  -674.983u          2.613m          1.330m
+
+Device Variables:
+tc1                    0.000           0.000           0.000 
+tc2                    0.000           0.000           0.000 
+
+
+
+Operating Point for Devices of Type Pulse
+=========================================
+Instance:                  V1
+Using model:           SQUARE
+V                      0.000 
+Power DC Terms:
+PG                     0.000 
+
+DC Pin Currents:
+ISource             -674.983u
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 V2
+V                     4.000 
+Power DC Terms:
+PG                   15.774m
+
+DC Pin Currents:
+ISource              -3.943m
+
+

@@ -1,0 +1,222 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                      Transient Analysis of keyField                      ***
+********************************************************************************
+Limits
+======
+Maximum Run Time           1m
+Output Start Time (tstart) 0
+Maximum Time Step          0.00001
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          Off
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+
+Model parameters for devices of type Mosfet NMOS
+================================================
+Instance:              M1   
+Using model:        BS170   
+LEVEL           UNDEFINED(*)
+AF                 1.000 (*)
+CBD               44.091p   
+CBS                0.000 (*)
+CGBO               0.000 (*)
+CGDO               1.653n   
+CGSO               1.653n   
+CJ                 0.000 (*)
+CJSW               0.000 (*)
+DELTA              0.000 (*)
+ETA                0.000 (*)
+FC               500.000m(*)
+GAMMA              0.000    
+GDSNOI             0.000    
+IS                10.000f   
+JS                10.000n   
+JSW                0.000 (*)
+KAPPA           UNDEFINED(*)
+KF                 0.000 (*)
+KP                20.000u   
+L                  2.000u   
+LAMBDA           455.328f   
+LD                 0.000 (*)
+MJ               500.000m(*)
+MJSW             330.000m(*)
+N                  1.000 (*)
+NEFF               1.000 (*)
+NFS                0.000 (*)
+NLEV               0.000    
+NSS             UNDEFINED(*)
+NSUB               0.000    
+PB               800.000m(*)
+PBSW             800.000m(*)
+PHI              600.000m   
+RB                 0.000 (*)
+RD                 0.000 (*)
+RDS              1.000MEG   
+RG                10.000    
+RS                 0.000 (*)
+RSH                0.000 (*)
+T_ABS           UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)
+THETA              0.000 (*)
+TOX                0.000    
+TPG                1.000    
+TT                 0.000 (*)
+UCRIT             10.000K(*)
+UEXP               0.000 (*)
+UO               600.000    
+UTRA               0.000 (*)
+VMAX               0.000 (*)
+VTO                1.596    
+W                  8.087m   
+WD                 0.000 (*)
+XJ                 0.000 (*)
+XQC                1.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Pulse
+==========================================
+Instance:              V1   
+Using model:       SQUARE   
+P1               100.000u   
+P2               100.000u   
+P3               700.000u   
+P4               700.000u   
+P5                 5.000m   
+VONE               3.000    
+VZERO              0.000 (*)
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+BASE          0.000   2             5.000   OUT           4.739  
+
+
+Operating Point for Devices of Type Mosfet NMOS
+===============================================
+Instance:                 M1
+Using model:           BS170
+
+Capacitance Terms:
+CBD                  16.756p
+CBS                   0.000 
+CGSOVL               13.366p
+CGDOVL               13.366p
+CGBOVL                0.000 
+CGS                   0.000 
+CGD                   0.000 
+CGB                   0.000 
+
+Conductance Terms:
+GM                    0.000 
+GDS                   0.000 
+GMBS                  0.000 
+
+Current Terms:
+ID                    4.739u
+
+Voltage Terms:
+VGS                   0.000 
+VDS                   4.739 
+VBS                   0.000 
+VGB                   0.000 
+VGD                  -4.739 
+VDB                   4.739 
+VTH                   1.596 
+VDSAT                 0.000 
+
+Power DC Terms:
+PD                   22.461u
+PS                    0.000 
+
+DC Pin Currents:
+Ig                    0.000 
+Id                    4.739u
+Is                   -4.739u
+Ib                   -4.749p
+
+Condition:
+State                    OFF
+
+Device Variables:
+m                     1.000 
+l                     0.000 
+w                     0.000 
+ad                    0.000 
+as                    0.000 
+pd                    0.000 
+ps                    0.000 
+nrd                   0.000 
+nrs                   0.000 
+nrb                   0.000 
+nrg                   0.000 
+vds                   0.000 
+vgs                   0.000 
+vbs                   0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                  R1              R2              R3
+V                      0.000         260.664m          4.739 
+Power DC Terms:
+PD                     0.000          13.589u        224.613u
+
+DC Pin Currents:
+Ir                     0.000          52.133u         47.393u
+
+Device Variables:
+tc1                    0.000           0.000           0.000 
+tc2                    0.000           0.000           0.000 
+
+
+
+Operating Point for Devices of Type Pulse
+=========================================
+Instance:                  V1
+Using model:           SQUARE
+V                      0.000 
+Power DC Terms:
+PG                     0.000 
+
+DC Pin Currents:
+ISource                0.000 
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 V2
+V                     5.000 
+Power DC Terms:
+PG                  260.664u
+
+DC Pin Currents:
+ISource             -52.133u
+
+

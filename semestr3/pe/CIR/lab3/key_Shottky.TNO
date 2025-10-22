@@ -1,0 +1,291 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                    Transient Analysis of key_Shottky                     ***
+********************************************************************************
+Limits
+======
+Maximum Run Time           5u
+Output Start Time (tstart) 0
+Maximum Time Step          0.0001u
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          Off
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+
+Model parameters for devices of type Diode
+==========================================
+Instance:              D2   
+Using model:       1N5712   
+LEVEL                   1(*)
+AF                 1.000 (*)
+BV                20.000    
+CJO              791.530f   
+EG               690.000m   
+FC               500.000m(*)
+IBV              100.000p(*)
+IBVL               0.000 (*)
+IKF                0.000 (*)
+IS                 4.095n   
+ISR                0.000 (*)
+KF                 0.000 (*)
+M                300.000m   
+N                  1.222    
+NBV                1.000 (*)
+NBVL               1.000 (*)
+NR                 2.000 (*)
+RL                 2.117G   
+RS                 7.502    
+T_ABS           UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)
+TBV1               0.000 (*)
+TBV2               0.000 (*)
+TIKF               0.000 (*)
+TRS1               0.000 (*)
+TRS2               0.000 (*)
+TT                 0.000 (*)
+VJ                 3.952    
+XTI                2.000    
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Bipolar Junction Transistors NPN
+=====================================================================
+Instance:              Q1              Q2   
+Using model:       2N2219          2N2219   
+LEVEL                   1(*)            1(*)
+AF                 1.000 (*)       1.000 (*)
+BF               200.641         200.641    
+BR               155.279m        155.279m   
+CJC               36.644p         36.644p   
+CJE               42.424p         42.424p   
+CJS                0.000 (*)       0.000 (*)
+EG                 1.110 (*)       1.110 (*)
+FC               500.000m(*)     500.000m(*)
+GAMMA             10.000p(*)      10.000p(*)
+IKF                1.237           1.237    
+IKR              990.687         990.687    
+IRB                0.000 (*)       0.000 (*)
+IS                10.017f         10.017f   
+ISC                9.164p          9.164p   
+ISE              999.947f        999.947f   
+ISS                0.000 (*)       0.000 (*)
+ITF               10.287m         10.287m   
+KF                 0.000 (*)       0.000 (*)
+MJC              558.066m        558.066m   
+MJE              642.887m        642.887m   
+MJS                0.000 (*)       0.000 (*)
+NC                 2.000 (*)       2.000 (*)
+NE                 1.834           1.834    
+NF               979.990m        979.990m   
+NK               500.000m(*)     500.000m(*)
+NR                 1.000 (*)       1.000 (*)
+NS                 1.000 (*)       1.000 (*)
+PTF                0.000 (*)       0.000 (*)
+QCO                0.000 (*)       0.000 (*)
+QUASIMOD           0.000 (*)       0.000 (*)
+RB                 0.000 (*)       0.000 (*)
+RBM                0.000 (*)       0.000 (*)
+RC                 0.000 (*)       0.000 (*)
+RCO                0.000 (*)       0.000 (*)
+RE               668.817m        668.817m   
+T_ABS           UNDEFINED(*)    UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)    UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)    UNDEFINED(*)
+TF               407.084p        407.084p   
+TR                 2.267u          2.267u   
+TRB1               0.000 (*)       0.000 (*)
+TRB2               0.000 (*)       0.000 (*)
+TRC1               0.000 (*)       0.000 (*)
+TRC2               0.000 (*)       0.000 (*)
+TRE1               0.000 (*)       0.000 (*)
+TRE2               0.000 (*)       0.000 (*)
+TRM1               0.000 (*)       0.000 (*)
+TRM2               0.000 (*)       0.000 (*)
+VAF              100.000         100.000    
+VAR                0.000 (*)       0.000 (*)
+VG                 1.206 (*)       1.206 (*)
+VJC              700.000m        700.000m   
+VJE              700.000m        700.000m   
+VJS              750.000m(*)     750.000m(*)
+VO                10.000 (*)      10.000 (*)
+VTF               10.000          10.000    
+XCJC               1.000 (*)       1.000 (*)
+XTB                0.000 (*)       0.000 (*)
+XTF              500.021m        500.021m   
+XTI                3.000 (*)       3.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Pulse
+==========================================
+Instance:              V1              V3   
+Using model:       SQUARE          SQUARE   
+P1                 1.000u          1.000u   
+P2                 1.000u          1.000u   
+P3                 4.000u          4.000u   
+P4                 4.000u          4.000u   
+P5                10.000u         10.000u   
+VONE               2.500           2.500    
+VZERO              0.000 (*)       0.000 (*)
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node             Voltage  Node             Voltage  Node             Voltage 
+IN                0.000   2                34.989n  3                 4.000  
+OUT               4.000   IN1               0.000   6                 6.023u 
+7                 4.000   OUT_SCHOTTKY      4.000  
+
+
+Operating Point for Devices of Type Diode
+=========================================
+Instance:                 D2
+Using model:          1N5712
+
+Capacitance Terms:
+CAP                 641.756f
+
+Current Terms:
+ID                   -5.988n
+
+Resistance Terms:
+REQ                   2.113G
+
+Voltage Terms:
+VD                   -4.000 
+
+Power DC Terms:
+PD                   23.954n
+PS                    0.000 
+
+DC Pin Currents:
+Id                   -5.988n
+
+Condition:
+State                    OFF
+
+Device Variables:
+area                  1.000 
+ic                    0.000 
+
+
+
+Operating Point for Devices of Type Bipolar Junction Transistors NPN
+====================================================================
+Instance:                 Q1              Q2
+Using model:          2N2219          2N2219
+
+Beta Terms:
+BETADC               -1.119          -1.119 
+BETAAC               17.594m         17.596m
+
+Capacitance Terms:
+CPI                  42.424p         42.424p
+CMU                  12.661p         12.661p
+CBX                   0.000           0.000 
+CJS                   0.000           0.000 
+
+Conductance Terms:
+GM                  370.909f        371.006f
+
+Current Terms:
+IB                  -34.989p        -34.989p
+IC                   39.159p         39.159p
+
+Resistance Terms:
+RPI                  47.434G         47.428G
+RX                    0.000           0.000 
+RO                  925.840G        925.840G
+
+Voltage Terms:
+VBE                  34.989n          6.023u
+VBC                  -4.000          -4.000 
+VCE                   4.000           4.000 
+
+Frequency Terms:
+FT                    1.072m          1.072m
+
+Power DC Terms:
+PD                  156.637p        156.636p
+PS                    0.000           0.000 
+
+DC Pin Currents:
+Ib                  -34.989p        -34.989p
+Ic                   39.159p         39.159p
+Ie                   -4.170p         -4.171p
+Is                    0.000           0.000 
+
+Condition:
+State                    OFF             OFF
+
+Device Variables:
+area                  1.000           1.000 
+vbe                   0.000           0.000 
+vce                   0.000           0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                  R1              R2              R3              R4
+V                    -34.989n         58.739n         -6.023u          9.041u
+Power DC Terms:
+PD                     0.001f          0.002f         36.282f         54.498f
+
+DC Pin Currents:
+Ir                   -34.989p         39.159p         -6.023n          6.028n
+
+Device Variables:
+tc1                    0.000           0.000           0.000           0.000 
+tc2                    0.000           0.000           0.000           0.000 
+
+
+
+Operating Point for Devices of Type Pulse
+=========================================
+Instance:                  V1              V3
+Using model:           SQUARE          SQUARE
+V                      0.000           0.000 
+Power DC Terms:
+PG                     0.000           0.000 
+
+DC Pin Currents:
+ISource               34.989p          6.023n
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 V2              V4
+V                     4.000           4.000 
+Power DC Terms:
+PG                  156.637p         24.110n
+
+DC Pin Currents:
+ISource             -39.159p         -6.028n
+
+

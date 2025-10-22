@@ -1,0 +1,55 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/**}
+\PYG{c+cm}{ * Base interface for an element of the game space.}
+\PYG{c+cm}{ * \PYGZlt{}p\PYGZgt{}}
+\PYG{c+cm}{ * Serves as the \PYGZlt{}b\PYGZgt{}Component\PYGZlt{}/b\PYGZgt{} role in the \PYGZlt{}em\PYGZgt{}Composite\PYGZlt{}/em\PYGZgt{} pattern,}
+\PYG{c+cm}{ * defining a common contract for both simple and composite elements.}
+\PYG{c+cm}{ */}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{interface} \PYG{n+nc}{IGameElement}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{    }\PYG{c+cm}{/** @return human\PYGZhy{}readable name (for logs/debugging) */}
+\PYG{+w}{    }\PYG{n}{String}\PYG{+w}{ }\PYG{n+nf}{name}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+cm}{/** @return local X coordinate within parent composite */}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{getX}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+cm}{/** @return local Y coordinate within parent composite */}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{getY}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Sets the local position of this element relative to its parent composite.}
+\PYG{c+cm}{     * @param x local X}
+\PYG{c+cm}{     * @param y local Y}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setPosition}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Width of the element.}
+\PYG{c+cm}{     * For composites, this is computed dynamically from the children\PYGZsq{}s bounding box.}
+\PYG{c+cm}{     * @return non\PYGZhy{}negative width}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{getWidth}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Height of the element.}
+\PYG{c+cm}{     * For composites, this is computed dynamically from the children\PYGZsq{}s bounding box.}
+\PYG{c+cm}{     * @return non\PYGZhy{}negative height}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{getHeight}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Area of the element.}
+\PYG{c+cm}{     * For composites, the calculation depends on \PYGZob{}@link AreaMode\PYGZcb{}.}
+\PYG{c+cm}{     * @return non\PYGZhy{}negative area}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{area}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Demonstrational business method (drawing/logging).}
+\PYG{c+cm}{     * Should print an informative line to the console.}
+\PYG{c+cm}{     * @param x absolute X coordinate of the parent origin}
+\PYG{c+cm}{     * @param y absolute Y coordinate of the parent origin}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{draw}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

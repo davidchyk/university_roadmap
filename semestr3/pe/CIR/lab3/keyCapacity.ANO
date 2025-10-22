@@ -1,0 +1,131 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                        AC Analysis of keyCapacity                        ***
+***                           19.10.2025 18:21:55                            ***
+********************************************************************************
+Limits
+======
+Frequency Range          Log 1E8,1Meg
+Number of Points         1001
+Temperature              Linear 27
+Maximum Change %         5
+Noise Input              NONE
+Noise Output             2
+Run Options              Normal
+State Variables          Zero
+Operating Point          On
+Auto Scale Ranges        On
+Accumulate Plots         Off
+Ignore Expression Errors Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+IN           -5.000   2            -3.200   3            10.000  
+OUT           9.852   5            -2.300   6          -500.000m 
+
+
+Operating Point for Devices of Type Bipolar Junction Transistors NPN
+====================================================================
+Instance:               Q1
+Using model:         BC547
+
+Beta Terms:
+BETADC             -1.900 
+BETAAC            -43.117 
+
+Capacitance Terms:
+CPI                12.807p
+CMU                 2.551p
+CBX                 0.000 
+CJS                 0.000 
+
+Conductance Terms:
+GM                -98.522f
+
+Current Terms:
+IB                -12.276p
+IC                 23.320p
+
+Resistance Terms:
+RPI               437.641T
+RX                  0.000 
+RO                819.642G
+
+Voltage Terms:
+VBE                -2.300 
+VBC               -12.152 
+VCE                 9.852 
+
+Frequency Terms:
+FT                 -1.021m
+
+Power DC Terms:
+PD                257.989p
+PS                  0.000 
+
+DC Pin Currents:
+Ib                -12.276p
+Ic                 23.320p
+Ie                -11.044p
+Is                  0.000 
+
+Condition:
+State                  OFF
+
+Device Variables:
+area                1.000 
+vbe                 0.000 
+vce                 0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                R1            R2            R3            R4            R5
+V                   -1.800       147.783m        9.852      -900.000m       -1.800 
+Power DC Terms:
+PD                   3.240m       14.560u      970.662u        1.620m        3.240m
+
+DC Pin Currents:
+Ir                  -1.800m       98.522u       98.522u       -1.800m       -1.800m
+
+Device Variables:
+tc1                  0.000         0.000         0.000         0.000         0.000 
+tc2                  0.000         0.000         0.000         0.000         0.000 
+
+
+
+Operating Point for Devices of Type Pulse
+=========================================
+Instance:                V1
+Using model:         SQUARE
+V                   -5.000 
+Power DC Terms:
+PG                   9.000m
+
+DC Pin Currents:
+ISource              1.800m
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:               V2            V3
+V                  10.000       500.000m
+Power DC Terms:
+PG                985.222u     -900.000u
+
+DC Pin Currents:
+ISource           -98.522u        1.800m
+
+

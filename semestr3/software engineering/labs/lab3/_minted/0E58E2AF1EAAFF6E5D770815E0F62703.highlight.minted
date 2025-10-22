@@ -1,0 +1,68 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZlt{}?xml version=\PYGZdq{}1.0\PYGZdq{} encoding=\PYGZdq{}UTF\PYGZhy{}8\PYGZdq{}?\PYGZgt{}}
+\PYG{n+nt}{\PYGZlt{}project}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}lab3: First Task\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{default=}\PYG{l+s}{\PYGZdq{}all\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{basedir=}\PYG{l+s}{\PYGZdq{}.\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+
+\PYG{+w}{  }\PYG{c+cm}{\PYGZlt{}!\PYGZhy{}\PYGZhy{} ===== Properties ===== \PYGZhy{}\PYGZhy{}\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}property}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}src.dir\PYGZdq{}}\PYG{+w}{      }\PYG{n+na}{value=}\PYG{l+s}{\PYGZdq{}src\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}property}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}build.dir\PYGZdq{}}\PYG{+w}{    }\PYG{n+na}{value=}\PYG{l+s}{\PYGZdq{}out\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}property}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}classes.dir\PYGZdq{}}\PYG{+w}{  }\PYG{n+na}{value=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}build.dir\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}property}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}doc.dir\PYGZdq{}}\PYG{+w}{      }\PYG{n+na}{value=}\PYG{l+s}{\PYGZdq{}doc\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}property}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}main.class\PYGZdq{}}\PYG{+w}{   }\PYG{n+na}{value=}\PYG{l+s}{\PYGZdq{}Main\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}property}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}java.release\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{value=}\PYG{l+s}{\PYGZdq{}17\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+
+\PYG{+w}{  }\PYG{c+cm}{\PYGZlt{}!\PYGZhy{}\PYGZhy{} ===== Clean ===== \PYGZhy{}\PYGZhy{}\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}target}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}clean\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{description=}\PYG{l+s}{\PYGZdq{}Remove compiled classes and docs\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}delete}\PYG{+w}{ }\PYG{n+na}{dir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}build.dir\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}delete}\PYG{+w}{ }\PYG{n+na}{dir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}doc.dir\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}/target\PYGZgt{}}
+
+\PYG{+w}{  }\PYG{c+cm}{\PYGZlt{}!\PYGZhy{}\PYGZhy{} ===== Compile ===== \PYGZhy{}\PYGZhy{}\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}target}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}compile\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{description=}\PYG{l+s}{\PYGZdq{}Compile sources\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{depends=}\PYG{l+s}{\PYGZdq{}prepare\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}mkdir}\PYG{+w}{ }\PYG{n+na}{dir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}classes.dir\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}javac}\PYG{+w}{ }\PYG{n+na}{srcdir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}src.dir\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{           }\PYG{n+na}{destdir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}classes.dir\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{           }\PYG{n+na}{includeantruntime=}\PYG{l+s}{\PYGZdq{}false\PYGZdq{}}
+\PYG{+w}{           }\PYG{n+na}{debug=}\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}
+\PYG{+w}{           }\PYG{n+na}{encoding=}\PYG{l+s}{\PYGZdq{}UTF\PYGZhy{}8\PYGZdq{}}
+\PYG{+w}{           }\PYG{n+na}{release=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}java.release\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{      }\PYG{n+nt}{\PYGZlt{}include}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}**/*.java\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}/javac\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}/target\PYGZgt{}}
+
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}target}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}prepare\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}mkdir}\PYG{+w}{ }\PYG{n+na}{dir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}classes.dir\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}/target\PYGZgt{}}
+
+\PYG{+w}{  }\PYG{c+cm}{\PYGZlt{}!\PYGZhy{}\PYGZhy{} ===== Run ===== \PYGZhy{}\PYGZhy{}\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}target}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}run\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{description=}\PYG{l+s}{\PYGZdq{}Run main class\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{depends=}\PYG{l+s}{\PYGZdq{}compile\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}java}\PYG{+w}{ }\PYG{n+na}{classname=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}main.class\PYGZcb{}\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{fork=}\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{failonerror=}\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{      }\PYG{n+nt}{\PYGZlt{}classpath\PYGZgt{}}
+\PYG{+w}{        }\PYG{n+nt}{\PYGZlt{}path}\PYG{+w}{ }\PYG{n+na}{location=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}classes.dir\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{      }\PYG{n+nt}{\PYGZlt{}/classpath\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}/java\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}/target\PYGZgt{}}
+
+\PYG{+w}{  }\PYG{c+cm}{\PYGZlt{}!\PYGZhy{}\PYGZhy{} ===== Javadoc ===== \PYGZhy{}\PYGZhy{}\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}target}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}javadoc\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{description=}\PYG{l+s}{\PYGZdq{}Generate Javadoc\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}mkdir}\PYG{+w}{ }\PYG{n+na}{dir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}doc.dir\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}javadoc}\PYG{+w}{ }\PYG{n+na}{destdir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}doc.dir\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{             }\PYG{n+na}{sourcepath=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}src.dir\PYGZcb{}\PYGZdq{}}
+\PYG{+w}{             }\PYG{n+na}{encoding=}\PYG{l+s}{\PYGZdq{}UTF\PYGZhy{}8\PYGZdq{}}
+\PYG{+w}{             }\PYG{n+na}{author=}\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}
+\PYG{+w}{             }\PYG{n+na}{version=}\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}
+\PYG{+w}{             }\PYG{n+na}{use=}\PYG{l+s}{\PYGZdq{}true\PYGZdq{}}
+\PYG{+w}{             }\PYG{n+na}{windowtitle=}\PYG{l+s}{\PYGZdq{}Composite Pattern — Lab 3 API\PYGZdq{}}
+\PYG{+w}{             }\PYG{n+na}{doctitle=}\PYG{l+s}{\PYGZdq{}Composite Pattern — Lab 3 API\PYGZdq{}}
+\PYG{+w}{             }\PYG{n+na}{failonerror=}\PYG{l+s}{\PYGZdq{}false\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{      }\PYG{n+nt}{\PYGZlt{}fileset}\PYG{+w}{ }\PYG{n+na}{dir=}\PYG{l+s}{\PYGZdq{}\PYGZdl{}\PYGZob{}src.dir\PYGZcb{}\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+\PYG{+w}{        }\PYG{n+nt}{\PYGZlt{}include}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}**/*.java\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{      }\PYG{n+nt}{\PYGZlt{}/fileset\PYGZgt{}}
+\PYG{+w}{      }\PYG{n+nt}{\PYGZlt{}link}\PYG{+w}{ }\PYG{n+na}{href=}\PYG{l+s}{\PYGZdq{}https://docs.oracle.com/en/java/javase/\PYGZdl{}\PYGZob{}java.release\PYGZcb{}/docs/api/\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZlt{}/javadoc\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}/target\PYGZgt{}}
+
+\PYG{+w}{  }\PYG{c+cm}{\PYGZlt{}!\PYGZhy{}\PYGZhy{} ===== Convenience: all\PYGZhy{}in\PYGZhy{}one ===== \PYGZhy{}\PYGZhy{}\PYGZgt{}}
+\PYG{+w}{  }\PYG{n+nt}{\PYGZlt{}target}\PYG{+w}{ }\PYG{n+na}{name=}\PYG{l+s}{\PYGZdq{}all\PYGZdq{}}\PYG{+w}{ }\PYG{n+na}{description=}\PYG{l+s}{\PYGZdq{}Clean, compile, run, and generate Javadoc\PYGZdq{}}
+\PYG{+w}{          }\PYG{n+na}{depends=}\PYG{l+s}{\PYGZdq{}clean,compile,run,javadoc\PYGZdq{}}\PYG{n+nt}{/\PYGZgt{}}
+\PYG{n+nt}{\PYGZlt{}/project\PYGZgt{}}
+\end{MintedVerbatim}

@@ -1,0 +1,81 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+PS C:\PYGZbs{}Users\PYGZbs{}Artem Davydchuk\PYGZbs{}Desktop\PYGZbs{}reps\PYGZbs{}university\PYGZus{}roadmap\PYGZbs{}semestr3\PYGZbs{}software engineering\PYGZbs{}labs\PYGZbs{}lab3\PYGZbs{}project2\PYGZgt{} tree /f /a
+Folder PATH listing
+Volume serial number is 9873\PYGZhy{}FF92
+C:.
+|   build.xml
+|
++\PYGZhy{}\PYGZhy{}\PYGZhy{}doc
+|   |   allclasses\PYGZhy{}index.html
+|   |   allpackages\PYGZhy{}index.html
+|   |   copy.svg
+|   |   DirectoryIcon.html
+|   |   element\PYGZhy{}list
+|   |   FileIcon.html
+|   |   FSIcon.html
+|   |   help\PYGZhy{}doc.html
+|   |   IconFactory.html
+|   |   IconFlyweight.html
+|   |   IconType.html
+|   |   index\PYGZhy{}all.html
+|   |   index.html
+|   |   link.svg
+|   |   Main.html
+|   |   member\PYGZhy{}search\PYGZhy{}index.js
+|   |   module\PYGZhy{}search\PYGZhy{}index.js
+|   |   overview\PYGZhy{}tree.html
+|   |   package\PYGZhy{}search\PYGZhy{}index.js
+|   |   package\PYGZhy{}summary.html
+|   |   package\PYGZhy{}tree.html
+|   |   package\PYGZhy{}use.html
+|   |   script.js
+|   |   search\PYGZhy{}page.js
+|   |   search.html
+|   |   search.js
+|   |   stylesheet.css
+|   |   tag\PYGZhy{}search\PYGZhy{}index.js
+|   |   type\PYGZhy{}search\PYGZhy{}index.js
+|   |
+|   +\PYGZhy{}\PYGZhy{}\PYGZhy{}class\PYGZhy{}use
+|   |       DirectoryIcon.html
+|   |       FileIcon.html
+|   |       FSIcon.html
+|   |       IconFactory.html
+|   |       IconFlyweight.html
+|   |       IconType.html
+|   |       Main.html
+|   |
+|   +\PYGZhy{}\PYGZhy{}\PYGZhy{}legal
+|   |       COPYRIGHT
+|   |       jquery.md
+|   |       jqueryUI.md
+|   |       LICENSE
+|   |
+|   +\PYGZhy{}\PYGZhy{}\PYGZhy{}resources
+|   |       glass.png
+|   |       x.png
+|   |
+|   \PYGZbs{}\PYGZhy{}\PYGZhy{}\PYGZhy{}script\PYGZhy{}dir
+|           jquery\PYGZhy{}3.7.1.min.js
+|           jquery\PYGZhy{}ui.min.css
+|           jquery\PYGZhy{}ui.min.js
+|
++\PYGZhy{}\PYGZhy{}\PYGZhy{}out
+|       DirectoryIcon.class
+|       FileIcon.class
+|       FSIcon.class
+|       IconFactory\PYGZdl{}1.class
+|       IconFactory.class
+|       IconFlyweight.class
+|       IconType.class
+|       Main.class
+|
+\PYGZbs{}\PYGZhy{}\PYGZhy{}\PYGZhy{}src
+        DirectoryIcon.java
+        FileIcon.java
+        FSIcon.java
+        IconFactory.java
+        IconFlyweight.java
+        IconType.java
+        Main.java
+\end{MintedVerbatim}

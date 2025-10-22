@@ -1,21 +1,24 @@
 ********************************************************************************
-***                            Micro-Cap 9.0.7.0                             ***
-***                             Micro-Cap 9.0.7                              ***
-***                            Spectrum Software                             ***
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
 ***                       DC Analysis of keyFieldStZt                        ***
 ********************************************************************************
 Limits
 ======
-Variable 1 Method Auto
-Variable 1 Name   VG
-Variable 1 Range  10,0,.5
-Variable 2 Method Linear
-Variable 2 Name   VD
-Variable 2 Range  5,5,5
-Temperature       Linear 27
-Number of Points  51
-Maximum Change %  50
-Run Options       Normal
+Variable 1 Method        Auto
+Variable 1 Name          VG
+Variable 1 Range         10,0,.5
+Variable 2 Method        Linear
+Variable 2 Name          VD
+Variable 2 Range         5,5,5
+Temperature              Linear 27
+Number of Points         51
+Maximum Change %         50
+Run Options              Normal
+Auto Scale Ranges        On
+Accumulate Plots         Off
+Ignore Expression Errors Off
 
 
 *****************************************************
@@ -23,7 +26,7 @@ Run Options       Normal
 ***                     VD=5                      ***
 *****************************************************
 
-Temperature=27 VD=5 
+Temperature=27 VD=5
 
 Model parameters for devices of type Mosfet NMOS
 ================================================

@@ -1,0 +1,12 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/**}
+\PYG{c+cm}{ * Area calculation modes for a composite element.}
+\PYG{c+cm}{ */}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{enum}\PYG{+w}{ }\PYG{n}{AreaMode}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+cm}{/** Area equals the sum of all child areas. */}
+\PYG{+w}{    }\PYG{n}{SUM\PYGZus{}CHILD\PYGZus{}AREAS}\PYG{p}{,}
+
+\PYG{+w}{    }\PYG{c+cm}{/** Area equals the area of the minimal bounding box covering all children. */}
+\PYG{+w}{    }\PYG{n}{BOUNDING\PYGZus{}BOX}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

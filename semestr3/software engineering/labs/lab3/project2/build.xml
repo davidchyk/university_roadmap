@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="lab3: Second Task" default="all" basedir=".">
+
+  <!-- ===== Properties ===== -->
+  <property name="src.dir"      value="src"/>
+  <property name="build.dir"    value="out"/>
+  <property name="classes.dir"  value="${build.dir}"/>
+  <property name="doc.dir"      value="doc"/>
+  <property name="main.class"   value="Main"/>
+  <property name="java.release" value="17"/>
+
+  <!-- ===== Clean ===== -->
+  <target name="clean" description="Remove compiled classes and docs">
+    <delete dir="${build.dir}"/>
+    <delete dir="${doc.dir}"/>
+  </target>
+
+  <!-- ===== Compile ===== -->
+  <target name="compile" description="Compile sources" depends="prepare">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${src.dir}"
+           destdir="${classes.dir}"
+           includeantruntime="false"
+           debug="true"
+           encoding="UTF-8"
+           release="${java.release}">
+      <include name="**/*.java"/>
+      <!-- Якщо з'явиться зовнішній classpath (JAR-и) — додай тут <classpath> -->
+    </javac>
+  </target>
+
+  <target name="prepare">
+    <mkdir dir="${classes.dir}"/>
+  </target>
+
+  <!-- ===== Run ===== -->
+  <target name="run" description="Run main class" depends="compile">
+    <java classname="${main.class}" fork="true" failonerror="true">
+      <classpath>
+        <path location="${classes.dir}"/>
+      </classpath>
+    </java>
+  </target>
+
+  <!-- ===== Javadoc ===== -->
+  <target name="javadoc" description="Generate Javadoc">
+    <mkdir dir="${doc.dir}"/>
+    <javadoc destdir="${doc.dir}"
+             sourcepath="${src.dir}"
+             encoding="UTF-8"
+             author="true"
+             version="true"
+             use="true"
+             windowtitle="IPZ — API documentation"
+             doctitle="IPZ — API documentation"
+             failonerror="false">
+      <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+      </fileset>
+      <link href="https://docs.oracle.com/en/java/javase/${java.release}/docs/api/"/>
+    </javadoc>
+  </target>
+
+  <!-- ===== All-in-one ===== -->
+  <target name="all" description="Clean, compile, run, javadoc"
+          depends="clean,compile,run,javadoc"/>
+</project>

@@ -1,0 +1,164 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                       Transient Analysis of lab3_2                       ***
+********************************************************************************
+Limits
+======
+Maximum Run Time           5m
+Output Start Time (tstart) 0
+Maximum Time Step          0.0000001
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          Off
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+
+Model parameters for devices of type Diode
+==========================================
+Instance:              D1   
+Using model:       1N4148   
+LEVEL                   1(*)
+AF                 1.000 (*)
+BV               100.000    
+CJO                1.337p   
+EG                 1.110 (*)
+FC               500.000m(*)
+IBV              100.000p   
+IBVL               0.000 (*)
+IKF                0.000 (*)
+IS                 8.000n   
+ISR                0.000 (*)
+KF                 0.000 (*)
+M                316.713m   
+N                  2.011    
+NBV                1.000 (*)
+NBVL               1.000 (*)
+NR                 2.000 (*)
+RL                 3.521G   
+RS               649.339m   
+T_ABS           UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)
+TBV1               0.000 (*)
+TBV2               0.000 (*)
+TIKF               0.000 (*)
+TRS1               0.000 (*)
+TRS2               0.000 (*)
+TT                 8.953n   
+VJ                 9.477    
+XTI                3.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Sine Source
+================================================
+Instance:              V1   
+Using model:         60HZ   
+A                  6.000    
+DC                 0.000 (*)
+F                  1.000K   
+PH                 0.000 (*)
+RP                 0.000 (*)
+RS                 1.000m(*)
+TAU                0.000 (*)
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+OUT         656.106m  IN            2.337u  3             3.000  
+
+
+Operating Point for Devices of Type Diode
+=========================================
+Instance:                 D1
+Using model:          1N4148
+
+Capacitance Terms:
+CAP                 403.695p
+
+Current Terms:
+ID                    2.337m
+
+Resistance Terms:
+REQ                  22.253 
+
+Voltage Terms:
+VD                  656.104m
+
+Power DC Terms:
+PD                    1.534m
+PS                    0.000 
+
+DC Pin Currents:
+Id                    2.337m
+
+Condition:
+State                     ON
+
+Device Variables:
+area                  1.000 
+ic                    0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                  R1              R2           V1.RS
+V                     -2.344         656.106m          2.337u
+Power DC Terms:
+PD                     5.494m          4.305u          5.463n
+
+DC Pin Currents:
+Ir                    -2.344m          6.561u          2.337m
+
+Device Variables:
+tc1                    0.000           0.000           0.000 
+tc2                    0.000           0.000           0.000 
+
+
+
+Operating Point for Devices of Type Sine Source
+===============================================
+Instance:                  V1
+Using model:             60HZ
+V                      2.337u
+Power DC Terms:
+PG                     0.000 
+
+DC Pin Currents:
+ISource                2.337m
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 V2
+V                     3.000 
+Power DC Terms:
+PG                    7.032m
+
+DC Pin Currents:
+ISource              -2.344m
+
+

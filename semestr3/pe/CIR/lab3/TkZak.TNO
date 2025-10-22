@@ -1,0 +1,134 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                       Transient Analysis of TkZak                        ***
+***                            20.10.2025 8:39:02                            ***
+********************************************************************************
+Limits
+======
+Maximum Run Time           5u
+Output Start Time (tstart) 0
+Maximum Time Step          0.01u
+Number of Points           0
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          Off
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+1             0.000   2          -166.667m  3          -500.000m 
+4             3.000   5             3.000  
+
+
+Operating Point for Devices of Type Bipolar Junction Transistors NPN
+====================================================================
+Instance:                Q1
+Using model:         2N2219
+
+Beta Terms:
+BETADC              -1.069 
+BETAAC             -46.467m
+
+Capacitance Terms:
+CPI                 36.981p
+CMU                 14.118p
+CBX                  0.000 
+CJS                  0.000 
+
+Conductance Terms:
+GM                 -29.432f
+
+Current Terms:
+IB                 -30.593p
+IC                  32.717p
+
+Resistance Terms:
+RPI                  1.579T
+RX                   0.000 
+RO                 941.915G
+
+Voltage Terms:
+VBE               -166.667m
+VBC                 -3.167 
+VCE                  3.000 
+
+Frequency Terms:
+FT                 -91.668u
+
+Power DC Terms:
+PD                 103.250p
+PS                   0.000 
+
+DC Pin Currents:
+Ib                 -30.593p
+Ic                  32.717p
+Ie                  -2.124p
+Is                   0.000 
+
+Condition:
+State                   OFF
+
+Device Variables:
+area                 1.000 
+vbe                  0.000 
+vce                  0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                 R1            R10             R2             R3
+V                  -166.667m       333.333m         4.549u         3.000 
+Power DC Terms:
+PD                   27.778u        55.556u        13.796f         9.000n
+
+DC Pin Currents:
+Ir                 -166.667u       166.667u         3.033n         3.000n
+
+Device Variables:
+tc1                   0.000          0.000          0.000          0.000 
+tc2                   0.000          0.000          0.000          0.000 
+
+
+
+Operating Point for Devices of Type Pulse
+=========================================
+Instance:                 V1
+Using model:     PULSE_VONE1
+V                     0.000 
+Power DC Terms:
+PG                    0.000 
+
+DC Pin Currents:
+ISource            -166.667u
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                E1             E2
+V                  500.000m         3.000 
+Power DC Terms:
+PG                  83.333u         9.098n
+
+DC Pin Currents:
+ISource           -166.667u        -3.033n
+
+

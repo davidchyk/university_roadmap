@@ -1,0 +1,48 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/**}
+\PYG{c+cm}{ * Demo/Client that showcases the Composite pattern implementation}
+\PYG{c+cm}{ * with three scenarios required by the lab:}
+\PYG{c+cm}{ * \PYGZlt{}ol\PYGZgt{}}
+\PYG{c+cm}{ *   \PYGZlt{}li\PYGZgt{}single simple element;\PYGZlt{}/li\PYGZgt{}}
+\PYG{c+cm}{ *   \PYGZlt{}li\PYGZgt{}composite with several simple elements;\PYGZlt{}/li\PYGZgt{}}
+\PYG{c+cm}{ *   \PYGZlt{}li\PYGZgt{}nested composite structure (composite inside composite)}
+\PYG{c+cm}{ *       and different area modes.\PYGZlt{}/li\PYGZgt{}}
+\PYG{c+cm}{ * \PYGZlt{}/ol\PYGZgt{}}
+\PYG{c+cm}{ */}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{Main}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+cm}{/**}
+\PYG{c+cm}{     * Program entry point.}
+\PYG{c+cm}{     * @param args unused}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{String}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{args}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{c+c1}{// 1) Single simple element}
+\PYG{+w}{        }\PYG{n}{IGameElement}\PYG{+w}{ }\PYG{n}{hero}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Hero\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{hero}\PYG{p}{.}\PYG{n+na}{setPosition}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{7}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{hero}\PYG{p}{.}\PYG{n+na}{draw}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Hero area=\PYGZpc{}d size=\PYGZpc{}dx\PYGZpc{}d\PYGZpc{}n\PYGZpc{}n\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{hero}\PYG{p}{.}\PYG{n+na}{area}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{hero}\PYG{p}{.}\PYG{n+na}{getWidth}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{hero}\PYG{p}{.}\PYG{n+na}{getHeight}\PYG{p}{());}
+
+\PYG{+w}{        }\PYG{c+c1}{// 2) Composite with several simple elements (area mode: SUM\PYGZus{}CHILD\PYGZus{}AREAS)}
+\PYG{+w}{        }\PYG{n}{CompositeElement}\PYG{+w}{ }\PYG{n}{group1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{CompositeElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Group1\PYGZdq{}}\PYG{p}{).}\PYG{n+na}{setAreaMode}\PYG{p}{(}\PYG{n}{AreaMode}\PYG{p}{.}\PYG{n+na}{SUM\PYGZus{}CHILD\PYGZus{}AREAS}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{group1}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Tree\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{),}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{group1}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Rock\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{),}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{group1}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Chest\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{+w}{ }\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{group1}\PYG{p}{.}\PYG{n+na}{setPosition}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{10}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{group1}\PYG{p}{.}\PYG{n+na}{draw}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Group1 area=\PYGZpc{}d size=\PYGZpc{}dx\PYGZpc{}d\PYGZpc{}n\PYGZpc{}n\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{group1}\PYG{p}{.}\PYG{n+na}{area}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{group1}\PYG{p}{.}\PYG{n+na}{getWidth}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{group1}\PYG{p}{.}\PYG{n+na}{getHeight}\PYG{p}{());}
+
+\PYG{+w}{        }\PYG{c+c1}{// 3) Nested composite (outer uses BOUNDING\PYGZus{}BOX, inner uses SUM\PYGZus{}CHILD\PYGZus{}AREAS)}
+\PYG{+w}{        }\PYG{n}{CompositeElement}\PYG{+w}{ }\PYG{n}{inner}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{CompositeElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Inner\PYGZdq{}}\PYG{p}{).}\PYG{n+na}{setAreaMode}\PYG{p}{(}\PYG{n}{AreaMode}\PYG{p}{.}\PYG{n+na}{SUM\PYGZus{}CHILD\PYGZus{}AREAS}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{inner}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Coin\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{inner}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Key\PYGZdq{}}\PYG{p}{,}\PYG{+w}{  }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{),}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{CompositeElement}\PYG{+w}{ }\PYG{n}{outer}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{CompositeElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Outer\PYGZdq{}}\PYG{p}{).}\PYG{n+na}{setAreaMode}\PYG{p}{(}\PYG{n}{AreaMode}\PYG{p}{.}\PYG{n+na}{BOUNDING\PYGZus{}BOX}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{outer}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleElement}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Door\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{),}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{outer}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{inner}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{outer}\PYG{p}{.}\PYG{n+na}{setPosition}\PYG{p}{(}\PYG{l+m+mi}{20}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{outer}\PYG{p}{.}\PYG{n+na}{draw}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Outer area(mode=\PYGZpc{}s)=\PYGZpc{}d size=\PYGZpc{}dx\PYGZpc{}d\PYGZpc{}n\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{                }\PYG{n}{AreaMode}\PYG{p}{.}\PYG{n+na}{BOUNDING\PYGZus{}BOX}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{outer}\PYG{p}{.}\PYG{n+na}{area}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{outer}\PYG{p}{.}\PYG{n+na}{getWidth}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{outer}\PYG{p}{.}\PYG{n+na}{getHeight}\PYG{p}{());}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

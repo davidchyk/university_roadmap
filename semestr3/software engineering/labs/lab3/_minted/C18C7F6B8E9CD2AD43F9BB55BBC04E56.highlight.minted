@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+PS C:\PYGZbs{}Users\PYGZbs{}Artem Davydchuk\PYGZbs{}Desktop\PYGZbs{}reps\PYGZbs{}university\PYGZus{}roadmap\PYGZbs{}semestr3\PYGZbs{}software engineering\PYGZbs{}labs\PYGZbs{}lab3\PYGZbs{}project1\PYGZgt{} java \PYGZhy{}cp out Main
+Simple.draw name=Hero at=(5,7) size=2x3
+Hero area=6 size=2x3
+
+Composite.draw name=Group1 at=(10,10) size=8x4 mode=SUM\PYGZus{}CHILD\PYGZus{}AREAS children=3
+Simple.draw name=Tree at=(10,10) size=3x4
+Simple.draw name=Rock at=(14,11) size=2x2
+Simple.draw name=Chest at=(17,10) size=1x1
+Group1 area=17 size=8x4
+
+Composite.draw name=Outer at=(20,3) size=7x5 mode=BOUNDING\PYGZus{}BOX children=2
+Simple.draw name=Door at=(20,3) size=2x5
+Composite.draw name=Inner at=(25,4) size=2x4 mode=SUM\PYGZus{}CHILD\PYGZus{}AREAS children=2
+Simple.draw name=Coin at=(26,4) size=1x1
+Simple.draw name=Key at=(27,6) size=1x2
+Outer area(mode=BOUNDING\PYGZus{}BOX)=35 size=7x5
+\end{MintedVerbatim}

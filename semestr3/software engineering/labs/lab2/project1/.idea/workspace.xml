@@ -5,31 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="625a684e-59fd-40af-bbf2-3de2b361ae0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../conflict_psychology/practics/2/document.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.INX" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.INX" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx1" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx10" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx11" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx11" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx12" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx12" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx13" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx13" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx14" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx14" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx3" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx4" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx5" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx6" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx7" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx8" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx9" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab1/FAMILY_CIR.inx9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab3/keyCapacity.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab3/keyCapacity.cir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab3/keyFieldStZt.DNO" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab3/keyFieldStZt.DNO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab3/keyFieldStZt_cir.INX" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab3/keyFieldStZt_cir.INX" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../pe/CIR/lab3/lab3_4.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pe/CIR/lab3/lab3_4.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />

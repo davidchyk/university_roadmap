@@ -1,26 +1,33 @@
 ********************************************************************************
-***                            Micro-Cap 9.0.7.0                             ***
-***                             Micro-Cap 9.0.7                              ***
-***                            Spectrum Software                             ***
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
 ***                      Transient Analysis of PFRPosl                       ***
 ********************************************************************************
 Limits
 ======
-Time Range           5m
-Maximum Time Step    0
-Number of Points     51
-Temperature          Linear 27
-Run Options          Normal
-State Variables      Zero
-Operating Point      On
-Operating Point Only Off
+Maximum Run Time           5m
+Output Start Time (tstart) 0
+Maximum Time Step          0
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          On
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
 
 
 *****************************************************
 ***                Temperature=27                 ***
 *****************************************************
 
-Temperature=27 
+Temperature=27
 
 Model parameters for devices of type Diode
 ==========================================
@@ -82,16 +89,24 @@ Node         Voltage  Node         Voltage  Node         Voltage
 IN          -11.000  
 
 
-Operating point for devices of type Diode
+Operating Point for Devices of Type Diode
 =========================================
 Instance:                 D1              D2
 Using model:        $GENERIC        $GENERIC
-ID                  -10.211n         -8.804n
-VD                  -11.000          -4.000 
-REQ                   4.975G          4.975G
+
+Capacitance Terms:
 CAP                   1.886p          2.067p
 
-DC Power Terms:
+Current Terms:
+ID                  -10.211n         -8.804n
+
+Resistance Terms:
+REQ                   4.975G          4.975G
+
+Voltage Terms:
+VD                  -11.000          -4.000 
+
+Power DC Terms:
 PD                  112.319n         35.217n
 PS                    0.000           0.000 
 
@@ -101,24 +116,34 @@ Id                  -10.211n         -8.804n
 Condition:
 State                    OFF             OFF
 
+Device Variables:
+area                  1.000           1.000 
+ic                    0.000           0.000 
 
 
-Operating point for devices of type Resistor
+
+Operating Point for Devices of Type Resistor
 ============================================
 Instance:                  R1              R2
-DC Power Terms:
+V                    -51.055u        140.693u
+Power DC Terms:
 PD                   521.319f        197.946f
 
 DC Pin Currents:
 Ir                   -10.211n          1.407n
 
+Device Variables:
+tc1                    0.000           0.000 
+tc2                    0.000           0.000 
 
 
-Operating point for devices of type Pulse
+
+Operating Point for Devices of Type Pulse
 =========================================
 Instance:                  V2
 Using model:           SQUARE
-DC Power Terms:
+V                    -11.000 
+Power DC Terms:
 PG                   112.321n
 
 DC Pin Currents:
@@ -126,10 +151,11 @@ ISource               10.211n
 
 
 
-Operating point for devices of type SPICE Source
+Operating Point for Devices of Type SPICE Source
 ================================================
 Instance:                 V1
-DC Power Terms:
+V                     4.000 
+Power DC Terms:
 PG                   35.216n
 
 DC Pin Currents:

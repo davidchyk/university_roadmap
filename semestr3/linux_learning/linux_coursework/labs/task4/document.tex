@@ -12,6 +12,8 @@
 \usepackage{booktabs}
 \usepackage{caption}
 
+\usepackage{subcaption}
+
 \usepackage{enumitem}
 
 \usepackage{amsmath}
@@ -21,6 +23,7 @@
 
 \usemintedstyle{vs} % або monokai / vs / colorful
 \setminted{linenos, breaklines, frame=single, fontsize=\small}
+\captionsetup[subfigure]{labelformat=simple,labelsep=space}
 
 \usepackage{hyperref}
 
@@ -64,7 +67,7 @@
 
     \setlength{\parindent}{0em}
 
-    \textbf{\underline{Тема:}} «Вивчення CI/CD інстументів»
+    \textbf{\underline{Тема:}} «Вивчення CI/CD інстументів».
 
     \vspace{1em}
 
@@ -74,8 +77,1171 @@
 
     \begin{center} \textbf{\Large Практична частина} \end{center}
 
-    
+    \textbf{\underline{Робоча директорія:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\project> tree /f /a 
+Folder PATH listing
+Volume serial number is 1A5B-F8AF
+C:.
+|   .gitignore
+|   CMakeLists.txt
+|   
++---src
+|       sort.cpp
+|       sort.h
+|       stringProcessor.cpp
+|       stringProcessor.h
+|       
+\---tests
+        smoke_test.cpp
+    \end{minted}
+
+    \textbf{\underline{Програмний код src/sort.cpp:}}
+
+    \begin{minted}{cpp}
+#include "sort.h"
+
+namespace algo {
+
+void insertion_sort(std::vector<int>& a) {
+    for (size_t i = 1; i < a.size(); ++i) {
+        int key = a[i];
+        size_t j = i;
+        while (j > 0 && a[j - 1] > key) {
+            a[j] = a[j - 1];
+            --j;
+        }
+        a[j] = key;
+    }
+}
+
+bool is_sorted_non_decreasing(const std::vector<int>& a) {
+    for (size_t i = 1; i < a.size(); ++i) {
+        if (a[i - 1] > a[i]) return false;
+    }
+    return true;
+}
+
+} // namespace algo
+    \end{minted}
+
+    \newpage
+
+    \textbf{\underline{Програмний код src/sort.h:}}
+
+    \begin{minted}{cpp}
+#pragma once
+#include <vector>
+
+namespace algo {
+    // Стабільне просте сортування (in-place) — для прикладу
+    void insertion_sort(std::vector<int>& a);
+
+    // Перевірка відсортованості за нестрогим зростанням
+    bool is_sorted_non_decreasing(const std::vector<int>& a);
+}
+    \end{minted}
+
+    \textbf{\underline{Програмний код src/stringProcessor.cpp:}}
+
+    \begin{minted}{cpp}
+#include "stringProcessor.h"
+
+namespace {
+    inline bool is_space(char c) {
+        return c == ' ' || c == '\t' || c == '\n' || c == '\r';
+    }
+}
+
+namespace sp {
+
+std::string trim(const std::string& s) {
+    if (s.empty()) return s;
+    size_t i = 0, j = s.size();
+    while (i < j && is_space(s[i])) ++i;
+    while (j > i && is_space(s[j - 1])) --j;
+    return s.substr(i, j - i);
+}
+
+std::string to_lower(std::string s) {
+    for (auto& c : s) {
+        if (c >= 'A' && c <= 'Z') c = char(c - 'A' + 'a');
+    }
+    return s;
+}
+
+bool is_palindrome(const std::string& s) {
+    // ігноруємо пробіли, нечутливість до регістру
+    std::string t;
+    t.reserve(s.size());
+    for (char c : s) {
+        if (!is_space(c)) t.push_back(c);
+    }
+    t = to_lower(t);
+    size_t i = 0, j = t.size();
+    if (j == 0) return true;
+    --j;
+    while (i < j) {
+        if (t[i] != t[j]) return false;
+        ++i; --j;
+    }
+    return true;
+}
+
+} // namespace sp
+    \end{minted}
+
+    \textbf{\underline{Програмний код src/stringProcessor.h:}}
+
+    \begin{minted}{cpp}
+#pragma once
+#include <string>
+#include <algorithm>
+
+namespace sp {
+    // Трим пробіли з обох боків
+    std::string trim(const std::string& s);
+
+    // До нижнього регістру (ASCII)
+    std::string to_lower(std::string s);
+
+    // Чи паліндром (без урахування регістру і пробілів)
+    bool is_palindrome(const std::string& s);
+}
+    \end{minted}
+
+    \textbf{\underline{Конфігурація + генерація Solution (.sln):}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\project> cmake -S . -B build -G "Visual Studio 17 2022"
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 6.2.9200.
+-- The CXX compiler identification is MSVC 19.44.35219.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning (dev) at C:/Strawberry/c/share/cmake-3.29/Modules/FetchContent.cmake:1352 (message):
+  The DOWNLOAD_EXTRACT_TIMESTAMP option was not given and policy CMP0135 is
+  not set.  The policy's OLD behavior will be used.  When using a URL
+  download, the timestamps of extracted files should preferably be that of
+  the time of extraction, otherwise code that depends on the extracted
+  contents might not be rebuilt if the URL changes.  The OLD behavior
+  preserves the timestamps from the archive instead, but this is usually not
+  what you want.  Update your project to the NEW behavior or specify the
+  DOWNLOAD_EXTRACT_TIMESTAMP option with a value of true to avoid this
+  robustness issue.
+Call Stack (most recent call first):
+  CMakeLists.txt:17 (FetchContent_Declare)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- The C compiler identification is MSVC 19.44.35219.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Python3: C:/Users/artem/AppData/Local/Programs/Python/Python313/python.exe (found version "3.13.6") found components: Interpreter
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - not found
+-- Found Threads: TRUE
+-- Configuring done (22.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: C:/Users/artem/Desktop/project/build
+    \end{minted}
+
+    \textbf{\underline{Збірка (Debug):}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\project> cmake --build build --config Debug
+MSBuild version 17.14.23+b0019275e for .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/artem/Desktop/project/build/_deps/googletest-src/googlemock/
+CMakeLists.txt
+  gtest-all.cc
+  gmock-all.cc
+  Generating Code...
+  gmock.vcxproj -> C:\Users\artem\Desktop\project\build\lib\Debug\gmock.lib
+  Building Custom Rule C:/Users/artem/Desktop/project/build/_deps/googletest-src/googlemock/
+CMakeLists.txt
+  gtest-all.cc
+  gmock-all.cc
+  gmock_main.cc
+  Generating Code...
+  gmock_main.vcxproj -> C:\Users\artem\Desktop\project\build\lib\Debug\gmock_main.lib
+  Building Custom Rule C:/Users/artem/Desktop/project/build/_deps/googletest-src/googletest/
+CMakeLists.txt
+  gtest-all.cc
+  gtest.vcxproj -> C:\Users\artem\Desktop\project\build\lib\Debug\gtest.lib
+  Building Custom Rule C:/Users/artem/Desktop/project/build/_deps/googletest-src/googletest/
+CMakeLists.txt
+  gtest_main.cc
+  gtest_main.vcxproj -> C:\Users\artem\Desktop\project\build\lib\Debug\gtest_main.lib
+  Building Custom Rule C:/Users/artem/Desktop/project/CMakeLists.txt
+  stringProcessor.cpp
+  sort.cpp
+  Generating Code...
+  my_lib.vcxproj -> C:\Users\artem\Desktop\project\build\Debug\my_lib.lib
+  Building Custom Rule C:/Users/artem/Desktop/project/CMakeLists.txt
+  smoke_test.cpp
+  unit_tests.vcxproj -> C:\Users\artem\Desktop\project\build\Debug\unit_tests.exe
+  Building Custom Rule C:/Users/artem/Desktop/project/CMakeLists.txt
+    \end{minted}
+
+    \textbf{\underline{Запуск тестів з генерацією XML-звіту}}:
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\project> .\build\Debug\unit_tests.exe --gtest_output=xml:build\test_report.xml
+Running main() from C:\Users\artem\Desktop\project\build\_deps\googletest-src\googletest\src
+gtest_main.cc
+[==========] Running 3 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from StringProcessor
+[ RUN      ] StringProcessor.TrimAndLower
+[       OK ] StringProcessor.TrimAndLower (0 ms)
+[ RUN      ] StringProcessor.Palindrome
+[       OK ] StringProcessor.Palindrome (0 ms)
+[----------] 2 tests from StringProcessor (1 ms total)
+
+[----------] 1 test from Sort
+[ RUN      ] Sort.InsertionSortWorks
+[       OK ] Sort.InsertionSortWorks (0 ms)
+[----------] 1 test from Sort (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 2 test suites ran. (4 ms total)
+[  PASSED  ] 3 tests.
+    \end{minted}
+
+    \textbf{\underline{Робоча директорія після виконаних кроків конфігурації, генерації та збірки:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\project> tree /f /a
+Folder PATH listing
+Volume serial number is 1A5B-F8AF
+C:.
+|   .consolestory
+|   .gitignore
+|   CMakeLists.txt
+|   t.txt
+|   
++---build
+|   |   ALL_BUILD.vcxproj
+|   |   ALL_BUILD.vcxproj.filters
+|   |   CMakeCache.txt
+|   |   cmake_install.cmake
+|   |   CTestTestfile.cmake
+|   |   INSTALL.vcxproj
+|   |   INSTALL.vcxproj.filters
+|   |   MyGTestProj.sln
+|   |   my_lib.vcxproj
+|   |   my_lib.vcxproj.filters
+|   |   RUN_TESTS.vcxproj
+|   |   RUN_TESTS.vcxproj.filters
+|   |   test_report.xml
+|   |   unit_tests.vcxproj
+|   |   unit_tests.vcxproj.filters
+|   |   unit_tests[1]_include.cmake
+|   |   unit_tests[1]_tests.cmake
+|   |   ZERO_CHECK.vcxproj
+|   |   ZERO_CHECK.vcxproj.filters
+|   |   
+|   +---CMakeFiles
+|   |   |   cmake.check_cache
+|   |   |   CMakeConfigureLog.yaml
+|   |   |   generate.stamp
+|   |   |   generate.stamp.depend
+|   |   |   generate.stamp.list
+|   |   |   TargetDirectories.txt
+|   |   |   
+|   |   +---221e8778a9cacabaa0e7dca956df043d
+|   |   |       INSTALL_force.rule
+|   |   |       RUN_TESTS_force.rule
+|   |   |       
+|   |   +---3.29.2
+|   |   |   |   CMakeCCompiler.cmake
+|   |   |   |   CMakeCXXCompiler.cmake
+|   |   |   |   CMakeDetermineCompilerABI_C.bin
+|   |   |   |   CMakeDetermineCompilerABI_CXX.bin
+|   |   |   |   CMakeRCCompiler.cmake
+|   |   |   |   CMakeSystem.cmake
+|   |   |   |   VCTargetsPath.txt
+|   |   |   |   VCTargetsPath.vcxproj
+|   |   |   |   
+|   |   |   +---CompilerIdC
+|   |   |   |   |   CMakeCCompilerId.c
+|   |   |   |   |   CompilerIdC.exe
+|   |   |   |   |   CompilerIdC.vcxproj
+|   |   |   |   |   
+|   |   |   |   +---Debug
+|   |   |   |   |   |   CMakeCCompilerId.obj
+|   |   |   |   |   |   CompilerIdC.exe.recipe
+|   |   |   |   |   |   
+|   |   |   |   |   \---CompilerIdC.tlog
+|   |   |   |   |           CL.command.1.tlog
+|   |   |   |   |           Cl.items.tlog
+|   |   |   |   |           CL.read.1.tlog
+|   |   |   |   |           CL.write.1.tlog
+|   |   |   |   |           CompilerIdC.lastbuildstate
+|   |   |   |   |           link.command.1.tlog
+|   |   |   |   |           link.read.1.tlog
+|   |   |   |   |           link.secondary.1.tlog
+|   |   |   |   |           link.write.1.tlog
+|   |   |   |   |           
+|   |   |   |   \---tmp
+|   |   |   +---CompilerIdCXX
+|   |   |   |   |   CMakeCXXCompilerId.cpp
+|   |   |   |   |   CompilerIdCXX.exe
+|   |   |   |   |   CompilerIdCXX.vcxproj
+|   |   |   |   |   
+|   |   |   |   +---Debug
+|   |   |   |   |   |   CMakeCXXCompilerId.obj
+|   |   |   |   |   |   CompilerIdCXX.exe.recipe
+|   |   |   |   |   |   
+|   |   |   |   |   \---CompilerIdCXX.tlog
+|   |   |   |   |           CL.command.1.tlog
+|   |   |   |   |           Cl.items.tlog
+|   |   |   |   |           CL.read.1.tlog
+|   |   |   |   |           CL.write.1.tlog
+|   |   |   |   |           CompilerIdCXX.lastbuildstate
+|   |   |   |   |           link.command.1.tlog
+|   |   |   |   |           link.read.1.tlog
+|   |   |   |   |           link.secondary.1.tlog
+|   |   |   |   |           link.write.1.tlog
+|   |   |   |   |           
+|   |   |   |   \---tmp
+|   |   |   +---VCTargetsPath
+|   |   |   |   \---x64
+|   |   |   |       \---Debug
+|   |   |   |           |   VCTargetsPath.recipe
+|   |   |   |           |   
+|   |   |   |           \---VCTargetsPath.tlog
+|   |   |   |                   VCTargetsPath.lastbuildstate
+|   |   |   |                   
+|   |   |   \---x64
+|   |   |       \---Debug
+|   |   +---ba30693984164defdda498b2fc47b999
+|   |   |       generate.stamp.rule
+|   |   |       INSTALL_force.rule
+|   |   |       RUN_TESTS_force.rule
+|   |   |       
+|   |   +---CMakeScratch
+|   |   +---e1016b5e72a78186d6d2c7373e841be2
+|   |   |       INSTALL_force.rule
+|   |   |       RUN_TESTS_force.rule
+|   |   |       
+|   |   +---e5097ab0b0bc71e539ee0b41c04d6012
+|   |   |       INSTALL_force.rule
+|   |   |       RUN_TESTS_force.rule
+|   |   |       
+|   |   \---pkgRedirects
+|   +---Debug
+|   |       my_lib.lib
+|   |       my_lib.pdb
+|   |       unit_tests.exe
+|   |       unit_tests.pdb
+|   |       
+|   +---lib
+|   |   \---Debug
+|   |           gmock.lib
+|   |           gmock.pdb
+|   |           gmockpdb_debug_postfix-NOTFOUND.pdb
+|   |           gmock_main.lib
+|   |           gmock_main.pdb
+|   |           gmock_mainpdb_debug_postfix-NOTFOUND.pdb
+|   |           gtest.lib
+|   |           gtest.pdb
+|   |           gtestpdb_debug_postfix-NOTFOUND.pdb
+|   |           gtest_main.lib
+|   |           gtest_main.pdb
+|   |           gtest_mainpdb_debug_postfix-NOTFOUND.pdb
+|   |           
+|   +---my_lib.dir
+|   |   \---Debug
+|   |       |   my_lib.lib.recipe
+|   |       |   sort.obj
+|   |       |   stringProcessor.obj
+|   |       |   
+|   |       \---my_lib.tlog
+|   |               CL.command.1.tlog
+|   |               Cl.items.tlog
+|   |               CL.read.1.tlog
+|   |               CL.write.1.tlog
+|   |               CustomBuild.command.1.tlog
+|   |               CustomBuild.read.1.tlog
+|   |               CustomBuild.write.1.tlog
+|   |               Lib-link.read.1.tlog
+|   |               Lib-link.write.1.tlog
+|   |               Lib.command.1.tlog
+|   |               my_lib.lastbuildstate
+|   |               
+|   +---unit_tests.dir
+|   |   \---Debug
+|   |       |   smoke_test.obj
+|   |       |   unit_tests.exe.recipe
+|   |       |   unit_tests.ilk
+|   |       |   vc143.pdb
+|   |       |   
+|   |       \---unit_tests.tlog
+|   |               CL.command.1.tlog
+|   |               Cl.items.tlog
+|   |               CL.read.1.tlog
+|   |               CL.write.1.tlog
+|   |               CustomBuild.command.1.tlog
+|   |               CustomBuild.read.1.tlog
+|   |               CustomBuild.write.1.tlog
+|   |               link.command.1.tlog
+|   |               link.read.1.tlog
+|   |               link.secondary.1.tlog
+|   |               link.write.1.tlog
+|   |               unit_tests.lastbuildstate
+|   |               
+|   +---x64
+|   |   \---Debug
+|   |       +---ALL_BUILD
+|   |       |   |   ALL_BUILD.recipe
+|   |       |   |   
+|   |       |   \---ALL_BUILD.tlog
+|   |       |           ALL_BUILD.lastbuildstate
+|   |       |           CustomBuild.command.1.tlog
+|   |       |           CustomBuild.read.1.tlog
+|   |       |           CustomBuild.write.1.tlog
+|   |       |           
+|   |       \---ZERO_CHECK
+|   |           |   ZERO_CHECK.recipe
+|   |           |   
+|   |           \---ZERO_CHECK.tlog
+|   |                   CustomBuild.command.1.tlog
+|   |                   CustomBuild.read.1.tlog
+|   |                   CustomBuild.write.1.tlog
+|   |                   ZERO_CHECK.lastbuildstate
+|   |                   
+|   \---_deps
+|       +---googletest-build
+|       |   |   ALL_BUILD.vcxproj
+|       |   |   ALL_BUILD.vcxproj.filters
+|       |   |   cmake_install.cmake
+|       |   |   CTestTestfile.cmake
+|       |   |   googletest-distribution.sln
+|       |   |   INSTALL.vcxproj
+|       |   |   INSTALL.vcxproj.filters
+|       |   |   RUN_TESTS.vcxproj
+|       |   |   RUN_TESTS.vcxproj.filters
+|       |   |   
+|       |   +---CMakeFiles
+|       |   |       generate.stamp
+|       |   |       generate.stamp.depend
+|       |   |       
+|       |   +---googlemock
+|       |   |   |   ALL_BUILD.vcxproj
+|       |   |   |   ALL_BUILD.vcxproj.filters
+|       |   |   |   cmake_install.cmake
+|       |   |   |   CTestTestfile.cmake
+|       |   |   |   gmock.sln
+|       |   |   |   gmock.vcxproj
+|       |   |   |   gmock.vcxproj.filters
+|       |   |   |   gmock_main.vcxproj
+|       |   |   |   gmock_main.vcxproj.filters
+|       |   |   |   INSTALL.vcxproj
+|       |   |   |   INSTALL.vcxproj.filters
+|       |   |   |   RUN_TESTS.vcxproj
+|       |   |   |   RUN_TESTS.vcxproj.filters
+|       |   |   |   
+|       |   |   +---CMakeFiles
+|       |   |   |       generate.stamp
+|       |   |   |       generate.stamp.depend
+|       |   |   |       
+|       |   |   +---gmock.dir
+|       |   |   |   \---Debug
+|       |   |   |       |   gmock-all.obj
+|       |   |   |       |   gmock.lib.recipe
+|       |   |   |       |   gtest-all.obj
+|       |   |   |       |   
+|       |   |   |       \---gmock.tlog
+|       |   |   |               CL.command.1.tlog
+|       |   |   |               Cl.items.tlog
+|       |   |   |               CL.read.1.tlog
+|       |   |   |               CL.write.1.tlog
+|       |   |   |               CustomBuild.command.1.tlog
+|       |   |   |               CustomBuild.read.1.tlog
+|       |   |   |               CustomBuild.write.1.tlog
+|       |   |   |               gmock.lastbuildstate
+|       |   |   |               Lib-link.read.1.tlog
+|       |   |   |               Lib-link.write.1.tlog
+|       |   |   |               Lib.command.1.tlog
+|       |   |   |               
+|       |   |   \---gmock_main.dir
+|       |   |       \---Debug
+|       |   |           |   gmock-all.obj
+|       |   |           |   gmock_main.lib.recipe
+|       |   |           |   gmock_main.obj
+|       |   |           |   gtest-all.obj
+|       |   |           |   
+|       |   |           \---gmock_main.tlog
+|       |   |                   CL.command.1.tlog
+|       |   |                   Cl.items.tlog
+|       |   |                   CL.read.1.tlog
+|       |   |                   CL.write.1.tlog
+|       |   |                   CustomBuild.command.1.tlog
+|       |   |                   CustomBuild.read.1.tlog
+|       |   |                   CustomBuild.write.1.tlog
+|       |   |                   gmock_main.lastbuildstate
+|       |   |                   Lib-link.read.1.tlog
+|       |   |                   Lib-link.write.1.tlog
+|       |   |                   Lib.command.1.tlog
+|       |   |                   
+|       |   \---googletest
+|       |       |   ALL_BUILD.vcxproj
+|       |       |   ALL_BUILD.vcxproj.filters
+|       |       |   cmake_install.cmake
+|       |       |   CTestTestfile.cmake
+|       |       |   gtest.sln
+|       |       |   gtest.vcxproj
+|       |       |   gtest.vcxproj.filters
+|       |       |   gtest_main.vcxproj
+|       |       |   gtest_main.vcxproj.filters
+|       |       |   INSTALL.vcxproj
+|       |       |   INSTALL.vcxproj.filters
+|       |       |   RUN_TESTS.vcxproj
+|       |       |   RUN_TESTS.vcxproj.filters
+|       |       |   
+|       |       +---CMakeFiles
+|       |       |   |   generate.stamp
+|       |       |   |   generate.stamp.depend
+|       |       |   |   
+|       |       |   \---Export
+|       |       |       \---0c08b8e77dd885bfe55a19a9659d9fc1
+|       |       |               GTestTargets-debug.cmake
+|       |       |               GTestTargets-minsizerel.cmake
+|       |       |               GTestTargets-release.cmake
+|       |       |               GTestTargets-relwithdebinfo.cmake
+|       |       |               GTestTargets.cmake
+|       |       |               
+|       |       +---generated
+|       |       |       gmock.pc
+|       |       |       gmock_main.pc
+|       |       |       gtest.pc
+|       |       |       GTestConfig.cmake
+|       |       |       GTestConfigVersion.cmake
+|       |       |       gtest_main.pc
+|       |       |       
+|       |       +---gtest.dir
+|       |       |   \---Debug
+|       |       |       |   gtest-all.obj
+|       |       |       |   gtest.lib.recipe
+|       |       |       |   
+|       |       |       \---gtest.tlog
+|       |       |               CL.command.1.tlog
+|       |       |               Cl.items.tlog
+|       |       |               CL.read.1.tlog
+|       |       |               CL.write.1.tlog
+|       |       |               CustomBuild.command.1.tlog
+|       |       |               CustomBuild.read.1.tlog
+|       |       |               CustomBuild.write.1.tlog
+|       |       |               gtest.lastbuildstate
+|       |       |               Lib-link.read.1.tlog
+|       |       |               Lib-link.write.1.tlog
+|       |       |               Lib.command.1.tlog
+|       |       |               
+|       |       \---gtest_main.dir
+|       |           \---Debug
+|       |               |   gtest_main.lib.recipe
+|       |               |   gtest_main.obj
+|       |               |   
+|       |               \---gtest_main.tlog
+|       |                       CL.command.1.tlog
+|       |                       Cl.items.tlog
+|       |                       CL.read.1.tlog
+|       |                       CL.write.1.tlog
+|       |                       CustomBuild.command.1.tlog
+|       |                       CustomBuild.read.1.tlog
+|       |                       CustomBuild.write.1.tlog
+|       |                       gtest_main.lastbuildstate
+|       |                       Lib-link.read.1.tlog
+|       |                       Lib-link.write.1.tlog
+|       |                       Lib.command.1.tlog
+|       |                       
+|       +---googletest-src
+|       |   |   .clang-format
+|       |   |   .gitignore
+|       |   |   BUILD.bazel
+|       |   |   CMakeLists.txt
+|       |   |   CONTRIBUTING.md
+|       |   |   CONTRIBUTORS
+|       |   |   googletest_deps.bzl
+|       |   |   LICENSE
+|       |   |   README.md
+|       |   |   WORKSPACE
+|       |   |   
+|       |   +---.github
+|       |   |   +---ISSUE_TEMPLATE
+|       |   |   |       00-bug_report.yml
+|       |   |   |       10-feature_request.yml
+|       |   |   |       config.yml
+|       |   |   |       
+|       |   |   \---workflows
+|       |   |           gtest-ci.yml
+|       |   |           
+|       |   +---ci
+|       |   |       linux-presubmit.sh
+|       |   |       macos-presubmit.sh
+|       |   |       windows-presubmit.bat
+|       |   |       
+|       |   +---docs
+|       |   |   |   advanced.md
+|       |   |   |   community_created_documentation.md
+|       |   |   |   faq.md
+|       |   |   |   gmock_cheat_sheet.md
+|       |   |   |   gmock_cook_book.md
+|       |   |   |   gmock_faq.md
+|       |   |   |   gmock_for_dummies.md
+|       |   |   |   index.md
+|       |   |   |   pkgconfig.md
+|       |   |   |   platforms.md
+|       |   |   |   primer.md
+|       |   |   |   quickstart-bazel.md
+|       |   |   |   quickstart-cmake.md
+|       |   |   |   samples.md
+|       |   |   |   _config.yml
+|       |   |   |   
+|       |   |   +---assets
+|       |   |   |   \---css
+|       |   |   |           style.scss
+|       |   |   |           
+|       |   |   +---reference
+|       |   |   |       actions.md
+|       |   |   |       assertions.md
+|       |   |   |       matchers.md
+|       |   |   |       mocking.md
+|       |   |   |       testing.md
+|       |   |   |       
+|       |   |   +---_data
+|       |   |   |       navigation.yml
+|       |   |   |       
+|       |   |   +---_layouts
+|       |   |   |       default.html
+|       |   |   |       
+|       |   |   \---_sass
+|       |   |           main.scss
+|       |   |           
+|       |   +---googlemock
+|       |   |   |   CMakeLists.txt
+|       |   |   |   README.md
+|       |   |   |   
+|       |   |   +---cmake
+|       |   |   |       gmock.pc.in
+|       |   |   |       gmock_main.pc.in
+|       |   |   |       
+|       |   |   +---docs
+|       |   |   |       README.md
+|       |   |   |       
+|       |   |   +---include
+|       |   |   |   \---gmock
+|       |   |   |       |   gmock-actions.h
+|       |   |   |       |   gmock-cardinalities.h
+|       |   |   |       |   gmock-function-mocker.h
+|       |   |   |       |   gmock-matchers.h
+|       |   |   |       |   gmock-more-actions.h
+|       |   |   |       |   gmock-more-matchers.h
+|       |   |   |       |   gmock-nice-strict.h
+|       |   |   |       |   gmock-spec-builders.h
+|       |   |   |       |   gmock.h
+|       |   |   |       |   
+|       |   |   |       \---internal
+|       |   |   |           |   gmock-internal-utils.h
+|       |   |   |           |   gmock-port.h
+|       |   |   |           |   gmock-pp.h
+|       |   |   |           |   
+|       |   |   |           \---custom
+|       |   |   |                   gmock-generated-actions.h
+|       |   |   |                   gmock-matchers.h
+|       |   |   |                   gmock-port.h
+|       |   |   |                   README.md
+|       |   |   |                   
+|       |   |   +---src
+|       |   |   |       gmock-all.cc
+|       |   |   |       gmock-cardinalities.cc
+|       |   |   |       gmock-internal-utils.cc
+|       |   |   |       gmock-matchers.cc
+|       |   |   |       gmock-spec-builders.cc
+|       |   |   |       gmock.cc
+|       |   |   |       gmock_main.cc
+|       |   |   |       
+|       |   |   \---test
+|       |   |           BUILD.bazel
+|       |   |           gmock-actions_test.cc
+|       |   |           gmock-cardinalities_test.cc
+|       |   |           gmock-function-mocker_test.cc
+|       |   |           gmock-internal-utils_test.cc
+|       |   |           gmock-matchers-arithmetic_test.cc
+|       |   |           gmock-matchers-comparisons_test.cc
+|       |   |           gmock-matchers-containers_test.cc
+|       |   |           gmock-matchers-misc_test.cc
+|       |   |           gmock-matchers_test.h
+|       |   |           gmock-more-actions_test.cc
+|       |   |           gmock-nice-strict_test.cc
+|       |   |           gmock-port_test.cc
+|       |   |           gmock-pp-string_test.cc
+|       |   |           gmock-pp_test.cc
+|       |   |           gmock-spec-builders_test.cc
+|       |   |           gmock_all_test.cc
+|       |   |           gmock_ex_test.cc
+|       |   |           gmock_leak_test.py
+|       |   |           gmock_leak_test_.cc
+|       |   |           gmock_link2_test.cc
+|       |   |           gmock_link_test.cc
+|       |   |           gmock_link_test.h
+|       |   |           gmock_output_test.py
+|       |   |           gmock_output_test_.cc
+|       |   |           gmock_output_test_golden.txt
+|       |   |           gmock_stress_test.cc
+|       |   |           gmock_test.cc
+|       |   |           gmock_test_utils.py
+|       |   |           
+|       |   \---googletest
+|       |       |   CMakeLists.txt
+|       |       |   README.md
+|       |       |   
+|       |       +---cmake
+|       |       |       Config.cmake.in
+|       |       |       gtest.pc.in
+|       |       |       gtest_main.pc.in
+|       |       |       internal_utils.cmake
+|       |       |       libgtest.la.in
+|       |       |       
+|       |       +---docs
+|       |       |       README.md
+|       |       |       
+|       |       +---include
+|       |       |   \---gtest
+|       |       |       |   gtest-assertion-result.h
+|       |       |       |   gtest-death-test.h
+|       |       |       |   gtest-matchers.h
+|       |       |       |   gtest-message.h
+|       |       |       |   gtest-param-test.h
+|       |       |       |   gtest-printers.h
+|       |       |       |   gtest-spi.h
+|       |       |       |   gtest-test-part.h
+|       |       |       |   gtest-typed-test.h
+|       |       |       |   gtest.h
+|       |       |       |   gtest_pred_impl.h
+|       |       |       |   gtest_prod.h
+|       |       |       |   
+|       |       |       \---internal
+|       |       |           |   gtest-death-test-internal.h
+|       |       |           |   gtest-filepath.h
+|       |       |           |   gtest-internal.h
+|       |       |           |   gtest-param-util.h
+|       |       |           |   gtest-port-arch.h
+|       |       |           |   gtest-port.h
+|       |       |           |   gtest-string.h
+|       |       |           |   gtest-type-util.h
+|       |       |           |   
+|       |       |           \---custom
+|       |       |                   gtest-port.h
+|       |       |                   gtest-printers.h
+|       |       |                   gtest.h
+|       |       |                   README.md
+|       |       |                   
+|       |       +---samples
+|       |       |       prime_tables.h
+|       |       |       sample1.cc
+|       |       |       sample1.h
+|       |       |       sample10_unittest.cc
+|       |       |       sample1_unittest.cc
+|       |       |       sample2.cc
+|       |       |       sample2.h
+|       |       |       sample2_unittest.cc
+|       |       |       sample3-inl.h
+|       |       |       sample3_unittest.cc
+|       |       |       sample4.cc
+|       |       |       sample4.h
+|       |       |       sample4_unittest.cc
+|       |       |       sample5_unittest.cc
+|       |       |       sample6_unittest.cc
+|       |       |       sample7_unittest.cc
+|       |       |       sample8_unittest.cc
+|       |       |       sample9_unittest.cc
+|       |       |       
+|       |       +---src
+|       |       |       gtest-all.cc
+|       |       |       gtest-assertion-result.cc
+|       |       |       gtest-death-test.cc
+|       |       |       gtest-filepath.cc
+|       |       |       gtest-internal-inl.h
+|       |       |       gtest-matchers.cc
+|       |       |       gtest-port.cc
+|       |       |       gtest-printers.cc
+|       |       |       gtest-test-part.cc
+|       |       |       gtest-typed-test.cc
+|       |       |       gtest.cc
+|       |       |       gtest_main.cc
+|       |       |       
+|       |       \---test
+|       |               BUILD.bazel
+|       |               googletest-break-on-failure-unittest.py
+|       |               googletest-break-on-failure-unittest_.cc
+|       |               googletest-catch-exceptions-test.py
+|       |               googletest-catch-exceptions-test_.cc
+|       |               googletest-color-test.py
+|       |               googletest-color-test_.cc
+|       |               googletest-death-test-test.cc
+|       |               googletest-death-test_ex_test.cc
+|       |               googletest-env-var-test.py
+|       |               googletest-env-var-test_.cc
+|       |               googletest-failfast-unittest.py
+|       |               googletest-failfast-unittest_.cc
+|       |               googletest-filepath-test.cc
+|       |               googletest-filter-unittest.py
+|       |               googletest-filter-unittest_.cc
+|       |               googletest-global-environment-unittest.py
+|       |               googletest-global-environment-unittest_.cc
+|       |               googletest-json-outfiles-test.py
+|       |               googletest-json-output-unittest.py
+|       |               googletest-list-tests-unittest.py
+|       |               googletest-list-tests-unittest_.cc
+|       |               googletest-listener-test.cc
+|       |               googletest-message-test.cc
+|       |               googletest-options-test.cc
+|       |               googletest-output-test-golden-lin.txt
+|       |               googletest-output-test.py
+|       |               googletest-output-test_.cc
+|       |               googletest-param-test-invalid-name1-test.py
+|       |               googletest-param-test-invalid-name1-test_.cc
+|       |               googletest-param-test-invalid-name2-test.py
+|       |               googletest-param-test-invalid-name2-test_.cc
+|       |               googletest-param-test-test.cc
+|       |               googletest-param-test-test.h
+|       |               googletest-param-test2-test.cc
+|       |               googletest-port-test.cc
+|       |               googletest-printers-test.cc
+|       |               googletest-setuptestsuite-test.py
+|       |               googletest-setuptestsuite-test_.cc
+|       |               googletest-shuffle-test.py
+|       |               googletest-shuffle-test_.cc
+|       |               googletest-test-part-test.cc
+|       |               googletest-throw-on-failure-test.py
+|       |               googletest-throw-on-failure-test_.cc
+|       |               googletest-uninitialized-test.py
+|       |               googletest-uninitialized-test_.cc
+|       |               gtest-typed-test2_test.cc
+|       |               gtest-typed-test_test.cc
+|       |               gtest-typed-test_test.h
+|       |               gtest-unittest-api_test.cc
+|       |               gtest_all_test.cc
+|       |               gtest_assert_by_exception_test.cc
+|       |               gtest_dirs_test.cc
+|       |               gtest_environment_test.cc
+|       |               gtest_help_test.py
+|       |               gtest_help_test_.cc
+|       |               gtest_json_test_utils.py
+|       |               gtest_list_output_unittest.py
+|       |               gtest_list_output_unittest_.cc
+|       |               gtest_main_unittest.cc
+|       |               gtest_no_test_unittest.cc
+|       |               gtest_pred_impl_unittest.cc
+|       |               gtest_premature_exit_test.cc
+|       |               gtest_prod_test.cc
+|       |               gtest_repeat_test.cc
+|       |               gtest_skip_check_output_test.py
+|       |               gtest_skip_environment_check_output_test.py
+|       |               gtest_skip_in_environment_setup_test.cc
+|       |               gtest_skip_test.cc
+|       |               gtest_sole_header_test.cc
+|       |               gtest_stress_test.cc
+|       |               gtest_testbridge_test.py
+|       |               gtest_testbridge_test_.cc
+|       |               gtest_test_macro_stack_footprint_test.cc
+|       |               gtest_test_utils.py
+|       |               gtest_throw_on_failure_ex_test.cc
+|       |               gtest_unittest.cc
+|       |               gtest_xml_outfile1_test_.cc
+|       |               gtest_xml_outfile2_test_.cc
+|       |               gtest_xml_outfiles_test.py
+|       |               gtest_xml_output_unittest.py
+|       |               gtest_xml_output_unittest_.cc
+|       |               gtest_xml_test_utils.py
+|       |               production.cc
+|       |               production.h
+|       |               
+|       \---googletest-subbuild
+|           |   ALL_BUILD.vcxproj
+|           |   ALL_BUILD.vcxproj.filters
+|           |   CMakeCache.txt
+|           |   CMakeLists.txt
+|           |   cmake_install.cmake
+|           |   googletest-populate.sln
+|           |   googletest-populate.vcxproj
+|           |   googletest-populate.vcxproj.filters
+|           |   ZERO_CHECK.vcxproj
+|           |   ZERO_CHECK.vcxproj.filters
+|           |   
+|           +---CMakeFiles
+|           |   |   cmake.check_cache
+|           |   |   CMakeConfigureLog.yaml
+|           |   |   generate.stamp
+|           |   |   generate.stamp.depend
+|           |   |   generate.stamp.list
+|           |   |   TargetDirectories.txt
+|           |   |   
+|           |   +---1df006e100ab1775d6b8844f8a1a250d
+|           |   |       googletest-populate-build.rule
+|           |   |       googletest-populate-configure.rule
+|           |   |       googletest-populate-download.rule
+|           |   |       googletest-populate-install.rule
+|           |   |       googletest-populate-mkdir.rule
+|           |   |       googletest-populate-patch.rule
+|           |   |       googletest-populate-test.rule
+|           |   |       googletest-populate-update.rule
+|           |   |       
+|           |   +---3.29.2
+|           |   |   |   CMakeSystem.cmake
+|           |   |   |   VCTargetsPath.txt
+|           |   |   |   VCTargetsPath.vcxproj
+|           |   |   |   
+|           |   |   +---VCTargetsPath
+|           |   |   |   \---x64
+|           |   |   |       \---Debug
+|           |   |   |           |   VCTargetsPath.recipe
+|           |   |   |           |   
+|           |   |   |           \---VCTargetsPath.tlog
+|           |   |   |                   VCTargetsPath.lastbuildstate
+|           |   |   |                   
+|           |   |   \---x64
+|           |   |       \---Debug
+|           |   +---7e147cec0cdb2f86e12efc8064ce9745
+|           |   |       googletest-populate-complete.rule
+|           |   |       
+|           |   +---ae8f1a22d6213c4e2d2070d31ab9c5d6
+|           |   |       generate.stamp.rule
+|           |   |       googletest-populate.rule
+|           |   |       
+|           |   +---Debug
+|           |   |       googletest-populate-complete
+|           |   |       
+|           |   +---googletest-populate.dir
+|           |   |       Labels.json
+|           |   |       Labels.txt
+|           |   |       
+|           |   \---pkgRedirects
+|           +---googletest-populate-prefix
+|           |   +---src
+|           |   |   |   v1.14.0.zip
+|           |   |   |   
+|           |   |   \---googletest-populate-stamp
+|           |   |       |   download-googletest-populate.cmake
+|           |   |       |   extract-googletest-populate.cmake
+|           |   |       |   googletest-populate-patch-info.txt
+|           |   |       |   googletest-populate-update-info.txt
+|           |   |       |   googletest-populate-urlinfo.txt
+|           |   |       |   verify-googletest-populate.cmake
+|           |   |       |   
+|           |   |       \---Debug
+|           |   |               googletest-populate-build
+|           |   |               googletest-populate-configure
+|           |   |               googletest-populate-done
+|           |   |               googletest-populate-download
+|           |   |               googletest-populate-install
+|           |   |               googletest-populate-mkdir
+|           |   |               googletest-populate-patch
+|           |   |               googletest-populate-test
+|           |   |               googletest-populate-update
+|           |   |               
+|           |   \---tmp
+|           |           googletest-populate-cfgcmd.txt
+|           |           googletest-populate-mkdirs.cmake
+|           |           
+|           \---x64
+|               \---Debug
+|                   +---ALL_BUILD
+|                   |   |   ALL_BUILD.recipe
+|                   |   |   
+|                   |   \---ALL_BUILD.tlog
+|                   |           ALL_BUILD.lastbuildstate
+|                   |           CustomBuild.command.1.tlog
+|                   |           CustomBuild.read.1.tlog
+|                   |           CustomBuild.write.1.tlog
+|                   |           
+|                   +---googletest-populate
+|                   |   |   googletest-populate.recipe
+|                   |   |   
+|                   |   \---googlete.DB0C7D59.tlog
+|                   |           CustomBuild.command.1.tlog
+|                   |           CustomBuild.read.1.tlog
+|                   |           CustomBuild.write.1.tlog
+|                   |           googletest-populate.lastbuildstate
+|                   |           
+|                   \---ZERO_CHECK
+|                       |   ZERO_CHECK.recipe
+|                       |   
+|                       \---ZERO_CHECK.tlog
+|                               CustomBuild.command.1.tlog
+|                               CustomBuild.read.1.tlog
+|                               CustomBuild.write.1.tlog
+|                               ZERO_CHECK.lastbuildstate
+|                               
++---src
+|       sort.cpp
+|       sort.h
+|       stringProcessor.cpp
+|       stringProcessor.h
+|       
+\---tests
+        smoke_test.cpp
+    \end{minted}
+
+    \textbf{\underline{Окремо файл build\textbackslash test$\_$report.xml:}}
+
+    \begin{minted}{xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="3" failures="0" disabled="0" errors="0" time="0.004" timestamp="2025-11-05T16:03:04.226" name="AllTests">
+  <testsuite name="StringProcessor" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.001" timestamp="2025-11-05T16:03:04.227">
+    <testcase name="TrimAndLower" file="C:\Users\artem\Desktop\project\tests\smoke_test.cpp" line="6" status="run" result="completed" time="0." timestamp="2025-11-05T16:03:04.227" classname="StringProcessor" />
+    <testcase name="Palindrome" file="C:\Users\artem\Desktop\project\tests\smoke_test.cpp" line="12" status="run" result="completed" time="0." timestamp="2025-11-05T16:03:04.228" classname="StringProcessor" />
+  </testsuite>
+  <testsuite name="Sort" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2025-11-05T16:03:04.229">
+    <testcase name="InsertionSortWorks" file="C:\Users\artem\Desktop\project\tests\smoke_test.cpp" line="19" status="run" result="completed" time="0." timestamp="2025-11-05T16:03:04.229" classname="Sort" />
+  </testsuite>
+</testsuites>
+    \end{minted}
+
+    \textbf{\underline{Ініціалізація локального репозиторію, підключення віддаленого:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\project> git init 
+Initialized empty Git repository in C:/Users/artem/Desktop/project/.git/
+
+PS C:\Users\artem\Desktop\project> git add .
+
+PS C:\Users\artem\Desktop\project> git commit -m "Ініціалізація: CMake + GTest + XML Report" 
+[main (root-commit) 009d10f] Ініціалізація: CMake + GTest + XML Report
+ 7 files changed, 174 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 CMakeLists.txt
+ create mode 100644 src/sort.cpp
+ create mode 100644 src/sort.h
+ create mode 100644 src/stringProcessor.cpp
+ create mode 100644 src/stringProcessor.h
+ create mode 100644 tests/smoke_test.cpp
+
+PS C:\Users\artem\Desktop\project> git branch 
+* main
+
+PS C:\Users\artem\Desktop\project> git remote add origin https://gitea.com/davydchuk/task4lab.git
+
+PS C:\Users\artem\Desktop\project> git push -u origin main 
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (11/11), 2.88 KiB | 589.00 KiB/s, done.
+Total 11 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: . Processing 1 references
+remote: Processed 1 references in total
+To https://gitea.com/davydchuk/task4lab.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'
+    \end{minted}
+
+    \textbf{\underline{Вміст Jenkinsfile:}}
+
+    \begin{minted}{text}
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') {
+      steps {
+        git branch: 'main',
+            credentialsId: 'gitea-token-id',
+            url: 'https://gitea.com/davydchuk/task4lab.git'
+      }
+    }
+    stage('Build') {
+    steps {
+        bat 'cmake -S . -B build -G "Visual Studio 17 2022"'
+        bat 'cmake --build build --config Debug'
+    }
+    }
+    stage('Test') {
+      steps {
+        bat '.\\build\\Debug\\unit_tests.exe --gtest_output=xml:build\\test_report.xml'
+      }
+    }
+  }
+  post {
+    always {
+      junit 'build/test_report.xml'
+    }
+  }
+}
+    \end{minted}
+
+    \textbf{\underline{Додаємо Jenkinsfile до віддаленого репозиторію:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\project> git add Jenkinsfile
+PS C:\Users\artem\Desktop\project> git commit -m "Додавання Jenkinsfile"  
+[main 309c585] Додавання Jenkinsfile
+ 1 file changed, 31 insertions(+)
+ create mode 100644 Jenkinsfile
+PS C:\Users\artem\Desktop\project> git push 
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 792 bytes | 792.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: . Processing 1 references
+remote: Processed 1 references in total
+To https://gitea.com/davydchuk/task4lab.git
+   009d10f..309c585  main -> main
+    \end{minted}
+
+    \textbf{\underline{Результат Unit-тестів за допомогою Jenkins:}}
+
+    \begin{figure}[h!]
+        \centering
+
+        \begin{subfigure}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{image1.png}
+        \end{subfigure}\hfill
+        \begin{subfigure}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{image2.png}
+        \end{subfigure}
+        \vfill
+        \begin{subfigure}{1.0\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{image3.png}
+        \end{subfigure}
+    \end{figure}
 
     \textbf{\underline{Висновок:}}
+    У ході виконання лабораторної роботи було розгорнуто систему безперервної інтеграції (Continuous Integration) на основі сервера Jenkins. Було створено віддалений репозиторій у системі керування версіями Gitea та реалізовано повний цикл збірки програмного проєкту з використанням інструментів \texttt{CMake}, \texttt{GoogleTest} і \texttt{MSBuild}.
+
+    У Jenkins було налаштовано Pipeline із трьома основними етапами:
+    \begin{itemize}
+        \item \textbf{Checkout} — автоматичне отримання коду з віддаленого репозиторію Gitea за допомогою токена доступу (\texttt{credentialsId}).
+        \item \textbf{Build} — компіляція проєкту за допомогою \texttt{CMake} та генератора \texttt{Visual Studio 17 2022}.
+        \item \textbf{Test} — запуск модульних тестів (\texttt{unit\_tests.exe}) і автоматичне формування звіту у форматі \texttt{JUnit XML}.
+    \end{itemize}
+
+    Отриманий файл звіту про тести було успішно імпортовано у Jenkins, що дало змогу переглядати результати виконання тестів безпосередньо через веб-інтерфейс. Також було перевірено працездатність збірки та тестів при підключенні репозиторію через SCM (Pipeline script from SCM).
+
+    Таким чином, у результаті виконання лабораторної роботи:
+    \begin{enumerate}
+        \item Ознайомлено з принципами роботи системи безперервної інтеграції Jenkins.
+        \item Автоматизовано процес збірки, тестування та формування звітів.
+        \item Реалізовано практичне підключення до системи контролю версій Gitea з використанням токенів доступу.
+    \end{enumerate}
+
+    Робота продемонструвала переваги CI-підходу у забезпеченні стабільності, відтворюваності та контрольованості процесу розробки програмного забезпечення.
 
 \end{document}

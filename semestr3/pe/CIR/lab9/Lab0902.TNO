@@ -1,0 +1,106 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                      Transient Analysis of Lab0902                       ***
+********************************************************************************
+Limits
+======
+Maximum Run Time           1m
+Output Start Time (tstart) 0
+Maximum Time Step          0
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          On
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+
+Model parameters for devices of type Pulse
+==========================================
+Instance:              V2   
+Using model:     TRIANGLE   
+P1                 0.000    
+P2               500.000u   
+P3               500.000u   
+P4                 1.000m   
+P5                 1.000m   
+VONE               8.000    
+VZERO              0.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type UADC
+=========================================
+Instance:              X2   
+TPCSMN             1.000n   
+TPCSMX             2.000n   
+TPCSTY             3.000n   
+TPDSMN             0.000    
+TPDSMX             0.000    
+TPDSTY             0.000    
+TPSDMN             0.000    
+TPSDMX             0.000    
+TPSDTY             0.000    
+
+
+
+Model parameters for devices of type UDAC
+=========================================
+Instance:              X3   
+TSWMN              1.000n   
+TSWMX              1.000n   
+TSWTY              3.000n   
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+IN            0.000   2             8.000   OUT           3.750  
+
+DC Operating Point Digital States
+=================================
+Node     State Node     State Node     State Node     State Node     State
+CLOCK    0     4        0     5        X     D3       X     D2       X    
+D1       X     D0       X    
+
+
+Operating Point for Devices of Type Pulse
+=========================================
+Instance:                  V2
+Using model:         TRIANGLE
+V                      0.000 
+Power DC Terms:
+PG                     0.000 
+
+DC Pin Currents:
+ISource                0.000 
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 V1
+V                     8.000 
+Power DC Terms:
+PG                    0.000 
+
+DC Pin Currents:
+ISource               0.000 
+
+

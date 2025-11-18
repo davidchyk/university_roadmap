@@ -40,7 +40,7 @@
         \begin{center}
             \textbf{\LARGE Практична електроніка}\\[2em]
             \textbf{\Large Лабораторна робота №5}\\[1em]
-            «Дослідження імпульсних тригерів, аналогових компараторів та схем формування рівнів»
+            «Дослідження мультивібраторів та генераторів лінійно змінюваної напруги (ГЛЗН)»
         \end{center}
 
         \vfill
@@ -61,8 +61,7 @@
 
     \setlength{\parindent}{0em}
 
-    \textbf{\underline{Тема:}} «Дослідження мультивібраторів та генераторів лінійно змінюваної
-напруги (ГЛЗН).».
+    \textbf{\underline{Тема:}} «Дослідження мультивібраторів та генераторів лінійно змінюваної напруги (ГЛЗН)».
     
     \vspace{1em}
 
@@ -121,14 +120,14 @@ U_{\text{н2}} = \frac{R_2}{R_1 + R_2} \cdot U_{\text{нас2}} = \frac{5}{10 + 
     \begin{figure}[h!]
         \renewcommand{\thefigure}{\arabic{figure}} % робимо "3.1", "3.2" і т.д.
         \centering
-        \includegraphics[width=0.3\textwidth]{scheme2.pdf}:
+        \includegraphics[width=0.3\textwidth]{scheme2.pdf}
         \caption{\centering Схема автоколивального мультивібратора зі шпаруватістю 2}
     \end{figure}
 
     \begin{figure}[h!]
         \renewcommand{\thefigure}{\arabic{figure}} % робимо "3.1", "3.2" і т.д.
         \centering
-        \includegraphics[width=0.5\textwidth]{2.png}
+        \includegraphics[width=0.7\textwidth]{2.png}
         \caption{Часові діаграми роботи схеми}
     \end{figure}
 
@@ -140,8 +139,8 @@ U_{\text{н2}} = \frac{R_2}{R_1 + R_2} \cdot U_{\text{нас2}} = \frac{5}{10 + 
 
     Рівні перемикання:
     \[
-    U_{u1}=\frac{U_{\max}R_1}{R_1+R_2}=4{,}53\,\text{В}, \qquad
-    U_{u2}=-\frac{U_{\max}R_1}{R_1+R_2}=-4{,}53\,\text{В}.
+    U_{u1}=\frac{U_{\text{нас}}R_1}{R_1+R_2}=4{,}53\,\text{В}, \qquad
+    U_{u2}=-\frac{U_{\text{нас}}R_1}{R_1+R_2}=-4{,}53\,\text{В}.
     \]
 
     Тривалість одного інтервалу:
@@ -149,7 +148,7 @@ U_{\text{н2}} = \frac{R_2}{R_1 + R_2} \cdot U_{\text{нас2}} = \frac{5}{10 + 
     t_{\text{ім}} = R_3 C_1 \ln\!\left(1+2\frac{R_1}{R_2}\right)
     = 41{,}58\,\text{мс}.
     \]
-
+  
     Розраховане значення відповідає осцилограмі, де обидва інтервали містять приблизно $41{,}58$ мс.
 
     \newpage
@@ -166,7 +165,8 @@ U_{\text{н2}} = \frac{R_2}{R_1 + R_2} \cdot U_{\text{нас2}} = \frac{5}{10 + 
     \begin{figure}[h!]
         \renewcommand{\thefigure}{\arabic{figure}}
         \centering
-        \includegraphics[width=1.1\textwidth]{diagrama 3.png}
+        \includegraphics[width=1.0\textwidth]{3-1.png}
+        \includegraphics[width=1.0\textwidth]{3-2.png}
         \caption{Часові діаграми роботи чекаючого мультивібратора}
     \end{figure}
 
@@ -200,22 +200,20 @@ $-U_{\text{D1,в}}$, відкривається $D1$ і фактично роз�
 
 \[
 t_{\text{ім}} = R_5 C_1 \ln\!\left(1+\frac{R_2}{R_4}\right)
-= 4.06\ \text{мс}.
+= 4{,}06\ \text{мс}.
 \]
 
 Час відновлення (перезаряд $C_1$):
 
 \[
 t_{\text{від}} = R_5 C_1 
-\ln\!\left(1+\frac{2R_2}{R_4+R_2}\right) = 2.9\ \text{мс}.
+\ln\!\left(1+\frac{2R_2}{R_4+R_2}\right) = 2{,}9\ \text{мс}.
 \]
 
 Для нормальної роботи період керувальних імпульсів має виконувати умову:
 \[
 t_{\text{пер}} > t_{\text{ім}} + t_{\text{від}}.
 \]
-
-    \newpage
 
     \begin{center} \textbf{\large Аналіз схеми №4} \end{center}
 
@@ -227,7 +225,7 @@ t_{\text{пер}} > t_{\text{ім}} + t_{\text{від}}.
         \includegraphics[width=0.6\textwidth]{scheme4.pdf}
         % Підпис (зазвичай під малюнком):
         \caption{\centering Схема найпростішого ГЛЗН із зовнішнім запуском}
-        % Мітка для посилань у тексті (\ref{fig:...})
+        
         \label{fig2-1:schema}
 
     \end{figure}
@@ -238,7 +236,7 @@ t_{\text{пер}} > t_{\text{ім}} + t_{\text{від}}.
 
         \centering
         % Підставляєте потрібний шлях та розмір зображення:
-       \includegraphics[width=1.1\textwidth]{diagrama 4.png}
+        \includegraphics[width=0.70\textwidth]{4.png}
         % Підпис (зазвичай під малюнком):
         \caption{Часові діаграми роботи для схеми}
         % Мітка для посилань у тексті (\ref{fig:...})
@@ -284,18 +282,12 @@ $R3$ за експоненціальним законом. На осцилогр
         \renewcommand{\thefigure}{\arabic{figure}} % робимо "3.1", "3.2" і т.д.
 
         \centering
-        % Підставляєте потрібний шлях та розмір зображення:
-       \includegraphics[width=1.1\textwidth]{diagrama 5-1.png}
-       \caption{\centering Часові діаграми роботи схеми, яку наведено на рис, та в якій вихідний сигнал повинен змінюватися від 0 до +Uнас}
-              \includegraphics[width=1.1\textwidth]{diagrama 5-2.png}
-        % Підпис (зазвичай під малюнком):
-        \caption{\centering Часові діаграми роботи схеми, яку наведено на рис, та в якій вихідний сигнал повинен змінюватися від -Uнас до +Uнас}
-        % Мітка для посилань у тексті (\ref{fig:...})
-        \label{fig3-1:graph}
+        \includegraphics[width=0.9\textwidth]{5-1.png}
+        \caption{\centering Часові діаграми роботи схеми, яку наведено на рис, та в якій вихідний сигнал повинен змінюватися від 0 до +$U_{\text{нас}}$}
+              \includegraphics[width=0.9\textwidth]{5-2.png}
+        \caption{\centering Часові діаграми роботи схеми, яку наведено на рис, та в якій вихідний сигнал повинен змінюватися від $-U_{\text{нас}}$ до $+U_{\text{нас}}$}
 
     \end{figure}
-
-    \FloatBarrier
 
    На першій часовій діаграмі представлена робота схеми у режимі, в якому 
 вихідна напруга змінюється в діапазоні від $0$ до $+U_{\text{нас}}$. 
@@ -315,6 +307,8 @@ R_1 = R_2 = 2~\text{k}\Omega.
 \]
 Такі значення забезпечують симетричну роботу діодів і дозволяють одержати 
 вихідний сигнал у межах від $-U_{\text{нас}}$ до $+U_{\text{нас}}$.
+
+    \newpage
 
     \begin{center} \textbf{\large Аналіз схеми №6} \end{center}
 
@@ -338,7 +332,7 @@ R_1 = R_2 = 2~\text{k}\Omega.
 
         \centering
         % Підставляєте потрібний шлях та розмір зображення:
-       \includegraphics[width=1.1\textwidth]{diagrama 6.png}
+       \includegraphics[width=0.8\textwidth]{6.png}
         % Підпис (зазвичай під малюнком):
         \caption{\centering Часові діаграми роботи схеми}
         % Мітка для посилань у тексті (\ref{fig:...})
@@ -355,14 +349,14 @@ R_1 = R_2 = 2~\text{k}\Omega.
 
 За часовою діаграмою отримуємо:
 \[
-t_{\text{пр}} \approx 7{,}14\ \text{мс}, \qquad
-t_{\text{зв}} \approx 11{,}95\ \text{мс}.
+t_{\text{пр}} \approx 3{,}70\ \text{мс}, \qquad
+t_{\text{зв}} \approx 1{,}82\ \text{мс}.
 \]
 
 Підставимо у вираз:
 \[
 \frac{t_{\text{пр}}}{t_{\text{зв}}}
-= \frac{7{,}14}{11{,}95} \approx 0{,}60,
+= \frac{3{,}70}{1{,}82} \approx 2{,}03,
 \qquad
 \frac{R_2}{R_1}
 = \frac{20~\text{k}\Omega}{10~\text{k}\Omega} = 2.

@@ -1,0 +1,111 @@
+@startuml
+title UML діаграма класів: мережа (Visitor + Composite)
+
+interface NetworkElement {
+    +getName(): String
+    +accept(visitor: NetworkVisitor)
+}
+
+interface NetworkVisitor {
+    +visitCable(cable: Cable)
+    +visitServer(server: Server)
+    +visitWorkstation(ws: Workstation)
+    +visitNetwork(network: Network)
+}
+
+class Cable {
+    -name: String
+    -lengthMeters: double
+    -pricePerMeter: double
+    +Cable(name: String, lengthMeters: double, pricePerMeter: double)
+    +getName(): String
+    +getLengthMeters(): double
+    +getPricePerMeter(): double
+    +getCost(): double
+    +testCable(): void
+    +accept(visitor: NetworkVisitor): void
+}
+
+class Server {
+    -name: String
+    -baseCost: double
+    -cpuCores: int
+    +Server(name: String, baseCost: double, cpuCores: int)
+    +getName(): String
+    +getBaseCost(): double
+    +getCpuCores(): int
+    +backup(): void
+    +accept(visitor: NetworkVisitor): void
+}
+
+class Workstation {
+    -name: String
+    -baseCost: double
+    -owner: String
+    +Workstation(name: String, baseCost: double, owner: String)
+    +getName(): String
+    +getBaseCost(): double
+    +getOwner(): String
+    +runDiagnostics(): void
+    +accept(visitor: NetworkVisitor): void
+}
+
+class Network {
+    -name: String
+    -elements: List<NetworkElement>
+    +Network(name: String)
+    +getName(): String
+    +addElement(e: NetworkElement): void
+    +removeElement(e: NetworkElement): void
+    +getElements(): List<NetworkElement>
+    +checkStatus(): void
+    +accept(visitor: NetworkVisitor): void
+}
+
+class CostCalculatorVisitor {
+    -totalCost: double
+    +CostCalculatorVisitor()
+    +getTotalCost(): double
+    +visitCable(cable: Cable): void
+    +visitServer(server: Server): void
+    +visitWorkstation(ws: Workstation): void
+    +visitNetwork(network: Network): void
+}
+
+class DisplayVisitor {
+    -indentLevel: int
+    +DisplayVisitor()
+    +visitCable(cable: Cable): void
+    +visitServer(server: Server): void
+    +visitWorkstation(ws: Workstation): void
+    +visitNetwork(network: Network): void
+}
+
+class NetworkDemo {
+    +main(args: String[]): void
+}
+
+' Наслідування
+NetworkElement <|.. Cable
+NetworkElement <|.. Server
+NetworkElement <|.. Workstation
+NetworkElement <|.. Network
+
+NetworkVisitor <|.. CostCalculatorVisitor
+NetworkVisitor <|.. DisplayVisitor
+
+' Composite: мережа містить елементи
+Network "1" o-- "*" NetworkElement : elements
+
+' Visitor: accept → visitX()
+NetworkElement --> NetworkVisitor : accept(visitor)
+
+' Демо використовує всі класи
+NetworkDemo ..> Network
+NetworkDemo ..> Cable
+NetworkDemo ..> Server
+NetworkDemo ..> Workstation
+NetworkDemo ..> CostCalculatorVisitor
+NetworkDemo ..> DisplayVisitor
+
+@enduml

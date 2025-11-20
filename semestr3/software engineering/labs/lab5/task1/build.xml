@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="task1" default="run" basedir=".">
+
+    <!-- Основні директорії -->
+    <property name="src.dir"   value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir"  value="dist"/>
+    <property name="doc.dir"   value="doc"/>
+
+    <!-- Ініціалізація: створення службових папок -->
+    <target name="init" description="Create build, dist and doc directories">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${doc.dir}"/>
+    </target>
+
+    <!-- Клас-пас для компіляції та запуску -->
+    <path id="classpath">
+        <pathelement path="${build.dir}"/>
+    </path>
+
+    <!-- Компіляція Java-джерел -->
+    <target name="compile" depends="init" description="Compile Java sources">
+        <javac srcdir="${src.dir}"
+               destdir="${build.dir}"
+               includeantruntime="false"
+               source="1.8"
+               target="1.8"
+               debug="true"
+               encoding="UTF-8">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <!-- Створити виконуваний JAR-файл -->
+    <target name="jar" depends="compile" description="Create runnable JAR archive">
+        <jar destfile="${dist.dir}/task1.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="work5.NetworkDemo"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Запуск програми -->
+    <target name="run" depends="compile,javadoc" description="Run demo program">
+        <java classname="work5.NetworkDemo" fork="true">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- Генерація Javadoc-документації для пакету work5 -->
+    <target name="javadoc" depends="compile" description="Generate Javadoc documentation">
+        <javadoc destdir="${doc.dir}"
+                 sourcepath="${src.dir}"
+                 packagenames="work5"
+                 encoding="UTF-8"
+                 docencoding="UTF-8"
+                 charset="UTF-8"
+                 author="true"
+                 version="true"
+                 use="true"
+                 windowtitle="task1 API"
+                 doctitle="task1 API">
+        </javadoc>
+    </target>
+
+    <!-- Прибирання результатів збірки -->
+    <target name="clean" description="Delete build, dist and doc directories">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${doc.dir}"/>
+    </target>
+
+</project>

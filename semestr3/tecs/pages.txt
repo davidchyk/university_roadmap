@@ -1,2 +1,8 @@
-My Theory1 page: ended
-Lesson page: 136
+Theory1 page: ended
+Theory2 page: ended
+
+My Theory1 page: 136
+My Theory2 page: -
+
+Lection count: 14
+My Lection count: 8 (Дослідне визначення постійних чотириполюсника)

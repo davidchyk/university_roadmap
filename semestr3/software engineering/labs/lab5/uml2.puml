@@ -1,0 +1,68 @@
+@startuml
+title UML діаграма класів: Command (меню та кнопки)
+
+interface Action {
+    +execute(): void
+}
+
+class SaveFileAction {
+    +SaveFileAction()
+    +execute(): void
+}
+
+class OpenFileAction {
+    +OpenFileAction()
+    +execute(): void
+}
+
+class CopyAction {
+    +CopyAction()
+    +execute(): void
+}
+
+class PasteAction {
+    +PasteAction()
+    +execute(): void
+}
+
+class MacroAction {
+    -actions: List<Action>
+    +MacroAction()
+    +addAction(action: Action): void
+    +getActions(): List<Action>
+    +execute(): void
+}
+
+class Invoker {
+    -currentAction: Action
+    +Invoker()
+    +setAction(action: Action): void
+    +click(): void
+}
+
+class ActionDemo {
+    +main(args: String[]): void
+}
+
+' Наслідування від інтерфейсу Action
+Action <|.. SaveFileAction
+Action <|.. OpenFileAction
+Action <|.. CopyAction
+Action <|.. PasteAction
+Action <|.. MacroAction
+
+' Макро-дія містить список інших Action
+MacroAction "1" o-- "*" Action : actions
+
+' Invoker тримає посилання на поточну Action
+Invoker --> Action : currentAction
+
+' Demo використовує всі класи
+ActionDemo ..> Invoker
+ActionDemo ..> SaveFileAction
+ActionDemo ..> OpenFileAction
+ActionDemo ..> CopyAction
+ActionDemo ..> PasteAction
+ActionDemo ..> MacroAction
+
+@enduml

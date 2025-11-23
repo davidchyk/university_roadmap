@@ -1,0 +1,89 @@
+@startuml
+
+package "work6" {
+
+    ' --- Інтерфейси продуктів ---
+    interface Validator {
+        + validateCode(code : String) : void
+    }
+
+    interface Compiler {
+        + compile(source : String) : void
+    }
+
+    interface Debugger {
+        + debug(program : String) : void
+    }
+
+    ' --- Абстрактна фабрика ---
+    interface IDEToolsFactory {
+        + createValidator() : Validator
+        + createCompiler() : Compiler
+        + createDebugger() : Debugger
+    }
+
+    ' --- Конкретні продукти для Java ---
+    class JavaValidator implements Validator {
+        + validateCode(code : String) : void
+    }
+
+    class JavaCompiler implements Compiler {
+        + compile(source : String) : void
+    }
+
+    class JavaDebugger implements Debugger {
+        + debug(program : String) : void
+    }
+
+    ' --- Конкретні продукти для C++ ---
+    class CppValidator implements Validator {
+        + validateCode(code : String) : void
+    }
+
+    class CppCompiler implements Compiler {
+        + compile(source : String) : void
+    }
+
+    class CppDebugger implements Debugger {
+        + debug(program : String) : void
+    }
+
+    ' --- Конкретні фабрики ---
+    class JavaIDEToolsFactory implements IDEToolsFactory {
+        + createValidator() : Validator
+        + createCompiler() : Compiler
+        + createDebugger() : Debugger
+    }
+
+    class CppIDEToolsFactory implements IDEToolsFactory {
+        + createValidator() : Validator
+        + createCompiler() : Compiler
+        + createDebugger() : Debugger
+    }
+
+    ' --- Клієнтський код ---
+    class IDEToolsDemo {
+        + main(args : String[]) : void
+        - runDemo(factory : IDEToolsFactory, sampleCode : String, programName : String) : void
+    }
+
+    ' --- Зв’язки реалізації ---
+    IDEToolsFactory <|.. JavaIDEToolsFactory
+    IDEToolsFactory <|.. CppIDEToolsFactory
+
+    Validator <|.. JavaValidator
+    Compiler  <|.. JavaCompiler
+    Debugger  <|.. JavaDebugger
+
+    Validator <|.. CppValidator
+    Compiler  <|.. CppCompiler
+    Debugger  <|.. CppDebugger
+
+    ' --- Використання фабрики та продуктів клієнтом ---
+    IDEToolsDemo ..> IDEToolsFactory
+    IDEToolsDemo ..> Validator
+    IDEToolsDemo ..> Compiler
+    IDEToolsDemo ..> Debugger
+}
+
+@enduml

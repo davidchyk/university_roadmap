@@ -1,0 +1,64 @@
+@startuml
+
+' Пакет (необов'язково, але як у коді)
+package "work5" {
+
+    class GameSpace {
+        - name : String
+        - width : int
+        - height : int
+        --
+        + GameSpace(name : String, width : int, height : int)
+        + getName() : String
+        + getWidth() : int
+        + getHeight() : int
+    }
+
+    class GamePiece {
+        - id : int
+        - type : String
+        - x : int
+        - y : int
+        --
+        + GamePiece(id : int, type : String, x : int, y : int)
+        + getId() : int
+        + getType() : String
+        + getX() : int
+        + getY() : int
+        + setX(x : int) : void
+        + setY(y : int) : void
+    }
+
+    class GameManager <<singleton>> {
+        - instance : GameManager
+        - gameSpace : GameSpace
+        - pieces : List<GamePiece>
+        - gameNumber : int
+        --
+        - GameManager()
+        + getInstance() : GameManager
+        + setGameSpace(space : GameSpace) : void
+        + getGameSpace() : GameSpace
+        + addPiece(piece : GamePiece) : void
+        + removePiece(piece : GamePiece) : boolean
+        + findPieceById(id : int) : GamePiece
+        + movePiece(id : int, xNew : int, yNew : int) : void
+        + getPieces() : List<GamePiece>
+        + restartGame() : void
+        + getGameNumber() : int
+        + printState() : void
+    }
+
+    class GameManagerDemo {
+        + main(args : String[]) : void
+    }
+
+    ' Зв'язки
+    GameManager "1" o-- "1" GameSpace
+    GameManager "1" o-- "*" GamePiece
+    GameManagerDemo ..> GameManager
+    GameManagerDemo ..> GameSpaceі
+    GameManagerDemo ..> GamePiece
+}
+
+@enduml

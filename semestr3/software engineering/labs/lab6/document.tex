@@ -1,0 +1,768 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+\usepackage{graphicx}
+\usepackage{array,multirow}
+\usepackage{booktabs}
+\usepackage{caption}
+
+\usepackage{subcaption}
+
+\usepackage{tcolorbox}
+
+\renewcommand{\thetable}{№\arabic{table}}
+\captionsetup[table]{name=Таблиця}
+
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+
+\usepackage{fvextra}
+\usepackage{upquote}
+
+\usepackage{hyperref}
+
+\captionsetup[subfigure]{labelformat=simple,labelsep=space}
+
+\usepackage{minted}
+
+\usemintedstyle{vs}
+\setminted{linenos, breaklines, frame=single, fontsize=\small}
+
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
+    breaklines=true,
+    breaksymbolleft={}
+}
+
+% Узагальнений стиль для коду
+\newminted{java}{
+  fontsize=\small,
+  baselinestretch=1.05,
+  breaklines,
+  linenos,
+  frame=lines,
+  framesep=2mm
+}
+
+% Консоль/PowerShell як plain text
+\newminted{text}{
+  fontsize=\small,
+  breaklines,
+  frame=single,
+  bgcolor=gray!5
+}
+
+\begin{document}
+
+    \begin{titlepage}
+
+        % Картинка шапки (по центру, з відступом від верху)
+        \begin{center}\includegraphics[width=0.7\textwidth]{../../../TITLES/letterhead.png}\end{center}
+
+        \begin{center}
+            \large Національний технічний університет України\\
+            «Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+            Факультет інформатики та обчислювальної техніки\\
+            Кафедра обчислювальної техніки
+        \end{center}
+
+        \vfill
+
+        \begin{center}
+            \textbf{\LARGE Інженерія програмного забезпечення}\\[2em]
+            \textbf{\Large Практична робота №6}\\[0.5em]
+            «Породжувальні шаблони. Шаблони Prototype, Singleton, Factory Method, Abstract Factory, Builder»
+        \end{center}
+
+        \vfill
+
+        \begin{flushright}
+            Виконав: студент 2 курсу ФІОТ, гр. ІО-41\\
+            \textit{Давидчук А.~М.}\\
+            Залікова книжка № 4106\\[1em]
+            Перевірив: \textit{Васильєва М.~Д.}
+        \end{flushright}
+
+        \vfill
+
+        \begin{center}Київ --- 2025\end{center}
+
+    \end{titlepage}
+
+    % Основний документ:
+
+    \setlength{\parindent}{0em}
+
+    \textbf{\underline{Тема:}} «Породжувальні шаблони. Шаблони Prototype, Singleton, Factory Method, Abstract Factory, Builder».
+
+    \vspace{1em}
+
+    \textbf{\underline{Мета:}} Вивчення шаблонів поведінки. Отримання базових навичок з застосування
+шаблонів Prototype, Singleton, Factory Method Abstract Factory та Builder.
+
+    \begin{center} \textbf{\Large Практична частина (Завдання №1)} \end{center}
+
+    \setlength{\parindent}{1.5em}
+
+    Мій номер залікової книги: $4106$, звідси $4106 \text{ mod } 7 = 4$. Тому умова до 1 завдання буде:
+
+    Необхідно створити модель для подання розпорядника гри (\texttt{GameManager}), 
+    який складається з ігрового простору та списку ігрових фішок. 
+    Потрібно забезпечити можливість створення \textbf{тільки одного примірника} 
+    розпорядника за допомогою шаблону \textit{Singleton}.
+
+    \subsection*{Вимоги}
+
+    \begin{itemize}
+        \item \textbf{Клас розпорядника гри (\texttt{GameManager}):}
+        \begin{itemize}
+            \item має бути єдиною точкою керування грою;
+            \item повинен зберігати стан ігрового простору 
+            (наприклад, поле, карта, рівень);
+            \item повинен містити список ігрових фішок 
+            (об’єкти, які представляють гравців або елементи гри);
+            \item має забезпечувати методи для додавання, видалення 
+            та оновлення фішок;
+            \item має містити метод для запуску або перезапуску гри.
+        \end{itemize}
+
+        \item \textbf{Гарантія єдиного примірника:}
+        \begin{itemize}
+            \item якщо інші частини програми спробують створити новий об’єкт 
+            \texttt{GameManager}, це повинно бути неможливо;
+            \item усі звернення до розпорядника гри мають здійснюватися 
+            лише через уже існуючий примірник.
+        \end{itemize}
+
+        \item \textbf{Допоміжні класи (за бажанням для зручності):}
+        \begin{itemize}
+            \item \texttt{GameSpace} --- описує ігрове поле або середовище;
+            \item \texttt{GamePiece} --- представляє окрему ігрову фішку 
+            (позиція, тип, стан).
+        \end{itemize}
+
+        \item \textbf{Загальна структура системи:}
+        \begin{itemize}
+            \item система повинна бути спроєктована так, щоб усі елементи гри 
+            взаємодіяли між собою \textbf{через} \texttt{GameManager}.
+        \end{itemize}
+    \end{itemize}
+
+    \subsection*{У методі \texttt{main} продемонструвати:}
+
+    \begin{itemize}
+        \item створення кількох «об’єктів» \texttt{GameManager} і показати, 
+        що в усіх випадках повертається один і той самий екземпляр 
+        (робота шаблону \textit{Singleton});
+        \item додавання кількох ігрових фішок у спільний ігровий простір 
+        через \texttt{GameManager};
+        \item виведення поточного стану гри 
+        (наприклад, параметри простору та список фішок);
+        \item підтвердити, що зміни, внесені через один доступ 
+        до \texttt{GameManager}, відображаються при зверненні до нього 
+        з будь-якої іншої частини програми.
+    \end{itemize}
+
+    \setlength{\parindent}{0em}
+
+    \textbf{\underline{Загальна структура проекту до компіляції:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab6\task1> tree /f /a
+Folder PATH listing
+Volume serial number is 1A5B-F8AF
+C:.
+|   build.xml
+|   
+\---src
+    \---work5
+            GameManager.java
+            GameManagerDemo.java
+            GamePiece.java
+            GameSpace.java
+    \end{minted}
+
+    \textbf{\underline{Код build.xml задля автоматизації:}}
+
+    \begin{minted}{xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="task3" default="run" basedir=".">
+
+    <!-- Основнi директорiї проєкту -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="doc.dir" value="doc"/>
+
+    <!-- Iнiцiалiзацiя: створення службових папок -->
+    <target name="init" description="Create build, dist and doc directories">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${doc.dir}"/>
+    </target>
+
+    <!-- Компiляцiя вихiдних кодiв -->
+    <target name="compile" depends="init" description="Compile source code">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" encoding="UTF-8"/>
+    </target>
+
+    <!-- Генерацiя Javadoc (документацiя українською) -->
+    <target name="javadoc" depends="compile" description="Generate Javadoc documentation">
+        <javadoc destdir="${doc.dir}"
+                 sourcepath="${src.dir}"
+                 packagenames="work5"
+                 encoding="UTF-8"
+                 charset="UTF-8"
+                 docencoding="UTF-8"
+                 windowtitle="task3 API"
+                 doctitle="task3 API">
+        </javadoc>
+    </target>
+
+    <!-- Створення jar-файлу -->
+    <target name="jar" depends="compile" description="Create JAR archive">
+        <jar destfile="${dist.dir}/task3.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="work5.GameManagerDemo"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Запуск демо-програми -->
+    <target name="run" depends="compile,javadoc" description="Run demo program">
+        <java classname="work5.GameManagerDemo" fork="true">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- Прибирання результатiв збiрки -->
+    <target name="clean" description="Delete build, dist and doc directories">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${doc.dir}"/>
+    </target>
+
+</project>
+    \end{minted}
+
+    \textbf{\underline{Демонстрація доступних команд збірки:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab6\task1> ant -p
+Buildfile: C:\Users\artem\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab6\task1\build.xml
+
+Main targets:
+
+ clean    Delete build, dist and doc directories
+ compile  Compile source code
+ init     Create build, dist and doc directories
+ jar      Create JAR archive
+ javadoc  Generate Javadoc documentation
+ run      Run demo program
+Default target: run
+    \end{minted}
+
+    Вихідний код \,\texttt{*.java}\, буде на віддаленому репозиторії, посилання на яке буде додане разом із звітом.
+
+    \vspace{1em}
+
+    \textbf{\underline{Частина виводу результату збірки демонстрації виконання програми:}}
+
+    \begin{minted}{text}
+...
+
+run:
+    [java] Checking Singleton:
+    [java] manager1 == manager2 -> true
+    [java]
+    [java] Initial game state (via manager1):
+    [java] === Game state ===
+    [java] Game number: 1
+    [java] Game space: GameSpace{name='Dungeon level', width=20, height=15}
+    [java] Pieces:
+    [java]   GamePiece{id=1, type='Hero', x=5, y=5}
+    [java]   GamePiece{id=2, type='Monster', x=10, y=7}
+    [java]   GamePiece{id=3, type='Chest', x=3, y=2}
+    [java] ==================
+    [java]
+    [java] Moving piece with id = 2 (Monster) to (12, 8)...
+    [java] Game state after movement (via manager2):
+    [java] === Game state ===
+    [java] Game number: 1
+    [java] Game space: GameSpace{name='Dungeon level', width=20, height=15}
+    [java] Pieces:
+    [java]   GamePiece{id=1, type='Hero', x=5, y=5}
+    [java]   GamePiece{id=2, type='Monster', x=12, y=8}
+    [java]   GamePiece{id=3, type='Chest', x=3, y=2}
+    [java] ==================
+    [java]
+    [java] Removing piece with id = 3 (Chest)...
+    [java] Game state after removing chest (via manager1):
+    [java] === Game state ===
+    [java] Game number: 1
+    [java] Game space: GameSpace{name='Dungeon level', width=20, height=15}
+    [java] Pieces:
+    [java]   GamePiece{id=1, type='Hero', x=5, y=5}
+    [java]   GamePiece{id=2, type='Monster', x=12, y=8}
+    [java] ==================
+    [java]
+    [java] Restarting game...
+    [java] Game state after restart (via manager2):
+    [java] === Game state ===
+    [java] Game number: 2
+    [java] Game space: GameSpace{name='Dungeon level', width=20, height=15}
+    [java] Pieces:
+    [java]   (no pieces)
+    [java] ==================
+
+BUILD SUCCESSFUL
+Total time: 2 seconds
+    \end{minted}
+
+    \textbf{\underline{Загальна структура проекту після виконання збірки:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab6\task1> tree /f /a
+Folder PATH listing
+Volume serial number is 1A5B-F8AF
+C:.
+|   build.xml
+|   
++---build
+|   \---work5
+|           GameManager.class
+|           GameManagerDemo.class
+|           GamePiece.class
+|           GameSpace.class
+|
++---dist
++---doc
+|   |   allclasses-index.html
+|   |   allpackages-index.html
+|   |   copy.svg
+|   |   element-list
+|   |   help-doc.html
+|   |   index-all.html
+|   |   index.html
+|   |   link.svg
+|   |   member-search-index.js
+|   |   module-search-index.js
+|   |   overview-tree.html
+|   |   package-search-index.js
+|   |   script.js
+|   |   search-page.js
+|   |   search.html
+|   |   search.js
+|   |   stylesheet.css
+|   |   tag-search-index.js
+|   |   type-search-index.js
+|   |
+|   +---legal
+|   |       COPYRIGHT
+|   |       jquery.md
+|   |       jqueryUI.md
+|   |       LICENSE
+|   |
+|   +---resources
+|   |       glass.png
+|   |       x.png
+|   |
+|   +---script-dir
+|   |       jquery-3.7.1.min.js
+|   |       jquery-ui.min.css
+|   |       jquery-ui.min.js
+|   |
+|   \---work5
+|           GameManager.html
+|           GameManagerDemo.html
+|           GamePiece.html
+|           GameSpace.html
+|           package-summary.html
+|           package-tree.html
+|
+\---src
+    \---work5
+            GameManager.java
+            GameManagerDemo.java
+            GamePiece.java
+            GameSpace.java
+    \end{minted}
+
+    \textbf{\underline{Скріншот наявності документації:}}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\linewidth]{1_1.png}
+        \caption{Скріншот документації Javadoc для 1 завдання}
+    \end{figure}
+
+    \textbf{\underline{UML-діаграма проекту:}}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{1_2.png}
+        \caption{UML-діаграма проекту для 1 завдання}
+    \end{figure}
+
+    \newpage
+
+    \begin{center} \textbf{\Large Практична частина (Завдання №2)} \end{center}
+
+    Мій номер залікової книги: $4106$, звідси $4106 \text{ mod } 7 = 4$. Тому умова до 2 завдання буде:
+
+    Необхідно визначити специфікації класів для подання сімейства інструментів
+    універсального інтегрованого середовища розробки
+    (\texttt{Validator}, \texttt{Compiler}, \texttt{Debugger}) з їх реалізацією
+    для різних мов (\texttt{Java}, \texttt{C++}).
+
+    \subsection*{Вимоги}
+
+    \begin{itemize}
+        \item \textbf{Фабрика інструментів середовища розробки:}
+        \begin{itemize}
+            \item створити абстрактний клас або інтерфейс \texttt{IDEToolsFactory},
+            який визначає фабричні методи для створення компонентів середовища
+            розробки:
+
+            \texttt{createValidator()}~-- повертає об’єкт для перевірки коду,
+            \texttt{createCompiler()}~-- повертає об’єкт компілятора,
+            \texttt{createDebugger()}~-- повертає об’єкт дебагера;
+            \item класи \texttt{JavaIDEToolsFactory} та \texttt{CppIDEToolsFactory}
+            є конкретними реалізаціями \texttt{IDEToolsFactory}, що створюють
+            інструменти для відповідних мов програмування.
+        \end{itemize}
+
+        \item \textbf{Інтерфейси інструментів:}
+        \begin{itemize}
+            \item створити абстрактні інтерфейси \texttt{Validator},
+            \texttt{Compiler} та \texttt{Debugger}, які визначають базові методи роботи,
+            наприклад:
+            \texttt{validateCode(String code)} для \texttt{Validator},
+            \texttt{compile(String source)} для \texttt{Compiler},
+            \texttt{debug(String program)} для \texttt{Debugger}.
+        \end{itemize}
+
+        \item \textbf{Реалізації для мов програмування:}
+        \begin{itemize}
+            \item класи \texttt{JavaValidator}, \texttt{JavaCompiler},
+            \texttt{JavaDebugger}~-- реалізації інтерфейсів для мови Java;
+            \item класи \texttt{CppValidator}, \texttt{CppCompiler},
+            \texttt{CppDebugger}~-- реалізації інтерфейсів для мови C++.
+        \end{itemize}
+
+        \item \textbf{Розширюваність системи:}
+        \begin{itemize}
+            \item забезпечити можливість прозорого для клієнта розширення системи
+            новими реалізаціями для інших мов без зміни клієнтського коду.
+        \end{itemize}
+    \end{itemize}
+
+    \subsection*{У методі \texttt{main} продемонструвати:}
+
+    \begin{itemize}
+        \item створення фабрики певного типу (наприклад,
+        \texttt{JavaIDEToolsFactory} або \texttt{CppIDEToolsFactory});
+        \item за допомогою фабрики створити об’єкти всіх компонентів:
+        \texttt{Validator}, \texttt{Compiler} і \texttt{Debugger};
+        \item виклик відповідних методів для перевірки, компіляції
+        та відладки умовного фрагмента коду.
+    \end{itemize}
+
+    \textbf{\underline{Загальна структура проекту до компіляції:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab6\task2> tree /f /a
+Folder PATH listing
+Volume serial number is 1A5B-F8AF
+C:.
+|   build.xml
+|   
+\---src
+    \---work5
+            Compiler.java
+            CppCompiler.java
+            CppDebugger.java
+            CppIDEToolsFactory.java
+            CppValidator.java
+            Debugger.java
+            IDEToolsDemo.java
+            IDEToolsFactory.java
+            JavaCompiler.java
+            JavaDebugger.java
+            JavaIDEToolsFactory.java
+            JavaValidator.java
+            Validator.java
+    \end{minted}
+
+    \textbf{\underline{Код build.xml задля автоматизації:}}
+
+    \begin{minted}{xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="task2" default="run" basedir=".">
+
+    <!-- Основнi директорiї проєкту -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="doc.dir" value="doc"/>
+
+    <!-- Iнiцiалiзацiя: створення службових папок -->
+    <target name="init" description="Create build, dist and doc directories">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${doc.dir}"/>
+    </target>
+
+    <!-- Компiляцiя вихiдних кодiв -->
+    <target name="compile" depends="init" description="Compile source code">
+        <javac srcdir="${src.dir}"
+               destdir="${build.dir}"
+               includeantruntime="false"
+               encoding="UTF-8"/>
+    </target>
+
+    <!-- Генерацiя Javadoc (українська документацiя) -->
+    <target name="javadoc" depends="compile" description="Generate Javadoc documentation">
+        <javadoc destdir="${doc.dir}"
+                 sourcepath="${src.dir}"
+                 packagenames="work5"
+                 encoding="UTF-8"
+                 charset="UTF-8"
+                 docencoding="UTF-8"
+                 windowtitle="IDE Tools Factory API"
+                 doctitle="IDE Tools Factory API">
+        </javadoc>
+    </target>
+
+    <!-- Створення jar-файлу -->
+    <target name="jar" depends="compile" description="Create JAR archive">
+        <jar destfile="${dist.dir}/ide-tools-factory.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="work5.IDEToolsDemo"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Запуск демо-програми -->
+    <target name="run" depends="compile,javadoc" description="Run demo program">
+        <java classname="work5.IDEToolsDemo" fork="true">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- Очищення результатiв збiрки -->
+    <target name="clean" description="Delete build, dist and doc directories">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${doc.dir}"/>
+    </target>
+
+</project>
+    \end{minted}
+
+    \textbf{\underline{Демонстрація доступних команд збірки:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab6\task2> ant -p 
+Buildfile: C:\Users\artem\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab6\task2\build.xml
+
+Main targets:
+
+ clean    Delete build, dist and doc directories
+ compile  Compile source code
+ init     Create build, dist and doc directories
+ jar      Create JAR archive
+ javadoc  Generate Javadoc documentation
+ run      Run demo program
+Default target: run
+    \end{minted}
+
+    Вихідний код \,\texttt{*.java}\, буде на віддаленому репозиторії, посилання на яке буде додане разом із звітом.
+
+    \vspace{1em}
+
+    \textbf{\underline{Частина виводу результату збірки демонстрації виконання програми:}}
+
+    \begin{minted}{text}
+run:
+     [java] Using Java IDE tools factory:
+     [java] JavaValidator: validating Java code...
+     [java]   Code: System.out.println("Hello, Java!");
+     [java]   Result: no syntax errors found.
+     [java] JavaCompiler: compiling Java source...
+     [java]   Source: System.out.println("Hello, Java!");
+     [java]   Result: compilation successful, .class file generated.
+     [java] JavaDebugger: starting Java debug session...
+     [java]   Program: JavaSampleProgram
+     [java]   Result: breakpoint hit at line 42.
+     [java]
+     [java] Using C++ IDE tools factory:
+     [java] CppValidator: validating C++ code...
+     [java]   Code: std::cout << "Hello, C++!" << std::endl;
+     [java]   Result: no syntax errors found.
+     [java] CppCompiler: compiling C++ source...
+     [java]   Source: std::cout << "Hello, C++!" << std::endl;
+     [java]   Result: compilation successful, executable generated.
+     [java] CppDebugger: starting C++ debug session...
+     [java]   Program: CppSampleProgram
+     [java]   Result: watchpoint triggered on variable x.
+
+BUILD SUCCESSFUL
+Total time: 1 second
+    \end{minted}
+
+    \textbf{\underline{Загальна структура проекту після виконання збірки:}}
+
+    \begin{minted}{text}
+PS C:\Users\artem\Desktop\reps\university_roadmap\semestr3\software engineering\labs\lab6\task2> tree /f /a
+Folder PATH listing
+Volume serial number is 1A5B-F8AF
+C:.
+|   build.xml
+|   
++---build
+|   \---work5
+|           Compiler.class
+|           CppCompiler.class
+|           CppDebugger.class
+|           CppIDEToolsFactory.class
+|           CppValidator.class
+|           Debugger.class
+|           IDEToolsDemo.class
+|           IDEToolsFactory.class
+|           JavaCompiler.class
+|           JavaDebugger.class
+|           JavaIDEToolsFactory.class
+|           JavaValidator.class
+|           Validator.class
+|
++---dist
++---doc
+|   |   allclasses-index.html
+|   |   allpackages-index.html
+|   |   copy.svg
+|   |   element-list
+|   |   help-doc.html
+|   |   index-all.html
+|   |   index.html
+|   |   link.svg
+|   |   member-search-index.js
+|   |   module-search-index.js
+|   |   overview-tree.html
+|   |   package-search-index.js
+|   |   script.js
+|   |   search-page.js
+|   |   search.html
+|   |   search.js
+|   |   stylesheet.css
+|   |   tag-search-index.js
+|   |   type-search-index.js
+|   |
+|   +---legal
+|   |       COPYRIGHT
+|   |       jquery.md
+|   |       jqueryUI.md
+|   |       LICENSE
+|   |
+|   +---resources
+|   |       glass.png
+|   |       x.png
+|   |
+|   +---script-dir
+|   |       jquery-3.7.1.min.js
+|   |       jquery-ui.min.css
+|   |       jquery-ui.min.js
+|   |
+|   \---work5
+|           Compiler.html
+|           CppCompiler.html
+|           CppDebugger.html
+|           CppIDEToolsFactory.html
+|           CppValidator.html
+|           Debugger.html
+|           IDEToolsDemo.html
+|           IDEToolsFactory.html
+|           JavaCompiler.html
+|           JavaDebugger.html
+|           JavaIDEToolsFactory.html
+|           JavaValidator.html
+|           package-summary.html
+|           package-tree.html
+|           Validator.html
+|
+\---src
+    \---work5
+            Compiler.java
+            CppCompiler.java
+            CppDebugger.java
+            CppIDEToolsFactory.java
+            CppValidator.java
+            Debugger.java
+            IDEToolsDemo.java
+            IDEToolsFactory.java
+            JavaCompiler.java
+            JavaDebugger.java
+            JavaIDEToolsFactory.java
+            JavaValidator.java
+            Validator.java
+    \end{minted}
+
+    \textbf{\underline{Скріншот наявності документації:}}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\linewidth]{2_1.png}
+        \caption{Скріншот документації Javadoc для 2 завдання}
+    \end{figure}
+
+    \textbf{\underline{UML-діаграма проекту:}}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=1.0\linewidth]{2_2.png}
+        \caption{UML-діаграма проекту для 2 завдання}
+    \end{figure}
+
+    \newpage
+
+    \setlength{\parindent}{1.5em}
+
+    \noindent
+    \textbf{\underline{Висновок:}} У ході виконання роботи було спроєктовано та реалізовано модель
+сімейства інструментів інтегрованого середовища розробки (IDE),
+що включає компоненти \texttt{Validator}, \texttt{Compiler} та
+\texttt{Debugger} для двох мов програмування --- Java та C++.
+Для створення взаємопов'язаних об'єктів цих типів було застосовано
+шаблон проєктування \textit{Abstract Factory} у вигляді інтерфейсу
+\texttt{IDEToolsFactory} та його конкретних реалізацій
+\texttt{JavaIDEToolsFactory} і \texttt{CppIDEToolsFactory}.
+Клієнтський код (\texttt{IDEToolsDemo}) працює виключно з абстракціями
+фабрики та інтерфейсами інструментів, що демонструє ослаблене
+зв'язування між використанням інструментів і їх конкретними реалізаціями.
+
+Результати запуску програми показали коректність роботи фабрик:
+для кожного типу фабрики створюється узгоджений набір інструментів
+(валідатор, компілятор, налагоджувач), над якими послідовно виконуються
+операції перевірки коду, компіляції та налагодження. Завдяки такій
+організації системи стає можливим прозоре розширення: для додавання
+підтримки нової мови достатньо реалізувати нові класи-продукти
+(\texttt{XxxValidator}, \texttt{XxxCompiler}, \texttt{XxxDebugger})
+та відповідну фабрику \texttt{XxxIDEToolsFactory}, не змінюючи клієнтський код.
+
+Таким чином, мету роботи досягнуто: розроблено узагальнену структуру
+IDE-інструментів із використанням шаблону \textit{Abstract Factory},
+продемонстровано переваги інкапсуляції способів створення об'єктів
+і забезпечено розширюваність програмної системи без модифікації
+існуючого клієнтського коду.
+
+\end{document}

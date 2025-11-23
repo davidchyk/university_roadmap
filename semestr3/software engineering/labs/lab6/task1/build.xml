@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="task1" default="run" basedir=".">
+
+    <!-- Основнi директорiї проєкту -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="doc.dir" value="doc"/>
+
+    <!-- Iнiцiалiзацiя: створення службових папок -->
+    <target name="init" description="Create build, dist and doc directories">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${doc.dir}"/>
+    </target>
+
+    <!-- Компiляцiя вихiдних кодiв -->
+    <target name="compile" depends="init" description="Compile source code">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" encoding="UTF-8"/>
+    </target>
+
+    <!-- Генерацiя Javadoc (документацiя українською) -->
+    <target name="javadoc" depends="compile" description="Generate Javadoc documentation">
+        <javadoc destdir="${doc.dir}"
+                 sourcepath="${src.dir}"
+                 packagenames="work5"
+                 encoding="UTF-8"
+                 charset="UTF-8"
+                 docencoding="UTF-8"
+                 windowtitle="task1 API"
+                 doctitle="task3 API">
+        </javadoc>
+    </target>
+
+    <!-- Створення jar-файлу -->
+    <target name="jar" depends="compile" description="Create JAR archive">
+        <jar destfile="${dist.dir}/task1.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="work5.GameManagerDemo"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Запуск демо-програми -->
+    <target name="run" depends="compile,javadoc" description="Run demo program">
+        <java classname="work5.GameManagerDemo" fork="true">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- Прибирання результатiв збiрки -->
+    <target name="clean" description="Delete build, dist and doc directories">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${doc.dir}"/>
+    </target>
+
+</project>

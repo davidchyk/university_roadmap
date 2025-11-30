@@ -92,11 +92,16 @@ def fourier_series_trig_2pi_rounded(f, t, n_terms, decimals=3, is_sqrted=False):
 t = sp.symbols('t')
 
 f = sp.Piecewise(
-    (t**2/sp.pi, (t >= 0) & (t <= sp.pi)),          # 0 ≤ t ≤ π
-    (-t/sp.pi + 2, (t > sp.pi) & (t <= 2*sp.pi)) # π < t ≤ 2π
+    (2*t/sp.pi, (t >= 0) & (t <= sp.pi/2)),
+
+    (2*(t - sp.pi/2)/sp.pi, (t > sp.pi/2) & (t <= sp.pi)),
+    
+    (2*(t - sp.pi)/sp.pi, (t > sp.pi) & (t <= 3*sp.pi/2)),
+
+    (2*(t - 3*sp.pi/2)/sp.pi, (t > 3*sp.pi/2) & (t <= 2*sp.pi))
 )
 
-n_terms = 100
+n_terms = 5
 S_num_expr_real, _ = fourier_series_trig_2pi_rounded(f, t, n_terms=n_terms, decimals=3, is_sqrted=True)
 S_num_expr, _ = fourier_series_trig_2pi_rounded(f, t, n_terms=n_terms, decimals=3, is_sqrted=False)
 

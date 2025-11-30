@@ -1,0 +1,538 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{t4}[2025/11/18 DSTU frame + small stamp (A4)]
+
+% --- deps ---
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+
+% --- Параметри рамки за ДСТУ (можна перевизначити у документі) ---
+\newlength\DSTU@left    \setlength\DSTU@left{20mm} % ліве поле (підшивка)
+\newlength\DSTU@right   \setlength\DSTU@right{5mm}
+\newlength\DSTU@top     \setlength\DSTU@top{5mm}
+\newlength\DSTU@bottom  \setlength\DSTU@bottom{5mm}
+
+% Товщина лінії рамки
+\newcommand{\DSTU@lw}{0.6pt}
+
+% --- Лічильник сторінок "Лист" ---
+\newcounter{DSTU@sheet}      % наш внутрішній лічильник "Лист"
+\setcounter{DSTU@sheet}{1}   % стартове значення (можеш поміняти)
+
+% Публічна команда: явно задати номер листа
+\newcommand{\dstuSetSheetNumber}[1]{%
+  \setcounter{DSTU@sheet}{#1}%
+}
+
+% --- Публічні сеттери рамки ---
+\newcommand{\dstuSetFrameMargins}[4]{%
+  \setlength\DSTU@left{#1}%
+  \setlength\DSTU@right{#2}%
+  \setlength\DSTU@top{#3}%
+  \setlength\DSTU@bottom{#4}%
+}
+\newcommand{\dstuSetFrameLineWidth}[1]{\renewcommand{\DSTU@lw}{#1}}
+
+% --- Малювання рамки ---
+\newcommand{\dstuDrawFrame}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \path let \p1=(current page.south west), \p2=(current page.north east) in
+      coordinate (DSTU@sw) at (\x1+\DSTU@left,  \y1+\DSTU@bottom)
+      coordinate (DSTU@ne) at (\x2-\DSTU@right, \y2-\DSTU@top);
+    \draw[line width=\DSTU@lw] (DSTU@sw) rectangle (DSTU@ne);
+  \end{tikzpicture}%
+}
+
+% ==========================================================
+% Налаштування малого штампа (як на фото)
+% ==========================================================
+
+% Висота всього штампа (нижня смуга)
+\newlength\DSTU@stampHeight
+\setlength\DSTU@stampHeight{15mm} % можна підкрутити
+
+% Висота великого штампа (вся нижня область)
+\newlength\DSTU@mainHeight
+\setlength\DSTU@mainHeight{30mm}  % сумарно
+
+% Висота нижнього рядка "Зм./Арк./№ док./Підпис/Дата"
+\newlength\DSTU@bottomBandHeight
+\setlength\DSTU@bottomBandHeight{5mm}
+
+% Ширина правого блоку з "Літера / Аркуш / Аркушів" і НТУУ
+\newlength\DSTU@mainRightWidth
+\setlength\DSTU@mainRightWidth{35mm}
+
+% Ширина лівого блоку "Зм./Арк./№ док./Підпис/Дата"
+\newlength\DSTU@revWidth
+\setlength\DSTU@revWidth{65mm} %65
+
+% Ширина правого блоку "Лист"
+\newlength\DSTU@pageWidth
+\setlength\DSTU@pageWidth{10mm}
+
+% Висота одного рядка в блоці змін (у нас їх 3)
+\newlength\DSTU@revRowHeight
+\setlength\DSTU@revRowHeight{5mm} % 3 * 5 = 15мм = \DSTU@stampHeight
+
+% Додаткова висота великого штампа над малим (для титульних, змісту тощо)
+\newlength\DSTU@mainStampExtraHeight
+\setlength\DSTU@mainStampExtraHeight{30mm} % ще 30 мм над малим штампом
+
+% Висота рядка у лівому блоці великого штампа (5 рядків)
+\newlength\DSTU@mainRowHeight
+\setlength\DSTU@mainRowHeight{6mm} % 5*6 = 30мм
+
+% Ширини колонок лівого блоку великого штампа
+\newlength\DSTU@mainColLabel  % для "Розробив", "Перевірив"...
+\newlength\DSTU@mainColName   % ПІБ
+\newlength\DSTU@mainColDate   % дата/підпис
+
+\setlength\DSTU@mainColLabel{20mm}
+\setlength\DSTU@mainColName {25mm}
+\setlength\DSTU@mainColDate {20mm}   % 20+25+20 = 65mm = \DSTU@revWidth
+
+% Ширини колонок ревізійного блоку
+\newlength\DSTU@revColA  % "Зм."
+\newlength\DSTU@revColB  % "Арк."
+\newlength\DSTU@revColC  % "№ док."
+\newlength\DSTU@revColD  % "Підпис"
+\newlength\DSTU@revColE  % "Дата"
+
+\setlength\DSTU@revColA{7mm}
+\setlength\DSTU@revColB{7mm}
+\setlength\DSTU@revColC{18mm}
+\setlength\DSTU@revColD{18mm}
+\setlength\DSTU@revColE{15mm}  % сумарно ≈ 65мм
+
+\setlength\DSTU@mainRightWidth{36mm}
+
+% Текст у середньому полі штампа (код документа)
+\newcommand{\dstuDocCode}{КПІ.ФІОТ.IO4106.002 ТЗ} % можна перевизначити у документі
+
+% --------- Тексти для великого штампа (можна перевизначати в документі) -----
+\newcommand{\dstuMainTitle}{КУРСОВА РОБОТА}
+\newcommand{\dstuMainSubtitle}{Технічне завдання}
+
+\newcommand{\dstuDevName}{Давидчук А. М.}
+\newcommand{\dstuCheckName}{Верба О. А.}
+\newcommand{\dstuRecName}{}          % Рецензент (можеш заповнити)
+\newcommand{\dstuNkName}{}           % Н. контр.
+\newcommand{\dstuApprName}{Жбітлій В. І.} % Затвердив
+
+\newcommand{\dstuUnivLine}{НТУУ ``КПІ'' ФІОТ}
+\newcommand{\dstuGroupLine}{Група ІО-41}
+
+\newcommand{\dstuLetter}{ }          % Літера
+\newcommand{\dstuSheetCount}{5}      % Аркушів (загальна кількість)
+
+% --- Малювання малого штампа ---
+\newcommand{\dstuDrawStamp}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % внутрішній прямокутник рамки
+    \path let \p1=(current page.south west), \p2=(current page.north east) in
+      coordinate (DSTU@sw) at (\x1+\DSTU@left,  \y1+\DSTU@bottom)
+      coordinate (DSTU@se) at (\x2-\DSTU@right, \y1+\DSTU@bottom);
+
+    % Нижня смуга висотою 15 мм
+    \coordinate (bandSW) at (DSTU@sw);
+    \coordinate (bandSE) at (DSTU@se);
+    \coordinate (bandNW) at ($(bandSW)+(0,15mm)$);
+    \coordinate (bandNE) at ($(bandSE)+(0,15mm)$);
+
+    % ЛІВИЙ блок (ревізії) 65 мм шириною
+    \coordinate (L0) at (bandSW);
+    \coordinate (L1) at ($(L0)+(65mm,15mm)$);
+
+    % ПРАВИЙ блок "Лист" 15 мм шириною
+    \coordinate (R0) at ($(bandSE)+(-\DSTU@pageWidth,0)$);
+    \coordinate (R1) at ($(R0)+(\DSTU@pageWidth,15mm)$);
+
+    % СЕРЕДНІЙ блок (код документа)
+    \coordinate (M0) at (L1);
+    \coordinate (M1) at (R0 |- L1);
+
+    % Рамки трьох блоків
+    \draw[line width=\DSTU@lw] (L0) rectangle (L1);
+    \draw[line width=\DSTU@lw] (M0) rectangle (M1);
+    \draw[line width=\DSTU@lw] (R0) rectangle (R1);
+
+    % -----------------------
+    % Внутрішня сітка лівого блоку
+    % 3 рядки по 5 мм (∑ = 15 мм)
+    % -----------------------
+    % Горизонталі
+    \draw[line width=\DSTU@lw] ($(L0)+(0,5mm)$)  -- ($(L0)+(65mm,5mm)$);
+    \draw[line width=\DSTU@lw] ($(L0)+(0,10mm)$) -- ($(L0)+(65mm,10mm)$);
+
+    % Вертикалі колонок: 7 | 7 | 18 | 18 | 15 мм
+    \draw[line width=\DSTU@lw] ($(L0)+(8mm,0)$)  -- ($(L0)+(8mm,15mm)$);
+    \draw[line width=\DSTU@lw] ($(L0)+(17mm,0)$) -- ($(L0)+(17mm,15mm)$);
+    \draw[line width=\DSTU@lw] ($(L0)+(43mm,0)$) -- ($(L0)+(43mm,15mm)$);
+    \draw[line width=\DSTU@lw] ($(L0)+(55mm,0)$) -- ($(L0)+(55mm,15mm)$);
+
+    % Підписи в нижньому рядку
+    \node[font=\normalfont\rmfamily\scriptsize,anchor=center]
+      at ($(L0)+(3.5mm,2.5mm)$) {Зм.};
+    \node[font=\normalfont\rmfamily\scriptsize,anchor=center]
+      at ($(L0)+(12mm,2.5mm)$) {Арк.};
+    \node[font=\normalfont\rmfamily\scriptsize,anchor=center]
+      at ($(L0)+(30mm,2.5mm)$) {№~докум.};
+    \node[font=\normalfont\rmfamily\scriptsize,anchor=center]
+      at ($(L0)+(49mm,2.5mm)$) {Підпис};
+    \node[font=\normalfont\rmfamily\scriptsize,anchor=center]
+      at ($(L0)+(60mm,2.5mm)$) {Дата};
+
+    % -----------------------
+    % Блок "Лист"
+    % -----------------------
+    % Лінія на висоті 5 мм
+    \draw[line width=\DSTU@lw]
+      ($(R0)+(0,10mm)$) -- ($(R0)+(\DSTU@pageWidth,10mm)$);
+
+    % "Лист" у верхній клітинці
+    \node[font=\normalfont\rmfamily\scriptsize,anchor=center]
+      at ($(R0)+(5.0mm,12mm)$) {Лист};
+
+    % Номер листа
+    \node[font=\normalfont\rmfamily\scriptsize,anchor=center]
+      at ($(R0)+(5.0mm,4.6mm)$) {\arabic{DSTU@sheet}};
+    \stepcounter{DSTU@sheet}
+
+    % -----------------------
+    % Центральний текст (код документа)
+    % -----------------------
+    \node[font=\normalfont\rmfamily\normalsize,anchor=center]
+      at ($ (M0)!0.5!(M1) + (0,-8mm) $) {\dstuDocCode};
+
+  \end{tikzpicture}%
+}
+
+% --- Великий штамп (як на макеті) --------------------------
+\newcommand{\dstuDrawMainStamp}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % Внутрішній прямокутник рамки (низ сторінки)
+    \path let \p1=(current page.south west), \p2=(current page.north east) in
+      coordinate (DSTU@sw) at (\x1+\DSTU@left,  \y1+\DSTU@bottom)
+      coordinate (DSTU@se) at (\x2-\DSTU@right, \y1+\DSTU@bottom);
+
+    % Загальний прямокутник великого штампа по всій ширині
+    \coordinate (MSW) at (DSTU@sw);
+    \coordinate (MSE) at (DSTU@se);
+    \coordinate (MNW) at ($(MSW)+(0,\DSTU@mainHeight)$); % 30 мм
+    \coordinate (MNE) at ($(MSE)+(0,\DSTU@mainHeight)$);
+
+
+
+% верхняя горизонталь короче слева
+\draw[line width=\DSTU@lw]
+  ($(MSW)+(-0,\DSTU@mainHeight)$) --
+  ($(MNE)+(-120mm,0)$);
+    % Лівий блок (ПІБ + Зм./Арк./... зверху)
+    \coordinate (L0) at (MSW);
+    \coordinate (L1) at ($(L0)+(\DSTU@revWidth,\DSTU@mainHeight)$); % 65×30
+
+    % Правий блок
+    \coordinate (R0) at ($(MSE)+(-\DSTU@mainRightWidth,0)$);
+    \coordinate (R1) at ($(R0)+(\DSTU@mainRightWidth,\DSTU@mainHeight - 5mm)$);
+
+    % Центральний блок
+    \coordinate (C0) at (L1 |- MSW);  % низ центру
+    \coordinate (C1) at ($(R0 |- MNW) - (0, 5mm)$);  % верх центру
+
+    \draw[line width=\DSTU@lw] (L0) rectangle ($(L1) + (0,10mm)$);
+    \draw[line width=\DSTU@lw] (C0) rectangle (C1);
+    \draw[line width=\DSTU@lw] (R0) rectangle ($(R1) + (0,0mm)$);
+
+    % -------------------------------------------------------
+    %  ЛІВИЙ БЛОК: Зм./Арк./... НАВЕРХУ, під ним 5 рядків ПІБ
+    % -------------------------------------------------------
+
+    % Рядок "Зм. Арк. № докум. Підпис Дата" (25–30 мм)
+
+    \draw[line width=\DSTU@lw] ($(L0)+(0,35mm)$)  -- ($(L0)+(\DSTU@revWidth,35mm)$);
+    \draw[line width=\DSTU@lw] ($(L0)+(0,40mm)$) -- ($(L0)+(185mm,40mm)$);
+
+    \draw[line width=\DSTU@lw]
+      ($(L0)+(0,\DSTU@mainHeight-\DSTU@bottomBandHeight)$) --
+      ($(L0)+(\DSTU@revWidth,\DSTU@mainHeight-\DSTU@bottomBandHeight)$);
+
+    % Вертикалі в цьому рядку
+    \draw[line width=\DSTU@lw]
+      ($(L0)+(8mm,\DSTU@mainHeight-\DSTU@bottomBandHeight)$) --
+      ($(L0)+(8mm,\DSTU@mainHeight + 10mm)$);
+    \draw[line width=\DSTU@lw]
+      ($(L0)+(17mm,\DSTU@mainHeight-\DSTU@bottomBandHeight)$) --
+      ($(L0)+(17mm,\DSTU@mainHeight + 10mm)$);
+    \draw[line width=\DSTU@lw]
+      ($(L0)+(43mm,\DSTU@mainHeight-\DSTU@bottomBandHeight)$) --
+      ($(L0)+(43mm,\DSTU@mainHeight + 10mm)$);
+    \draw[line width=\DSTU@lw]
+      ($(L0)+(55mm,\DSTU@mainHeight-\DSTU@bottomBandHeight)$) --
+      ($(L0)+(55mm,\DSTU@mainHeight + 10mm)$);
+
+    % Підписи в цьому рядку (центр ≈ 27.5мм)
+    \node[font=\scriptsize,anchor=center]
+      at ($(L0)+(3.5mm,\DSTU@mainHeight-0.5*\DSTU@bottomBandHeight)$) {Зм.};
+    \node[font=\scriptsize,anchor=center]
+      at ($(L0)+(12mm,\DSTU@mainHeight-0.5*\DSTU@bottomBandHeight)$) {Арк.};
+    \node[font=\scriptsize,anchor=center]
+      at ($(L0)+(30mm,\DSTU@mainHeight-0.5*\DSTU@bottomBandHeight)$) {№~докум.};
+    \node[font=\scriptsize,anchor=center]
+      at ($(L0)+(49mm,\DSTU@mainHeight-0.5*\DSTU@bottomBandHeight)$) {Підпис};
+    \node[font=\scriptsize,anchor=center]
+      at ($(L0)+(60mm,\DSTU@mainHeight-0.5*\DSTU@bottomBandHeight)$) {Дата};
+
+    % Горизонталі для 5 рядків ПІБ (0–25 мм)
+    \draw[line width=\DSTU@lw] ($(L0)+(0,20mm)$) -- ($(L0)+(\DSTU@revWidth,20mm)$);
+    \draw[line width=\DSTU@lw] ($(L0)+(0,15mm)$) -- ($(L0)+(\DSTU@revWidth,15mm)$);
+    \draw[line width=\DSTU@lw] ($(L0)+(0,10mm)$) -- ($(L0)+(\DSTU@revWidth,10mm)$);
+    \draw[line width=\DSTU@lw] ($(L0)+(0,5mm)$)  -- ($(L0)+(\DSTU@revWidth,5mm)$);
+
+    % Вертикалі (20 / 25 / 20 мм)
+    \draw[line width=\DSTU@lw]
+      ($(L0)+(17mm,0)$) -- ($(L0)+(17mm,\DSTU@mainHeight-\DSTU@bottomBandHeight)$);
+    \draw[line width=\DSTU@lw]
+      ($(L0)+(43mm,0)$) -- ($(L0)+(43mm,\DSTU@mainHeight-\DSTU@bottomBandHeight)$);
+    % Додатковий стовпець для "Дата" у нижніх рядках
+    \draw[line width=\DSTU@lw]
+      ($(L0)+(55mm,0)$) -- ($(L0)+(55mm,\DSTU@mainHeight-\DSTU@bottomBandHeight)$);
+
+    % Центри рядків ПІБ (згори донизу): 22.5, 17.5, 12.5, 7.5, 2.5 мм
+    % Порядок: Розробив, Перевірив, Реценз., Н. контр., Затверд.
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(0mm,22.5mm)$) {Розробив};
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(17mm,22.5mm)$) {\dstuDevName};
+
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(0mm,17.5mm)$) {Перевірив};
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(17mm,17.5mm)$) {\dstuCheckName};
+
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(0mm,12.5mm)$) {Реценз.};
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(17mm,12.5mm)$) {\dstuRecName};
+
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(0mm,7.5mm)$) {Н. контр.};
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(17mm,7.5mm)$) {\dstuNkName};
+
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(0mm,2.5mm)$) {Затверд.};
+    \node[font=\scriptsize,anchor=west]
+      at ($(L0)+(17mm,2.5mm)$) {\dstuApprName};
+
+    % -------------------------------------------------------
+    %  ЦЕНТРАЛЬНИЙ БЛОК
+    % -------------------------------------------------------
+    % Лінія, що відділяє верхні 10мм для коду документа;
+
+    % Код документа (верхня частина центру)
+    \node[font=\normalsize,anchor=center]
+      at ($ (C0)!0.5!(C1) + (15mm,20mm) $) {\dstuDocCode};
+
+    % Назва роботи / підназва (нижня частина)
+    \node[font=\normalsize,anchor=center]
+      at ($ (C0)!0.5!(C1) + (0,2mm) $) {\dstuMainTitle};
+    \node[font=\footnotesize,anchor=center]
+      at ($ (C0)!0.5!(C1) + (0,-4mm) $) {\dstuMainSubtitle};
+
+    % -------------------------------------------------------
+    %  ПРАВИЙ БЛОК
+    % -------------------------------------------------------
+
+    % Маленька табличка "Літера / Аркуш / Аркушів" у ВЕРХНІЙ частині правого блоку
+    % Низ таблички на 10 мм нижче верху всього блока
+    % Підняли табличку вище, щоб збільшити місце під текст НТУУ
+    \coordinate (RT0) at ($(R1)+(-36mm,-10mm)$);                    % нижній лівий кут таблички
+    \coordinate (RT1) at ($(RT0)+(\DSTU@mainRightWidth,10mm)$); % верхній правий (це R1)
+
+    % Контур таблички без верхньої лінії
+    \draw[line width=\DSTU@lw] (RT0) -- ($(RT0)+(0,10mm)$); % ліва
+    \draw[line width=\DSTU@lw] (RT1) -- ($(RT1)+(0,-10mm)$); % права
+    \draw[line width=\DSTU@lw] (RT0) -- (RT1 |- RT0);        % низ
+
+    % Горизонтальна лінія всередині (ділимо на 2 рядки по 5 мм)
+    \draw[line width=\DSTU@lw]
+      ($(RT0)+(0,5mm)$) -- ($(RT0)+(\DSTU@mainRightWidth,5mm)$);
+
+    % Вертикальні лінії для 3 основних колонок: ~12 | 12 | 11 мм
+    \draw[line width=\DSTU@lw]
+      ($(RT0)+(12mm,0)$) -- ($(RT0)+(12mm,10mm)$);
+    \draw[line width=\DSTU@lw]
+      ($(RT0)+(24mm,0)$) -- ($(RT0)+(24mm,10mm)$);
+
+    % Додаткові лінії в колонці "Літера" (три маленькі клітинки внизу)
+    \draw[line width=\DSTU@lw]
+      ($(RT0)+(4mm,0)$) -- ($(RT0)+(4mm,5mm)$);
+    \draw[line width=\DSTU@lw]
+      ($(RT0)+(8mm,0)$) -- ($(RT0)+(8mm,5mm)$);
+
+    % Підписи у верхньому рядку (5–10 мм від низу таблички)
+    \node[font=\scriptsize,anchor=center]
+      at ($(RT0)+(6mm,7.5mm)$) {Літера};
+    \node[font=\scriptsize,anchor=center]
+      at ($(RT0)+(18mm,7.5mm)$) {Аркуш};
+    \node[font=\scriptsize,anchor=center]
+      at ($(RT0)+(30mm,7.5mm)$) {Аркушів};
+
+    % Значення у нижньому рядку таблички (0–5 мм від низу таблички)
+    % Літера — по центру середньої з трьох маленьких клітинок
+    \node[font=\scriptsize,anchor=center]
+      at ($(RT0)+(6mm,2.5mm)$) {\dstuLetter};
+
+    % Номер аркуша
+    \node[font=\scriptsize,anchor=center]
+      at ($(RT0)+(18mm,2.5mm)$) {\arabic{DSTU@sheet}};
+
+    % Кількість аркушів
+    \node[font=\scriptsize,anchor=center]
+      at ($(RT0)+(30mm,2.5mm)$) {\dstuSheetCount};
+
+    % Нижня частина правого блоку — текст НТУУ + група
+    % Центруємо по блоку
+    \node[font=\scriptsize,anchor=center]
+      at ($ (R0)!0.5!(R1) + (0,-2mm) $) {\dstuUnivLine};
+    \node[font=\scriptsize,anchor=center]
+      at ($ (R0)!0.5!(R1) + (0,-6mm) $) {\dstuGroupLine};
+
+  \end{tikzpicture}%
+}
+
+% ==========================================================
+% РЕЖИМИ СТОРІНКИ (plain / simple / full)
+% ==========================================================
+
+\newif\ifDSTU@frame
+\DSTU@frametrue
+
+\newif\ifDSTU@smallstamp
+\DSTU@smallstampfalse
+
+\newif\ifDSTU@mainstamp
+\DSTU@mainstampfalse
+
+% 1) Пуста сторінка (без рамки і штампів)
+\newcommand{\dstuPagePlain}{%
+  \DSTU@framefalse
+  \DSTU@smallstampfalse
+  \DSTU@mainstampfalse
+}
+
+% 2) Просто рамка
+\newcommand{\dstuPageSimple}{%
+  \DSTU@frametrue
+  \DSTU@smallstampfalse
+  \DSTU@mainstampfalse
+}
+
+% 3) Рамка + малий штамп (як раніше)
+\newcommand{\dstuPageFull}{%
+  \DSTU@frametrue
+  \DSTU@smallstamptrue
+  \DSTU@mainstampfalse
+}
+
+% 4) Рамка + великий штамп (титульні, зміст тощо)
+\newcommand{\dstuPageMain}{%
+  \DSTU@frametrue
+  \DSTU@smallstampfalse
+  \DSTU@mainstamptrue
+}
+
+% Альяси mode
+\newcommand{\dstuSetModeSimpleFrame}{\dstuPageSimple}
+\newcommand{\dstuSetModeFullStamp}{\dstuPageFull}
+
+% --- shipout hook ---
+\AddToHook{shipout/foreground}{%
+  \ifDSTU@frame
+    \dstuDrawFrame
+    \ifDSTU@smallstamp
+      \dstuDrawStamp
+    \fi
+    \ifDSTU@mainstamp
+      \dstuDrawMainStamp
+    \fi
+  \fi
+}
+
+% ==========================================================
+%  Верхня відомість (табличка) — додається окремою командою
+% ==========================================================
+% Додаткові пакети для таблиці
+\RequirePackage{array}
+\RequirePackage{multirow}
+\RequirePackage{graphicx}
+
+% Ширини колонок (як у зразку)
+\newlength\DSTU@tblRow      \setlength\DSTU@tblRow{5mm}
+\newlength\DSTU@tblFormat   \setlength\DSTU@tblFormat{9mm}
+\newlength\DSTU@tblCode     \setlength\DSTU@tblCode{70mm}
+\newlength\DSTU@tblName     \setlength\DSTU@tblName{70mm}
+\newlength\DSTU@tblCount    \setlength\DSTU@tblCount{5mm}
+\newlength\DSTU@tblNote     \setlength\DSTU@tblNote{16.5mm}
+\newlength\DSTU@tblSpan     \setlength\DSTU@tblSpan{\dimexpr\DSTU@tblCode+\DSTU@tblName\relax}
+
+\newcommand{\DSTU@topTableStretch}{0}
+\newcommand{\dstuSetTopTableStretch}[1]{\renewcommand{\DSTU@topTableStretch}{#1}}
+
+% Значення за замовчуванням (можна перевизначити у документі)
+\newcommand{\dstuTopDocA}{КПІ.ФІОТ.IO4106.001 ОА}
+\newcommand{\dstuTopDocB}{КПІ.ФІОТ.IO4106.002 ТЗ}
+\newcommand{\dstuTopDocC}{КПІ.ФІОТ.IO4106.003 ПЗ}
+\newcommand{\dstuTopDocD}{КПІ.ФІОТ.IO4106.004 X}
+\newcommand{\dstuTopWork}{Курсова робота}
+\newcommand{\dstuTopAlbum}{Опис альбому}
+\newcommand{\dstuTopTech}{Технічне завдання}
+\newcommand{\dstuTopNote}{Пояснювальна записка}
+\newcommand{\dstuTopAppend}{Додатки}
+
+% Допоміжні колонки
+\newcolumntype{T}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{S}[1]{>{\centering\arraybackslash\footnotesize}m{#1}}
+\newcolumntype{N}[1]{>{\centering\arraybackslash\small}m{#1}}
+
+% Команда друку верхньої таблиці (25 рядків)
+\newcommand{\dstuTopTable}{%
+  \begingroup
+  \renewcommand{\arraystretch}{\DSTU@topTableStretch} % трохи нижчі рядки
+  \setlength{\tabcolsep}{2pt} % ширші поля по ширині
+  \footnotesize
+  \noindent\begin{tabular}{|N{\DSTU@tblRow}|N{\DSTU@tblFormat}|S{\DSTU@tblCode}|T{\DSTU@tblName}|N{\DSTU@tblCount}|N{\DSTU@tblNote}|}
+    \multirow{2}{*}{\rotatebox{90}{\strut № рядка}} &
+    \multirow{2}{*}{\rotatebox{90}{\strut Формат}} &
+    &  &
+    \multirow{2}{*}{\rotatebox{90}{\strut Кількість}} &
+    \multirow{2}{*}{\rotatebox{90}{\strut Примітка}}\\
+    & & \centering\textbf{Позначення} & \centering\textbf{Найменування} & &\\ \noalign{\hrule height 2.33pt}
+    1  &    &  & \centering Документація загальна & &\\ \hline
+    2  &    & & & &\\ \hline
+    3  &    &  & \centering Наново розроблена & &\\ \hline
+    4  &    & & & &\\ \hline
+    5  & A4 & \shortstack{\dstuTopDocA} & \shortstack{\raisebox{-1em}{\dstuTopWork}\\\\\dstuTopAlbum} & 1  &\\ \hline
+    6  &    & & & &\\ \hline
+    7  & A4 & \shortstack{\dstuTopDocB} & \shortstack{\raisebox{-1em}{\dstuTopWork}\\\\\dstuTopTech} & 2  &\\ \hline
+    8  &    & & & &\\ \hline
+    9  & A4 & \shortstack{\dstuTopDocC} & \shortstack{\raisebox{-1em}{\dstuTopWork}\\\\\dstuTopNote} & 51 &\\ \hline
+    10 &    & & & &\\ \hline
+    11 &    & & & &\\ \hline
+    12 &    & & & &\\ \hline
+    13 &    & & & &\\ \hline
+    14 &    & & & &\\ \hline
+    15 &    & & & &\\ \hline
+    16 &    & & & &\\ \hline
+    17 &    & & & &\\ \hline
+    18 &    & & & &\\ \hline
+    19 &    & & & &\\ \hline
+    20 &    & & & &\\ \hline
+    21 &    & & & &\\ \hline
+    22 &    & & & &\\ \hline
+    23 &    & & & &\\ \hline
+    24 &    & & & &\\ \hline
+    25 &    & & & &\\ \hline
+  \end{tabular}
+  \endgroup
+}

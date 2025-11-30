@@ -1,0 +1,12 @@
+Команди режимів сторінки/штампа з t4.sty:
+
+\dstuPagePlain — без рамки й штампів.
+\dstuPageSimple — лише рамка.
+\dstuPageFull — рамка + малий штамп унизу.
+\dstuPageMain — рамка + великий основний штамп (за потреби перед ним ставлять \dstuTopTable).
+
+
+Додатково:
+
+\dstuSetSheetNumber{N} — стартовий номер аркуша.
+\dstuSetFrameLineWidth{<pt>} — товщина лінії рамки.

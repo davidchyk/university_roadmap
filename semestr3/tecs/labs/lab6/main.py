@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # == Розрахунок значень ==
 
-S, N = 1, 7
+S, N = 1, 6
 
 E = 10 + S
 R = 10*S + N

@@ -38,13 +38,13 @@ t = np.linspace(0, t_max, 1000)
 
 # === 1) Режим №1 ==========================================
 
-u_L1 = (E * R_k) / (R + R_k) + (E * R) / (R + R_k) * np.exp(-(R - R_k) / L * t)
+u_L1 = (E * R_k) / (R + R_k) + (E * R) / (R + R_k) * np.exp(-(R + R_k) / L * t)
 u_R1 = (E * R) / (R + R_k) * (1 - np.exp(-(R + R_k) / L * t))
 
 plt.figure()
-plt.plot(t, u_L1, label=r'$u_L^{(1)}(t)$')
-plt.plot(t, u_R1, label=r'$u_R^{(1)}(t)$')
-plt.title(r'$u_L^{(1)}(t),\, u_R^{(1)}(t)$')
+plt.plot(t, u_L1, label=r'$u_L(t)$')
+plt.plot(t, u_R1, label=r'$u_R(t)$')
+plt.title(r'$u_L(t),\, u_R(t)$')
 plt.xlabel('t, c')
 plt.ylabel(r'$u(t),\, \text{В}$')
 plt.grid(True)

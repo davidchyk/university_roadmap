@@ -1,0 +1,11 @@
+{
+  "name": "transistorkey",
+  "author": "Artem Davydchuk",
+  "pins": [
+    "VCC",
+    "GND",
+    "IN",
+    "OUT"
+  ],
+  "controls": []
+}

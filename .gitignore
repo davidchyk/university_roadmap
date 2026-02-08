@@ -7,6 +7,7 @@
 *.qti~
 *.pyc
 *synctex.gz
+*.bkp
 
 cspell.json
 

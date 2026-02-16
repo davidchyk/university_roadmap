@@ -132,7 +132,7 @@
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.26\linewidth]{media/png files/alg.png}
+        \includegraphics[width=0.57 \linewidth]{media/png files/alg.png}
         \caption{\centering Функціональний мікроалгоритм множення за 2 способом для 4 розрядних вхідних операндів $A$ та $B$}
     \end{figure}
 
@@ -145,8 +145,6 @@
     Нехай
 
     $A = 0{,}1011 = 11$, $B = 0{,}1000 = 8$, звідси $C = A \, B = 11 \cdot 8 = 88 = 0{,}0101 \, 1000$. Перевіримо:
-
-    % TODO table
 
     \begin{table}[h!]
 
@@ -276,13 +274,13 @@
 
         \begin{subfigure}[t]{0.48\textwidth}
             \centering
-            \includegraphics[width=0.7\linewidth]{media/png files/alg1.png}
+            \includegraphics[width=1.0\linewidth]{media/png files/alg1.png}
             \subcaption*{а)}
         \end{subfigure}
         \hfill
         \begin{subfigure}[t]{0.48\textwidth}
             \centering
-            \includegraphics[width=0.7\linewidth]{media/png files/alg2.png}
+            \includegraphics[width=0.9\linewidth]{media/png files/alg2.png}
             \subcaption*{б)}
         \end{subfigure}
 
@@ -329,6 +327,8 @@
         \caption{\centering Функціональна схема множення за 2 способом для 4 розрядних вхідних операндів $A$ та $B$}
     \end{figure}
 
+    \newpage
+
     Тут стани $A_i$ -- додаткові стані, задля забезпечення кодування станів за кодом Грея.
 
     \begin{table}[h!]
@@ -348,19 +348,17 @@
             \hline
             $Z_4$ & 1 & 0 & 0\\
             \hline
-            $A_1$ & 1 & 1 & 0\\
+            $Z_5$ & 1 & 1 & 0\\
             \hline
-            $A_2$ & 0 & 1 & 0\\
+            $A_1$ & 0 & 1 & 0\\
             \hline
-            $A_3$ & 0 & 1 & 1\\
+            $A_2$ & 1 & 1 & 1\\
             \hline
         \end{tabular}
         \caption{Таблиця кодування станів}
     \end{table}
 
     Тепер зробимо синтез структурного автомата.
-
-    \newpage
 
     \begin{table}[h!]
         \centering
@@ -394,16 +392,16 @@
                 \hline
 
                 % ---- приклад правильного рядка (16 клітинок = 15 "&") ----
-                % ПС  Q3 Q2 Q1  СП  Q3 Q2 Q1  X2 X1  Y1 Y2 Y3  T3 T2 T1
-                $Z_1$ & 0 & 0 & 0 & $Z_2$ & 0 & 0 & 1 & - & - & 1 & 0 & 0 & 0 & 0 & 1 \\
-                $Z_2$ & 0 & 0 & 1 & $Z_3$ & 1 & 0 & 1 & - & - & 0 & 0 & 0 & 1 & 0 & 0 \\
-                $Z_3$ & 1 & 0 & 1 & $Z_4$ & 1 & 0 & 0 & - & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-                $Z_3$ & 1 & 0 & 1 & $Z_4$ & 1 & 0 & 0 & - & 1 & 0 & 1 & 0 & 0 & 0 & 1 \\
-                $Z_4$ & 1 & 0 & 0 & $Z_1$ & 0 & 0 & 0 & 1 & - & 0 & 0 & 1 & 1 & 0 & 0 \\
-                $Z_4$ & 1 & 0 & 0 & $A_1$ & 1 & 1 & 0 & 0 & - & 0 & 0 & 1 & 0 & 1 & 0 \\
-                $A_1$ & 1 & 1 & 0 & $A_2$ & 0 & 1 & 0 & - & - & 0 & 0 & 0 & 1 & 0 & 0 \\
-                $A_2$ & 0 & 1 & 0 & $A_3$ & 0 & 1 & 1 & - & - & 0 & 0 & 0 & 0 & 0 & 1 \\
-                $A_3$ & 0 & 1 & 1 & $Z_2$ & 0 & 0 & 1 & - & - & 0 & 0 & 0 & 0 & 1 & 0 \\
+                % ПС    Q3  Q2  Q1  СП      Q3  Q2  Q1 X2   X1  Y1  Y2  Y3    T3  T2  T1
+                $Z_1$ & 0 & 0 & 0 & $Z_2$ & 0 & 0 & 1 & - & - & 1 & 0 & 0   & 0 & 0 & 1 \\
+                $Z_2$ & 0 & 0 & 1 & $Z_3$ & 1 & 0 & 1 & - & - & 0 & 0 & 0   & 1 & 0 & 0 \\
+                $Z_3$ & 1 & 0 & 1 & $Z_4$ & 1 & 0 & 0 & - & 0 & 0 & 0 & 1   & 0 & 0 & 1 \\
+                $Z_3$ & 1 & 0 & 1 & $Z_4$ & 1 & 0 & 0 & - & 1 & 0 & 1 & 0   & 0 & 0 & 1 \\
+                $Z_4$ & 1 & 0 & 0 & $Z_5$ & 1 & 1 & 0 & - & - & 0 & 0 & 0   & 0 & 1 & 0 \\
+                $Z_5$ & 1 & 1 & 0 & $A_2$ & 1 & 1 & 1 & 0 & - & 0 & 0 & 0   & 0 & 0 & 1 \\
+                $Z_5$ & 1 & 1 & 0 & $A_1$ & 0 & 1 & 0 & 1 & - & 0 & 0 & 0   & 1 & 0 & 0 \\
+                $A_1$ & 0 & 1 & 0 & $Z_1$ & 0 & 0 & 0 & - & - & 0 & 0 & 0   & 0 & 1 & 0 \\
+                $A_2$ & 1 & 1 & 1 & $Z_3$ & 1 & 0 & 1 & - & - & 0 & 0 & 0   & 0 & 1 & 0 \\
 
                 \hline
 
@@ -425,21 +423,23 @@
 
     \vspace{1em}
 
-    $Y_3 = Q_3 \, \overline{Q_2} \, \overline{Q_1} \, X_2 \vee Q_3 \, \overline{Q_2} \, \overline{Q_1}\, \overline{X_2} = Q_3 \, \overline{Q_2} \, \overline{Q_1}$
+    $Y_3 = Q_3 \, \overline{Q_2} \, Q_1 \, \overline{X_1}$
 
     \vspace{1em}
 
-    $T_3 = \overline{Q_3} \, \overline{Q_2} \, Q_1 \vee Q_3 \, \overline{Q_2} \, \overline{Q_1} \, X_2 \vee Q_3 \, Q_2 \, \overline{Q_1}$
+    $T_3 = \overline{Q_3} \, \overline{Q_2} \, Q_1 \vee Q_3 \, Q_2 \, \overline{Q_1} \, X_2$
 
     \vspace{1em}
 
-    $T_2 = Q_3 \, \overline{Q_2} \, \overline{Q_1} \, \overline{X_2} \vee \overline{Q_3} \, Q_2 \, Q_1$
+    $T_2 = Q_3 \, \overline{Q_2} \, \overline{Q_1} \vee \overline{Q_3} \, Q_2 \, \overline{Q_1} \vee Q_3 \, Q_2 \, Q_1$
 
     \vspace{1em}
 
-    $T_1 = \overline{Q_3} \, \overline{Q_2} \, \overline{Q_1} \vee Q_3 \, \overline{Q_2} \, Q_1 \, \overline{X_1} \vee Q_3 \, \overline{Q_2} \, Q_1 \, X_1 \vee \overline{Q_3} \, Q_2 \, \overline{Q_1}$
+    $T_1 = \overline{Q_3} \, \overline{Q_2} \, \overline{Q_1} \vee Q_3 \, \overline{Q_2} \, Q_1 \, \overline{X_1} \vee Q_3 \, \overline{Q_2} \, Q_1 \, X_1 \vee Q_3 \, Q_2 \, \overline{Q_1} \, \overline{X_2}$
 
     \vspace{1em}
+
+    \newpage
 
     \noindent
     Проведемо мінімізацію всіх функцій збудження тригерів за допомогою діаграм Вейча:
@@ -449,25 +449,25 @@
     \begin{figure}[h!]
         \centering
 
-        \begin{subfigure}[t]{0.32\textwidth}
+        \begin{subfigure}[t]{0.3\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{media/png files/t1.png}
+            \includegraphics[width=\linewidth]{media/png files/t3.png}
             \subcaption*{а)}
         \end{subfigure}
         \hfill
-        \begin{subfigure}[t]{0.32\textwidth}
+        \begin{subfigure}[t]{0.3\textwidth}
             \centering
             \includegraphics[width=\linewidth]{media/png files/t2.png}
             \subcaption*{б)}
         \end{subfigure}
         \hfill
-        \begin{subfigure}[t]{0.32\textwidth}
+        \begin{subfigure}[t]{0.37\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{media/png files/t3.png}
+            \includegraphics[width=\linewidth]{media/png files/t1.png}
             \subcaption*{в)}
         \end{subfigure}
 
-        \caption{Діаграми Вейча для а) $T_1$, б) $T_2$, в) $T_3$}
+        \caption{Діаграми Вейча для а) $T_3$, б) $T_2$, в) $T_1$}
     \end{figure}
 
     \noindent
@@ -475,15 +475,15 @@
 
     \vspace{1em}
 
-    $T_3 = Q_3 \, Q_2 \, \overline{Q_1} \vee Q_3 \, \overline{Q_1} \, X_2 \vee \overline{Q_3} \, \overline{Q_2} \, Q_1$
+    $T_3 = \overline{Q_3} \, \overline{Q_2} \, Q_1 \vee Q_3 \, Q_2 \, \overline{Q_1} \, X_2$
 
     \vspace{1em}
 
-    $T_2 = Q_3 \, \overline{Q_2} \, \overline{Q_1} \, \overline{X_2} \vee \overline{Q_3} \, Q_2 \, Q_1$
+    $T_2 = Q_3 \, \overline{Q_2} \, \overline{Q_1} \vee \overline{Q_3} \, Q_2 \, \overline{Q_1} \vee Q_3 \, Q_2 \, Q_1$
 
     \vspace{1em}
 
-    $T_1 = \overline{Q_3} \, \overline{Q_1} \vee Q_3 \, \overline{Q_2} \, Q_1$
+    $T_1 = \overline{Q_3} \, \overline{Q_2} \, \overline{Q_1} \vee Q_3 \, \overline{Q_2} \, Q_1 \vee Q_3 \, Q_2 \, \overline{Q_1}\, \overline{X_2}$
 
     \vspace{1em}
 
@@ -496,6 +496,8 @@
         \caption{\centering Схема керуючого автомата для множення 2 способом. Комбінаційна частина реалізована на ПЛМ(8; p; 8)}
     \end{figure}
 
+    \newpage
+
     \noindent
     І надамо її часову діаграму:
 
@@ -506,8 +508,6 @@
     \end{figure}
 
     Згідно із часовою діаграмою, наш автомат виконує наданий мікроалгоритм правильно, та повністю відповідає його графу.
-    
-    \newpage
 
     Тепер побудуємо операційний пристрій множення 2 способом 4-розрядних двійкових чисел:
 
@@ -516,6 +516,8 @@
         \includegraphics[width=0.7\linewidth]{media/png files/op_scheme.png}
         \caption{\centering Схема операційного пристрою для множення 2 способом}
     \end{figure}
+
+    \newpage
 
     \noindent
     Узагальнена структура арифметико-логічного пристрою:
@@ -529,8 +531,6 @@
     Де $x_1, x_2, \dots, x_n$ -- вхідні дані (для нашого АЛП існують лише $x_1$ та $x_2$). Та керуючі сигнали операційним пристроєм $y_1, y_2, \dots y_i$, що
     в нашому випадку окремо існують $y_1, y_2$ та $y_3$.
 
-    \newpage
-
     \noindent
     Тепер побудуємо АЛП множення 2 способом у програмі моделювання логічних схем AFDK:
 
@@ -539,6 +539,8 @@
         \includegraphics[width=0.7\linewidth]{media/png files/alu_afdk.png}
         \caption{\centering Схема АЛП множення 2 способом у AFDK}
     \end{figure}
+
+    \newpage
 
     І відразу перевіримо правильність виконання множення операндів $A$ та $B$ і бачимо, що множення пройшло успішно та відповідь коректна. Також надам часову діаграму АЛП:
 

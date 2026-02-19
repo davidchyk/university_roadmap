@@ -1,0 +1,153 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+\usepackage{geometry}
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm
+}
+
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{pdflscape}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\usepackage[
+  unicode,
+  pdftitle={ІО-41, Давидчук А.М., Організація баз даних, Лабораторна робота №1},
+  pdfauthor={Давидчук Артем},
+  pdfsubject={Організація баз даних}
+]{hyperref}
+
+\begin{document}
+
+    \begin{titlepage}
+
+    \begin{center}\includegraphics[width=0.7\textwidth]{../../../TITLES/letterhead.png}\end{center}
+
+    \begin{center}
+        \large Національний технічний університет України\\
+        «Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+        Факультет інформатики та обчислювальної техніки\\
+        Кафедра обчислювальної техніки
+    \end{center}
+
+    \vfill
+
+    \begin{center}
+        \textbf{\LARGE Організація баз даних}\\[2em]
+        \textbf{\Large Лабораторна робота №1}\\[0.5em]
+        «Збір вимог та розробка схем ER» 
+    \end{center}
+
+    \vfill
+
+    \begin{flushright}
+        Виконав: студент 1 курсу ФІОТ, гр. ІО-41\\
+        \textit{Давидчук А. М.}\\
+        Залікова книжка № 4106\\[1em]
+        Перевірив: \textit{Русінов В.\,В.}
+    \end{flushright}
+
+    \vfill
+
+    \begin{center}Київ --- 2026\end{center}
+
+    \end{titlepage}
+
+    \noindent
+    \textbf{\underline{Тема:}} «Збір вимог та розробка схем ER».
+
+    \vspace{1em}
+
+    \noindent
+    \textbf{\underline{Мета:}} Навчитися збирати та документувати вимоги до інформаційної системи, виділяти з них ключові сутності, їх атрибути та зв’язки, а також побудувати концептуальну ER-діаграму (Entity–Relationship Diagram), що відображає модель даних і слугує основою для подальшого проєктування та реалізації бази даних у СУБД.
+
+    \begin{center} \textbf{\large Хід роботи} \end{center}
+
+    \noindent
+    Змоделюємо систему чата клієнта із певною моделлю ШІ -- система повинна:
+
+    \begin{enumerate}
+        \item зберігати історію чатів і повідомлень;
+        \item дозволяти прикріплювати файли до повідомлень;
+        \item фіксувати, якою моделлю і з якими параметрами була згенерована відповідь;
+    \end{enumerate}
+
+    \noindent
+    Звідси зацікавлені сторони:
+
+    \begin{enumerate}
+        \item Користувач (User): створює чати, обирає модель ШІ, надсилає повідомлення, прикріплює файли;
+        \item Система/AI: генерує відповіді, зберігає метадані.
+    \end{enumerate}
+
+    \noindent
+    Визначимо також основні сценарії, які можуть відбуватись у нашій системі:
+
+    \begin{enumerate}
+        \item Користувач створює новий чат;
+        \item Користувач надсилає повідомлення в чат;
+        \item Користувач прикріплює файл до повідомлення (картинка/пдф/код тощо).
+        \item Система генерує відповідь AI і зберігає її.
+    \end{enumerate}
+
+    \noindent
+    Тепер визначимо основних сутностей, які є частиною цієї системи:
+
+    \vspace{1em}
+
+    \noindent
+    User:
+
+    \begin{enumerate}
+        \item user\_id (унікальний код користувача);
+        \item username (не унікальний нік користувача);
+        \item age (вік користувача);
+        \item email (унікальна пошта користувача);
+        \item country (країна користувача);
+        \item created\_at (дата створення акаунту користувача).
+    \end{enumerate}
+
+    \vspace{1em}
+
+    \noindent
+    Chat:
+
+    \begin{enumerate}
+        \item chat\_id (унікальний код розмови (чату));
+        \item owner (власник чату);
+        \item title (назва чату);
+        \item email (унікальна пошта користувача);
+        \item created\_at (дата створення чату).
+    \end{enumerate}
+
+    \vspace{1em}
+
+    \noindent
+    Message:
+
+    \begin{enumerate}
+        \item message\_id (унікальний код текстового повідомлення);
+        \item owner (власник текстового повідомлення);
+        \item text (текст повідомлення);
+        \item to\_model (обрана модель генерації відповіді на дане текстове повідомлення);
+        \item created\_at (дата створення текстового повідомлення).
+    \end{enumerate}
+
+
+
+
+
+
+
+\end{document}

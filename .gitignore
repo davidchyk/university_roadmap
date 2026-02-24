@@ -8,6 +8,7 @@
 *.pyc
 *synctex.gz
 *.bkp
+*.dtmp
 
 cspell.json
 

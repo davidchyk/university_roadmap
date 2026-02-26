@@ -1,0 +1,40 @@
+\usepackage[
+  unicode,
+  pdftitle={ІО-41, Давидчук А.М., Цифрова схемотехніка, Лабораторна робота №1},
+  pdfauthor={Давидчук Артем},
+  pdfsubject={Цифрова схемотехніка}
+]{hyperref}
+
+\begin{titlepage}
+
+    \begin{center}\includegraphics[width=0.7\textwidth]{../../../TITLES/letterhead.png}\end{center}
+
+    \begin{center}
+        \large Національний технічний університет України\\
+        «Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+        Факультет інформатики та обчислювальної техніки\\
+        Кафедра обчислювальної техніки
+    \end{center}
+
+    \vfill
+
+    \begin{center}
+        \textbf{\LARGE Цифрова схемотехніка}\\[2em]
+        \textbf{\Large Лабораторна робота №1}\\[0.5em]
+        «» 
+    \end{center}
+
+    \vfill
+
+    \begin{flushright}
+        Виконав: студент 1 курсу ФІОТ, гр. ІО-41\\
+        \textit{Давидчук А. М.}\\
+        Залікова книжка № 4106\\[1em]
+        Перевірив: \textit{Нікольський С.\,С.}
+    \end{flushright}
+
+    \vfill
+
+    \begin{center}Київ --- 2026\end{center}
+
+\end{titlepage}

@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}hello from minted\PYGZdq{}}\PYG{p}{)}
-\end{MintedVerbatim}

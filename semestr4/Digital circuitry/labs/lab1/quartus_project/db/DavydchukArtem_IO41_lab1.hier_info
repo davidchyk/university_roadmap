@@ -1,0 +1,15 @@
+|DavydchukArtem_IO41_lab1
+F4 <= block_name:inst.F4
+X3 => block_name:inst.X3
+X2 => block_name:inst.X2
+X1 => block_name:inst.X1
+
+
+|DavydchukArtem_IO41_lab1|block_name:inst
+F4 <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+X2 => inst2.IN0
+X1 => inst2.IN1
+X1 => inst.IN0
+X3 => inst.IN1
+
+

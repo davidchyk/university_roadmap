@@ -1,0 +1,11 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/artem/Documents/COMPLETED/DavydchukArtem_IO41_lab1.bdf
+source_file = 1, C:/Users/artem/Documents/COMPLETED/block_name.bdf
+source_file = 1, C:/Users/artem/Documents/COMPLETED/Waveform.vwf
+source_file = 1, C:/Users/artem/Documents/COMPLETED/db/DavydchukArtem_IO41_lab1.cbx.xml
+design_name = DavydchukArtem_IO41_lab1
+instance = comp, \F4~output , F4~output, DavydchukArtem_IO41_lab1, 1
+instance = comp, \X2~input , X2~input, DavydchukArtem_IO41_lab1, 1
+instance = comp, \X1~input , X1~input, DavydchukArtem_IO41_lab1, 1
+instance = comp, \X3~input , X3~input, DavydchukArtem_IO41_lab1, 1
+instance = comp, \inst|inst1~0 , inst|inst1~0, DavydchukArtem_IO41_lab1, 1

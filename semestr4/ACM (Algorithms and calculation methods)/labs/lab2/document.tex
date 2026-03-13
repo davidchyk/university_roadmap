@@ -1,0 +1,1014 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+\usepackage{geometry}
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm
+}
+
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{pdflscape}
+\usepackage{amsfonts}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\usepackage[
+  unicode,
+  pdftitle={ІО-41, Давидчук А.М., Алгоритми та методи обчислень, Лабораторна робота №2},
+  pdfauthor={Давидчук Артем},
+  pdfsubject={Алгоритми та методи обчислень}
+]{hyperref}
+
+\usepackage{minted}
+
+\usemintedstyle{vs}
+\setminted{linenos, breaklines, frame=single, fontsize=\small}
+
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
+    breaklines=true,
+    breaksymbolleft={}
+}
+
+\begin{document}
+
+
+    \begin{titlepage}
+
+        \begin{center}\includegraphics[width=0.7\textwidth]{../../../TITLES/letterhead.png}\end{center}
+
+        \begin{center}
+            \large Національний технічний університет України\\
+            «Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+            Факультет інформатики та обчислювальної техніки\\
+            Кафедра обчислювальної техніки
+        \end{center}
+
+        \vfill
+
+        \begin{center}
+            \textbf{\LARGE Алгоритми та методи обчислень}\\[2em]
+            \textbf{\Large Лабораторна робота №2}\\[0.5em]
+            «Обчислювальна складність алгоритмів сортування»
+        \end{center}
+
+        \vfill
+
+        \begin{flushright}
+            Виконав: студент 2 курсу ФІОТ, гр. ІО-41\\
+            \textit{Давидчук А. М.}\\
+            Залікова книжка № 4106\\[1em]
+            Перевірив: \textit{Порєв В.\,М.}
+        \end{flushright}
+
+        \vfill
+
+        \begin{center}Київ --- 2026\end{center}
+
+    \end{titlepage}
+
+    \noindent
+    \textbf{\underline{Тема:}} «Обчислювальна складність алгоритмів сортування».
+
+    \vspace{1em}
+
+    \noindent
+    \textbf{\underline{Мета:}} Закріплення навичок практичної оцінки алгоритмічної складності
+логічних алгоритмів на прикладі алгоритмів сортування.
+
+    \begin{center} \textbf{\large Хід роботи} \end{center}
+
+    \noindent
+    Мій порядковий номер у списку групи: 6, звідси я маю реалізувати такий алгоритм сортування: \underline{Порозрядне сортування}, алгоритмічна складність якого $O(nk)$, де $k$ -- кількість розрядів (для десяткової системи числення, це максимальна кількість цифр серед чисел), $n$ -- розмір масиву (кількість чисел).
+    Наведемо блок-схему алгоритму порозрядного сортування:
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.57\linewidth]{media/alg.pdf}
+        \caption{Блок-схема алгоритму RadixSort}
+    \end{figure}
+
+    \noindent
+    Потрібні до цього алгоритму уточнення та коментарі: 
+
+    \vspace{1em}
+
+    У побудованому алгоритмі використано допоміжні процеси $\max(A)$
+
+    та
+
+    $\texttt{counting\_sort}(A, exp)$, які доцільно окремо пояснити.
+
+    \paragraph{Процес $\max(A)$.}
+    Операція $\max(A)$ означає пошук максимального елемента масиву $A$.
+    Цей процес потрібен для того, щоб визначити, скільки розрядів має найбільше число масиву, а отже --- скільки проходів порозрядного сортування необхідно виконати.
+
+    Наприклад, якщо найбільший елемент масиву дорівнює $802$, то він має $3$ розряди.
+    Отже, алгоритм має виконати $3$ проходи:
+    \begin{enumerate}
+        \item за розрядом одиниць;
+        \item за розрядом десятків;
+        \item за розрядом сотень.
+    \end{enumerate}
+
+    У програмній реалізації після знаходження максимального елемента використовується умова
+    \[
+    \texttt{max\_num // exp > 0},
+    \]
+    яка перевіряє, чи залишився ще необроблений розряд.
+
+    \paragraph{Процес $\texttt{counting\_sort}(A, exp)$.}
+    Процес $\texttt{counting\_sort}(A, exp)$ означає сортування підрахунком за поточним розрядом.
+    Це допоміжна процедура, яка впорядковує елементи масиву не за всім числом повністю, а лише за однією цифрою, що визначається значенням $exp$.
+
+    Поточна цифра обчислюється за формулою
+    \[
+    \texttt{digit = (num // exp) \% 10}.
+    \]
+
+    При цьому:
+    \begin{itemize}
+        \item якщо $exp = 1$, отримуємо цифру одиниць;
+        \item якщо $exp = 10$, отримуємо цифру десятків;
+        \item якщо $exp = 100$, отримуємо цифру сотень.
+    \end{itemize}
+
+    \paragraph{Суть сортування підрахунком у цьому алгоритмі.}
+    Сортування підрахунком виконується у кілька етапів:
+    \begin{enumerate}
+        \item для кожного елемента масиву визначається цифра поточного розряду;
+        \item підраховується, скільки разів зустрічається кожне можливе значення цифри від $0$ до $9$;
+        \item на основі отриманих підрахунків формується масив позицій;
+        \item елементи розміщуються у допоміжному масиві у правильному порядку;
+        \item після цього результат копіюється назад у вихідний масив.
+    \end{enumerate}
+
+    Оскільки в десятковій системі числення можливі лише $10$ цифр $(0,1,\dots,9)$, для підрахунку використовується допоміжний масив довжини $10$.
+
+    \paragraph{Чому саме сортування підрахунком використовується в Radix Sort.}
+    У порозрядному сортуванні важливо, щоб сортування за кожним окремим розрядом було стабільним, тобто щоб елементи з однаковим значенням поточного розряду зберігали свій попередній відносний порядок.
+    Саме тому сортування підрахунком добре підходить для реалізації Radix Sort.
+
+    \noindent
+    Для реалізації алгоритмів та GUI середовища я використовуватиму мову програмування Python і інструмент Tkinter та бібліотеку customtkinter.
+
+    \vspace{1em}
+
+    \noindent
+    \textbf{\underline{Програмний код для реалізації алгоритму RadixSort та CouningSort}}:
+
+    \underline{(\texttt{src/linear\_radix\_sort.py})}
+
+    \begin{minted}{python3}
+from __future__ import annotations
+
+def radix_sort(arr: list[int]) -> tuple[list[int], int]:
+    ops = 0
+
+    ops += 1  # перевірка if not arr
+    if not arr:
+        ops += 1  # return
+        return arr, ops
+
+    max_num = max(arr)
+    ops += len(arr)  # пошук максимуму = n операцій
+
+    exp = 1
+    ops += 1  # присвоєння
+
+    ops += 1  # перша перевірка while
+    while max_num // exp > 0:
+        ops += 1  # обчислення max_num // exp > 0
+
+        _, sub_ops = counting_sort_by_digit(arr, exp)
+        ops += sub_ops
+
+        exp *= 10
+        ops += 1  # множення + присвоєння
+
+        ops += 1  # наступна перевірка while
+
+    ops += 1  # return
+    return arr, ops
+
+def counting_sort_by_digit(arr: list[int], exp: int) -> tuple[list[int], int]:
+    ops = 0
+
+    n = len(arr)
+    ops += 1
+
+    output = [0] * n
+    ops += n  # створення масиву довжини n
+
+    count = [0] * 10
+    ops += 10  # створення масиву довжини 10
+
+    # Підрахунок цифр
+    for num in arr:
+        ops += 1  # ітерація циклу
+        digit = (num // exp) % 10
+        ops += 2  # // і %
+        count[digit] += 1
+        ops += 1  # інкремент
+
+    ops += 1  # завершальна перевірка циклу
+
+    # Префіксні суми
+    for i in range(1, 10):
+        ops += 1  # ітерація циклу
+        count[i] += count[i - 1]
+        ops += 2  # індексація + додавання
+
+    ops += 1  # завершальна перевірка циклу
+
+    # Побудова output справа наліво
+    for i in range(n - 1, -1, -1):
+        ops += 1  # ітерація циклу
+        digit = (arr[i] // exp) % 10
+        ops += 3  # arr[i], //, %
+        output[count[digit] - 1] = arr[i]
+        ops += 3  # count[digit], -1, присвоєння
+        count[digit] -= 1
+        ops += 2  # доступ + декремент
+
+    ops += 1  # завершальна перевірка циклу
+
+    # Копіювання назад
+    for i in range(n):
+        ops += 1  # ітерація циклу
+        arr[i] = output[i]
+        ops += 2  # читання + присвоєння
+
+    ops += 1  # завершальна перевірка циклу
+
+    ops += 1  # return
+    return arr, ops
+    \end{minted}
+
+    \noindent
+    \textbf{\underline{Програмний код для побудови графіки фактичної та теоретичної асимптотичної}}
+
+    \textbf{\underline{часової складності (\texttt{src/linear\_graph\_build.py})}}:
+
+    \begin{minted}{python3}
+from __future__ import annotations
+
+import random
+from collections.abc import Callable
+
+from matplotlib.figure import Figure
+
+
+def build_actual_vs_theoretical_figure(
+    sort_func: Callable[[list[int]], tuple[list[int], int]]
+) -> Figure:
+    sizes: list[int] = []
+    actual_ops: list[int] = []
+    theoretical_ops: list[int] = []
+
+    d = 4
+    k = 10
+
+    for n in range(10, 501, 10):
+        arr = [random.randint(0, 9999) for _ in range(n)]
+        _, ops = sort_func(arr.copy())
+
+        sizes.append(n)
+        actual_ops.append(ops)
+        theoretical_ops.append(d * (n + k))
+
+    scale = actual_ops[-1] / theoretical_ops[-1]
+    theoretical_scaled: list[float] = [x * scale for x in theoretical_ops]
+
+    fig = Figure(figsize=(9, 6), dpi=100)
+    ax = fig.add_subplot(111)
+
+    ax.plot(sizes, actual_ops, marker="o", label="Фактична кількість операцій")
+    ax.plot(
+        sizes,
+        theoretical_scaled,
+        linestyle="--",
+        label="Теоретична залежність d(n+k)",
+    )
+
+    ax.set_xlabel("Розмір масиву n")
+    ax.set_ylabel("Кількість операцій")
+    ax.set_title("Порівняння фактичної та теоретичної залежностей для Radix Sort")
+    ax.grid(True)
+    ax.legend()
+
+    fig.tight_layout()
+    return fig
+    \end{minted}
+
+    \vspace{1em}
+
+    \noindent
+    \textbf{\underline{Програмний код основної програми (\texttt{app.py})}}:
+
+    \begin{minted}{python3}
+from __future__ import annotations
+
+import json
+import re
+import tkinter as tk
+from dataclasses import dataclass
+from pathlib import Path
+from tkinter import filedialog
+from typing import Callable
+
+import customtkinter as ctk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.figure import Figure
+
+from src.radix_sort import radix_sort
+from src.graph_build import build_actual_vs_theoretical_figure
+
+
+MAIN_THEME: dict[str, str] = {
+    "bg": "#000000",
+    "topbar": "#000000",
+    "panel": "#090909",
+    "surface": "#111111",
+    "surface_soft": "#1B1B1B",
+    "text": "#F5F7FA",
+    "muted": "#97A1AD",
+    "accent": "#29A8FF",
+    "accent_hover": "#44B4FF",
+    "accent_text": "#06121B",
+    "segment": "#131313",
+    "segment_hover": "#1E1E1E",
+    "segment_active": "#1F2D3C",
+    "error": "#FF5B71",
+}
+
+INT_LIST_SPLIT_PATTERN = re.compile(r"[,\s]+")
+
+
+@dataclass(frozen=True)
+class PageConfig:
+    page_id: str
+    nav_title: str
+    title: str
+    subtitle: str
+
+
+def parse_int_array(raw: str) -> list[int]:
+    value = raw.strip()
+    if not value:
+        raise ValueError("Поле масиву не може бути порожнім")
+
+    parts = [part for part in INT_LIST_SPLIT_PATTERN.split(value) if part]
+    if not parts:
+        raise ValueError("Не вдалося розпізнати жодного числа")
+
+    try:
+        return [int(part) for part in parts]
+    except ValueError as exc:
+        raise ValueError(
+            "Масив має містити лише цілі числа, розділені пробілами або комами"
+        ) from exc
+
+
+class BasePage(ctk.CTkFrame):
+    def __init__(
+        self,
+        master: ctk.CTkFrame,
+        config: PageConfig,
+        fonts: dict[str, ctk.CTkFont],
+    ) -> None:
+        super().__init__(master, corner_radius=0)
+        self.config_data = config
+        self.fonts = fonts
+
+        self.grid_columnconfigure(0, weight=1)
+
+    def apply_theme(self, palette: dict[str, str]) -> None:
+        self.configure(fg_color=palette["bg"])
+
+
+class SortPage(BasePage):
+    def __init__(
+        self,
+        master: ctk.CTkFrame,
+        config: PageConfig,
+        fonts: dict[str, ctk.CTkFont],
+        sort_func: Callable[[list[int]], tuple[list[int], int]],
+    ) -> None:
+        super().__init__(master, config, fonts)
+        self.sort_func = sort_func
+
+        self.result_var = tk.StringVar(value="Ready")
+        self.error_var = tk.StringVar(value="")
+
+        self._build_header()
+        self._build_form()
+        self._build_actions()
+        self._build_output()
+
+    def _build_header(self) -> None:
+        self.header_card = ctk.CTkFrame(self, corner_radius=14, border_width=1)
+        self.header_card.grid(row=0, column=0, sticky="ew", pady=(0, 14))
+        self.header_card.grid_columnconfigure(0, weight=1)
+
+        self.title_label = ctk.CTkLabel(
+            self.header_card,
+            text=self.config_data.title,
+            anchor="w",
+            font=self.fonts["title"],
+        )
+        self.title_label.grid(row=0, column=0, sticky="ew", padx=20, pady=(14, 4))
+
+        self.subtitle_label = ctk.CTkLabel(
+            self.header_card,
+            text=self.config_data.subtitle,
+            anchor="w",
+            font=self.fonts["subtitle"],
+        )
+        self.subtitle_label.grid(row=1, column=0, sticky="ew", padx=20, pady=(0, 12))
+
+    def _build_form(self) -> None:
+        self.form_card = ctk.CTkFrame(self, corner_radius=14, border_width=1)
+        self.form_card.grid(row=1, column=0, sticky="ew", pady=(0, 14))
+        self.form_card.grid_columnconfigure(0, weight=1)
+
+        self.array_label = ctk.CTkLabel(
+            self.form_card,
+            text="Array:",
+            anchor="w",
+            font=self.fonts["label"],
+        )
+        self.array_label.grid(row=0, column=0, sticky="w", padx=20, pady=(14, 6))
+
+        self.array_entry = ctk.CTkEntry(
+            self.form_card,
+            height=40,
+            corner_radius=10,
+            font=self.fonts["body"],
+            placeholder_text="Наприклад: 170, 45, 75, 90, 802, 24, 2, 66",
+        )
+        self.array_entry.grid(row=1, column=0, sticky="ew", padx=20, pady=(0, 10))
+
+        self.hint_label = ctk.CTkLabel(
+            self.form_card,
+            text="Розділювачі: пробіл або кома.",
+            anchor="w",
+            font=self.fonts["body"],
+        )
+        self.hint_label.grid(row=2, column=0, sticky="w", padx=20, pady=(0, 14))
+
+    def _build_actions(self) -> None:
+        self.actions = ctk.CTkFrame(self, fg_color="transparent")
+        self.actions.grid(row=2, column=0, sticky="ew", pady=(0, 10))
+        self.actions.grid_columnconfigure((0, 1, 2), weight=1)
+
+        self.compute_button = ctk.CTkButton(
+            self.actions,
+            text="Sort",
+            height=40,
+            corner_radius=11,
+            font=self.fonts["button"],
+            command=self.compute,
+        )
+        self.compute_button.grid(row=0, column=0, sticky="ew", padx=(0, 7))
+
+        self.load_button = ctk.CTkButton(
+            self.actions,
+            text="Load JSON",
+            height=40,
+            corner_radius=11,
+            font=self.fonts["button"],
+            command=self.load_json,
+        )
+        self.load_button.grid(row=0, column=1, sticky="ew", padx=7)
+
+        self.clear_button = ctk.CTkButton(
+            self.actions,
+            text="Clear",
+            height=40,
+            corner_radius=11,
+            font=self.fonts["button"],
+            command=self.clear_all,
+        )
+        self.clear_button.grid(row=0, column=2, sticky="ew", padx=(7, 0))
+
+    def _build_output(self) -> None:
+        self.output_card = ctk.CTkFrame(self, corner_radius=14, border_width=1)
+        self.output_card.grid(row=3, column=0, sticky="ew")
+        self.output_card.grid_columnconfigure(0, weight=1)
+
+        self.result_title = ctk.CTkLabel(
+            self.output_card,
+            text="Result",
+            anchor="w",
+            font=self.fonts["label"],
+        )
+        self.result_title.grid(row=0, column=0, sticky="ew", padx=20, pady=(14, 6))
+
+        self.result_label = ctk.CTkLabel(
+            self.output_card,
+            textvariable=self.result_var,
+            anchor="w",
+            justify="left",
+            wraplength=860,
+            font=self.fonts["result"],
+        )
+        self.result_label.grid(row=1, column=0, sticky="ew", padx=20, pady=(0, 8))
+
+        self.error_label = ctk.CTkLabel(
+            self.output_card,
+            textvariable=self.error_var,
+            anchor="w",
+            justify="left",
+            wraplength=860,
+            font=self.fonts["body"],
+        )
+        self.error_label.grid(row=2, column=0, sticky="ew", padx=20, pady=(0, 14))
+
+    def load_json(self) -> None:
+        path = filedialog.askopenfilename(
+            title="Select JSON file",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
+        )
+        if not path:
+            return
+
+        try:
+            raw_data = Path(path).read_text(encoding="utf-8")
+            loaded = json.loads(raw_data)
+
+            if not isinstance(loaded, dict):
+                raise ValueError("JSON root must be an object")
+
+            if "array" not in loaded:
+                raise ValueError("JSON must contain key 'array'")
+
+            array_data = loaded["array"]
+
+            if not isinstance(array_data, list):
+                raise TypeError("'array' must be a list")
+
+            if not all(isinstance(x, int) for x in array_data):
+                raise TypeError("'array' must contain only integers")
+
+            prepared = ", ".join(str(x) for x in array_data)
+
+            self.array_entry.delete(0, tk.END)
+            self.array_entry.insert(0, prepared)
+
+            self.result_var.set("JSON loaded. Press Sort.")
+            self.error_var.set("")
+        except Exception as exc:
+            self.result_var.set("No result")
+            self.error_var.set(f"Error: {exc}")
+
+    def compute(self) -> None:
+        try:
+            raw = self.array_entry.get()
+            arr = parse_int_array(raw)
+            sorted_arr, ops = self.sort_func(arr.copy())
+
+            self.result_var.set(f"Sorted array: {sorted_arr}\nOperations: {ops}")
+            self.error_var.set("")
+        except Exception as exc:
+            self.result_var.set("No result")
+            self.error_var.set(f"Error: {exc}")
+
+    def clear_all(self) -> None:
+        self.array_entry.delete(0, tk.END)
+        self.result_var.set("Ready")
+        self.error_var.set("")
+
+    def apply_theme(self, palette: dict[str, str]) -> None:
+        super().apply_theme(palette)
+
+        for card in (self.header_card, self.form_card, self.output_card):
+            card.configure(
+                fg_color=palette["panel"],
+                border_color=palette["surface_soft"],
+            )
+
+        self.title_label.configure(text_color=palette["text"])
+        self.subtitle_label.configure(text_color=palette["muted"])
+        self.array_label.configure(text_color=palette["muted"])
+        self.hint_label.configure(text_color=palette["muted"])
+
+        self.array_entry.configure(
+            fg_color=palette["surface"],
+            border_color=palette["surface_soft"],
+            text_color=palette["text"],
+            placeholder_text_color=palette["muted"],
+        )
+
+        self.compute_button.configure(
+            fg_color=palette["accent"],
+            hover_color=palette["accent_hover"],
+            text_color=palette["accent_text"],
+        )
+        self.load_button.configure(
+            fg_color=palette["segment"],
+            hover_color=palette["segment_hover"],
+            text_color=palette["text"],
+        )
+        self.clear_button.configure(
+            fg_color=palette["segment"],
+            hover_color=palette["segment_hover"],
+            text_color=palette["text"],
+        )
+
+        self.result_title.configure(text_color=palette["muted"])
+        self.result_label.configure(text_color=palette["text"])
+        self.error_label.configure(text_color=palette["error"])
+
+
+class GraphPage(BasePage):
+    def __init__(
+        self,
+        master: ctk.CTkFrame,
+        config: PageConfig,
+        fonts: dict[str, ctk.CTkFont],
+        graph_func: Callable[[Callable[[list[int]], tuple[list[int], int]]], Figure],
+        sort_func: Callable[[list[int]], tuple[list[int], int]],
+    ) -> None:
+        super().__init__(master, config, fonts)
+        self.graph_func = graph_func
+        self.sort_func = sort_func
+
+        self.status_var = tk.StringVar(value="Ready to build graph")
+        self.error_var = tk.StringVar(value="")
+        self.canvas: FigureCanvasTkAgg | None = None
+
+        self.grid_rowconfigure(3, weight=1)
+
+        self._build_header()
+        self._build_controls()
+        self._build_output()
+        self._build_plot_area()
+
+    def _build_header(self) -> None:
+        self.header_card = ctk.CTkFrame(self, corner_radius=14, border_width=1)
+        self.header_card.grid(row=0, column=0, sticky="ew", pady=(0, 14))
+        self.header_card.grid_columnconfigure(0, weight=1)
+
+        self.title_label = ctk.CTkLabel(
+            self.header_card,
+            text=self.config_data.title,
+            anchor="w",
+            font=self.fonts["title"],
+        )
+        self.title_label.grid(row=0, column=0, sticky="ew", padx=20, pady=(14, 4))
+
+        self.subtitle_label = ctk.CTkLabel(
+            self.header_card,
+            text=self.config_data.subtitle,
+            anchor="w",
+            font=self.fonts["subtitle"],
+        )
+        self.subtitle_label.grid(row=1, column=0, sticky="ew", padx=20, pady=(0, 12))
+
+    def _build_controls(self) -> None:
+        self.controls_card = ctk.CTkFrame(self, corner_radius=14, border_width=1)
+        self.controls_card.grid(row=1, column=0, sticky="ew", pady=(0, 14))
+        self.controls_card.grid_columnconfigure(0, weight=1)
+
+        self.info_label = ctk.CTkLabel(
+            self.controls_card,
+            text=(
+                "Побудова графіка фактичної кількості операцій "
+                "та теоретичної залежності Radix Sort."
+            ),
+            anchor="w",
+            justify="left",
+            wraplength=860,
+            font=self.fonts["body"],
+        )
+        self.info_label.grid(row=0, column=0, sticky="ew", padx=20, pady=(14, 12))
+
+        self.build_button = ctk.CTkButton(
+            self.controls_card,
+            text="Build Graph",
+            height=40,
+            corner_radius=11,
+            font=self.fonts["button"],
+            command=self.build_graph,
+        )
+        self.build_button.grid(row=1, column=0, sticky="ew", padx=20, pady=(0, 14))
+
+    def _build_output(self) -> None:
+        self.output_card = ctk.CTkFrame(self, corner_radius=14, border_width=1)
+        self.output_card.grid(row=2, column=0, sticky="ew")
+        self.output_card.grid_columnconfigure(0, weight=1)
+
+        self.status_title = ctk.CTkLabel(
+            self.output_card,
+            text="Status",
+            anchor="w",
+            font=self.fonts["label"],
+        )
+        self.status_title.grid(row=0, column=0, sticky="ew", padx=20, pady=(14, 6))
+
+        self.status_label = ctk.CTkLabel(
+            self.output_card,
+            textvariable=self.status_var,
+            anchor="w",
+            justify="left",
+            wraplength=860,
+            font=self.fonts["result"],
+        )
+        self.status_label.grid(row=1, column=0, sticky="ew", padx=20, pady=(0, 8))
+
+        self.error_label = ctk.CTkLabel(
+            self.output_card,
+            textvariable=self.error_var,
+            anchor="w",
+            justify="left",
+            wraplength=860,
+            font=self.fonts["body"],
+        )
+        self.error_label.grid(row=2, column=0, sticky="ew", padx=20, pady=(0, 14))
+
+    def _build_plot_area(self) -> None:
+        self.plot_card = ctk.CTkFrame(self, corner_radius=14, border_width=1)
+        self.plot_card.grid(row=3, column=0, sticky="nsew", pady=(14, 0))
+        self.plot_card.grid_columnconfigure(0, weight=1)
+        self.plot_card.grid_rowconfigure(0, weight=1)
+
+        self.plot_container = ctk.CTkFrame(self.plot_card, fg_color="transparent")
+        self.plot_container.grid(row=0, column=0, sticky="nsew", padx=12, pady=12)
+        self.plot_container.grid_columnconfigure(0, weight=1)
+        self.plot_container.grid_rowconfigure(0, weight=1)
+
+    def build_graph(self) -> None:
+        try:
+            self.status_var.set("Building graph...")
+            self.error_var.set("")
+            self.update_idletasks()
+
+            fig = self.graph_func(self.sort_func)
+
+            if self.canvas is not None:
+                self.canvas.get_tk_widget().destroy()
+
+            self.canvas = FigureCanvasTkAgg(fig, master=self.plot_container)
+            self.canvas.draw()
+            self.canvas.get_tk_widget().grid(row=0, column=0, sticky="nsew")
+
+            self.status_var.set("Graph was built successfully")
+        except Exception as exc:
+            self.status_var.set("Graph was not built")
+            self.error_var.set(f"Error: {exc}")
+
+    def apply_theme(self, palette: dict[str, str]) -> None:
+        super().apply_theme(palette)
+
+        for card in (self.header_card, self.controls_card, self.output_card, self.plot_card):
+            card.configure(
+                fg_color=palette["panel"],
+                border_color=palette["surface_soft"],
+            )
+
+        self.title_label.configure(text_color=palette["text"])
+        self.subtitle_label.configure(text_color=palette["muted"])
+        self.info_label.configure(text_color=palette["muted"])
+
+        self.build_button.configure(
+            fg_color=palette["accent"],
+            hover_color=palette["accent_hover"],
+            text_color=palette["accent_text"],
+        )
+
+        self.status_title.configure(text_color=palette["muted"])
+        self.status_label.configure(text_color=palette["text"])
+        self.error_label.configure(text_color=palette["error"])
+
+
+class AlgorithmsApp(ctk.CTk):
+    def __init__(self) -> None:
+        super().__init__()
+        ctk.set_appearance_mode("dark")
+
+        self.title("RadixSortApp")
+        self.resizable(False, False)
+        self.geometry("720x900")
+
+        self.current_page = "sort"
+        self.nav_buttons: dict[str, ctk.CTkButton] = {}
+        self.pages: dict[str, BasePage] = {}
+
+        self.fonts: dict[str, ctk.CTkFont] = {
+            "title": ctk.CTkFont(family="Segoe UI", size=27, weight="bold"),
+            "subtitle": ctk.CTkFont(family="Segoe UI", size=13),
+            "label": ctk.CTkFont(family="Segoe UI", size=13, weight="bold"),
+            "body": ctk.CTkFont(family="Segoe UI", size=12),
+            "button": ctk.CTkFont(family="Segoe UI", size=12, weight="bold"),
+            "result": ctk.CTkFont(family="Consolas", size=16, weight="bold"),
+            "nav": ctk.CTkFont(family="Segoe UI", size=12, weight="bold"),
+        }
+
+        self.page_configs: tuple[PageConfig, ...] = (
+            PageConfig(
+                page_id="sort",
+                nav_title="Sort",
+                title="Radix Sort",
+                subtitle="Сортування масиву цілих чисел та підрахунок кількості операцій",
+            ),
+            PageConfig(
+                page_id="graph",
+                nav_title="Graph",
+                title="Radix Sort Graph",
+                subtitle="Порівняння фактичної та теоретичної залежностей",
+            ),
+        )
+
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_rowconfigure(1, weight=1)
+
+        self._build_topbar()
+        self._build_pages()
+        self._apply_theme()
+        self.show_page(self.current_page)
+
+    def _build_topbar(self) -> None:
+        self.topbar = ctk.CTkFrame(self, corner_radius=0)
+        self.topbar.grid(row=0, column=0, sticky="ew")
+        self.topbar.grid_columnconfigure(0, weight=1)
+
+        self.nav_frame = ctk.CTkFrame(self.topbar, fg_color="transparent")
+        self.nav_frame.grid(row=0, column=0, sticky="w", padx=20, pady=(18, 12))
+
+        for index, page in enumerate(self.page_configs):
+            button = ctk.CTkButton(
+                self.nav_frame,
+                text=page.nav_title,
+                width=110,
+                height=36,
+                corner_radius=10,
+                font=self.fonts["nav"],
+                border_width=1,
+                command=lambda pid=page.page_id: self.show_page(pid),
+            )
+            button.grid(row=0, column=index, padx=(0, 8))
+            self.nav_buttons[page.page_id] = button
+
+    def _build_pages(self) -> None:
+        self.page_host = ctk.CTkFrame(self, corner_radius=0)
+        self.page_host.grid(row=1, column=0, sticky="nsew", padx=20, pady=(0, 20))
+        self.page_host.grid_rowconfigure(0, weight=1)
+        self.page_host.grid_columnconfigure(0, weight=1)
+
+        sort_page = SortPage(
+            self.page_host,
+            self.page_configs[0],
+            self.fonts,
+            radix_sort,
+        )
+        sort_page.grid(row=0, column=0, sticky="nsew")
+        self.pages["sort"] = sort_page
+
+        graph_page = GraphPage(
+            self.page_host,
+            self.page_configs[1],
+            self.fonts,
+            build_actual_vs_theoretical_figure,
+            radix_sort,
+        )
+        graph_page.grid(row=0, column=0, sticky="nsew")
+        self.pages["graph"] = graph_page
+
+    def show_page(self, page_id: str) -> None:
+        self.current_page = page_id
+        self.pages[page_id].tkraise()
+        self._refresh_nav_buttons()
+
+    def _refresh_nav_buttons(self) -> None:
+        palette = MAIN_THEME
+        for page_id, button in self.nav_buttons.items():
+            if page_id == self.current_page:
+                button.configure(
+                    fg_color=palette["segment_active"],
+                    hover_color=palette["segment_active"],
+                    text_color=palette["text"],
+                    border_color=palette["segment_active"],
+                )
+            else:
+                button.configure(
+                    fg_color=palette["segment"],
+                    hover_color=palette["segment_hover"],
+                    text_color=palette["muted"],
+                    border_color=palette["surface_soft"],
+                )
+
+    def _apply_theme(self) -> None:
+        palette = MAIN_THEME
+
+        self.configure(fg_color=palette["bg"])
+        self.topbar.configure(fg_color=palette["topbar"])
+        self.page_host.configure(fg_color=palette["bg"])
+
+        for page in self.pages.values():
+            page.apply_theme(palette)
+
+        self._refresh_nav_buttons()
+
+
+def main() -> None:
+    app = AlgorithmsApp()
+    app.mainloop()
+
+
+if __name__ == "__main__":
+    main()
+    \end{minted}
+
+    \noindent
+    Короткий опис функціоналу основної програми:
+
+    \begin{itemize}
+        \item GUI побудовано на \texttt{customtkinter} у мінімалістичному стилі з темною кольоровою схемою.
+        \item Програма містить 2 основні сторінки: \texttt{Sort} та \texttt{Graph}.
+        \item Сторінка \texttt{Sort} призначена для введення масиву цілих чисел, виконання порозрядного сортування та виведення відсортованого масиву разом із кількістю виконаних операцій.
+        \item Ввід масиву підтримується як вручну через поле введення, так і шляхом завантаження JSON-файлу.
+        \item Для сторінки \texttt{Sort} передбачено кнопки \texttt{Sort}, \texttt{Load JSON} та \texttt{Clear}.
+        \item JSON завантажується з файлу, при цьому очікується структура вигляду \texttt{\{"array": [170, 45, 75, 90, 802, 24, 2, 66]\}}.
+        \item Під час завантаження JSON виконується перевірка, що кореневий елемент є об'єктом, що існує ключ \texttt{array}, що його значення є списком, а всі елементи списку є цілими числами.
+        \item Сторінка \texttt{Graph} призначена для побудови графіка фактичної кількості операцій та теоретичної залежності алгоритму порозрядного сортування.
+        \item Графік не відкривається в окремому вікні, а вбудовується безпосередньо в інтерфейс програми за допомогою \texttt{FigureCanvasTkAgg}.
+        \item Для сторінки \texttt{Graph} передбачено кнопку \texttt{Build Graph}, яка викликає побудову графіка на основі функції сортування.
+        \item У програмі реалізовано окремі блоки для відображення результату, статусу виконання та повідомлень про помилки.
+        \item Помилки не зупиняють виконання програми, а відображаються в інтерфейсі у форматі \texttt{Error: ...}.
+        \item Навігація між сторінками виконується через верхню панель перемикання вкладок.
+    \end{itemize}
+
+    \newpage
+
+    \noindent
+    \underline{\textbf{Скріншоти демонстрації програми:}}
+
+    \begin{figure}[htbp]
+        \centering
+
+        \begin{subfigure}{0.42\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{media/demo1.png}
+        \end{subfigure}
+        \begin{subfigure}{0.42\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{media/demo2.png}
+        \end{subfigure}
+
+        \vspace{1mm}
+
+        \begin{subfigure}{0.42\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{media/demo3.png}
+        \end{subfigure}
+        \begin{subfigure}{0.42\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{media/demo4.png}
+        \end{subfigure}
+
+        \caption{Скріншоти демонстрації програми}
+
+    \end{figure}
+
+    \begin{center} \textbf{\large Аналіз результатів} \end{center}
+
+    У ході виконання роботи було реалізовано алгоритм порозрядного сортування (\texttt{Radix Sort}) для масиву цілих невід'ємних чисел, а також програмний модуль для побудови графічної залежності фактичної кількості операцій від розміру вхідного масиву та її порівняння з теоретичною оцінкою.
+
+    У результаті тестування встановлено, що алгоритм коректно впорядковує елементи масиву за зростанням. Робота алгоритму ґрунтується на послідовному сортуванні елементів за окремими розрядами числа, починаючи з молодшого розряду і закінчуючи старшим. Для кожного розряду використовується стабільне сортування підрахунком, що забезпечує збереження відносного порядку елементів із однаковими значеннями поточної цифри.
+
+    Під час експериментального дослідження було виконано підрахунок кількості операцій, які здійснює алгоритм при сортуванні масивів різної довжини. На основі отриманих значень побудовано графік фактичної кількості операцій. Також було побудовано теоретичну залежність, що відповідає часовій складності алгоритму порозрядного сортування.
+
+    Аналіз графіка показує, що зі збільшенням кількості елементів масиву кількість операцій зростає майже лінійно. Це узгоджується з теоретичною оцінкою складності алгоритму. Для порозрядного сортування часова складність часто подається у вигляді
+    \[
+    O(nk),
+    \]
+    де $n$ --- кількість елементів масиву, а $k$ --- кількість розрядів у найбільшому числі. У більш детальному вигляді цю складність можна записати як
+    \[
+    O(k(n+b)),
+    \]
+    де $k$ --- кількість розрядів, а $b$ --- основа системи числення. У даній реалізації використовується десяткова система числення, тому $b=10$ є сталою, а отже складність можна розглядати як лінійну за $n$ при фіксованому числі розрядів.
+
+    Крім часової складності, було проаналізовано й витрати пам'яті. Алгоритм використовує допоміжний масив \texttt{output} розміру $n$ та масив підрахунків \texttt{count} розміру $10$, тому просторова складність становить
+    \[
+    O(n + 10) = O(n).
+    \]
+
+    Отримані результати підтверджують, що порозрядне сортування є ефективним для сортування цілих чисел, особливо у випадках, коли кількість розрядів у числах є відносно невеликою. Побудований графік демонструє відповідність між практичними результатами підрахунку операцій та теоретичною оцінкою складності, що підтверджує коректність реалізації алгоритму та правильність виконаного аналізу.
+
+
+
+
+
+
+
+\end{document}

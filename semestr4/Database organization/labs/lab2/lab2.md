@@ -191,21 +191,21 @@ SELECT * FROM attachments;
 SELECT * FROM generations;
 ```
 
-![SELECT * FROM users;](/media/test1.png)
+![SELECT * FROM users;](media/test1.png)
 
-![SELECT * FROM ai_models;](/media/test2.png)
+![SELECT * FROM ai_models;](media/test2.png)
 
-![SELECT * FROM chats;](/media/test3.png)
+![SELECT * FROM chats;](media/test3.png)
 
-![SELECT * FROM messages;](/media/test4.png)
+![SELECT * FROM messages;](media/test4.png)
 
-![SELECT * FROM attachments;](/media/test5.png)
+![SELECT * FROM attachments;](media/test5.png)
 
-![SELECT * FROM generations;](/media/test6.png)
+![SELECT * FROM generations;](media/test6.png)
 
 Також продемонструємо згенеровану ERD на основі моєї бази даних (згенерована за допомогою інструмента в pgAdmin):
 
-![SELECT * FROM generations;](/media/erd_generated.png)
+![SELECT * FROM generations;](media/erd_generated.png)
 
 ## Висновок
 У ході виконання лабораторної роботи ER-діаграму предметної області було успішно перетворено на реляційну схему бази даних у PostgreSQL. Було створено таблиці, визначено ключі та обмеження цілісності, реалізовано тригерну перевірку для таблиці `generations`, а також додано тестові записи до кожної таблиці. Отримана схема відповідає заданій ER-моделі та може використовуватися як основа для подальшої роботи з базою даних.

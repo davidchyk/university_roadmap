@@ -1,0 +1,17 @@
+# Reading C:/altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# Loading project lab3_project
+# Compile of half_adder.v was successful.
+vsim -gui -t ps work.half_add
+# vsim -gui -t ps work.half_add 
+# Loading work.half_add
+add wave sim:/half_add/*
+run -all
+do C:/Users/artem/Downloads/Stim.do
+run -all
+do C:/Users/artem/Downloads/Stim.do
+run -all
+add wave sim:/half_add/*
+run -all
+add wave sim:/half_add/*
+run
+run -all

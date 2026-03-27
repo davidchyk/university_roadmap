@@ -1,0 +1,8 @@
+{
+    "function": "target",
+    "a": 0.0,
+    "b": 3.0,
+    "x_value": 1.8,
+    "parts": 10,
+    "plot_points": 400
+}

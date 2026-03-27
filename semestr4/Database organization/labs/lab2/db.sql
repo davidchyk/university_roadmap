@@ -15,7 +15,7 @@ CREATE TABLE users (
     first_name VARCHAR(40) NOT NULL,
     second_name VARCHAR(80) NOT NULL,
     user_name VARCHAR(20) NOT NULL UNIQUE,
-    email VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE CHECK(email LIKE '%@%'),
     country VARCHAR(50) NOT NULL,
     created_at DATE NOT NULL
 );
@@ -28,7 +28,7 @@ CREATE TABLE ai_models (
 
 CREATE TABLE chats (
     chat_id SERIAL PRIMARY KEY,
-    owner_user_id INTEGER NOT NULL UNIQE REFERENCES users(user_id),
+    owner_user_id INTEGER NOT NULL REFERENCES users(user_id),
     title VARCHAR(50) NOT NULL DEFAULT 'chat',
     created_at DATE NOT NULL
 );

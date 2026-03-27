@@ -1,0 +1,16 @@
+MAIN_THEME: dict[str, str] = {
+    "bg": "#000000",
+    "topbar": "#000000",
+    "panel": "#090909",
+    "surface": "#111111",
+    "surface_soft": "#1B1B1B",
+    "text": "#F5F7FA",
+    "muted": "#97A1AD",
+    "accent": "#29A8FF",
+    "accent_hover": "#44B4FF",
+    "accent_text": "#06121B",
+    "segment": "#131313",
+    "segment_hover": "#1E1E1E",
+    "segment_active": "#1F2D3C",
+    "error": "#FF5B71",
+}

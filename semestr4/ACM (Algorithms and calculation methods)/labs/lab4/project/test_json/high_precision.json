@@ -1,0 +1,8 @@
+{
+  "left": 0.0,
+  "right": 4.0,
+  "scan_step": 0.05,
+  "epsilon": 0.00000001,
+  "max_iterations": 200,
+  "plot_points": 900
+}

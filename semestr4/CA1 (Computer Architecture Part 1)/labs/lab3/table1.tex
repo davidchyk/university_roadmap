@@ -1,0 +1,231 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+\usepackage{geometry}
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+    paperwidth=28cm,
+    paperheight=45cm
+}
+
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption} % обов'язково в преамбулі
+\usepackage{multirow}  % Для об'єднання рядків
+\usepackage{makecell}         % для багато­рядкових комірок
+\usepackage{pdflscape}       % або можна використати lscape
+
+\begin{document}
+
+    \setlength{\parindent}{0pt}
+
+    \setcounter{page}{4}
+
+    Таблиця станiв регiстрiв при $g = 1$ (множення 1 способом):
+
+    \vspace{1em}
+
+    $Z = X \cdot Y = ,0111 \ \times \ ,0101:$
+
+    \begin{table}[h!]
+
+        \begin{tabular}{|c|c|c|c|c|p{9cm}|}
+        \hline
+        \textbf{№} &
+        \makecell{\textbf{RG1} \\ \\ 15 \qquad \empty \quad 0} &    % <-- Одна комірка замість двох
+        \makecell{\textbf{RG2} \\ \\ 15 \qquad \empty \quad 0} &
+        \makecell{\textbf{RG3} \\ \\ 15 \qquad \empty \quad 0} &
+        \makecell{\textbf{CT}  \\ \\ 4 \qquad \empty \quad 0} &
+        \textbf{Мікрооперації} \\
+        \hline
+        \textbf{--} & 0000000000000000 & 000000000000011\textbf{1} & 0000000000000101 & 10000 &
+        \makecell[l]{\texttt{RG1 = 0, RG2 = X, RG3 = 0.Y;}\\
+        \texttt{CT = n = 16;}} \\ 
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{1} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +0000000000000000 \\
+        \ \ 0000000000000101 \\
+        \hline
+        0000000000000101
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        0000000000000010
+        } &
+        \makecell{0000000000000111\\[1em]
+        \textit{Після зсуву:}\\ 100000000000001\textbf{1}} &
+        \empty &
+        01111 &
+        \makecell[l]{\texttt{RG1 = RG1 + RG3;}\\
+        \texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{2} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +0000000000000010 \\
+        \ \ 0000000000000101 \\
+        \hline
+        0000000000000111
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        0000000000000011
+        } &
+        \makecell{1000000000000011\\[1em]
+        \textit{Після зсуву:}\\ 110000000000000\textbf{1}} &
+        \empty &
+        01110 &
+        \makecell[l]{\texttt{RG1 = RG1 + RG3;}\\
+        \texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{3} &
+        \makecell[l]{
+        \(
+        \begin{array}{r} % r - вирівнюємо вправо для акуратності
+        +0000000000000011 \\
+        \ \ 0000000000000101 \\
+        \hline
+        0000000000001000
+        \end{array}
+        \)
+        \\[2em]
+        \textit{Після зсуву:}\\
+        0000000000000100
+        } &
+        \makecell{1100000000000001\\[1em]
+        \textit{Після зсуву:}\\ 011000000000000\textbf{0}} &
+        \empty &
+        01101 &
+        \makecell[l]{\texttt{RG1 = RG1 + RG3;}\\
+        \texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6} 
+        \textbf{4} &
+        \makecell{0000000000000100\\[1em] \textit{Після зсуву:}\\ 0000000000000010} &
+        \makecell{0110000000000000\\[1em] \textit{Після зсуву:}\\ 001100000000000\textbf{0}} & \empty &
+        01100 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{5} &
+        \makecell{0000000000000010\\[1em] \textit{Після зсуву:}\\ 0000000000000001} &
+        \makecell{0011000000000000\\[1em] \textit{Після зсуву:}\\ 000110000000000\textbf{0}} & \empty &
+        01011 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{6} &
+        \makecell{0000000000000001\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0001100000000000\\[1em] \textit{Після зсуву:}\\ 100011000000000\textbf{0}} & \empty &
+        01010 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{7} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{1000110000000000\\[1em] \textit{Після зсуву:}\\ 010001100000000\textbf{0}} & \empty &
+        01001 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{8} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0100011000000000\\[1em] \textit{Після зсуву:}\\ 001000110000000\textbf{0}} & \empty &
+        01000 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{9} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0010001100000000\\[1em] \textit{Після зсуву:}\\ 000100011000000\textbf{0}} & \empty &
+        00111 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],}\\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{10} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0001000110000000\\[1em] \textit{Після зсуву:}\\ 000010001100000\textbf{0}} & \empty &
+        00110 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{11} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0000100011000000\\[1em] \textit{Після зсуву:}\\ 000001000110000\textbf{0}} & \empty &
+        00101 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{12} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0000010001100000\\[1em] \textit{Після зсуву:}\\ 000000100011000\textbf{0}} & \empty &
+        00100 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{13} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0000001000110000\\[1em] \textit{Після зсуву:}\\ 000000010001100\textbf{0}} & \empty &
+        00011 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{14} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0000000100011000\\[1em] \textit{Після зсуву:}\\ 000000001000110\textbf{0}} & \empty &
+        00010 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{15} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0000000010001100\\[1em] \textit{Після зсуву:}\\ 000000000100011\textbf{0}} & \empty &
+        00001 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \cline{1-3}
+        \cline{5-6}
+        \textbf{16} &
+        \makecell{0000000000000000\\[1em] \textit{Після зсуву:}\\ 0000000000000000} &
+        \makecell{0000000001000110\\[1em] \textit{Після зсуву:}\\ 0000000000100011} & \empty &
+        00000 &
+        \makecell[l]{\texttt{RG1 = 0.r[RG1], RG2 = RG1[0].r[RG2],} \\
+        \texttt{CT = CT - 1;}} \\
+        \hline
+
+        \end{tabular}
+
+    \end{table}
+
+    Знаковий біт мантиси $Z: 1 \oplus 0 = 1$ (число від'ємне). Тобто $Z = 11.000000000000000000000000100011$ (-35) в ПК коді = 11.111111111111111111111111011101 в ДК коді = FFFF FFDD в шістнадцятковому.
+
+\end{document}

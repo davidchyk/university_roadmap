@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 
-MAIN_THEME: dict[str, str] = {
+DEFAULT_THEME: dict[str, str] = {
     "bg": "#0D0D0D",
     "topbar": "#111111",
     "panel": "#171717",
@@ -22,3 +22,29 @@ MAIN_THEME: dict[str, str] = {
     "muted": "#A8B0BA",
     "subtle": "#757D86",
 }
+
+
+PINK_THEME: dict[str, str] = {
+    "bg": "#FFF1FA",
+    "topbar": "#FFD3EA",
+    "panel": "#FFE3F2",
+    "panel_alt": "#FFF8FC",
+    "surface": "#FFFFFF",
+    "surface_soft": "#F3A4CB",
+    "surface_strong": "#E6579F",
+    "segment": "#F8B8D7",
+    "segment_hover": "#F29AC5",
+    "segment_active": "#FF63AE",
+    "accent": "#FF6DB8",
+    "accent_hover": "#E9509E",
+    "accent_text": "#3B0623",
+    "secondary": "#64C9FF",
+    "warning": "#FFD166",
+    "error": "#FF5E8E",
+    "text": "#381029",
+    "muted": "#7A3A61",
+    "subtle": "#B56D96",
+}
+
+
+MAIN_THEME = DEFAULT_THEME

@@ -1,0 +1,66 @@
+# do run.do 
+# if {[file exists work/_info]} {
+#     echo "Reusing existing work library"
+# } else {
+#     vlib work
+# }
+# ** Error: (vlib-35) Failed to create directory "work".
+# 
+# File exists. (errno = EEXIST)
+# vlog ../src/alb.v alb_ref.v stimulus.v checker.v top.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module alb
+# -- Compiling module alb_ref
+# -- Compiling module stimulus
+# -- Compiling module checker
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# vsim work.top
+# vsim work.top 
+# Loading work.top
+# Loading work.alb
+# Loading work.alb_ref
+# Loading work.stimulus
+# Loading work.checker
+# add wave -radix binary sim:/top/clock
+# add wave -radix binary sim:/top/resetb
+# add wave -radix binary sim:/top/ALB_MI
+# add wave -radix binary sim:/top/CI
+# add wave -radix binary sim:/top/A_ALB
+# add wave -radix binary sim:/top/B_ALB
+# add wave -radix binary sim:/top/F_ALB
+# add wave -radix binary sim:/top/F_NORM
+# add wave -radix binary sim:/top/CO
+# add wave -radix binary sim:/top/VO
+# add wave -radix binary sim:/top/NO
+# add wave -radix binary sim:/top/ZO
+# add wave -radix binary sim:/top/NORM_RIGHT
+# run -all
+# 20000 correct F=000000000000 FN=000000000000 C=0 V=0 N=0 Z=1 NR=0
+# 30000 correct F=000000000000 FN=000000000000 C=0 V=0 N=0 Z=1 NR=0
+# 40000 correct F=000000001111 FN=000000001111 C=0 V=0 N=0 Z=0 NR=0
+# 50000 correct F=000000001111 FN=000000001111 C=0 V=0 N=0 Z=0 NR=0
+# 60000 correct F=000000000010 FN=000000000010 C=0 V=0 N=0 Z=0 NR=0
+# 70000 correct F=000000000000 FN=000000000000 C=0 V=0 N=0 Z=1 NR=0
+# 80000 correct F=010000100101 FN=010000100101 C=0 V=0 N=0 Z=0 NR=0
+# 90000 correct F=010000100101 FN=010000100101 C=0 V=0 N=0 Z=0 NR=0
+# 100000 correct F=000111011010 FN=000111011010 C=1 V=0 N=0 Z=0 NR=0
+# 110000 correct F=100100000000 FN=110010000000 C=0 V=1 N=1 Z=0 NR=1
+# 120000 correct F=001100000000 FN=001100000000 C=1 V=1 N=0 Z=0 NR=0
+# 130000 correct F=000000000010 FN=000000000010 C=1 V=0 N=0 Z=0 NR=0
+# 140000 correct F=111111111110 FN=111111111110 C=0 V=0 N=1 Z=0 NR=0
+# 150000 correct F=111011110111 FN=111011110111 C=0 V=0 N=1 Z=0 NR=0
+# 160000 correct F=101111011011 FN=101111011011 C=1 V=0 N=1 Z=0 NR=0
+# 170000 correct F=000000000000 FN=000000000000 C=1 V=0 N=0 Z=1 NR=0
+# 180000 correct F=111111111111 FN=111111111111 C=0 V=0 N=1 Z=0 NR=0
+# 190000 correct F=111111111111 FN=111111111111 C=0 V=0 N=1 Z=0 NR=0
+# 200000 correct F=111111111111 FN=111111111111 C=0 V=0 N=1 Z=0 NR=0
+# 210000 correct F=111111111111 FN=111111111111 C=0 V=0 N=1 Z=0 NR=0
+# TEST PASSED
+# 220000 correct F=111111111111 FN=111111111111 C=0 V=0 N=1 Z=0 NR=0
+# 230000 correct F=111111111111 FN=111111111111 C=0 V=0 N=1 Z=0 NR=0
+# 240000 correct F=111111111111 FN=111111111111 C=0 V=0 N=1 Z=0 NR=0
+# ** Note: $finish    : stimulus.v(58)
+#    Time: 245 ns  Iteration: 1  Instance: /top/stim

@@ -1,0 +1,100 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\artem\Desktop\reps\university_roadmap\semestr4\Digital circuitry\dkr\Davydchuk_Dubrov_Mega_Lab_ALB\sim
+valb
+!i10b 1
+!s100 ZP`nzFMEM@TW2n5iXRA;P3
+In6oW>_G[CReKQ9nblVO0g1
+VAYPGOH8z3X>BC]04Z_Zzn1
+Z1 dC:\Users\artem\Desktop\reps\university_roadmap\semestr4\Digital circuitry\dkr\Davydchuk_Dubrov_Mega_Lab_ALB\sim
+Z2 w1777812434
+8../src/alb.v
+F../src/alb.v
+L0 3
+Z3 OV;L;10.1d;51
+r1
+!s85 0
+31
+Z4 !s108 1777812463.314000
+Z5 !s107 top.v|checker.v|stimulus.v|alb_ref.v|../src/alb.v|
+Z6 !s90 ../src/alb.v|alb_ref.v|stimulus.v|checker.v|top.v|
+!s101 -O0
+o-O0
+valb_ref
+!i10b 1
+!s100 zB1WWdcW?VXzXTG^G_VD_1
+IEiG>I;h31Wa0ISLI^o2o13
+V2Df<4K<hEVR2f]f=Tl4D[1
+R1
+R2
+8alb_ref.v
+Falb_ref.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!s101 -O0
+o-O0
+vchecker
+!i10b 1
+!s100 51QC9hbT8HPG=P[2X2Eez0
+I>3n`zDKo7[^jLiE_j[j>V0
+Vm8FLAW32mn;ecz`dC6FSD1
+R1
+R2
+8checker.v
+Fchecker.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!s101 -O0
+o-O0
+vstimulus
+!i10b 1
+!s100 >Dg<ZkSekb?Y_^9S>?Yh61
+Ic2B0CDJNfYmzX:lZI[eFD1
+V[9j5YT]B5T>3AMZl;2<Il1
+R1
+R2
+8stimulus.v
+Fstimulus.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!s101 -O0
+o-O0
+vtop
+!i10b 1
+!s100 DRmialFlXhFCJl6BS[_U81
+Iz9eG?4?g4;BUbIk92L3bn1
+VfjECi?6:0@SzZ9DMDh^=W1
+R1
+R2
+8top.v
+Ftop.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!s101 -O0
+o-O0

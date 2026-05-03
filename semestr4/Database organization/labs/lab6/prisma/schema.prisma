@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum MessageRole {
+  user
+  ai_model
+
+  @@map("message_role")
+}
+
+model Country {
+  countryId   Int    @id @default(autoincrement()) @map("country_id")
+  countryName String @unique @map("country_name") @db.VarChar(50)
+  users       User[]
+
+  @@map("countries")
+}
+
+model User {
+  userId     Int      @id @default(autoincrement()) @map("user_id")
+  firstName  String   @map("first_name") @db.VarChar(40)
+  secondName String   @map("second_name") @db.VarChar(80)
+  userName   String   @unique @map("user_name") @db.VarChar(20)
+  email      String   @unique @db.VarChar(100)
+  countryId  Int      @map("country_id")
+  createdAt  DateTime @map("created_at") @db.Date
+  isActive   Boolean  @default(true) @map("is_active")
+  country    Country  @relation(fields: [countryId], references: [countryId])
+  chats      Chat[]
+
+  @@map("users")
+}
+
+model AiModelFamily {
+  familyId   Int       @id @default(autoincrement()) @map("family_id")
+  familyName String    @unique @map("family_name") @db.VarChar(50)
+  models     AiModel[]
+
+  @@map("ai_model_families")
+}
+
+model AiModel {
+  modelId      Int             @id @default(autoincrement()) @map("model_id")
+  familyId     Int             @map("family_id")
+  modelVersion String          @map("model_version") @db.VarChar(20)
+  family       AiModelFamily   @relation(fields: [familyId], references: [familyId])
+  generations  Generation[]
+
+  @@unique([familyId, modelVersion])
+  @@map("ai_models")
+}
+
+model Chat {
+  chatId         Int                 @id @default(autoincrement()) @map("chat_id")
+  ownerUserId    Int                 @map("owner_user_id")
+  title          String              @default("chat") @db.VarChar(50)
+  createdAt      DateTime            @map("created_at") @db.Date
+  owner          User                @relation(fields: [ownerUserId], references: [userId])
+  messages       Message[]
+  tagAssignments ChatTagAssignment[]
+
+  @@map("chats")
+}
+
+model Message {
+  messageId   Int          @id @default(autoincrement()) @map("message_id")
+  chatId      Int          @map("chat_id")
+  roleM       MessageRole  @map("role_m")
+  contentM    String?      @map("content_m") @db.Text
+  createdAt   DateTime     @map("created_at") @db.Timestamp(6)
+  chat        Chat         @relation(fields: [chatId], references: [chatId])
+  attachments Attachment[]
+  generation  Generation?
+
+  @@map("messages")
+}
+
+model Attachment {
+  attachmentId Int      @id @default(autoincrement()) @map("attachment_id")
+  messageId    Int      @map("message_id")
+  fileName     String   @map("file_name") @db.VarChar(50)
+  sizeBytes    BigInt   @map("size_bytes")
+  uploadedAt   DateTime @map("uploaded_at") @db.Timestamp(6)
+  message      Message  @relation(fields: [messageId], references: [messageId])
+
+  @@map("attachments")
+}
+
+model Generation {
+  generationId Int                   @id @default(autoincrement()) @map("generation_id")
+  modelId      Int                   @map("model_id")
+  messageId    Int                   @unique @map("message_id")
+  createdAt    DateTime              @map("created_at") @db.Timestamp(6)
+  model        AiModel               @relation(fields: [modelId], references: [modelId])
+  message      Message               @relation(fields: [messageId], references: [messageId])
+  parameters   GenerationParameter[]
+
+  @@map("generations")
+}
+
+model GenerationParameter {
+  generationId   Int        @map("generation_id")
+  parameterName  String     @map("parameter_name") @db.VarChar(40)
+  parameterValue Decimal    @map("parameter_value") @db.Decimal(12, 4)
+  generation     Generation @relation(fields: [generationId], references: [generationId], onDelete: Cascade)
+
+  @@id([generationId, parameterName])
+  @@map("generation_parameters")
+}
+
+model ChatTag {
+  tagId       Int                 @id @default(autoincrement()) @map("tag_id")
+  tagName     String              @unique @map("tag_name") @db.VarChar(40)
+  createdAt   DateTime            @default(now()) @map("created_at") @db.Timestamp(6)
+  assignments ChatTagAssignment[]
+
+  @@map("chat_tags")
+}
+
+model ChatTagAssignment {
+  chatId     Int      @map("chat_id")
+  tagId      Int      @map("tag_id")
+  assignedAt DateTime @default(now()) @map("assigned_at") @db.Timestamp(6)
+  chat       Chat     @relation(fields: [chatId], references: [chatId], onDelete: Cascade)
+  tag        ChatTag  @relation(fields: [tagId], references: [tagId], onDelete: Cascade)
+
+  @@id([chatId, tagId])
+  @@map("chat_tag_assignments")
+}

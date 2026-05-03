@@ -1,0 +1,18 @@
+{
+  "name": "database-organization-lab6",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lab 6: PostgreSQL schema migrations with Prisma ORM",
+  "scripts": {
+    "prisma:pull": "prisma db pull",
+    "migrate": "prisma migrate dev",
+    "verify": "node verify.js",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.0.0"
+  }
+}

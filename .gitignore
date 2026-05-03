@@ -18,3 +18,4 @@ page.txt
 pages.txt
 
 .env
+node_modules/

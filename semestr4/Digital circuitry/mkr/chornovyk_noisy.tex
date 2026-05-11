@@ -1,0 +1,638 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=18mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T2A]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Чорновик до залікової контрольної роботи},
+  pdflang={ukrainian},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Чорновик до залікової контрольної роботи}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+Робоча чернетка. Деякі місця залишені як виправлення, щоб було видно хід думки, а не чистовий звіт.
+\end{quote}
+
+\subsection{Теоретична частина}\label{ux442ux435ux43eux440ux435ux442ux438ux447ux43dux430-ux447ux430ux441ux442ux438ux43dux430}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Перевести двійкове число \texttt{1000\ 1011\ 1110\ 0011} у десяткову систему:
+
+  Спочатку групую по 4 біти:
+
+  \texttt{1000\ 1011\ 1110\ 0011\_2\ =\ 8BE3\_16}.
+
+  Далі:
+
+  \texttt{8BE3\_16\ =\ 8*16\^{}3\ +\ 11*16\^{}2\ +\ 14*16\ +\ 3\ =\ 35811\_10}.
+
+  Відповідь: \texttt{35811}.
+\item
+  Перевести двійкове число \texttt{1000\ 1011\ 1110\ 0011} у шістнадцяткову систему:
+
+  \texttt{1000\ 1011\ 1110\ 0011\_2\ =\ 8BE3\_16}.
+\item
+  За часовими діаграмами:
+
+  \texttt{x\ =\ І-НЕ}, \texttt{y\ =\ АБО-НЕ}.
+
+  \st{Спочатку подумав, що y може бути АБО}, але за діаграмою видно інверсію, тому \texttt{y\ =\ АБО-НЕ}.
+\item
+  Ознаки, що формуються в арифметико-логічних блоках під час арифметичних операцій:
+
+  Правильний варіант: \texttt{Z\ =\ 1} визначається операцією \texttt{АБО-НЕ} над усіма розрядами результату; знак результату \texttt{N} дорівнює значенню старшого знакового розряду результату в модифікованому машинному коді \texttt{ЗР(n+2)}.
+\item
+  Ознака переповнення в знаковому розряді:
+
+  Вибрати:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{flag\{Overflow\}\ =\ C\_\{n-1\}\ XOR\ C\_n}, де \texttt{C\_\{n-1\}} - перенос у знаковий розряд, \texttt{C\_n} - перенос із знакового розряду за межі розрядної сітки.
+  \item
+    Ознака переповнення встановлюється в \texttt{1}, коли старший знаковий біт обох доданків однаковий, але знак результату відрізняється.
+  \end{itemize}
+\item
+  Навіщо в АЛП операції з дійсними числами виконуються над нормалізованими мантисами:
+
+  Для забезпечення однакового формату чисел і точності обчислень, а також для уникнення втрати значущих розрядів при додаванні або відніманні.
+\item
+  Нормалізована мантиса двійкового числа:
+
+  Вибрати:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Це дробова частина числа з плаваючою комою, яка містить його значущі біти.
+  \item
+    Нормалізовані мантиси додатних чисел у розряді з вагою \texttt{2\^{}-1} завжди мають одиницю.
+  \end{itemize}
+\item
+  Чому неможливо виконувати алгебраїчне підсумовування і віднімання на звичайних суматорах у прямих машинних кодах:
+
+  Правильний варіант: у прямому коді знакові розряди і основні розряди мають оброблятися по-різному. Віднімання на звичайному суматорі виконують, якщо аргументи подані у зворотному або доповняному коді; тоді віднімання замінюється додаванням числа з протилежним знаком.
+\item
+  Додавання двійкових мантис зі знаками:
+
+  Дано:
+
+  \texttt{A\ =\ 0\ 10101}, \texttt{B\ =\ 0\ 0011010}.
+
+  Обидва числа додатні, тому додаємо мантиси:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  0.1010100}
+\NormalTok{+ 0.0011010}
+\NormalTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{  0.1101110}
+\end{Highlighting}
+\end{Shaded}
+
+  Точний результат: \texttt{0\ 1101110}.
+
+  У 6-розрядній сітці без округлення: \texttt{0\ 11011}.
+
+  \st{Можна було б округлити}, але в умові просто записати в 6-розрядну сітку, тому беру обрізання.
+\item
+  Яка з мікросхем має пам'ять:
+
+  \texttt{Лічильник}.
+\item
+  Чим відрізняється однорозрядний напівсуматор від повного однорозрядного суматора:
+
+  Однорозрядний суматор за розрядним значенням \texttt{xi} і \texttt{yi} доданків і за значенням переносу \texttt{zi} із сусіднього молодшого розряду формує значення розрядної суми \texttt{Si} і переносу у наступний старший розряд \texttt{Pi}. Однорозрядний напівсуматор не враховує вхідний перенос \texttt{zi}.
+\item
+  Восьмирозрядний суматор складається із:
+
+  \texttt{Ланцюга\ із\ восьми\ повних\ однобітних\ суматорів}.
+\item
+  Дешифратор / шифратор: правдиві твердження:
+
+  Вибрати:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Неповний дешифратор має менше ніж \texttt{2\^{}n} виходів.
+  \item
+    Шифратор - це пристрій, що виконує функцію, зворотну дешифратору.
+  \item
+    Повний дешифратор має \texttt{n} входів і \texttt{2\^{}n} виходів.
+  \item
+    При подачі сигналу на один із входів шифратора, тобто унітарного коду, на виході повинен утворитися двійковий код.
+  \item
+    Дешифратор - це комбінаційна схема для перетворення двійкового позиційного коду на унітарний.
+  \end{itemize}
+\item
+  Мікрооперації, які можуть виконуватися на регістрах:
+
+  Вибрати:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Зсув логічний.
+  \item
+    Зсув арифметичний.
+  \item
+    Зберігання.
+  \item
+    Запис.
+  \item
+    Встановлення в нуль, тобто очищення.
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Функціональне моделювання в САПР ModelSim}\label{ux444ux443ux43dux43aux446ux456ux43eux43dux430ux43bux44cux43dux435-ux43cux43eux434ux435ux43bux44eux432ux430ux43dux43dux44f-ux432-ux441ux430ux43fux440-modelsim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{14}
+\item
+  Як можна реалізувати 16-розрядний регістр на ПЛІС (FPGA):
+
+  Знадобиться 16 логічних блоків ПЛІС, де кожен біт регістра реалізується за допомогою одного \texttt{D}-тригера (\texttt{flip-flop}).
+\item
+  З якою ціллю розробляється Testbench у САПР:
+
+  Для емуляції оточення розроблюваного пристрою і аналізу результатів.
+\item
+  Яку послідовність вхідних сигналів сформує Testbench:
+
+  Код:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{@(}\KeywordTok{posedge}\NormalTok{ clk}\OperatorTok{);}\NormalTok{ out1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{ out2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}
+\OperatorTok{@(}\KeywordTok{posedge}\NormalTok{ clk}\OperatorTok{);}\NormalTok{ out1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{ out2}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}
+\OperatorTok{@(}\KeywordTok{posedge}\NormalTok{ clk}\OperatorTok{);}\NormalTok{ out1}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{ out2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}
+\OperatorTok{@(}\KeywordTok{posedge}\NormalTok{ clk}\OperatorTok{);}\NormalTok{ out1}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{ out2}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+  Послідовність:
+
+  \texttt{00\ 01\ 10\ 11}.
+\item
+  Таблиця істинності у часовій області для неповного дешифратора 3-to-8 з входом \texttt{EN}:
+
+  Правильний варіант: \texttt{2}.
+
+  Логіка така: при \texttt{EN\ =\ 0} вихід \texttt{Y\ =\ 00000000}, при \texttt{EN\ =\ 1} активується один вихід за адресою \texttt{A2\ A1\ A0}.
+\item
+  Скільки тактів буде тривати процес моделювання заданим Testbench:
+
+  Правильний варіант: \texttt{вісім\ тактів}.
+
+  Пояснення: 4 такти для комбінацій \texttt{00}, \texttt{01}, \texttt{10}, \texttt{11}, потім ще 1 такт окремо і \texttt{repeat(3)} додає ще 3 такти.
+
+  \texttt{4\ +\ 1\ +\ 3\ =\ 8}.
+\item
+  Для тестування якого пристрою використовується Testbench з \texttt{reg\ {[}1:0{]}\ sel}, \texttt{reg\ {[}3:0{]}\ d}, \texttt{wire\ y}:
+
+  Правильний варіант: \texttt{мультиплексор\ 4x1}.
+
+  Пояснення: є 4 інформаційні входи \texttt{d{[}3:0{]}}, 2-бітний вибір \texttt{sel} і один вихід \texttt{y}.
+\end{enumerate}
+
+\subsection{Практична частина}\label{ux43fux440ux430ux43aux442ux438ux447ux43dux430-ux447ux430ux441ux442ux438ux43dux430}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{20}
+\item
+  Адресний селектор зовнішнього пристрою:
+
+  Правильний варіант: \texttt{PC\ =\ 29A4h}.
+
+  Пояснення: інверсні входи селектора мають отримати \texttt{0}, прямі входи - \texttt{1}; \texttt{A0} не впливає на вибір, за умовою беремо \texttt{A0\ =\ 0}.
+\item
+  Практичне завдання за номером студентського квитка:
+
+  Номер: \texttt{4106}.
+
+  Переведення у двійковий код:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{4106\_10 = 1000000001010\_2}
+\end{Highlighting}
+\end{Shaded}
+
+  Далі вирівнюю число праворуч у 16-розрядній сітці, тобто дописую нулі ліворуч:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{4106\_10 = 0001 0000 0000 1010\_2}
+\end{Highlighting}
+\end{Shaded}
+
+  Два 8-розрядні аргументи:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{R1 = 00010000\_2 = +16}
+\NormalTok{R2 = 00001010\_2 = +10}
+\end{Highlighting}
+\end{Shaded}
+
+  Обидва аргументи додатні, у доповняльному коді запис не змінюється:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A = 00010000}
+\NormalTok{B = 00001010}
+\end{Highlighting}
+\end{Shaded}
+
+  Виконується додавання:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  00010000}
+\NormalTok{+ 00001010}
+\NormalTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\NormalTok{  00011010 = 26}
+\end{Highlighting}
+\end{Shaded}
+
+  У 9-розрядному регістрі:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{S = 000011010}
+\end{Highlighting}
+\end{Shaded}
+
+  Переповнення немає, бо \texttt{A{[}7{]}\ =\ 0}, \texttt{B{[}7{]}\ =\ 0}, \texttt{S{[}7{]}\ =\ 0}.
+
+  Далі виконується гілка без переповнення:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{S }\OperatorTok{=}\NormalTok{ S }\OperatorTok{\textgreater{}\textgreater{}\textgreater{}} \DecValTok{2}\OperatorTok{;}
+\NormalTok{RESULT }\OperatorTok{=}\NormalTok{ S}\OperatorTok{[}\DecValTok{8}\OperatorTok{:}\DecValTok{7}\OperatorTok{];}
+\end{Highlighting}
+\end{Shaded}
+
+  Після арифметичного зсуву праворуч на 2:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{до зсуву:    S = 000011010 = 26}
+\NormalTok{після >>> 1: S = 000001101 = 13}
+\NormalTok{S = 000000110 = 6}
+\NormalTok{RESULT = S[8:7] = 00}
+\end{Highlighting}
+\end{Shaded}
+
+  Цифрова діаграма станів регістрів:
+
+  {\def\LTcaptype{none}
+  \begin{longtable}[]{@{}rlccccc@{}}
+  \toprule\noalign{}
+  Етап & Операція & A & B & S & OVERFLOW & RESULT \\
+  \midrule\noalign{}
+  \endhead
+  \bottomrule\noalign{}
+  \endlastfoot
+  0 & Початкові аргументи & \texttt{00010000} & \texttt{00001010} & -- & -- & -- \\
+  1 & \texttt{S = A + B} & \texttt{00010000} & \texttt{00001010} & \texttt{000011010} & -- & -- \\
+  2 & Перевірка overflow & \texttt{00010000} & \texttt{00001010} & \texttt{000011010} & \texttt{0} & -- \\
+  3 & \texttt{S = S >>> 2} & \texttt{00010000} & \texttt{00001010} & \texttt{000000110} & \texttt{0} & -- \\
+  4 & \texttt{RESULT = S[8:7]} & \texttt{00010000} & \texttt{00001010} & \texttt{000000110} & \texttt{0} & \texttt{00} \\
+  \end{longtable}
+  }
+
+  Регістр \texttt{C} у цьому варіанті не змінюється, бо гілка з \texttt{C\ =\ S} виконується тільки при переповненні.
+
+  Ознаки для \texttt{S}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{S = 000000110}
+\NormalTok{zero\_flag     = 0, бо S не дорівнює нулю}
+\NormalTok{overflow\_flag = 0, бо переповнення не було}
+\NormalTok{sign\_flag     = 0, бо знаковий біт дорівнює 0}
+\end{Highlighting}
+\end{Shaded}
+
+  Результат у прямому коді: \texttt{00000110\_2\ =\ +6}.
+
+  Перевірка десятковими еквівалентами:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{R1 = +16}
+\NormalTok{R2 = +10}
+\NormalTok{S  = 16 + 10 = 26}
+\NormalTok{S >>> 2 = 26 / 4 = 6}
+\end{Highlighting}
+\end{Shaded}
+
+  У Google Forms для \texttt{RESULT}: \texttt{00}.
+\item
+  Сторінкова пам'ять:
+
+  Умова: загальний об'єм пам'яті \texttt{516K\ x\ 16}, об'єм однієї сторінки пам'яті \texttt{128K\ x\ 16}.
+
+  Спочатку визначаю шину даних. Другий множник у записі пам'яті означає розрядність одного слова:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n = 16}
+\end{Highlighting}
+\end{Shaded}
+
+  Тобто \texttt{ШД\ =\ 16\ біт}.
+
+  Одна сторінка має об'єм \texttt{128K\ x\ 16}. Кількість адресованих слів на сторінці:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{128K = 128 * 1024 = 2\^{}7 * 2\^{}10 = 2\^{}17}
+\NormalTok{m2 = 17}
+\end{Highlighting}
+\end{Shaded}
+
+  Отже молодші біти адреси \texttt{A16..A0} задають адресу всередині сторінки.
+
+  Загальний об'єм пам'яті:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{516K = 516 * 1024 = 528384}
+\NormalTok{2\^{}19 = 524288 \textless{} 528384 \textless{} 2\^{}20}
+\end{Highlighting}
+\end{Shaded}
+
+  Тому для повної адресації потрібно 20 адресних бітів:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m = 20}
+\end{Highlighting}
+\end{Shaded}
+
+  Тобто \texttt{ША\ =\ 20\ біт}.
+
+  Кількість сторінок:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{N = ceil(516K / 128K)}
+\NormalTok{N = ceil(4.03125)}
+\NormalTok{N = 5 сторінок}
+\end{Highlighting}
+\end{Shaded}
+
+  Тут саме 5 сторінок, бо 4 сторінки дають тільки:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{4 * 128K = 512K}
+\end{Highlighting}
+\end{Shaded}
+
+  а потрібно \texttt{516K}. \st{Спочатку можна було б взяти 4 сторінки}, але це покриває тільки \texttt{512K}, тому потрібна ще частина п'ятої сторінки.
+
+  Для вибору 5 сторінок треба дешифратор із трьома входами:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1 = ceil(log2(5)) = 3}
+\end{Highlighting}
+\end{Shaded}
+
+  Старші адресні біти для вибору сторінки: \texttt{A19,\ A18,\ A17}.
+
+  Підсумкова таблиця параметрів:
+
+  {\def\LTcaptype{none}
+  \begin{longtable}[]{@{}lr@{}}
+  \toprule\noalign{}
+  Параметр & Значення \\
+  \midrule\noalign{}
+  \endhead
+  \bottomrule\noalign{}
+  \endlastfoot
+  Загальний об'єм пам'яті & \texttt{516K\ x\ 16} \\
+  Об'єм однієї сторінки & \texttt{128K\ x\ 16} \\
+  Розрядність шини даних, ШД & \texttt{16} \\
+  Розрядність шини адреси, ША & \texttt{20} \\
+  Кількість сторінок \(N\) & \texttt{5} \\
+  Кількість входів дешифратора \(m_1\) & \texttt{3} \\
+  Розрядність адреси сторінки \(m_2\) & \texttt{17} \\
+  \end{longtable}
+  }
+
+  Таблиця істинності дешифратора \texttt{3\ -\textgreater{}\ 8} для 5 сторінок:
+
+  {\def\LTcaptype{none} % do not increment counter
+  \begin{longtable}[]{@{}rrrrrrrrl@{}}
+  \toprule\noalign{}
+  A19 & A18 & A17 & CS0 & CS1 & CS2 & CS3 & CS4 & Сторінка \\
+  \midrule\noalign{}
+  \endhead
+  \bottomrule\noalign{}
+  \endlastfoot
+  0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+  0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 \\
+  0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 2 \\
+  0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 3 \\
+  1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 4 \\
+  1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & не використ. \\
+  1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & не використ. \\
+  1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & не використ. \\
+  \end{longtable}
+  }
+
+  Логічні рівняння:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CS0 = \textasciitilde{}A19 \& \textasciitilde{}A18 \& \textasciitilde{}A17}
+\NormalTok{CS1 = \textasciitilde{}A19 \& \textasciitilde{}A18 \&  A17}
+\NormalTok{CS2 = \textasciitilde{}A19 \&  A18 \& \textasciitilde{}A17}
+\NormalTok{CS3 = \textasciitilde{}A19 \&  A18 \&  A17}
+\NormalTok{CS4 =  A19 \& \textasciitilde{}A18 \& \textasciitilde{}A17}
+\end{Highlighting}
+  \end{Shaded}
+
+  Структурна схема багатосторінкової пам'яті:
+
+  \begin{center}
+  \resizebox{\linewidth}{!}{%
+  \begin{tikzpicture}[
+      font=\small,
+      block/.style={draw, rectangle, align=center, minimum width=3.4cm, minimum height=1.35cm},
+      mem/.style={draw, rectangle, align=center, minimum width=2.25cm, minimum height=1.15cm},
+      bus/.style={-Latex, very thick},
+      sig/.style={-Latex, thin},
+      tap/.style={thin}
+  ]
+      \node[block, minimum height=1.7cm] (dec) at (0,2.2)
+          {Дешифратор\\\(3 \rightarrow 8\)\\використано 5 виходів};
+
+      \node[left=3.6cm of dec] (addrhi) {\(A_{19}, A_{18}, A_{17}\)};
+      \draw[bus] (addrhi.east) -- node[above]{старші біти адреси} (dec.west);
+
+      \foreach \i/\x in {0/-5.0,1/-2.5,2/0,3/2.5,4/5.0} {
+          \node[mem] (p\i) at (\x,-1.0) {Сторінка \(\i\)\\\(128K \times 16\)};
+      }
+
+      \draw[tap] (dec.south) -- (0,0.95);
+      \foreach \i/\x in {0/-5.0,1/-2.5,2/0,3/2.5,4/5.0} {
+          \draw[sig] (0,0.95) -| node[pos=0.23, above]{\(CS_{\i}\)} (p\i.north);
+      }
+
+      \draw[bus] (-6.35,-2.65) -- node[below]{молодші біти адреси \(A_{16..0}\), 17 біт} (6.35,-2.65);
+      \foreach \i/\x in {0/-5.0,1/-2.5,2/0,3/2.5,4/5.0} {
+          \draw[tap] (\x,-2.65) -- (\x,-1.58);
+      }
+
+      \draw[bus] (-6.35,-3.45) -- node[below]{спільна шина даних \(D_{15..0}\), 16 біт} (6.35,-3.45);
+      \foreach \i/\x in {0/-5.0,1/-2.5,2/0,3/2.5,4/5.0} {
+          \draw[tap] (\x+0.42,-3.45) -- (\x+0.42,-1.58);
+      }
+
+      \node[align=center] at (0,3.55)
+          {Старші біти вибирають сторінку, молодші біти адресують слово всередині сторінки};
+  \end{tikzpicture}}
+  \end{center}
+
+  Пояснення підключення: старші біти адреси \texttt{A19..A17} подаються на дешифратор вибору сторінки, молодші \texttt{A16..A0} йдуть паралельно на всі сторінки пам'яті, а спільна шина даних \texttt{D15..D0} підключена до виходів сторінок. Активний сигнал \texttt{CSi} дозволяє роботу тільки однієї сторінки. Комбінації \texttt{101}, \texttt{110}, \texttt{111} не використовуються.
+
+  У Google Forms:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Кількість сторінок: 5}
+\NormalTok{Розрядність даних ШД: 16}
+\NormalTok{Розрядність адреси ША: 20}
+\NormalTok{Кількість входів дешифратора m1: 3}
+\NormalTok{Розрядність адреси сторінки m2: 17}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\end{document}

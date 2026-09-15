@@ -1,3 +1,5 @@
+# LaTeX
+
 *.fls
 *.bkp
 *.log
@@ -7,8 +9,11 @@
 *.qti~
 *.pyc
 *synctex.gz
-*.bkp
+
+# Резервні й тимчасові файли
+
 *.dtmp
+*.crdownload
 
 cspell.json
 
@@ -18,4 +23,23 @@ page.txt
 pages.txt
 
 .env
+.venv
 node_modules/
+.gradle/
+.idea/
+__pycache__/
+.ipynb_checkpoints/
+
+# Відтворювані результати збірки
+**/build/
+**/target/
+**/out/
+*.class
+*.wlf
+**/sim/work/
+
+# Кеші Quartus (вихідні файли проєктів і звіти лишаються в Git)
+**/quartus_project/db/
+**/quartus_project/incremental_db/
+**/quartus_project/simulation/*/work/
+semester4/digital_circuitry/labs/lab2/project/db/

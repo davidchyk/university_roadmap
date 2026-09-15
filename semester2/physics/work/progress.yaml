@@ -1,0 +1,41 @@
+schema_version: 1
+course_id: physics
+updated_on: null
+
+assignments:
+  - id: homework01
+    status: accepted
+  - id: homework02
+    status: in_progress
+  - id: homework03
+    status: accepted
+  - id: homework04
+    status: accepted
+  - id: homework05
+    status: accepted
+  - id: homework06
+    status: accepted
+  - id: homework07
+    status: in_progress
+  - id: homework08
+    status: in_progress
+  - id: homework09
+    status: accepted
+  - id: homework10
+    status: accepted
+  - id: homework11
+    status: accepted
+  - id: homework12
+    status: accepted
+  - id: homework13
+    status: accepted
+  - id: homework14
+    status: accepted
+  - id: homework15
+    status: accepted
+  - id: homework16
+    status: accepted
+
+current_score: null
+notes:
+  - "Статуси перенесено зі старих назв каталогів: (+) — accepted, (±) — in_progress."

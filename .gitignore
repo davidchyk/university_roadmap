@@ -1,45 +1,89 @@
+
 # LaTeX
 
-*.fls
-*.bkp
-*.log
-*.fdb_latexmk
 *.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.lof
+*.lot
+*.nav
 *.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# qtiplot files
+
 *.qti~
-*.pyc
-*synctex.gz
 
-# Резервні й тимчасові файли
-
-*.dtmp
-*.crdownload
-
-cspell.json
-
+# minted-generated cache
 _minted/
+_minted-*/
+**/_minted-*/
 
-page.txt
-pages.txt
+# Temporary / backup files
 
-.env
-.venv
-node_modules/
-.gradle/
-.idea/
+*.bkp
+*.dtmp
+*.tmp
+*.crdownload
+*~
+
+# Python
+
 __pycache__/
+*.py[cod]
+
+.venv/
 .ipynb_checkpoints/
 
-# Відтворювані результати збірки
+# Node.js
+
+node_modules/
+
+# Java / Gradle
+
+.gradle/
+*.class
+
+# IDE
+
+.idea/
+
+# Environment / secrets
+.env
+.env.*
+
+!.env.example
+
+# Reproducible build outputs
+
 **/build/
 **/target/
 **/out/
-*.class
+
+# Simulation outputs
+
 *.wlf
 **/sim/work/
 
-# Кеші Quartus (вихідні файли проєктів і звіти лишаються в Git)
+# Quartus caches
+#
+# Project sources and reports remain tracked.
+
 **/quartus_project/db/
 **/quartus_project/incremental_db/
 **/quartus_project/simulation/*/work/
-semester4/digital_circuitry/labs/lab2/project/db/
+
+# Repository-specific generated files
+
+page.txt
+pages.txt
+cspell.json

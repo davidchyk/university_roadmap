@@ -1,0 +1,107 @@
+uname -a
+sudo pacman -Syu
+cat /etc/pacman.conf
+sudo pacman -S vim
+cd ~
+cd ~/downloads
+man ls
+ls -la
+pacman -U "$(ls -t /var/cache/pacman/pkg/vim-*.pkg.tar.zst | head -n 1)"
+sudo pacman -U "$(ls -t /var/cache/pacman/pkg/vim-*.pkg.tar.zst | head -n 1)"
+cd /
+sudo -i
+exit
+mkdir -p ~/pro_lab
+cd ~/pro_lab
+echo "hi all"
+echo "$PWD hi all here!"
+touch hi.sh
+echo "$PATH"
+vi hi.sh
+./hi.sh
+chmod a+x hi.sh
+chmod a+rwx hi.sh
+./hi.sh
+./hi.sh Ukraine
+mkdir -p scripts
+cp hi.sh scripts/
+cp scripts/ ~/documents/
+cp -r scripts/ ~/documents/
+cd scripts/
+mv hi.sh ../
+cd ..
+rm scripts
+rm -r scripts
+cd /bin
+ls -l
+cd ../..
+cd ~/pro_lab
+mkdir -p scripts
+tar -cvf scripts.tar scripts/
+cat hi.sh
+cat /var/log/pacman.log
+tail -n 20 /var/log/pacman.log
+less /var/log/pacman.log
+cd /
+find . -name "dhcp" 
+find . -name "*dhcp*"
+find . -iname "*dhcp*"
+find . -iname "*dhcp*" | grep --color=always -i dhcp
+find . -iname "*dhcp*" | grep --color=always -i etc
+ping google.com
+ping google.com &
+sudo ping google.com
+vlc
+ls -l
+cd /bin
+ls
+echo "$PATH"
+set
+whoami
+cd /etc/
+ls
+cd ..
+cd /lib
+ls
+dmesg
+sudo dmesg
+ls /dev
+sudo dmesg -C
+sudo dmesg | tail -n 20
+df -h
+cd /home
+ls -l
+lsmod
+cd /proc
+cat /proc/cpuinfo
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+sudo -i
+exit
+ip addr show
+ip link
+cd ~/pro_lab
+echo "vika" > 1.txt
+cat 1.txt
+echo "vasya" > 2.txt
+cat 2.txt
+diff 1.txt 2.txt
+history
+lspci
+history > history.txt
+cd ~/pro_lab
+ping google.com &
+fg
+ping google.com &
+ps aux | grep ping
+kill -TERM 6920
+ps aux | grep ping
+sudo ping google.com &
+ps aux | grep ping
+kill 8123
+sudo kill -KILL 8123
+sudo pkill vlc
+history >> history.txt
+whoami
+date
+ls -l history.txt

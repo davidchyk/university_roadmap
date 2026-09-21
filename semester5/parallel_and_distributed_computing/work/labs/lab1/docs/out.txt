@@ -1,0 +1,64 @@
+[davydchuk@arch-laptop lab1]$ ./build/lab1
+Enter N (3 or 1000): 3
+Creating threads:
+T1: enter one integer to fill F1 data: T2: enter one integer to fill F2 data: T3: enter one integer to fill F3 data:
+
+[davydchuk@arch-laptop lab1]$ taskset -c 0 ./build/lab1
+Enter N (3 or 1000): 1000
+F1, F2 and F3 data will be filled randomly.
+Creating threads:
+F1: MD calculated
+F3: O calculated
+F2: MG calculated
+Completed
+Threads computation time: 11.330594 seconds
+
+[davydchuk@arch-laptop lab1]$ taskset -c 0 ./build/lab1
+Enter N (3 or 1000): 1000
+F1, F2 and F3 data will be filled randomly.
+Creating threads:
+F3: O calculated
+F1: MD calculated
+F2: MG calculated
+Completed
+Threads computation time: 11.162718 seconds
+
+[davydchuk@arch-laptop lab1]$ taskset -c 0 ./build/lab1
+Enter N (3 or 1000): 1000
+F1, F2 and F3 data will be filled randomly.
+Creating threads:
+F1: MD calculated
+F3: O calculated
+F2: MG calculated
+Completed
+Threads computation time: 10.868024 seconds
+
+[davydchuk@arch-laptop lab1]$ taskset -c 0-2 ./build/lab1
+Enter N (3 or 1000): 1000
+F1, F2 and F3 data will be filled randomly.
+Creating threads:
+F3: O calculated
+F1: MD calculated
+F2: MG calculated
+Completed
+Threads computation time: 5.355084 seconds
+
+[davydchuk@arch-laptop lab1]$ taskset -c 0-2 ./build/lab1
+Enter N (3 or 1000): 1000
+F1, F2 and F3 data will be filled randomly.
+Creating threads:
+F1: MD calculated
+F3: O calculated
+F2: MG calculated
+Completed
+Threads computation time: 5.480508 seconds
+
+[davydchuk@arch-laptop lab1]$ taskset -c 0-2 ./build/lab1
+Enter N (3 or 1000): 1000
+F1, F2 and F3 data will be filled randomly.
+Creating threads:
+F3: O calculated
+F1: MD calculated
+F2: MG calculated
+Completed
+Threads computation time: 6.432790 seconds

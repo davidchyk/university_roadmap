@@ -27,8 +27,9 @@
     - Lab 5 (18 Nov)
 
 4. information support for industrial robots:
-    - Lab 1 (25 Oct)
-    - Lab 2 (27 Oct)
+    - Lab 1/2 (7 Oct) [completed]
+    - Lab 3 (21 Oct)
+    - Lab 4 (21 Oct)
 
 5. ca2:
     - Lab 1 (22 Sep) [completed]

@@ -1,0 +1,10 @@
+include rules.ninja
+
+build build/ninja: mkdir
+
+build build/ninja/calculator.o: cxx calculator.cpp | calculator.h || build/ninja
+build build/ninja/main.o: cxx main.cpp | calculator.h || build/ninja
+build build/ninja/libcalculator.a: archive build/ninja/calculator.o
+build build/ninja/calc_app: link build/ninja/main.o build/ninja/libcalculator.a
+
+default build/ninja/calc_app

@@ -8,7 +8,7 @@
 
 1. parallel and distributed computing:
     - Lab 1.2          [completed]
-    - Lab 2.1 (13 Oct)
+    - Lab 2.1 (13 Oct) [completed]
     - Lab 3.1/4.1 ()
     - Lab 4.1/4.2 ()
     - Lab 5 ()
@@ -34,17 +34,19 @@
 5. ca2:
     - Lab 1 (22 Sep) [completed]
     - Lab 2 (1 Oct)  [completed]
-    - Lab 3 (5 Oct)  
+    - Lab 3 (5 Oct)  [completed]
     - Lab 4 (19 Oct)
     - Lab 5 (2 Nov)
     - Lab 6 (16 Nov)
 
 6. artificial intelligence methods and technologies:
-    - Lab 2 (27 Sep) 
+    - Lab 2 (27 Sep) [completed]
+    - Lab 3 ()
 
 7. computer network:
     - Lab 1 (25 Sep) []
     - Lab 2 (30 Sep) []
+    - Lab 3 () []
 
 ### Lections/Theory
 
@@ -88,4 +90,3 @@
 8. eng
 
 ## Closed Courses
-

@@ -1,0 +1,312 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{ukrainian}
+\setmainfont{NewComputerModern10}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}[Scale=0.82]
+
+\usepackage{amsmath,amssymb,array,booktabs,caption,enumitem,float,geometry,graphicx,hyperref,microtype,titlesec,xcolor}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+\linespread{1.08}
+\titleformat{\section}{\normalfont\fontsize{14}{16}\selectfont\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\fontsize{12}{14}\selectfont\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.65em}
+\titlespacing*{\subsection}{0pt}{1.1em}{0.45em}
+\captionsetup{font=small,labelfont=bf,labelsep=endash}
+\captionsetup[table]{position=bottom,skip=5pt}
+\usepackage[newfloat]{minted}
+\SetupFloatingEnvironment{listing}{name=Лістинг}
+\setminted{%
+  fontsize=\footnotesize,
+  linenos,
+  breaklines,
+  autogobble,
+  frame=single,
+  framesep=2mm,
+  bgcolor=gray!5,
+  tabsize=4
+}
+
+\hypersetup{unicode,colorlinks=true,linkcolor=black,urlcolor=blue,
+  pdftitle={ІО-41, Давидчук А. М., Методи та технології штучного інтелекту, Лабораторна робота №2},
+  pdfauthor={Давидчук Артем}}
+
+\newcommand{\studentName}{Давидчук А. М.}
+\newcommand{\studentGroup}{ІО-41}
+\newcommand{\recordBook}{4106}
+\newcommand{\teacherName}{Польшакова О. М.}
+\newcommand{\reportYear}{2026}
+\newcommand{\resultDir}{../results}
+
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{../../../../../../templates/letterhead.png}
+  \end{center}
+  \begin{center}
+    \large
+    Національний технічний університет України\\
+    «Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+    Факультет інформатики та обчислювальної техніки\\
+    Кафедра обчислювальної техніки
+  \end{center}
+  \vfill
+  \begin{center}
+    \textbf{\LARGE Методи та технології штучного інтелекту}\\[2em]
+    \textbf{\Large Лабораторна робота №2}\\[0.7em]
+    \parbox{0.9\textwidth}{\centering «Моделювання функції з двох змінних засобами нечіткої математики»}
+  \end{center}
+  \vfill
+  \begin{flushright}
+    \begin{minipage}{0.48\textwidth}
+      Виконав: студент 3 курсу ФІОТ,\\
+      групи \studentGroup\\
+      \textit{\studentName}\\
+      Залікова книжка № \recordBook\\[1em]
+      Перевірив: \textit{\teacherName}
+    \end{minipage}
+  \end{flushright}
+  \vfill
+  \begin{center}Київ --- \reportYear\end{center}
+\end{titlepage}
+\pagenumbering{arabic}
+
+\section{Тема та мета роботи}
+\noindent\textbf{Тема:} моделювання функції двох змінних засобами нечіткої математики.
+
+\medskip
+\noindent\textbf{Мета:} побудувати нечітку модель функції двох змінних із використанням різних форм функцій належності; оцінити точність моделювання та дослідити можливість зменшення кількості правил.
+
+\section{Постановка задачі та варіант}
+
+Відповідно до варіанта 6 задано функції
+\begin{equation}
+  y=\sin(|x|)+\cos(|x|), \qquad z=x\sin(y).
+  \label{eq:variant}
+\end{equation}
+
+У роботі моделюється залежність виходу $z$ від двох входів $x$ та $y$. Для кожної вхідної змінної використано по 6 функцій належності, для вихідної змінної $z$ --- 9. Отже, повна база знань містить $6\cdot6=36$ правил.
+
+Для чисельного експерименту використано діапазон $x\in[0;1]$, а діапазон $y$ сформовано за першою формулою варіанта: $y\in[1;1{,}3818]$. Крок сітки для перевірки моделі становить $0{,}02$.
+
+\section{Теоретичні відомості}
+
+Нечітка множина описується функцією належності
+\begin{equation}
+  \mu_A(x):X\rightarrow[0;1],
+\end{equation}
+де значення функції визначає ступінь належності елемента $x$ до множини $A$. На відміну від класичної логіки, значення може бути проміжним між 0 та 1.
+
+У цій роботі використано три типи функцій належності. Трикутна функція задається параметрами $a,b,c$:
+\begin{equation}
+\mu(x)=\begin{cases}
+0,&x\leq a,\\
+\dfrac{x-a}{b-a},&a<x\leq b,\\
+\dfrac{c-x}{c-b},&b<x<c,\\
+0,&x\geq c.
+\end{cases}
+\end{equation}
+
+Трапецієподібна функція має плато максимального ступеня належності та задається параметрами $a,b,c,d$. Гаусова функція має вигляд
+\begin{equation}
+  \mu(x)=\exp\left(-\frac{(x-c)^2}{2\sigma^2}\right),
+\end{equation}
+де $c$ --- центр, а $\sigma$ --- ширина функції.
+
+Нечіткий висновок виконується в чотири етапи: фазифікація вхідних значень, активація правил, агрегація вихідних функцій та дефазифікація. Для операції AND використано мінімум, а для об'єднання результатів правил --- максимум. Числове значення виходу отримується методом центра ваги:
+\begin{equation}
+  z^*=\frac{\int z\mu(z)\,dz}{\int\mu(z)\,dz}.
+\end{equation}
+
+\section{Алгоритм виконання}
+
+Алгоритм програмної реалізації має такий вигляд:
+\begin{enumerate}[leftmargin=*]
+  \item сформувати рівномірні центри 6 функцій належності для $x$ та $y$;
+  \item сформувати 9 функцій належності для виходу $z$;
+  \item для кожної з 36 комбінацій центрів входів обчислити еталонне значення $z=x\sin(y)$;
+  \item призначити правилу ту вихідну функцію, центр якої найближчий до обчисленого значення;
+  \item для кожної точки тестової сітки визначити ступені належності входів;
+  \item застосувати активні правила за схемою Mamdani та виконати дефазифікацію;
+  \item порівняти точне й модельоване значення та обчислити похибку;
+  \item повторити експеримент для трикутних, трапецієподібних і гаусових функцій.
+\end{enumerate}
+
+Відносну похибку обчислено за формулою
+\begin{equation}
+  \varepsilon=\frac{|(z_{\text{exact}}+1)-(z_{\text{model}}+1)|}{|z_{\text{exact}}+1|}\cdot100\%.
+  \label{eq:error}
+\end{equation}
+
+\section{Програмна реалізація}
+
+Програму реалізовано мовою Python із використанням бібліотек NumPy та Matplotlib. Короткі фрагменти алгоритму наведено нижче, а повний лістинг програми --- у додатку.
+
+\begin{listing}[H]
+\begin{minted}{python}
+def auxiliary_y(x):
+    return np.sin(np.abs(x)) + np.cos(np.abs(x))
+
+def target_z(x, y):
+    return x * np.sin(y)
+\end{minted}
+\caption{Функції варіанта}
+\end{listing}
+
+Для правила $i,j$ обчислюється значення функції в центрах вхідних функцій, після чого вибирається найближчий центр виходу:
+
+\begin{listing}[H]
+\begin{minted}{python}
+for i, x_value in enumerate(x_centers):
+    for j, y_value in enumerate(y_centers):
+        value = target_z(x_value, y_value)
+        rules[i, j] = np.argmin(np.abs(output_centers - value))
+\end{minted}
+\caption{Формування бази правил}
+\end{listing}
+
+\section{Результати моделювання}
+
+На рисунку \ref{fig:tri-x} показано шість трикутних функцій належності вхідної змінної $x$. Вони перекриваються та разом покривають увесь робочий діапазон.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\textwidth]{\resultDir/memberships_x_triangular.png}
+  \caption{Трикутні функції належності змінної $x$}
+  \label{fig:tri-x}
+\end{figure}
+
+Для інших змінних та форм функцій отримано аналогічні графіки. На рисунку
+\ref{fig:membership-other} наведено приклади функцій належності для $y$ та
+$z$.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{\resultDir/memberships_y_trapezoidal.png}
+    \captionof{figure}{Функції належності $y$}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{\resultDir/memberships_z_gaussian.png}
+    \captionof{figure}{Функції належності $z$}
+  \end{minipage}
+  \caption{Приклади функцій належності для інших змінних}
+  \label{fig:membership-other}
+\end{figure}
+
+Для кожного типу функцій побудовано поверхню нечіткої моделі та поверхню абсолютної похибки. Приклад результату для трапецієподібних функцій наведено на рис. \ref{fig:trap-surface}--\ref{fig:trap-error}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.86\textwidth]{\resultDir/surface_trapezoidal.png}
+  \caption{Поверхня нечіткої моделі для трапецієподібних функцій}
+  \label{fig:trap-surface}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.86\textwidth]{\resultDir/error_trapezoidal.png}
+  \caption{Абсолютна похибка трапецієподібної моделі}
+  \label{fig:trap-error}
+\end{figure}
+
+На рисунку \ref{fig:other-surfaces} порівняно поверхні моделей для
+трикутних і гаусових функцій належності.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{\resultDir/surface_triangular.png}
+    \captionof{figure}{Трикутна модель}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{\resultDir/surface_gaussian.png}
+    \captionof{figure}{Гаусова модель}
+  \end{minipage}
+  \caption{Порівняння поверхонь нечітких моделей}
+  \label{fig:other-surfaces}
+\end{figure}
+
+Окремо побудовано поверхні абсолютних похибок для всіх трьох моделей.
+Приклад для трикутних та гаусових функцій наведено на рис. \ref{fig:other-errors}.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{\resultDir/error_triangular.png}
+    \captionof{figure}{Трикутні функції}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{\resultDir/error_gaussian.png}
+    \captionof{figure}{Гаусові функції}
+  \end{minipage}
+  \caption{Порівняння поверхонь абсолютної похибки}
+  \label{fig:other-errors}
+\end{figure}
+
+Середні та максимальні похибки наведено в таблиці \ref{tab:errors}.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{lrrr}
+    \toprule
+    Тип функцій & Середня похибка, \% & Максимальна похибка, \% & Діагональні правила, \%\\
+    \midrule
+    Трикутні & 2,9590 & 10,8153 & 17,0964\\
+    Трапецієподібні & 2,6378 & 10,1479 & 21,8342\\
+    Гаусові & 2,8516 & 14,6253 & 10,8487\\
+    \bottomrule
+  \end{tabular}
+  \caption{Результати оцінювання точності}
+  \label{tab:errors}
+\end{table}
+
+Найменшу середню похибку в повній системі правил отримано для трапецієподібних функцій --- $2{,}6378\%$. Трикутна модель дала похибку $2{,}9590\%$, а гаусова --- $2{,}8516\%$.
+
+\section{Дослідження скороченої бази правил}
+
+Додатково перевірено варіант, у якому залишаються лише правила головної діагоналі таблиці, тобто правила з однаковими номерами функцій належності входів:
+\begin{equation}
+  (mx_1,my_1), (mx_2,my_2),\ldots,(mx_6,my_6).
+\end{equation}
+
+У такому випадку кількість правил зменшується з 36 до 6. Однак повнота опису залежності погіршується. Найкращий результат серед скорочених систем отримано для гаусових функцій: $10{,}8487\%$. Для трикутних функцій похибка становить $17{,}0964\%$, а для трапецієподібних --- $21{,}8342\%$. Отже, скорочення бази правил можливе, але воно знижує точність моделі.
+
+\section{Висновки}
+
+У лабораторній роботі побудовано нечітку модель функції двох змінних для варіанта 6. Для кожної вхідної змінної використано 6 функцій належності, для вихідної --- 9, що дозволило сформувати 36 нечітких правил. Реалізовано фазифікацію, нечіткий висновок Mamdani, агрегацію та дефазифікацію методом центра ваги.
+
+Порівняння показало, що для повної бази правил найменшу середню похибку мають трапецієподібні функції належності --- $2{,}6378\%$. Виключення правил поза головною діагоналлю зменшує кількість правил у шість разів, але збільшує похибку. Тому для заданої функції доцільно використовувати повну базу з 36 правил.
+
+\section{Відповіді на контрольні питання}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Нечітка змінна} описує величину за допомогою числової області, термів і функцій належності. Чітка змінна має одне точне значення.
+  \item Її складові: базова область, терм-множина та функції належності.
+  \item \textbf{Терм-множина} --- набір словесних значень змінної, наприклад «мале», «середнє», «велике».
+  \item Приклад: температура з термами «низька», «комфортна», «висока».
+  \item Значення нечіткої змінної описуються ступенями належності від 0 до 1.
+  \item \textbf{Лінгвістична змінна} задає числову величину словами, яким відповідають нечіткі множини.
+  \item Нечітка змінна є математичним об'єктом, а лінгвістична додатково використовує словесні терми.
+  \item \textbf{Система нечіткого виводу} перетворює вхідні числові дані у вихідний результат через базу нечітких правил.
+  \item Основні етапи: фазифікація, активація правил, агрегація та дефазифікація.
+  \item Під час фазифікації числове значення порівнюється з усіма функціями належності та визначаються відповідні ступені належності.
+  \item \textbf{База правил} --- набір конструкцій IF--THEN, що встановлюють відповідність між входами та виходом.
+  \item Механізм нечіткого висновку визначає, які правила активні та як їхні результати впливають на вихід.
+  \item \textbf{Дефазифікація} перетворює нечітку вихідну множину на одне числове значення.
+  \item Поширені методи: центр ваги, середнє максимумів, перший максимум та останній максимум.
+  \item Нечіткі системи використовують у керуванні роботами, побутовій техніці, транспорті, діагностиці, прогнозуванні та системах підтримки рішень.
+\end{enumerate}
+
+\end{document}

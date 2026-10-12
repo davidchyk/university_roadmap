@@ -1,0 +1,21 @@
+cxx = g++
+ar = ar
+cxxflags = -std=c++11 -Wall -Wextra -Wpedantic -O2 -I.
+
+rule mkdir
+  command = mkdir -p $out
+  description = Creating $out
+
+rule cxx
+  command = $cxx $cxxflags -MMD -MF $out.d -c $in -o $out
+  depfile = $out.d
+  deps = gcc
+  description = Compiling $in
+
+rule archive
+  command = $ar rcs $out $in
+  description = Archiving $out
+
+rule link
+  command = $cxx $in -o $out
+  description = Linking $out

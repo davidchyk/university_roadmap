@@ -1,0 +1,3 @@
+Цей скрипт від CS:
+
+C:\Program Files\CoppeliaRobotics\CoppeliaSimEdu\scenes\tutorials\BubbleRob

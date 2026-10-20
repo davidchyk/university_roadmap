@@ -9,35 +9,35 @@
 1. parallel and distributed computing:
     - Lab 1.2          [completed]
     - Lab 2.1 (13 Oct) [completed]
-    - Lab 3.1/4.1 ()
+    - Lab 3.1/4.1 ()   [waiting]
     - Lab 4.1/4.2 ()
     - Lab 5 ()
 
 2. computer vision:
     - Lab 1 (25 Sep) [completed]
     - Lab 2 (27 Sep) [completed]
-    - Lab 3 (10 Oct)
+    - Lab 3 (10 Oct) [completed]
     - Lab 4 (20 Oct)
 
 3. intro ai:
     - Lab 1          [completed]
     - Lab 2 (7 Oct)  [completed]
-    - Lab 3 (21 Oct)
+    - Lab 3 (21 Oct) [completed]
     - Lab 4 (4 Nov)
     - Lab 5 (18 Nov)
 
 4. information support for industrial robots:
     - Lab 1/2 (7 Oct) [completed]
-    - Lab 3 (21 Oct)
-    - Lab 4 (21 Oct)
+    - Lab 3 (21 Oct)  [completed]
+    - Lab 4 (21 Oct)  [to send]
 
 5. ca2:
     - Lab 1 (22 Sep) [completed]
-    - Lab 2 (1 Oct)  [completed]
-    - Lab 3 (5 Oct)  [completed]
-    - Lab 4 (19 Oct)
-    - Lab 5 (2 Nov)
-    - Lab 6 (16 Nov)
+    - Lab 2 (5 Oct)  [completed]
+    - Lab 3 (19 Oct)  [completed]
+    - Lab 4 (2 Nov) []
+    - Lab 5 (16 Nov)  []
+    - Lab 6 (30 Nov) []
 
 6. artificial intelligence methods and technologies:
     - Lab 2 (27 Sep) [completed]
@@ -90,3 +90,5 @@
 8. eng
 
 ## Closed Courses
+
+## Specific tasks

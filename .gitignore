@@ -87,3 +87,4 @@ node_modules/
 page.txt
 pages.txt
 cspell.json
+*.pth

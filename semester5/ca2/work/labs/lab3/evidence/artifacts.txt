@@ -1,0 +1,5 @@
+u-boot/MLO: 109632 bytes
+u-boot/u-boot.img: 524652 bytes
+linux-stable/arch/arm/boot/zImage: 8950272 bytes
+linux-stable/arch/arm/boot/dts/am335x-boneblack.dtb: 34893 bytes
+busybox/rootfs.cpio.gz: 25739027 bytes

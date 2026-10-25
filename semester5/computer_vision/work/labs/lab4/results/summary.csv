@@ -1,0 +1,3 @@
+method,keypoints_reference,keypoints_candidate,usable_matches,ransac_inliers,identification_probability,target_met
+ORB,8000,8000,129,123,0.9535,True
+SIFT,8000,7357,159,150,0.9434,True

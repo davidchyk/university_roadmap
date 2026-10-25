@@ -7,76 +7,67 @@
 ### Labs/Pr
 
 1. parallel and distributed computing:
-    - Lab 1.2          [completed]
-    - Lab 2.1 (13 Oct) [completed]
-    - Lab 3.1/4.1 ()   [waiting]
+    - Lab 1.2          [completed, ndef]
+    - Lab 2.1 (13 Oct) [completed, ndef]
+    - Lab 3.1/4.1 ()   [completed, ndef]
     - Lab 4.1/4.2 ()
     - Lab 5 ()
 
 2. computer vision:
-    - Lab 1 (25 Sep) [completed]
-    - Lab 2 (27 Sep) [completed]
-    - Lab 3 (10 Oct) [completed]
-    - Lab 4 (20 Oct)
+    - Lab 1 (25 Sep) [completed, -]
+    - Lab 2 (27 Sep) [completed, -]
+    - Lab 3 (10 Oct) [completed, -]
+    - Lab 4 (20 Oct) [completed, -]
 
 3. intro ai:
-    - Lab 1          [completed]
-    - Lab 2 (7 Oct)  [completed]
-    - Lab 3 (21 Oct) [completed]
-    - Lab 4 (4 Nov)
+    - Lab 1          [completed, ndef]
+    - Lab 2 (7 Oct)  [completed, ndef]
+    - Lab 3 (21 Oct) [completed, ndef]
+    - Lab 4 (4 Nov)  
     - Lab 5 (18 Nov)
 
 4. information support for industrial robots:
-    - Lab 1/2 (7 Oct) [completed]
-    - Lab 3 (21 Oct)  [completed]
-    - Lab 4 (21 Oct)  [to send]
+    - Lab 1/2 (7 Oct) [completed, def]
+    - Lab 3 (21 Oct)  [completed, def]
+    - Lab 4 (25 Oct)  [completed, ndef]
+    - Lab 5 (11 Nov)  []
+    - Lab 6 (11 Nov)  []
 
 5. ca2:
-    - Lab 1 (22 Sep) [completed]
-    - Lab 2 (5 Oct)  [completed]
-    - Lab 3 (19 Oct)  [completed]
+    - Lab 1 (22 Sep) [completed, -]
+    - Lab 2 (5 Oct)  [completed, -]
+    - Lab 3 (19 Oct)  [completed, -]
     - Lab 4 (2 Nov) []
     - Lab 5 (16 Nov)  []
     - Lab 6 (30 Nov) []
 
 6. artificial intelligence methods and technologies:
-    - Lab 2 (27 Sep) [completed]
+    - Lab 1 ()       [completed, def]
+    - Lab 2 (27 Sep) [completed, ndef]
+    - Lab 3 ()
+    - Lab 4 ()
+    - Lab 5 ()
+
+7. computer network:
+    - Lab 1 (25 Sep)
+    - Lab 2 (30 Sep)
     - Lab 3 ()
 
-7. computer network:
-    - Lab 1 (25 Sep) []
-    - Lab 2 (30 Sep) []
-    - Lab 3 () []
+### Lections
 
-### Lections/Theory
+1. parallel and distributed computing: 8 lection
 
-1. parallel and distributed computing:
+2. computer vision: 8 lection
 
-    - [ ] to 6th lection
+3. intro ai: 8 lection
 
-2. computer vision:
+4. information support for industrial_robots: 8 lection
 
-    - [ ] 3rd lection
+5. ca2: 8 lection
 
-3. intro ai:
+6. artificial intelligence methods and technologies: 8 lection
 
-    - [ ] 3rd lection
-
-4. information support for industrial_robots
-
-    - [ ] 3rd lection
-
-5. ca2
-
-    - [ ] to 3rd lection
-
-6. artificial intelligence methods and technologies
-
-    - [ ] 3rd lection
-
-7. computer network:
-
-    - [ ] 3rd lection
+7. computer network: 8 lection
 
 ## Opened Courses
 

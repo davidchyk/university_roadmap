@@ -10,21 +10,26 @@
     - Lab 1.2          [completed, ndef]
     - Lab 2.1 (13 Oct) [completed, ndef]
     - Lab 3.1/4.1 ()   [completed, ndef]
-    - Lab 4.1/4.2 ()
-    - Lab 5 ()
+    - Lab 4.1/4.2 ()   []
+    - Lab 5 ()         []
 
 2. computer vision:
     - Lab 1 (25 Sep) [completed, -]
     - Lab 2 (27 Sep) [completed, -]
     - Lab 3 (10 Oct) [completed, -]
     - Lab 4 (20 Oct) [completed, -]
+    - Lab 5 (30 Oct) []
+    - Lab 6 (5 Nov)  []
+    - Lab 7 (10 Nov) []
+    - Lab 8 (15 Nov) []
+    - Lab 9 (20 Nov) []
 
 3. intro ai:
-    - Lab 1          [completed, ndef]
-    - Lab 2 (7 Oct)  [completed, ndef]
+    - Lab 1          [completed, def]
+    - Lab 2 (7 Oct)  [completed, def]
     - Lab 3 (21 Oct) [completed, ndef]
-    - Lab 4 (4 Nov)  
-    - Lab 5 (18 Nov)
+    - Lab 4 (4 Nov)  []
+    - Lab 5 (18 Nov) []
 
 4. information support for industrial robots:
     - Lab 1/2 (7 Oct) [completed, def]

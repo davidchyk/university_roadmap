@@ -1,0 +1,115 @@
+=== LAB 4: KERNEL MODULE TESTS ===
+/ # uname -a
+Linux (none) 4.19.325 #1 SMP Mon Oct 12 16:46:49 EEST 2026 armv7l GNU/Linux
+/ # ls -l /root/hello.ko
+-rw-r--r--    1 root     root          5476 Nov  2 02:37 /root/hello.ko
+/ # 
+/ # echo '=== TEST 1: DEFAULT count=1 ==='
+=== TEST 1: DEFAULT count=1 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello.ko
+[    3.077424] hello: loading out-of-tree module taints kernel.
+[    3.081610] Hello, world!
+/ # cat /sys/module/hello/parameters/count
+1
+/ # rmmod hello
+[    3.124061] event time: 3065112688 ns
+/ # dmesg
+[    3.077424] hello: loading out-of-tree module taints kernel.
+[    3.081610] Hello, world!
+[    3.124061] event time: 3065112688 ns
+/ # 
+/ # echo '=== TEST 2: count=0 ==='
+=== TEST 2: count=0 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello.ko count=0
+[    3.195132] count=0 is unusual; continuing
+/ # cat /sys/module/hello/parameters/count
+0
+/ # rmmod hello
+/ # dmesg
+[    3.195132] count=0 is unusual; continuing
+/ # 
+/ # echo '=== TEST 3: count=3 ==='
+=== TEST 3: count=3 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello.ko count=3
+[    3.286773] Hello, world!
+[    3.286882] Hello, world!
+[    3.286934] Hello, world!
+/ # cat /sys/module/hello/parameters/count
+3
+/ # rmmod hello
+[    3.324336] event time: 3270269296 ns
+[    3.324524] event time: 3270404032 ns
+[    3.324609] event time: 3270456864 ns
+/ # dmesg
+[    3.286773] Hello, world!
+[    3.286882] Hello, world!
+[    3.286934] Hello, world!
+[    3.324336] event time: 3270269296 ns
+[    3.324524] event time: 3270404032 ns
+[    3.324609] event time: 3270456864 ns
+/ # 
+/ # echo '=== TEST 4: count=7 ==='
+=== TEST 4: count=7 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello.ko count=7
+[    3.376784] count=7 is unusual; continuing
+[    3.376985] Hello, world!
+[    3.377065] Hello, world!
+[    3.377118] Hello, world!
+[    3.377187] Hello, world!
+[    3.377253] Hello, world!
+[    3.377309] Hello, world!
+[    3.377360] Hello, world!
+/ # cat /sys/module/hello/parameters/count
+7
+/ # rmmod hello
+[    3.411690] event time: 3360492336 ns
+[    3.411833] event time: 3360586944 ns
+[    3.411932] event time: 3360640496 ns
+[    3.412008] event time: 3360708368 ns
+[    3.412081] event time: 3360775824 ns
+[    3.412154] event time: 3360831712 ns
+[    3.412242] event time: 3360883328 ns
+/ # dmesg
+[    3.376784] count=7 is unusual; continuing
+[    3.376985] Hello, world!
+[    3.377065] Hello, world!
+[    3.377118] Hello, world!
+[    3.377187] Hello, world!
+[    3.377253] Hello, world!
+[    3.377309] Hello, world!
+[    3.377360] Hello, world!
+[    3.411690] event time: 3360492336 ns
+[    3.411833] event time: 3360586944 ns
+[    3.411932] event time: 3360640496 ns
+[    3.412008] event time: 3360708368 ns
+[    3.412081] event time: 3360775824 ns
+[    3.412154] event time: 3360831712 ns
+[    3.412242] event time: 3360883328 ns
+/ # 
+/ # echo '=== TEST 5: count=11 (EXPECTED FAILURE) ==='
+=== TEST 5: count=11 (EXPECTED FAILURE) ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello.ko count=11
+[    3.472900] count=11 is greater than 10
+insmod: can't insert '/root/hello.ko': invalid parameter
+/ # echo "insmod exit status: $?"
+insmod exit status: 1
+/ # lsmod | grep '^hello ' || echo 'hello is not loaded'
+hello is not loaded
+/ # dmesg
+[    3.472900] count=11 is greater than 10
+/ # 
+/ # echo '=== TESTS COMPLETE ==='
+=== TESTS COMPLETE ===
+/ # poweroff
+/ # umount: can't unmount /: Invalid argument
+swapoff: can't open '/etc/fstab': No such file or directory
+The system is going down NOW!
+Sent SIGTERM to all processes
+Sent SIGKILL to all processes
+Requesting system poweroff
+[    5.635972] reboot: Power down

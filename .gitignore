@@ -88,3 +88,10 @@ page.txt
 pages.txt
 cspell.json
 *.pth
+
+# Intro AI Lab 4 generated artifacts
+
+/semester5/intro_ai/work/labs/lab4/data/
+/semester5/intro_ai/work/labs/lab4/models/
+/semester5/intro_ai/work/labs/lab4/output/
+/semester5/intro_ai/work/labs/lab4/docs/main.pdf

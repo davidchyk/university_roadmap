@@ -27,7 +27,7 @@
 3. intro ai:
     - Lab 1          [completed, def]
     - Lab 2 (7 Oct)  [completed, def]
-    - Lab 3 (21 Oct) [completed, ndef]
+    - Lab 3 (21 Oct) [completed, def]
     - Lab 4 (4 Nov)  []
     - Lab 5 (18 Nov) []
 
@@ -41,10 +41,10 @@
 5. ca2:
     - Lab 1 (22 Sep) [completed, -]
     - Lab 2 (5 Oct)  [completed, -]
-    - Lab 3 (19 Oct)  [completed, -]
-    - Lab 4 (2 Nov) []
-    - Lab 5 (16 Nov)  []
-    - Lab 6 (30 Nov) []
+    - Lab 3 (19 Oct) [completed, -]
+    - Lab 4 (2 Nov)  [completed, -]
+    - Lab 5 (16 Nov) [completed, -]
+    - Lab 6 (30 Nov) [completed, -]
 
 6. artificial intelligence methods and technologies:
     - Lab 1 ()       [completed, def]
@@ -54,9 +54,8 @@
     - Lab 5 ()
 
 7. computer network:
-    - Lab 1 (25 Sep)
-    - Lab 2 (30 Sep)
-    - Lab 3 ()
+    - Lab 1,2,3,4 ()
+    - Lab 5,6,7,8,9 ()
 
 ### Lections
 

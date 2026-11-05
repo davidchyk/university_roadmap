@@ -1,0 +1,175 @@
+=== LAB 5: TWO KERNEL MODULES ==='
+=== LAB 5: TWO KERNEL MODULES ===
+/ # uname -a
+Linux (none) 4.19.325 #1 SMP Mon Oct 12 16:46:49 EEST 2026 armv7l GNU/Linux
+/ # ls -l /root/hello1.ko /root/hello2.ko
+-rw-r--r--    1 root     root          5056 Nov  5 06:49 /root/hello1.ko
+-rw-r--r--    1 root     root          4536 Nov  5 06:49 /root/hello2.ko
+/ # 
+/ # echo '=== TEST 1: hello2 WITHOUT hello1 (EXPECTED FAILURE) ==='
+=== TEST 1: hello2 WITHOUT hello1 (EXPECTED FAILURE) ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello2.ko
+[    3.504430] hello2: loading out-of-tree module taints kernel.
+[    3.508712] hello2: Unknown symbol print_hello (err -2)
+insmod: can't insert '/root/hello2.ko': unknown symbol in module or invalid parameter
+/ # echo "insmod hello2 exit status: $?"
+insmod hello2 exit status: 1
+/ # lsmod | grep '^hello2 ' || echo 'hello2 is not loaded'
+hello2 is not loaded
+/ # dmesg
+[    3.504430] hello2: loading out-of-tree module taints kernel.
+[    3.508712] hello2: Unknown symbol print_hello (err -2)
+/ # 
+/ # echo '=== TEST 2: DEFAULT count=1 ==='
+=== TEST 2: DEFAULT count=1 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    3.598499] hello1 loaded
+/ # insmod /root/hello2.ko
+[    3.623355] Hello, world!
+/ # cat /sys/module/hello2/parameters/count
+1
+/ # lsmod
+hello2 16384 0 - Live 0xbf010000 (O)
+hello1 16384 1 hello2, Live 0xbf008000 (O)
+/ # rmmod hello2
+[    3.677469] hello2 unloaded
+/ # rmmod hello1
+[    3.701036] print duration: 120448 ns
+[    3.701257] hello1 unloaded
+/ # dmesg
+[    3.598499] hello1 loaded
+[    3.623355] Hello, world!
+[    3.677469] hello2 unloaded
+[    3.701036] print duration: 120448 ns
+[    3.701257] hello1 unloaded
+/ # 
+/ # echo '=== TEST 3: count=0 ==='
+=== TEST 3: count=0 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    3.754932] hello1 loaded
+/ # insmod /root/hello2.ko count=0
+[    3.781663] count=0 is unusual; continuing
+/ # cat /sys/module/hello2/parameters/count
+0
+/ # rmmod hello2
+[    3.818165] hello2 unloaded
+/ # rmmod hello1
+[    3.831970] hello1 unloaded
+/ # dmesg
+[    3.754932] hello1 loaded
+[    3.781663] count=0 is unusual; continuing
+[    3.818165] hello2 unloaded
+[    3.831970] hello1 unloaded
+/ # 
+/ # echo '=== TEST 4: count=3 ==='
+=== TEST 4: count=3 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    3.890404] hello1 loaded
+/ # insmod /root/hello2.ko count=3
+[    3.913457] Hello, world!
+[    3.913585] Hello, world!
+[    3.913646] Hello, world!
+/ # cat /sys/module/hello2/parameters/count
+3
+/ # rmmod hello2
+[    3.950014] hello2 unloaded
+/ # rmmod hello1
+[    3.972024] print duration: 118752 ns
+[    3.972187] print duration: 59376 ns
+[    3.972252] print duration: 71552 ns
+[    3.972323] hello1 unloaded
+/ # dmesg
+[    3.890404] hello1 loaded
+[    3.913457] Hello, world!
+[    3.913585] Hello, world!
+[    3.913646] Hello, world!
+[    3.950014] hello2 unloaded
+[    3.972024] print duration: 118752 ns
+[    3.972187] print duration: 59376 ns
+[    3.972252] print duration: 71552 ns
+[    3.972323] hello1 unloaded
+/ # 
+/ # echo '=== TEST 5: count=7 ==='
+=== TEST 5: count=7 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    4.027119] hello1 loaded
+/ # insmod /root/hello2.ko count=7
+[    4.050508] count=7 is unusual; continuing
+[    4.050716] Hello, world!
+[    4.050850] Hello, world!
+[    4.050937] Hello, world!
+[    4.050998] Hello, world!
+[    4.051059] Hello, world!
+[    4.051106] Hello, world!
+[    4.051162] Hello, world!
+/ # cat /sys/module/hello2/parameters/count
+7
+/ # rmmod hello2
+[    4.088163] hello2 unloaded
+/ # rmmod hello1
+[    4.101845] print duration: 81584 ns
+[    4.101998] print duration: 89344 ns
+[    4.102063] print duration: 60240 ns
+[    4.102126] print duration: 50928 ns
+[    4.102195] print duration: 53424 ns
+[    4.102273] print duration: 46384 ns
+[    4.102360] print duration: 47104 ns
+[    4.102477] hello1 unloaded
+/ # dmesg
+[    4.027119] hello1 loaded
+[    4.050508] count=7 is unusual; continuing
+[    4.050716] Hello, world!
+[    4.050850] Hello, world!
+[    4.050937] Hello, world!
+[    4.050998] Hello, world!
+[    4.051059] Hello, world!
+[    4.051106] Hello, world!
+[    4.051162] Hello, world!
+[    4.088163] hello2 unloaded
+[    4.101845] print duration: 81584 ns
+[    4.101998] print duration: 89344 ns
+[    4.102063] print duration: 60240 ns
+[    4.102126] print duration: 50928 ns
+[    4.102195] print duration: 53424 ns
+[    4.102273] print duration: 46384 ns
+[    4.102360] print duration: 47104 ns
+[    4.102477] hello1 unloaded
+/ # 
+/ # echo '=== TEST 6: count=11 (EXPECTED FAILURE) ==='
+=== TEST 6: count=11 (EXPECTED FAILURE) ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    4.164991] hello1 loaded
+/ # insmod /root/hello2.ko count=11
+[    4.183536] count=11 is greater than 10
+insmod: can't insert '/root/hello2.ko': invalid parameter
+/ # echo "insmod hello2 exit status: $?"
+insmod hello2 exit status: 1
+/ # lsmod | grep '^hello2 ' || echo 'hello2 is not loaded'
+hello2 is not loaded
+/ # rmmod hello1
+[    4.237862] hello1 unloaded
+/ # dmesg
+[    4.164991] hello1 loaded
+[    4.183536] count=11 is greater than 10
+[    4.237862] hello1 unloaded
+/ # 
+/ # echo '=== TESTS COMPLETE ==='
+=== TESTS COMPLETE ===
+/ # poweroff
+/ # umount: can't unmount /: Invalid argument
+swapoff: can't open '/etc/fstab': No such file or directory
+
+The system is going down NOW!
+
+Sent SIGTERM to all processes
+
+Sent SIGKILL to all processes
+
+Requesting system poweroff
+[    6.369808] reboot: Power down

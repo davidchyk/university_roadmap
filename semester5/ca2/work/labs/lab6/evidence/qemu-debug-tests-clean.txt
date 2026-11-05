@@ -1,0 +1,607 @@
+
+=== QEMU SESSION A ===
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.19.325 (davydchuk@arch-laptop) (gcc version 8.3.0 (GNU Toolchain for the A-profile Architecture 8.3-2019.03 (arm-rel-8.36))) #1 SMP Mon Oct 12 16:46:49 EEST 2026
+[    0.000000] CPU: ARMv7 Processor [414fc0f0] revision 0 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] OF: fdt: Machine model: linux,dummy-virt
+[    0.000000] random: crng init done
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Reserved 64 MiB at 0x5c000000
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] psci: SMC Calling Convention v1.0
+[    0.000000] percpu: Embedded 16 pages/cpu s36748 r8192 d20596 u65536
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 130048
+[    0.000000] Kernel command line: root=/dev/ram0 rw console=ttyAMA0,115200 mem=512M
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Memory: 405328K/524288K available (12288K kernel code, 1618K rwdata, 4796K rodata, 2048K init, 394K bss, 53424K reserved, 65536K cma-reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xe0800000 - 0xff800000   ( 496 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xe0000000   ( 512 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0x(ptrval) - 0x(ptrval)   (13280 kB)
+[    0.000000]       .init : 0x(ptrval) - 0x(ptrval)   (2048 kB)
+[    0.000000]       .data : 0x(ptrval) - 0x(ptrval)   (1619 kB)
+[    0.000000]        .bss : 0x(ptrval) - 0x(ptrval)   ( 395 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU event tracing is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=16 to nr_cpu_ids=1.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] GICv2m: range[mem 0x08020000-0x08020fff], SPI[80:143]
+[    0.000000] arch_timer: cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000240] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000447] Switching to timer-based delay loop, resolution 16ns
+[    0.006817] Console: colour dummy device 80x30
+[    0.014257] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.014491] CPU: Testing write buffer coherency: ok
+[    0.016086] CPU0: Spectre v2: firmware did not set auxiliary control register IBE bit, system vulnerable
+[    0.016297] CPU0: Spectre BHB: enabling loop workaround for all CPUs
+[    0.016420] pid_max: default: 32768 minimum: 301
+[    0.018031] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.018082] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.048102] /cpus/cpu@0 missing clock-frequency property
+[    0.048508] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.056543] Setting up static identity map for 0x40300000 - 0x403000a0
+[    0.059641] rcu: Hierarchical SRCU implementation.
+[    0.064630] EFI services will not be available.
+[    0.066191] smp: Bringing up secondary CPUs ...
+[    0.066323] smp: Brought up 1 node, 1 CPU
+[    0.066435] SMP: Total of 1 processors activated (125.00 BogoMIPS).
+[    0.066527] CPU: All CPU(s) started in SVC mode.
+[    0.115456] devtmpfs: initialized
+[    0.136380] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.163223] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.164526] futex hash table entries: 256 (order: 2, 16384 bytes)
+[    0.173315] pinctrl core: initialized pinctrl subsystem
+[    0.192635] DMI not present or invalid.
+[    0.201794] NET: Registered protocol family 16
+[    0.230474] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.238804] cpuidle: using governor menu
+[    0.239820] No ATAGs?
+[    0.241370] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.241483] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.247829] Serial: AMBA PL011 UART driver
+[    0.297317] 9000000.pl011: ttyAMA0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    0.321361] console [ttyAMA0] enabled
+[    0.391034] vgaarb: loaded
+[    0.398551] SCSI subsystem initialized
+[    0.403574] usbcore: registered new interface driver usbfs
+[    0.404943] usbcore: registered new interface driver hub
+[    0.405936] usbcore: registered new device driver usb
+[    0.410482] pps_core: LinuxPPS API ver. 1 registered
+[    0.410742] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.411263] PTP clock support registered
+[    0.412087] EDAC MC: Ver: 3.0.0
+[    0.442547] clocksource: Switched to clocksource arch_sys_counter
+[    0.627669] NET: Registered protocol family 2
+[    0.630566] IP idents hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.636751] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes)
+[    0.637534] TCP established hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.638303] TCP bind hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.638826] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.642288] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.643259] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.645314] NET: Registered protocol family 1
+[    0.650114] RPC: Registered named UNIX socket transport module.
+[    0.650527] RPC: Registered udp transport module.
+[    0.650900] RPC: Registered tcp transport module.
+[    0.651236] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.661186] Trying to unpack rootfs image as initramfs...
+[    2.678542] Freeing initrd memory: 25168K
+[    2.684738] Initialise system trusted keyrings
+[    2.687597] workingset: timestamp_bits=30 max_order=17 bucket_order=0
+[    2.703334] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.706874] NFS: Registering the id_resolver key type
+[    2.707548] Key type id_resolver registered
+[    2.707778] Key type id_legacy registered
+[    2.708849] ntfs: driver 2.1.32 [Flags: R/O].
+[    2.720895] Key type asymmetric registered
+[    2.721349] Asymmetric key parser 'x509' registered
+[    2.722305] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 246)
+[    2.723016] io scheduler noop registered
+[    2.723251] io scheduler deadline registered
+[    2.724265] io scheduler cfq registered (default)
+[    2.724763] io scheduler mq-deadline registered
+[    2.725131] io scheduler kyber registered
+[    2.752922] pl061_gpio 9030000.pl061: PL061 GPIO chip @0x09030000 registered
+[    2.762324] pci-host-generic 4010000000.pcie: host bridge /pcie@10000000 ranges:
+[    2.763510] pci-host-generic 4010000000.pcie:    IO 0x3eff0000..0x3effffff -> 0x00000000
+[    2.764618] pci-host-generic 4010000000.pcie:   MEM 0x10000000..0x3efeffff -> 0x10000000
+[    2.765063] pci-host-generic 4010000000.pcie:   MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[    2.766772] pci-host-generic 4010000000.pcie: can't claim ECAM area [mem 0x10000000-0x1fffffff]: address conflict with pcie@10000000 [mem 0x10000000-0x3efeffff]
+[    2.768599] pci-host-generic: probe of 4010000000.pcie failed with error -16
+[    2.898800] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    2.906318] SuperH (H)SCI(F) driver initialized
+[    2.908542] msm_serial: driver initialized
+[    2.909633] STMicroelectronics ASC driver initialized
+[    2.912442] STM32 USART driver initialized
+[    2.963472] brd: module loaded
+[    2.981422] loop: module loaded
+[    3.004010] CAN device driver interface
+[    3.006008] bgmac_bcma: Broadcom 47xx GBit MAC driver loaded
+[    3.008425] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    3.008792] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    3.010159] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.4.0-k
+[    3.010546] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    3.018350] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+[    3.018787] usbcore: registered new interface driver pegasus
+[    3.019553] usbcore: registered new interface driver asix
+[    3.020022] usbcore: registered new interface driver ax88179_178a
+[    3.020496] usbcore: registered new interface driver cdc_ether
+[    3.020860] usbcore: registered new interface driver smsc75xx
+[    3.021235] usbcore: registered new interface driver smsc95xx
+[    3.021518] usbcore: registered new interface driver net1080
+[    3.021959] usbcore: registered new interface driver cdc_subset
+[    3.022425] usbcore: registered new interface driver zaurus
+[    3.022950] usbcore: registered new interface driver cdc_ncm
+[    3.027932] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    3.028271] ehci-pci: EHCI PCI platform driver
+[    3.028882] ehci-platform: EHCI generic platform driver
+[    3.029970] ehci-omap: OMAP-EHCI Host Controller driver
+[    3.030584] ehci-orion: EHCI orion driver
+[    3.031113] SPEAr-ehci: EHCI SPEAr driver
+[    3.031506] ehci-st: EHCI STMicroelectronics driver
+[    3.032116] ehci-exynos: EHCI EXYNOS driver
+[    3.032719] ehci-atmel: EHCI Atmel driver
+[    3.033266] tegra-ehci: Tegra EHCI driver
+[    3.033930] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    3.034481] ohci-pci: OHCI PCI platform driver
+[    3.035173] ohci-platform: OHCI generic platform driver
+[    3.035871] SPEAr-ohci: OHCI SPEAr driver
+[    3.036567] ohci-st: OHCI STMicroelectronics driver
+[    3.037104] ohci-atmel: OHCI Atmel driver
+[    3.040467] usbcore: registered new interface driver usb-storage
+[    3.041708] usbcore: registered new interface driver usbserial_generic
+[    3.042352] usbserial: USB Serial support registered for generic
+[    3.043030] usbcore: registered new interface driver ftdi_sio
+[    3.043495] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    3.043930] usbcore: registered new interface driver pl2303
+[    3.044361] usbserial: USB Serial support registered for pl2303
+[    3.044800] usbcore: registered new interface driver usb_serial_simple
+[    3.045273] usbserial: USB Serial support registered for carelink
+[    3.045825] usbserial: USB Serial support registered for flashloader
+[    3.046305] usbserial: USB Serial support registered for funsoft
+[    3.046699] usbserial: USB Serial support registered for google
+[    3.047113] usbserial: USB Serial support registered for hp4x
+[    3.047498] usbserial: USB Serial support registered for kaufmann
+[    3.047906] usbserial: USB Serial support registered for libtransistor
+[    3.048316] usbserial: USB Serial support registered for moto_modem
+[    3.048798] usbserial: USB Serial support registered for motorola_tetra
+[    3.049882] usbserial: USB Serial support registered for nokia
+[    3.050459] usbserial: USB Serial support registered for novatel_gps
+[    3.051008] usbserial: USB Serial support registered for siemens_mpi
+[    3.051462] usbserial: USB Serial support registered for suunto
+[    3.051922] usbserial: USB Serial support registered for vivopay
+[    3.052400] usbserial: USB Serial support registered for zio
+[    3.067487] rtc-pl031 9010000.pl031: rtc core: registered pl031 as rtc0
+[    3.072076] i2c /dev entries driver
+[    3.100369] sdhci: Secure Digital Host Controller Interface driver
+[    3.100639] sdhci: Copyright(c) Pierre Ossman
+[    3.103923] Synopsys Designware Multimedia Card Interface Driver
+[    3.107308] sdhci-pltfm: SDHCI platform and OF driver helper
+[    3.114311] ledtrig-cpu: registered to indicate activity on CPUs
+[    3.116790] usbcore: registered new interface driver usbhid
+[    3.117014] usbhid: USB HID core driver
+[    3.127441] NET: Registered protocol family 10
+[    3.137579] Segment Routing with IPv6
+[    3.138488] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.143421] NET: Registered protocol family 17
+[    3.144492] can: controller area network core (rev 20170425 abi 9)
+[    3.145433] NET: Registered protocol family 29
+[    3.145877] can: raw protocol (rev 20170425)
+[    3.146429] can: broadcast manager protocol (rev 20170425 t)
+[    3.147066] can: netlink gateway (rev 20170425) max_hops=1
+[    3.149471] Key type dns_resolver registered
+[    3.150275] ThumbEE CPU extension supported.
+[    3.150681] Registering SWP/SWPB emulation handler
+[    3.154181] Loading compiled-in X.509 certificates
+[    3.170478] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    3.175329] rtc-pl031 9010000.pl031: setting system clock to 2026-11-05 07:12:35 UTC (1793862755)
+[    3.185258] uart-pl011 9000000.pl011: no DMA platform data
+[    3.377211] Freeing unused kernel memory: 2048K
+[    3.388669] Run /init as init process
+
+Please press Enter to activate this console. 
+/ # echo '=== LAB 6 TEST 1: FORCED KMALLOC FAILURE ==='
+=== LAB 6 TEST 1: FORCED KMALLOC FAILURE ===
+/ # uname -a
+Linux (none) 4.19.325 #1 SMP Mon Oct 12 16:46:49 EEST 2026 armv7l GNU/Linux
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello.ko count=5
+[    6.314067] hello: loading out-of-tree module taints kernel.
+[    6.323176] count=5 is unusual; continuing
+[    6.323382] Hello, world!
+[    6.323466] Hello, world!
+[    6.323536] Hello, world!
+[    6.323603] Hello, world!
+[    6.323676] memory allocation failed for message 5
+insmod: can't insert '/root/hello.ko': Cannot allocate memory
+/ # echo "insmod exit status: $?"
+insmod exit status: 1
+/ # lsmod | grep '^hello ' || echo 'hello is not loaded'
+hello is not loaded
+/ # dmesg
+[    6.314067] hello: loading out-of-tree module taints kernel.
+[    6.323176] count=5 is unusual; continuing
+[    6.323382] Hello, world!
+[    6.323466] Hello, world!
+[    6.323536] Hello, world!
+[    6.323603] Hello, world!
+[    6.323676] memory allocation failed for message 5
+/ # echo '=== ALLOCATION TEST COMPLETE ==='
+=== ALLOCATION TEST COMPLETE ===
+/ # poweroff
+/ # umount: can't unmount /: Invalid argument
+swapoff: can't open '/etc/fstab': No such file or directory
+
+The system is going down NOW!
+
+Sent SIGTERM to all processes
+
+Sent SIGKILL to all processes
+
+Requesting system poweroff
+[    8.553028] reboot: Power down
+
+=== QEMU SESSION B ===
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.19.325 (davydchuk@arch-laptop) (gcc version 8.3.0 (GNU Toolchain for the A-profile Architecture 8.3-2019.03 (arm-rel-8.36))) #1 SMP Mon Oct 12 16:46:49 EEST 2026
+[    0.000000] CPU: ARMv7 Processor [414fc0f0] revision 0 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] OF: fdt: Machine model: linux,dummy-virt
+[    0.000000] random: crng init done
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Reserved 64 MiB at 0x5c000000
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] psci: SMC Calling Convention v1.0
+[    0.000000] percpu: Embedded 16 pages/cpu s36748 r8192 d20596 u65536
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 130048
+[    0.000000] Kernel command line: root=/dev/ram0 rw console=ttyAMA0,115200 mem=512M
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Memory: 405328K/524288K available (12288K kernel code, 1618K rwdata, 4796K rodata, 2048K init, 394K bss, 53424K reserved, 65536K cma-reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xe0800000 - 0xff800000   ( 496 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xe0000000   ( 512 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0x(ptrval) - 0x(ptrval)   (13280 kB)
+[    0.000000]       .init : 0x(ptrval) - 0x(ptrval)   (2048 kB)
+[    0.000000]       .data : 0x(ptrval) - 0x(ptrval)   (1619 kB)
+[    0.000000]        .bss : 0x(ptrval) - 0x(ptrval)   ( 395 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU event tracing is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=16 to nr_cpu_ids=1.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] GICv2m: range[mem 0x08020000-0x08020fff], SPI[80:143]
+[    0.000000] arch_timer: cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000267] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000476] Switching to timer-based delay loop, resolution 16ns
+[    0.007583] Console: colour dummy device 80x30
+[    0.014954] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.015251] CPU: Testing write buffer coherency: ok
+[    0.016785] CPU0: Spectre v2: firmware did not set auxiliary control register IBE bit, system vulnerable
+[    0.017007] CPU0: Spectre BHB: enabling loop workaround for all CPUs
+[    0.017149] pid_max: default: 32768 minimum: 301
+[    0.018828] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.018880] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.049305] /cpus/cpu@0 missing clock-frequency property
+[    0.049692] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.058801] Setting up static identity map for 0x40300000 - 0x403000a0
+[    0.061555] rcu: Hierarchical SRCU implementation.
+[    0.066809] EFI services will not be available.
+[    0.068088] smp: Bringing up secondary CPUs ...
+[    0.068226] smp: Brought up 1 node, 1 CPU
+[    0.068337] SMP: Total of 1 processors activated (125.00 BogoMIPS).
+[    0.068425] CPU: All CPU(s) started in SVC mode.
+[    0.117797] devtmpfs: initialized
+[    0.131900] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.159632] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.160936] futex hash table entries: 256 (order: 2, 16384 bytes)
+[    0.169532] pinctrl core: initialized pinctrl subsystem
+[    0.189262] DMI not present or invalid.
+[    0.198208] NET: Registered protocol family 16
+[    0.226226] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.233968] cpuidle: using governor menu
+[    0.234941] No ATAGs?
+[    0.237458] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.237595] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.242949] Serial: AMBA PL011 UART driver
+[    0.295755] 9000000.pl011: ttyAMA0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    0.321606] console [ttyAMA0] enabled
+[    0.394446] vgaarb: loaded
+[    0.398390] SCSI subsystem initialized
+[    0.401800] usbcore: registered new interface driver usbfs
+[    0.402508] usbcore: registered new interface driver hub
+[    0.403362] usbcore: registered new device driver usb
+[    0.408614] pps_core: LinuxPPS API ver. 1 registered
+[    0.408837] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.409306] PTP clock support registered
+[    0.410122] EDAC MC: Ver: 3.0.0
+[    0.436802] clocksource: Switched to clocksource arch_sys_counter
+[    0.616551] NET: Registered protocol family 2
+[    0.619455] IP idents hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.627801] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes)
+[    0.628619] TCP established hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.629462] TCP bind hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.630100] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.632875] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.634040] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.636128] NET: Registered protocol family 1
+[    0.640883] RPC: Registered named UNIX socket transport module.
+[    0.641336] RPC: Registered udp transport module.
+[    0.641686] RPC: Registered tcp transport module.
+[    0.641994] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.650797] Trying to unpack rootfs image as initramfs...
+[    2.736603] Freeing initrd memory: 25168K
+[    2.743809] Initialise system trusted keyrings
+[    2.746459] workingset: timestamp_bits=30 max_order=17 bucket_order=0
+[    2.761643] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.765734] NFS: Registering the id_resolver key type
+[    2.766380] Key type id_resolver registered
+[    2.766620] Key type id_legacy registered
+[    2.767379] ntfs: driver 2.1.32 [Flags: R/O].
+[    2.779199] Key type asymmetric registered
+[    2.779599] Asymmetric key parser 'x509' registered
+[    2.780270] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 246)
+[    2.780769] io scheduler noop registered
+[    2.781021] io scheduler deadline registered
+[    2.781732] io scheduler cfq registered (default)
+[    2.782122] io scheduler mq-deadline registered
+[    2.782402] io scheduler kyber registered
+[    2.809494] pl061_gpio 9030000.pl061: PL061 GPIO chip @0x09030000 registered
+[    2.818528] pci-host-generic 4010000000.pcie: host bridge /pcie@10000000 ranges:
+[    2.819667] pci-host-generic 4010000000.pcie:    IO 0x3eff0000..0x3effffff -> 0x00000000
+[    2.820842] pci-host-generic 4010000000.pcie:   MEM 0x10000000..0x3efeffff -> 0x10000000
+[    2.821401] pci-host-generic 4010000000.pcie:   MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[    2.823204] pci-host-generic 4010000000.pcie: can't claim ECAM area [mem 0x10000000-0x1fffffff]: address conflict with pcie@10000000 [mem 0x10000000-0x3efeffff]
+[    2.825236] pci-host-generic: probe of 4010000000.pcie failed with error -16
+[    2.959490] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    2.966548] SuperH (H)SCI(F) driver initialized
+[    2.968714] msm_serial: driver initialized
+[    2.969360] STMicroelectronics ASC driver initialized
+[    2.972008] STM32 USART driver initialized
+[    3.026260] brd: module loaded
+[    3.045383] loop: module loaded
+[    3.068526] CAN device driver interface
+[    3.070401] bgmac_bcma: Broadcom 47xx GBit MAC driver loaded
+[    3.072696] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    3.072974] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    3.073763] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.4.0-k
+[    3.074137] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    3.081350] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+[    3.081788] usbcore: registered new interface driver pegasus
+[    3.082399] usbcore: registered new interface driver asix
+[    3.082717] usbcore: registered new interface driver ax88179_178a
+[    3.083176] usbcore: registered new interface driver cdc_ether
+[    3.084250] usbcore: registered new interface driver smsc75xx
+[    3.084761] usbcore: registered new interface driver smsc95xx
+[    3.085225] usbcore: registered new interface driver net1080
+[    3.085669] usbcore: registered new interface driver cdc_subset
+[    3.085989] usbcore: registered new interface driver zaurus
+[    3.086346] usbcore: registered new interface driver cdc_ncm
+[    3.091534] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    3.092016] ehci-pci: EHCI PCI platform driver
+[    3.092873] ehci-platform: EHCI generic platform driver
+[    3.094265] ehci-omap: OMAP-EHCI Host Controller driver
+[    3.095061] ehci-orion: EHCI orion driver
+[    3.095906] SPEAr-ehci: EHCI SPEAr driver
+[    3.096577] ehci-st: EHCI STMicroelectronics driver
+[    3.097070] ehci-exynos: EHCI EXYNOS driver
+[    3.097650] ehci-atmel: EHCI Atmel driver
+[    3.098213] tegra-ehci: Tegra EHCI driver
+[    3.099041] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    3.099511] ohci-pci: OHCI PCI platform driver
+[    3.100016] ohci-platform: OHCI generic platform driver
+[    3.100812] SPEAr-ohci: OHCI SPEAr driver
+[    3.101472] ohci-st: OHCI STMicroelectronics driver
+[    3.102061] ohci-atmel: OHCI Atmel driver
+[    3.104986] usbcore: registered new interface driver usb-storage
+[    3.106528] usbcore: registered new interface driver usbserial_generic
+[    3.107541] usbserial: USB Serial support registered for generic
+[    3.108284] usbcore: registered new interface driver ftdi_sio
+[    3.108820] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    3.109522] usbcore: registered new interface driver pl2303
+[    3.109905] usbserial: USB Serial support registered for pl2303
+[    3.110557] usbcore: registered new interface driver usb_serial_simple
+[    3.111016] usbserial: USB Serial support registered for carelink
+[    3.111436] usbserial: USB Serial support registered for flashloader
+[    3.111830] usbserial: USB Serial support registered for funsoft
+[    3.112245] usbserial: USB Serial support registered for google
+[    3.112686] usbserial: USB Serial support registered for hp4x
+[    3.113066] usbserial: USB Serial support registered for kaufmann
+[    3.114076] usbserial: USB Serial support registered for libtransistor
+[    3.114508] usbserial: USB Serial support registered for moto_modem
+[    3.114993] usbserial: USB Serial support registered for motorola_tetra
+[    3.115433] usbserial: USB Serial support registered for nokia
+[    3.115918] usbserial: USB Serial support registered for novatel_gps
+[    3.116491] usbserial: USB Serial support registered for siemens_mpi
+[    3.116961] usbserial: USB Serial support registered for suunto
+[    3.117488] usbserial: USB Serial support registered for vivopay
+[    3.117933] usbserial: USB Serial support registered for zio
+[    3.134418] rtc-pl031 9010000.pl031: rtc core: registered pl031 as rtc0
+[    3.138983] i2c /dev entries driver
+[    3.161979] sdhci: Secure Digital Host Controller Interface driver
+[    3.162267] sdhci: Copyright(c) Pierre Ossman
+[    3.165464] Synopsys Designware Multimedia Card Interface Driver
+[    3.167893] sdhci-pltfm: SDHCI platform and OF driver helper
+[    3.173990] ledtrig-cpu: registered to indicate activity on CPUs
+[    3.176796] usbcore: registered new interface driver usbhid
+[    3.177112] usbhid: USB HID core driver
+[    3.187396] NET: Registered protocol family 10
+[    3.197896] Segment Routing with IPv6
+[    3.198740] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.204099] NET: Registered protocol family 17
+[    3.205409] can: controller area network core (rev 20170425 abi 9)
+[    3.206337] NET: Registered protocol family 29
+[    3.206662] can: raw protocol (rev 20170425)
+[    3.207114] can: broadcast manager protocol (rev 20170425 t)
+[    3.207759] can: netlink gateway (rev 20170425) max_hops=1
+[    3.209601] Key type dns_resolver registered
+[    3.210642] ThumbEE CPU extension supported.
+[    3.211084] Registering SWP/SWPB emulation handler
+[    3.215894] Loading compiled-in X.509 certificates
+[    3.234581] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    3.240769] rtc-pl031 9010000.pl031: setting system clock to 2026-11-05 07:12:44 UTC (1793862764)
+[    3.251070] uart-pl011 9000000.pl011: no DMA platform data
+[    3.444573] Freeing unused kernel memory: 2048K
+[    3.454361] Run /init as init process
+
+Please press Enter to activate this console. 
+/ # echo '=== LAB 6 TEST 2: BUG_ON count=11 ==='
+=== LAB 6 TEST 2: BUG_ON count=11 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello.ko count=11
+[    6.134921] hello: loading out-of-tree module taints kernel.
+[    6.140928] ------------[ cut here ]------------
+[    6.141119] kernel BUG at /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.c:43!
+[    6.141327] Internal error: Oops - BUG: 0 [#1] SMP ARM
+[    6.141629] Modules linked in: hello(O+)
+[    6.142235] CPU: 0 PID: 64 Comm: insmod Tainted: G           O      4.19.325 #1
+[    6.142438] Hardware name: Generic DT based system
+[    6.143172] PC is at hello_init+0x18/0x1000 [hello]
+[    6.143494] LR is at do_one_initcall+0x54/0x214
+[    6.143615] pc : [<bf005018>]    lr : [<c030362c>]    psr: 200f0013
+[    6.143832] sp : c8a9ddb8  ip : c8a8cc40  fp : bf002040
+[    6.144004] r10: 00000000  r9 : c1704c48  r8 : 00000000
+[    6.144200] r7 : bf005000  r6 : ffffe000  r5 : c1704c48  r4 : bf002000
+[    6.144480] r3 : 00000000  r2 : 649f9c50  r1 : 0000000b  r0 : 00000000
+[    6.144761] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[    6.145071] Control: 10c5387d  Table: 48aec06a  DAC: 00000051
+[    6.145540] Process insmod (pid: 64, stack limit = 0xd021f78d)
+[    6.145724] Stack: (0xc8a9ddb8 to 0xc8a9e000)
+[    6.145992] dda0:                                                       c18881a0 c1704c48
+[    6.146343] ddc0: ffffe000 bf005000 00000000 c1704c48 00000000 c030362c c8a8c640 c04f2cd4
+[    6.146689] dde0: 00210d00 00000002 c1704c48 c8ad81c0 c8a8c524 c04f36c0 00000000 e097bfff
+[    6.147003] de00: ffe00000 fffff000 8040003f c8ad8200 dbcef280 649f9c50 dbcef280 c8ad81c0
+[    6.147384] de20: bf002040 649f9c50 bf002040 00000002 c8a8ce80 00000002 c8a8c540 c03d2b4c
+[    6.147747] de40: 00000001 c03d4ee4 c8a9df30 c8a9df30 00000002 c8a8c500 00000002 c03d4f00
+[    6.147985] de60: bf00204c 00007fff bf002040 c03d1d88 c8af4818 bf002088 c8af4ac0 bf002234
+[    6.148280] de80: 00000001 bf002170 c135be18 c1221c34 c1221ca4 c1704c48 c1708f04 c8ad7180
+[    6.148620] dea0: fffff000 e0800000 c8ad7180 c8ad81c0 00000000 00000000 00000000 00000000
+[    6.148958] dec0: 00000000 00000000 6e72656b 00006c65 00000000 00000000 00000000 00000000
+[    6.149258] dee0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.149584] df00: 00000000 649f9c50 00000080 000020d4 00000000 e097a0d4 0012d324 c1704c48
+[    6.149833] df20: 0011b1f8 ffffe000 00000051 c03d5364 e09682ea e0968400 e0968000 000120d4
+[    6.150117] df40: e0979864 e0979640 e0975b38 00003000 00003060 00000000 00000000 00000000
+[    6.150402] df60: 00001738 00000033 00000034 0000001d 00000000 00000015 00000000 649f9c50
+[    6.150706] df80: 000f411f 0011b1f8 b6f1b950 000120d4 00000080 c0301264 c8a9c000 00000080
+[    6.151020] dfa0: 000f411f c0301000 0011b1f8 b6f1b950 0011b250 000120d4 0011b1f8 00000000
+[    6.151408] dfc0: 0011b1f8 b6f1b950 000120d4 00000080 00000001 beddde90 001086c5 000f411f
+[    6.151766] dfe0: bedddb48 bedddb38 0003b270 b6dd51b0 600f0010 0011b250 00000000 00000000
+[    6.152650] [<bf005018>] (hello_init [hello]) from [<c030362c>] (do_one_initcall+0x54/0x214)
+[    6.153062] [<c030362c>] (do_one_initcall) from [<c03d2b4c>] (do_init_module+0x48/0x1ec)
+[    6.153332] [<c03d2b4c>] (do_init_module) from [<c03d4f00>] (load_module+0x21a8/0x24b4)
+[    6.153608] [<c03d4f00>] (load_module) from [<c03d5364>] (sys_init_module+0x158/0x18c)
+[    6.153850] [<c03d5364>] (sys_init_module) from [<c0301000>] (ret_fast_syscall+0x0/0x54)
+[    6.154060] Exception stack(0xc8a9dfa8 to 0xc8a9dff0)
+[    6.154288] dfa0:                   0011b1f8 b6f1b950 0011b250 000120d4 0011b1f8 00000000
+[    6.154645] dfc0: 0011b1f8 b6f1b950 000120d4 00000080 00000001 beddde90 001086c5 000f411f
+[    6.154970] dfe0: bedddb48 bedddb38 0003b270 b6dd51b0
+[    6.155442] Code: e34b4f00 e5941008 e351000a 9a000000 (e7f001f2) 
+[    6.156047] ---[ end trace 748ec108f268bc4f ]---
+Segmentation fault
+/ # echo "insmod exit status: $?"
+insmod exit status: 139
+/ # lsmod
+hello 24576 1 - Loading 0xbf000000 (O+)
+/ # echo 'module section addresses:'
+module section addresses:
+/ # for section in .text .init.text .data; do
+>     printf '%s: ' "$section"
+>     cat "/sys/module/hello/sections/$section" 2>/dev/null || echo unavailable
+> done
+.text: unavailable
+.init.text: 0xbf005000
+.data: 0xbf002000
+/ # rmmod hello
+rmmod: remove 'hello': Device or resource busy
+/ # echo "rmmod exit status: $?"
+rmmod exit status: 0
+/ # dmesg
+[    6.134921] hello: loading out-of-tree module taints kernel.
+[    6.140928] ------------[ cut here ]------------
+[    6.141119] kernel BUG at /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.c:43!
+[    6.141327] Internal error: Oops - BUG: 0 [#1] SMP ARM
+[    6.141629] Modules linked in: hello(O+)
+[    6.142235] CPU: 0 PID: 64 Comm: insmod Tainted: G           O      4.19.325 #1
+[    6.142438] Hardware name: Generic DT based system
+[    6.143172] PC is at hello_init+0x18/0x1000 [hello]
+[    6.143494] LR is at do_one_initcall+0x54/0x214
+[    6.143615] pc : [<bf005018>]    lr : [<c030362c>]    psr: 200f0013
+[    6.143832] sp : c8a9ddb8  ip : c8a8cc40  fp : bf002040
+[    6.144004] r10: 00000000  r9 : c1704c48  r8 : 00000000
+[    6.144200] r7 : bf005000  r6 : ffffe000  r5 : c1704c48  r4 : bf002000
+[    6.144480] r3 : 00000000  r2 : 649f9c50  r1 : 0000000b  r0 : 00000000
+[    6.144761] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[    6.145071] Control: 10c5387d  Table: 48aec06a  DAC: 00000051
+[    6.145540] Process insmod (pid: 64, stack limit = 0xd021f78d)
+[    6.145724] Stack: (0xc8a9ddb8 to 0xc8a9e000)
+[    6.145992] dda0:                                                       c18881a0 c1704c48
+[    6.146343] ddc0: ffffe000 bf005000 00000000 c1704c48 00000000 c030362c c8a8c640 c04f2cd4
+[    6.146689] dde0: 00210d00 00000002 c1704c48 c8ad81c0 c8a8c524 c04f36c0 00000000 e097bfff
+[    6.147003] de00: ffe00000 fffff000 8040003f c8ad8200 dbcef280 649f9c50 dbcef280 c8ad81c0
+[    6.147384] de20: bf002040 649f9c50 bf002040 00000002 c8a8ce80 00000002 c8a8c540 c03d2b4c
+[    6.147747] de40: 00000001 c03d4ee4 c8a9df30 c8a9df30 00000002 c8a8c500 00000002 c03d4f00
+[    6.147985] de60: bf00204c 00007fff bf002040 c03d1d88 c8af4818 bf002088 c8af4ac0 bf002234
+[    6.148280] de80: 00000001 bf002170 c135be18 c1221c34 c1221ca4 c1704c48 c1708f04 c8ad7180
+[    6.148620] dea0: fffff000 e0800000 c8ad7180 c8ad81c0 00000000 00000000 00000000 00000000
+[    6.148958] dec0: 00000000 00000000 6e72656b 00006c65 00000000 00000000 00000000 00000000
+[    6.149258] dee0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.149584] df00: 00000000 649f9c50 00000080 000020d4 00000000 e097a0d4 0012d324 c1704c48
+[    6.149833] df20: 0011b1f8 ffffe000 00000051 c03d5364 e09682ea e0968400 e0968000 000120d4
+[    6.150117] df40: e0979864 e0979640 e0975b38 00003000 00003060 00000000 00000000 00000000
+[    6.150402] df60: 00001738 00000033 00000034 0000001d 00000000 00000015 00000000 649f9c50
+[    6.150706] df80: 000f411f 0011b1f8 b6f1b950 000120d4 00000080 c0301264 c8a9c000 00000080
+[    6.151020] dfa0: 000f411f c0301000 0011b1f8 b6f1b950 0011b250 000120d4 0011b1f8 00000000
+[    6.151408] dfc0: 0011b1f8 b6f1b950 000120d4 00000080 00000001 beddde90 001086c5 000f411f
+[    6.151766] dfe0: bedddb48 bedddb38 0003b270 b6dd51b0 600f0010 0011b250 00000000 00000000
+[    6.152650] [<bf005018>] (hello_init [hello]) from [<c030362c>] (do_one_initcall+0x54/0x214)
+[    6.153062] [<c030362c>] (do_one_initcall) from [<c03d2b4c>] (do_init_module+0x48/0x1ec)
+[    6.153332] [<c03d2b4c>] (do_init_module) from [<c03d4f00>] (load_module+0x21a8/0x24b4)
+[    6.153608] [<c03d4f00>] (load_module) from [<c03d5364>] (sys_init_module+0x158/0x18c)
+[    6.153850] [<c03d5364>] (sys_init_module) from [<c0301000>] (ret_fast_syscall+0x0/0x54)
+[    6.154060] Exception stack(0xc8a9dfa8 to 0xc8a9dff0)
+[    6.154288] dfa0:                   0011b1f8 b6f1b950 0011b250 000120d4 0011b1f8 00000000
+[    6.154645] dfc0: 0011b1f8 b6f1b950 000120d4 00000080 00000001 beddde90 001086c5 000f411f
+[    6.154970] dfe0: bedddb48 bedddb38 0003b270 b6dd51b0
+[    6.155442] Code: e34b4f00 e5941008 e351000a 9a000000 (e7f001f2) 
+[    6.156047] ---[ end trace 748ec108f268bc4f ]---
+/ # echo '=== BUG TEST COMPLETE ==='
+=== BUG TEST COMPLETE ===
+/ # poweroff
+/ # umount: can't unmount /: Invalid argument
+swapoff: can't open '/etc/fstab': No such file or directory
+
+The system is going down NOW!
+
+Sent SIGTERM to all processes
+
+Sent SIGKILL to all processes
+
+Requesting system poweroff
+[    8.439306] reboot: Power down

@@ -1,0 +1,19 @@
+filename:       /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab5/src/hello1.ko
+license:        Dual BSD/GPL
+description:    Hello service with timing and a kernel list
+author:         Artem Davydchuk
+depends:        
+name:           hello1
+vermagic:       4.19.325 SMP mod_unload ARMv7 p2v8 
+
+filename:       /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab5/src/hello2.ko
+license:        Dual BSD/GPL
+description:    Hello client with a count parameter
+author:         Artem Davydchuk
+depends:        hello1
+name:           hello2
+vermagic:       4.19.325 SMP mod_unload ARMv7 p2v8 
+parm:           count:Number of calls to print_hello (uint)
+
+Exported symbol:
+0x00000000	print_hello	/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab5/src/hello1	EXPORT_SYMBOL

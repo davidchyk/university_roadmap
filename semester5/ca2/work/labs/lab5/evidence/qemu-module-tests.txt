@@ -1,0 +1,386 @@
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.19.325 (davydchuk@arch-laptop) (gcc version 8.3.0 (GNU Toolchain for the A-profile Architecture 8.3-2019.03 (arm-rel-8.36))) #1 SMP Mon Oct 12 16:46:49 EEST 2026
+[    0.000000] CPU: ARMv7 Processor [414fc0f0] revision 0 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] OF: fdt: Machine model: linux,dummy-virt
+[    0.000000] random: crng init done
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Reserved 64 MiB at 0x5c000000
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] psci: SMC Calling Convention v1.0
+[    0.000000] percpu: Embedded 16 pages/cpu s36748 r8192 d20596 u65536
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 130048
+[    0.000000] Kernel command line: root=/dev/ram0 rw console=ttyAMA0,115200 mem=512M
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Memory: 405356K/524288K available (12288K kernel code, 1618K rwdata, 4796K rodata, 2048K init, 394K bss, 53396K reserved, 65536K cma-reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xe0800000 - 0xff800000   ( 496 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xe0000000   ( 512 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0x(ptrval) - 0x(ptrval)   (13280 kB)
+[    0.000000]       .init : 0x(ptrval) - 0x(ptrval)   (2048 kB)
+[    0.000000]       .data : 0x(ptrval) - 0x(ptrval)   (1619 kB)
+[    0.000000]        .bss : 0x(ptrval) - 0x(ptrval)   ( 395 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU event tracing is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=16 to nr_cpu_ids=1.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] GICv2m: range[mem 0x08020000-0x08020fff], SPI[80:143]
+[    0.000000] arch_timer: cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000287] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000505] Switching to timer-based delay loop, resolution 16ns
+[    0.007619] Console: colour dummy device 80x30
+[    0.015066] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.015310] CPU: Testing write buffer coherency: ok
+[    0.016684] CPU0: Spectre v2: firmware did not set auxiliary control register IBE bit, system vulnerable
+[    0.016939] CPU0: Spectre BHB: enabling loop workaround for all CPUs
+[    0.017094] pid_max: default: 32768 minimum: 301
+[    0.018823] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.018910] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.048882] /cpus/cpu@0 missing clock-frequency property
+[    0.049302] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.058215] Setting up static identity map for 0x40300000 - 0x403000a0
+[    0.060947] rcu: Hierarchical SRCU implementation.
+[    0.066378] EFI services will not be available.
+[    0.068240] smp: Bringing up secondary CPUs ...
+[    0.068411] smp: Brought up 1 node, 1 CPU
+[    0.068538] SMP: Total of 1 processors activated (125.00 BogoMIPS).
+[    0.068636] CPU: All CPU(s) started in SVC mode.
+[    0.119033] devtmpfs: initialized
+[    0.133186] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.161562] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.162817] futex hash table entries: 256 (order: 2, 16384 bytes)
+[    0.172135] pinctrl core: initialized pinctrl subsystem
+[    0.192539] DMI not present or invalid.
+[    0.201759] NET: Registered protocol family 16
+[    0.229134] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.238061] cpuidle: using governor menu
+[    0.239188] No ATAGs?
+[    0.240876] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.241045] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.247039] Serial: AMBA PL011 UART driver
+[    0.295567] 9000000.pl011: ttyAMA0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    0.315676] console [ttyAMA0] enabled
+[    0.375854] vgaarb: loaded
+[    0.380840] SCSI subsystem initialized
+[    0.383696] usbcore: registered new interface driver usbfs
+[    0.384421] usbcore: registered new interface driver hub
+[    0.384976] usbcore: registered new device driver usb
+[    0.388607] pps_core: LinuxPPS API ver. 1 registered
+[    0.388814] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.389231] PTP clock support registered
+[    0.390366] EDAC MC: Ver: 3.0.0
+[    0.417417] clocksource: Switched to clocksource arch_sys_counter
+[    0.562033] NET: Registered protocol family 2
+[    0.564147] IP idents hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.569694] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes)
+[    0.570189] TCP established hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.570762] TCP bind hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.571265] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.573287] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.573814] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.575118] NET: Registered protocol family 1
+[    0.579668] RPC: Registered named UNIX socket transport module.
+[    0.580111] RPC: Registered udp transport module.
+[    0.580372] RPC: Registered tcp transport module.
+[    0.580628] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.588570] Trying to unpack rootfs image as initramfs...
+[    1.743249] Freeing initrd memory: 25140K
+[    1.746583] Initialise system trusted keyrings
+[    1.748203] workingset: timestamp_bits=30 max_order=17 bucket_order=0
+[    1.756106] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.758050] NFS: Registering the id_resolver key type
+[    1.758367] Key type id_resolver registered
+[    1.758485] Key type id_legacy registered
+[    1.758898] ntfs: driver 2.1.32 [Flags: R/O].
+[    1.764429] Key type asymmetric registered
+[    1.764667] Asymmetric key parser 'x509' registered
+[    1.765158] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 246)
+[    1.765880] io scheduler noop registered
+[    1.766055] io scheduler deadline registered
+[    1.766574] io scheduler cfq registered (default)
+[    1.766725] io scheduler mq-deadline registered
+[    1.766853] io scheduler kyber registered
+[    1.780691] pl061_gpio 9030000.pl061: PL061 GPIO chip @0x09030000 registered
+[    1.784661] pci-host-generic 4010000000.pcie: host bridge /pcie@10000000 ranges:
+[    1.785811] pci-host-generic 4010000000.pcie:    IO 0x3eff0000..0x3effffff -> 0x00000000
+[    1.786452] pci-host-generic 4010000000.pcie:   MEM 0x10000000..0x3efeffff -> 0x10000000
+[    1.786636] pci-host-generic 4010000000.pcie:   MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[    1.787360] pci-host-generic 4010000000.pcie: can't claim ECAM area [mem 0x10000000-0x1fffffff]: address conflict with pcie@10000000 [mem 0x10000000-0x3efeffff]
+[    1.788194] pci-host-generic: probe of 4010000000.pcie failed with error -16
+[    1.842508] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    1.846417] SuperH (H)SCI(F) driver initialized
+[    1.847562] msm_serial: driver initialized
+[    1.847838] STMicroelectronics ASC driver initialized
+[    1.848914] STM32 USART driver initialized
+[    1.870604] brd: module loaded
+[    1.878751] loop: module loaded
+[    1.888675] CAN device driver interface
+[    1.889512] bgmac_bcma: Broadcom 47xx GBit MAC driver loaded
+[    1.890478] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    1.890584] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    1.890766] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.4.0-k
+[    1.890893] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    1.893881] pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+[    1.894086] usbcore: registered new interface driver pegasus
+[    1.894241] usbcore: registered new interface driver asix
+[    1.894369] usbcore: registered new interface driver ax88179_178a
+[    1.894508] usbcore: registered new interface driver cdc_ether
+[    1.894655] usbcore: registered new interface driver smsc75xx
+[    1.894797] usbcore: registered new interface driver smsc95xx
+[    1.894945] usbcore: registered new interface driver net1080
+[    1.895073] usbcore: registered new interface driver cdc_subset
+[    1.895429] usbcore: registered new interface driver zaurus
+[    1.895607] usbcore: registered new interface driver cdc_ncm
+[    1.897526] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.897706] ehci-pci: EHCI PCI platform driver
+[    1.898028] ehci-platform: EHCI generic platform driver
+[    1.898367] ehci-omap: OMAP-EHCI Host Controller driver
+[    1.898611] ehci-orion: EHCI orion driver
+[    1.898860] SPEAr-ehci: EHCI SPEAr driver
+[    1.899066] ehci-st: EHCI STMicroelectronics driver
+[    1.899383] ehci-exynos: EHCI EXYNOS driver
+[    1.899670] ehci-atmel: EHCI Atmel driver
+[    1.899961] tegra-ehci: Tegra EHCI driver
+[    1.900337] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.900626] ohci-pci: OHCI PCI platform driver
+[    1.901007] ohci-platform: OHCI generic platform driver
+[    1.901423] SPEAr-ohci: OHCI SPEAr driver
+[    1.901689] ohci-st: OHCI STMicroelectronics driver
+[    1.901969] ohci-atmel: OHCI Atmel driver
+[    1.903019] usbcore: registered new interface driver usb-storage
+[    1.903546] usbcore: registered new interface driver usbserial_generic
+[    1.903941] usbserial: USB Serial support registered for generic
+[    1.904231] usbcore: registered new interface driver ftdi_sio
+[    1.904424] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    1.904683] usbcore: registered new interface driver pl2303
+[    1.904876] usbserial: USB Serial support registered for pl2303
+[    1.905135] usbcore: registered new interface driver usb_serial_simple
+[    1.905689] usbserial: USB Serial support registered for carelink
+[    1.905899] usbserial: USB Serial support registered for flashloader
+[    1.906094] usbserial: USB Serial support registered for funsoft
+[    1.906297] usbserial: USB Serial support registered for google
+[    1.906493] usbserial: USB Serial support registered for hp4x
+[    1.906725] usbserial: USB Serial support registered for kaufmann
+[    1.906996] usbserial: USB Serial support registered for libtransistor
+[    1.907242] usbserial: USB Serial support registered for moto_modem
+[    1.907478] usbserial: USB Serial support registered for motorola_tetra
+[    1.907719] usbserial: USB Serial support registered for nokia
+[    1.907969] usbserial: USB Serial support registered for novatel_gps
+[    1.908288] usbserial: USB Serial support registered for siemens_mpi
+[    1.908546] usbserial: USB Serial support registered for suunto
+[    1.908770] usbserial: USB Serial support registered for vivopay
+[    1.908983] usbserial: USB Serial support registered for zio
+[    1.917683] rtc-pl031 9010000.pl031: rtc core: registered pl031 as rtc0
+[    1.919907] i2c /dev entries driver
+[    1.929915] sdhci: Secure Digital Host Controller Interface driver
+[    1.930069] sdhci: Copyright(c) Pierre Ossman
+[    1.931288] Synopsys Designware Multimedia Card Interface Driver
+[    1.932382] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.934752] ledtrig-cpu: registered to indicate activity on CPUs
+[    1.936167] usbcore: registered new interface driver usbhid
+[    1.936292] usbhid: USB HID core driver
+[    1.940479] NET: Registered protocol family 10
+[    1.945638] Segment Routing with IPv6
+[    1.946084] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.948366] NET: Registered protocol family 17
+[    1.948890] can: controller area network core (rev 20170425 abi 9)
+[    1.949324] NET: Registered protocol family 29
+[    1.949470] can: raw protocol (rev 20170425)
+[    1.949666] can: broadcast manager protocol (rev 20170425 t)
+[    1.949852] can: netlink gateway (rev 20170425) max_hops=1
+[    1.950765] Key type dns_resolver registered
+[    1.951160] ThumbEE CPU extension supported.
+[    1.951322] Registering SWP/SWPB emulation handler
+[    1.953409] Loading compiled-in X.509 certificates
+[    1.961224] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    1.963786] rtc-pl031 9010000.pl031: setting system clock to 2026-11-05 06:50:00 UTC (1793861400)
+[    1.969050] uart-pl011 9000000.pl011: no DMA platform data
+[    2.061430] Freeing unused kernel memory: 2048K
+[    2.070348] Run /init as init process
+
+Please press Enter to activate this console. 
+/ # echo '=== LAB 5: TWO KERNEL MODULES ==='
+=== LAB 5: TWO KERNEL MODULES ===
+/ # uname -a
+Linux (none) 4.19.325 #1 SMP Mon Oct 12 16:46:49 EEST 2026 armv7l GNU/Linux
+/ # ls -l /root/hello1.ko /root/hello2.ko
+-rw-r--r--    1 root     root          5056 Nov  5 06:49 [0;0m/root/hello1.ko[m
+-rw-r--r--    1 root     root          4536 Nov  5 06:49 [0;0m/root/hello2.ko[m
+/ # 
+/ # echo '=== TEST 1: hello2 WITHOUT hello1 (EXPECTED FAILURE) ==='
+=== TEST 1: hello2 WITHOUT hello1 (EXPECTED FAILURE) ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello2.ko
+[    3.504430] hello2: loading out-of-tree module taints kernel.
+[    3.508712] hello2: Unknown symbol print_hello (err -2)
+insmod: can't insert '/root/hello2.ko': unknown symbol in module or invalid parameter
+/ # echo "insmod hello2 exit status: $?"
+insmod hello2 exit status: 1
+/ # lsmod | grep '^hello2 ' || echo 'hello2 is not loaded'
+hello2 is not loaded
+/ # dmesg
+[    3.504430] hello2: loading out-of-tree module taints kernel.
+[    3.508712] hello2: Unknown symbol print_hello (err -2)
+/ # 
+/ # echo '=== TEST 2: DEFAULT count=1 ==='
+=== TEST 2: DEFAULT count=1 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    3.598499] hello1 loaded
+/ # insmod /root/hello2.ko
+[    3.623355] Hello, world!
+/ # cat /sys/module/hello2/parameters/count
+1
+/ # lsmod
+hello2 16384 0 - Live 0xbf010000 (O)
+hello1 16384 1 hello2, Live 0xbf008000 (O)
+/ # rmmod hello2
+[    3.677469] hello2 unloaded
+/ # rmmod hello1
+[    3.701036] print duration: 120448 ns
+[    3.701257] hello1 unloaded
+/ # dmesg
+[    3.598499] hello1 loaded
+[    3.623355] Hello, world!
+[    3.677469] hello2 unloaded
+[    3.701036] print duration: 120448 ns
+[    3.701257] hello1 unloaded
+/ # 
+/ # echo '=== TEST 3: count=0 ==='
+=== TEST 3: count=0 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    3.754932] hello1 loaded
+/ # insmod /root/hello2.ko count=0
+[    3.781663] count=0 is unusual; continuing
+/ # cat /sys/module/hello2/parameters/count
+0
+/ # rmmod hello2
+[    3.818165] hello2 unloaded
+/ # rmmod hello1
+[    3.831970] hello1 unloaded
+/ # dmesg
+[    3.754932] hello1 loaded
+[    3.781663] count=0 is unusual; continuing
+[    3.818165] hello2 unloaded
+[    3.831970] hello1 unloaded
+/ # 
+/ # echo '=== TEST 4: count=3 ==='
+=== TEST 4: count=3 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    3.890404] hello1 loaded
+/ # insmod /root/hello2.ko count=3
+[    3.913457] Hello, world!
+[    3.913585] Hello, world!
+[    3.913646] Hello, world!
+/ # cat /sys/module/hello2/parameters/count
+3
+/ # rmmod hello2
+[    3.950014] hello2 unloaded
+/ # rmmod hello1
+[    3.972024] print duration: 118752 ns
+[    3.972187] print duration: 59376 ns
+[    3.972252] print duration: 71552 ns
+[    3.972323] hello1 unloaded
+/ # dmesg
+[    3.890404] hello1 loaded
+[    3.913457] Hello, world!
+[    3.913585] Hello, world!
+[    3.913646] Hello, world!
+[    3.950014] hello2 unloaded
+[    3.972024] print duration: 118752 ns
+[    3.972187] print duration: 59376 ns
+[    3.972252] print duration: 71552 ns
+[    3.972323] hello1 unloaded
+/ # 
+/ # echo '=== TEST 5: count=7 ==='
+=== TEST 5: count=7 ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    4.027119] hello1 loaded
+/ # insmod /root/hello2.ko count=7
+[    4.050508] count=7 is unusual; continuing
+[    4.050716] Hello, world!
+[    4.050850] Hello, world!
+[    4.050937] Hello, world!
+[    4.050998] Hello, world!
+[    4.051059] Hello, world!
+[    4.051106] Hello, world!
+[    4.051162] Hello, world!
+/ # cat /sys/module/hello2/parameters/count
+7
+/ # rmmod hello2
+[    4.088163] hello2 unloaded
+/ # rmmod hello1
+[    4.101845] print duration: 81584 ns
+[    4.101998] print duration: 89344 ns
+[    4.102063] print duration: 60240 ns
+[    4.102126] print duration: 50928 ns
+[    4.102195] print duration: 53424 ns
+[    4.102273] print duration: 46384 ns
+[    4.102360] print duration: 47104 ns
+[    4.102477] hello1 unloaded
+/ # dmesg
+[    4.027119] hello1 loaded
+[    4.050508] count=7 is unusual; continuing
+[    4.050716] Hello, world!
+[    4.050850] Hello, world!
+[    4.050937] Hello, world!
+[    4.050998] Hello, world!
+[    4.051059] Hello, world!
+[    4.051106] Hello, world!
+[    4.051162] Hello, world!
+[    4.088163] hello2 unloaded
+[    4.101845] print duration: 81584 ns
+[    4.101998] print duration: 89344 ns
+[    4.102063] print duration: 60240 ns
+[    4.102126] print duration: 50928 ns
+[    4.102195] print duration: 53424 ns
+[    4.102273] print duration: 46384 ns
+[    4.102360] print duration: 47104 ns
+[    4.102477] hello1 unloaded
+/ # 
+/ # echo '=== TEST 6: count=11 (EXPECTED FAILURE) ==='
+=== TEST 6: count=11 (EXPECTED FAILURE) ===
+/ # dmesg -c >/dev/null
+/ # insmod /root/hello1.ko
+[    4.164991] hello1 loaded
+/ # insmod /root/hello2.ko count=11
+[    4.183536] count=11 is greater than 10
+insmod: can't insert '/root/hello2.ko': invalid parameter
+/ # echo "insmod hello2 exit status: $?"
+insmod hello2 exit status: 1
+/ # lsmod | grep '^hello2 ' || echo 'hello2 is not loaded'
+hello2 is not loaded
+/ # rmmod hello1
+[    4.237862] hello1 unloaded
+/ # dmesg
+[    4.164991] hello1 loaded
+[    4.183536] count=11 is greater than 10
+[    4.237862] hello1 unloaded
+/ # 
+/ # echo '=== TESTS COMPLETE ==='
+=== TESTS COMPLETE ===
+/ # poweroff
+/ # umount: can't unmount /: Invalid argument
+swapoff: can't open '/etc/fstab': No such file or directory
+The system is going down NOW!
+Sent SIGTERM to all processes
+Sent SIGKILL to all processes
+Requesting system poweroff
+[    6.369808] reboot: Power down

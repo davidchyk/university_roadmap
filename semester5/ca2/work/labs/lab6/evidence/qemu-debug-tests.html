@@ -1,0 +1,182 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8">
+<title>ЛР №6 — QEMU debugging</title><style>
+body{background:#1f2329;color:#e6edf3;font:14px/1.4 monospace;margin:2rem}
+pre{white-space:pre-wrap}</style></head><body>
+<h1>Лабораторна робота №6 — результати дебаггінгу</h1><pre>=== LAB 6 TEST 1: FORCED KMALLOC FAILURE ===&#x27;
+=== LAB 6 TEST 1: FORCED KMALLOC FAILURE ===
+/ # uname -a
+Linux (none) 4.19.325 #1 SMP Mon Oct 12 16:46:49 EEST 2026 armv7l GNU/Linux
+/ # dmesg -c &gt;/dev/null
+/ # insmod /root/hello.ko count=5
+[    6.314067] hello: loading out-of-tree module taints kernel.
+[    6.323176] count=5 is unusual; continuing
+[    6.323382] Hello, world!
+[    6.323466] Hello, world!
+[    6.323536] Hello, world!
+[    6.323603] Hello, world!
+[    6.323676] memory allocation failed for message 5
+insmod: can&#x27;t insert &#x27;/root/hello.ko&#x27;: Cannot allocate memory
+/ # echo &quot;insmod exit status: $?&quot;
+insmod exit status: 1
+/ # lsmod | grep &#x27;^hello &#x27; || echo &#x27;hello is not loaded&#x27;
+hello is not loaded
+/ # dmesg
+[    6.314067] hello: loading out-of-tree module taints kernel.
+[    6.323176] count=5 is unusual; continuing
+[    6.323382] Hello, world!
+[    6.323466] Hello, world!
+[    6.323536] Hello, world!
+[    6.323603] Hello, world!
+[    6.323676] memory allocation failed for message 5
+/ # echo &#x27;=== ALLOCATION TEST COMPLETE ===&#x27;
+=== ALLOCATION TEST COMPLETE ===
+/ # poweroff
+/ # umount: can&#x27;t unmount /: Invalid argument
+swapoff: can&#x27;t open &#x27;/etc/fstab&#x27;: No such file or directory
+
+The system is going down NOW!
+
+Sent SIGTERM to all processes
+
+Sent SIGKILL to all processes
+
+Requesting system poweroff
+[    8.553028] reboot: Power down
+
+
+
+=== LAB 6 TEST 2: BUG_ON count=11 ===&#x27;
+=== LAB 6 TEST 2: BUG_ON count=11 ===
+/ # dmesg -c &gt;/dev/null
+/ # insmod /root/hello.ko count=11
+[    6.134921] hello: loading out-of-tree module taints kernel.
+[    6.140928] ------------[ cut here ]------------
+[    6.141119] kernel BUG at /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.c:43!
+[    6.141327] Internal error: Oops - BUG: 0 [#1] SMP ARM
+[    6.141629] Modules linked in: hello(O+)
+[    6.142235] CPU: 0 PID: 64 Comm: insmod Tainted: G           O      4.19.325 #1
+[    6.142438] Hardware name: Generic DT based system
+[    6.143172] PC is at hello_init+0x18/0x1000 [hello]
+[    6.143494] LR is at do_one_initcall+0x54/0x214
+[    6.143615] pc : [&lt;bf005018&gt;]    lr : [&lt;c030362c&gt;]    psr: 200f0013
+[    6.143832] sp : c8a9ddb8  ip : c8a8cc40  fp : bf002040
+[    6.144004] r10: 00000000  r9 : c1704c48  r8 : 00000000
+[    6.144200] r7 : bf005000  r6 : ffffe000  r5 : c1704c48  r4 : bf002000
+[    6.144480] r3 : 00000000  r2 : 649f9c50  r1 : 0000000b  r0 : 00000000
+[    6.144761] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[    6.145071] Control: 10c5387d  Table: 48aec06a  DAC: 00000051
+[    6.145540] Process insmod (pid: 64, stack limit = 0xd021f78d)
+[    6.145724] Stack: (0xc8a9ddb8 to 0xc8a9e000)
+[    6.145992] dda0:                                                       c18881a0 c1704c48
+[    6.146343] ddc0: ffffe000 bf005000 00000000 c1704c48 00000000 c030362c c8a8c640 c04f2cd4
+[    6.146689] dde0: 00210d00 00000002 c1704c48 c8ad81c0 c8a8c524 c04f36c0 00000000 e097bfff
+[    6.147003] de00: ffe00000 fffff000 8040003f c8ad8200 dbcef280 649f9c50 dbcef280 c8ad81c0
+[    6.147384] de20: bf002040 649f9c50 bf002040 00000002 c8a8ce80 00000002 c8a8c540 c03d2b4c
+[    6.147747] de40: 00000001 c03d4ee4 c8a9df30 c8a9df30 00000002 c8a8c500 00000002 c03d4f00
+[    6.147985] de60: bf00204c 00007fff bf002040 c03d1d88 c8af4818 bf002088 c8af4ac0 bf002234
+[    6.148280] de80: 00000001 bf002170 c135be18 c1221c34 c1221ca4 c1704c48 c1708f04 c8ad7180
+[    6.148620] dea0: fffff000 e0800000 c8ad7180 c8ad81c0 00000000 00000000 00000000 00000000
+[    6.148958] dec0: 00000000 00000000 6e72656b 00006c65 00000000 00000000 00000000 00000000
+[    6.149258] dee0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.149584] df00: 00000000 649f9c50 00000080 000020d4 00000000 e097a0d4 0012d324 c1704c48
+[    6.149833] df20: 0011b1f8 ffffe000 00000051 c03d5364 e09682ea e0968400 e0968000 000120d4
+[    6.150117] df40: e0979864 e0979640 e0975b38 00003000 00003060 00000000 00000000 00000000
+[    6.150402] df60: 00001738 00000033 00000034 0000001d 00000000 00000015 00000000 649f9c50
+[    6.150706] df80: 000f411f 0011b1f8 b6f1b950 000120d4 00000080 c0301264 c8a9c000 00000080
+[    6.151020] dfa0: 000f411f c0301000 0011b1f8 b6f1b950 0011b250 000120d4 0011b1f8 00000000
+[    6.151408] dfc0: 0011b1f8 b6f1b950 000120d4 00000080 00000001 beddde90 001086c5 000f411f
+[    6.151766] dfe0: bedddb48 bedddb38 0003b270 b6dd51b0 600f0010 0011b250 00000000 00000000
+[    6.152650] [&lt;bf005018&gt;] (hello_init [hello]) from [&lt;c030362c&gt;] (do_one_initcall+0x54/0x214)
+[    6.153062] [&lt;c030362c&gt;] (do_one_initcall) from [&lt;c03d2b4c&gt;] (do_init_module+0x48/0x1ec)
+[    6.153332] [&lt;c03d2b4c&gt;] (do_init_module) from [&lt;c03d4f00&gt;] (load_module+0x21a8/0x24b4)
+[    6.153608] [&lt;c03d4f00&gt;] (load_module) from [&lt;c03d5364&gt;] (sys_init_module+0x158/0x18c)
+[    6.153850] [&lt;c03d5364&gt;] (sys_init_module) from [&lt;c0301000&gt;] (ret_fast_syscall+0x0/0x54)
+[    6.154060] Exception stack(0xc8a9dfa8 to 0xc8a9dff0)
+[    6.154288] dfa0:                   0011b1f8 b6f1b950 0011b250 000120d4 0011b1f8 00000000
+[    6.154645] dfc0: 0011b1f8 b6f1b950 000120d4 00000080 00000001 beddde90 001086c5 000f411f
+[    6.154970] dfe0: bedddb48 bedddb38 0003b270 b6dd51b0
+[    6.155442] Code: e34b4f00 e5941008 e351000a 9a000000 (e7f001f2) 
+[    6.156047] ---[ end trace 748ec108f268bc4f ]---
+Segmentation fault
+/ # echo &quot;insmod exit status: $?&quot;
+insmod exit status: 139
+/ # lsmod
+hello 24576 1 - Loading 0xbf000000 (O+)
+/ # echo &#x27;module section addresses:&#x27;
+module section addresses:
+/ # for section in .text .init.text .data; do
+&gt;     printf &#x27;%s: &#x27; &quot;$section&quot;
+&gt;     cat &quot;/sys/module/hello/sections/$section&quot; 2&gt;/dev/null || echo unavailable
+&gt; done
+.text: unavailable
+.init.text: 0xbf005000
+.data: 0xbf002000
+/ # rmmod hello
+rmmod: remove &#x27;hello&#x27;: Device or resource busy
+/ # echo &quot;rmmod exit status: $?&quot;
+rmmod exit status: 0
+/ # dmesg
+[    6.134921] hello: loading out-of-tree module taints kernel.
+[    6.140928] ------------[ cut here ]------------
+[    6.141119] kernel BUG at /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.c:43!
+[    6.141327] Internal error: Oops - BUG: 0 [#1] SMP ARM
+[    6.141629] Modules linked in: hello(O+)
+[    6.142235] CPU: 0 PID: 64 Comm: insmod Tainted: G           O      4.19.325 #1
+[    6.142438] Hardware name: Generic DT based system
+[    6.143172] PC is at hello_init+0x18/0x1000 [hello]
+[    6.143494] LR is at do_one_initcall+0x54/0x214
+[    6.143615] pc : [&lt;bf005018&gt;]    lr : [&lt;c030362c&gt;]    psr: 200f0013
+[    6.143832] sp : c8a9ddb8  ip : c8a8cc40  fp : bf002040
+[    6.144004] r10: 00000000  r9 : c1704c48  r8 : 00000000
+[    6.144200] r7 : bf005000  r6 : ffffe000  r5 : c1704c48  r4 : bf002000
+[    6.144480] r3 : 00000000  r2 : 649f9c50  r1 : 0000000b  r0 : 00000000
+[    6.144761] Flags: nzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[    6.145071] Control: 10c5387d  Table: 48aec06a  DAC: 00000051
+[    6.145540] Process insmod (pid: 64, stack limit = 0xd021f78d)
+[    6.145724] Stack: (0xc8a9ddb8 to 0xc8a9e000)
+[    6.145992] dda0:                                                       c18881a0 c1704c48
+[    6.146343] ddc0: ffffe000 bf005000 00000000 c1704c48 00000000 c030362c c8a8c640 c04f2cd4
+[    6.146689] dde0: 00210d00 00000002 c1704c48 c8ad81c0 c8a8c524 c04f36c0 00000000 e097bfff
+[    6.147003] de00: ffe00000 fffff000 8040003f c8ad8200 dbcef280 649f9c50 dbcef280 c8ad81c0
+[    6.147384] de20: bf002040 649f9c50 bf002040 00000002 c8a8ce80 00000002 c8a8c540 c03d2b4c
+[    6.147747] de40: 00000001 c03d4ee4 c8a9df30 c8a9df30 00000002 c8a8c500 00000002 c03d4f00
+[    6.147985] de60: bf00204c 00007fff bf002040 c03d1d88 c8af4818 bf002088 c8af4ac0 bf002234
+[    6.148280] de80: 00000001 bf002170 c135be18 c1221c34 c1221ca4 c1704c48 c1708f04 c8ad7180
+[    6.148620] dea0: fffff000 e0800000 c8ad7180 c8ad81c0 00000000 00000000 00000000 00000000
+[    6.148958] dec0: 00000000 00000000 6e72656b 00006c65 00000000 00000000 00000000 00000000
+[    6.149258] dee0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.149584] df00: 00000000 649f9c50 00000080 000020d4 00000000 e097a0d4 0012d324 c1704c48
+[    6.149833] df20: 0011b1f8 ffffe000 00000051 c03d5364 e09682ea e0968400 e0968000 000120d4
+[    6.150117] df40: e0979864 e0979640 e0975b38 00003000 00003060 00000000 00000000 00000000
+[    6.150402] df60: 00001738 00000033 00000034 0000001d 00000000 00000015 00000000 649f9c50
+[    6.150706] df80: 000f411f 0011b1f8 b6f1b950 000120d4 00000080 c0301264 c8a9c000 00000080
+[    6.151020] dfa0: 000f411f c0301000 0011b1f8 b6f1b950 0011b250 000120d4 0011b1f8 00000000
+[    6.151408] dfc0: 0011b1f8 b6f1b950 000120d4 00000080 00000001 beddde90 001086c5 000f411f
+[    6.151766] dfe0: bedddb48 bedddb38 0003b270 b6dd51b0 600f0010 0011b250 00000000 00000000
+[    6.152650] [&lt;bf005018&gt;] (hello_init [hello]) from [&lt;c030362c&gt;] (do_one_initcall+0x54/0x214)
+[    6.153062] [&lt;c030362c&gt;] (do_one_initcall) from [&lt;c03d2b4c&gt;] (do_init_module+0x48/0x1ec)
+[    6.153332] [&lt;c03d2b4c&gt;] (do_init_module) from [&lt;c03d4f00&gt;] (load_module+0x21a8/0x24b4)
+[    6.153608] [&lt;c03d4f00&gt;] (load_module) from [&lt;c03d5364&gt;] (sys_init_module+0x158/0x18c)
+[    6.153850] [&lt;c03d5364&gt;] (sys_init_module) from [&lt;c0301000&gt;] (ret_fast_syscall+0x0/0x54)
+[    6.154060] Exception stack(0xc8a9dfa8 to 0xc8a9dff0)
+[    6.154288] dfa0:                   0011b1f8 b6f1b950 0011b250 000120d4 0011b1f8 00000000
+[    6.154645] dfc0: 0011b1f8 b6f1b950 000120d4 00000080 00000001 beddde90 001086c5 000f411f
+[    6.154970] dfe0: bedddb48 bedddb38 0003b270 b6dd51b0
+[    6.155442] Code: e34b4f00 e5941008 e351000a 9a000000 (e7f001f2) 
+[    6.156047] ---[ end trace 748ec108f268bc4f ]---
+/ # echo &#x27;=== BUG TEST COMPLETE ===&#x27;
+=== BUG TEST COMPLETE ===
+/ # poweroff
+/ # umount: can&#x27;t unmount /: Invalid argument
+swapoff: can&#x27;t open &#x27;/etc/fstab&#x27;: No such file or directory
+
+The system is going down NOW!
+
+Sent SIGTERM to all processes
+
+Sent SIGKILL to all processes
+
+Requesting system poweroff
+[    8.439306] reboot: Power down
+</pre>
+</body></html>

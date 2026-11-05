@@ -1,0 +1,99 @@
+Runtime PC: 0xbf005018
+Runtime .init.text base: 0xbf005000
+Section offset: 0x18
+
+addr2line result:
+hello_init
+/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.c:43 (discriminator 1)
+
+Disassembly around the fault:
+
+semester5/ca2/work/labs/lab6/src/hello.ko:     file format elf32-littlearm
+
+
+Disassembly of section .init.text:
+
+00000000 <init_module>:
+		kfree(event);
+	}
+}
+
+static int __init hello_init(void)
+{
+   0:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}
+	struct hello_event *event;
+	unsigned int i;
+
+	BUG_ON(count > 10);
+   4:	e3004000 	movw	r4, #0
+			4: R_ARM_MOVW_ABS_NC	.LANCHOR0
+   8:	e3404000 	movt	r4, #0
+			8: R_ARM_MOVT_ABS	.LANCHOR0
+   c:	e5941008 	ldr	r1, [r4, #8]
+  10:	e351000a 	cmp	r1, #10
+  14:	9a000000 	bls	1c <init_module+0x1c>
+  18:	e7f001f2 	.word	0xe7f001f2
+
+	if (count == 0 || (count >= 5 && count <= 10))
+  1c:	e2413005 	sub	r3, r1, #5
+  20:	e3510000 	cmp	r1, #0
+  24:	13530005 	cmpne	r3, #5
+  28:	8a000002 	bhi	38 <init_module+0x38>
+		pr_warn("count=%u is unusual; continuing\n", count);
+  2c:	e3000000 	movw	r0, #0
+			2c: R_ARM_MOVW_ABS_NC	.LC1
+  30:	e3400000 	movt	r0, #0
+			30: R_ARM_MOVT_ABS	.LC1
+  34:	ebfffffe 	bl	0 <printk>
+			34: R_ARM_CALL	printk
+			unsigned int index = kmalloc_index(size);
+
+			if (!index)
+				return ZERO_SIZE_PTR;
+
+			return kmem_cache_alloc_trace(kmalloc_caches[index],
+  38:	e3008000 	movw	r8, #0
+			38: R_ARM_MOVW_ABS_NC	kmalloc_caches
+  3c:	e3a090c0 	mov	r9, #192	; 0xc0
+			return -ENOMEM;
+		}
+
+		event->timestamp = ktime_get();
+		list_add_tail(&event->list, &event_list);
+		pr_info("Hello, world!\n");
+  40:	e3007000 	movw	r7, #0
+			40: R_ARM_MOVW_ABS_NC	.LC3
+  44:	e3408000 	movt	r8, #0
+			44: R_ARM_MOVT_ABS	kmalloc_caches
+  48:	e3409060 	movt	r9, #96	; 0x60
+  4c:	e3407000 	movt	r7, #0
+			4c: R_ARM_MOVT_ABS	.LC3
+{
+  50:	e3a01000 	mov	r1, #0
+	for (i = 0; i < count; i++) {
+  54:	e5943008 	ldr	r3, [r4, #8]
+  58:	e1530001 	cmp	r3, r1
+  5c:	9a00001b 	bls	d0 <init_module+0xd0>
+		event = i == 4 ? NULL : kmalloc(sizeof(*event), GFP_KERNEL);
+  60:	e3510004 	cmp	r1, #4
+  64:	e2815001 	add	r5, r1, #1
+  68:	0a000005 	beq	84 <init_module+0x84>
+  6c:	e3a02010 	mov	r2, #16
+  70:	e1a01009 	mov	r1, r9
+  74:	e5980018 	ldr	r0, [r8, #24]
+  78:	ebfffffe 	bl	0 <kmem_cache_alloc_trace>
+			78: R_ARM_CALL	kmem_cache_alloc_trace
+		if (!event) {
+  7c:	e2506000 	subs	r6, r0, #0
+  80:	1a000007 	bne	a4 <init_module+0xa4>
+			pr_err("memory allocation failed for message %u\n",
+  84:	e1a01005 	mov	r1, r5
+  88:	e3000000 	movw	r0, #0
+			88: R_ARM_MOVW_ABS_NC	.LC2
+  8c:	e3400000 	movt	r0, #0
+			8c: R_ARM_MOVT_ABS	.LC2
+  90:	ebfffffe 	bl	0 <printk>
+			90: R_ARM_CALL	printk
+			free_events(false);
+  94:	e3a00000 	mov	r0, #0
+  98:	ebfffffe 	bl	0 <init_module>

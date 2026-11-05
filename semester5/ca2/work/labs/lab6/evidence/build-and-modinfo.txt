@@ -1,0 +1,24 @@
+total: 0 errors, 0 warnings, 76 lines checked
+
+/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.c has no obvious style problems and is ready for submission.
+make: Entering directory '/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src'
+make -C /home/davydchuk/bbb-lab/repos/linux-stable M=/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src clean
+make: Leaving directory '/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src'
+make: Entering directory '/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src'
+make -C /home/davydchuk/bbb-lab/repos/linux-stable M=/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src modules
+  CC [M]  /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.mod.o
+  LD [M]  /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.ko
+arm-eabi-objdump -drS hello.ko > hello.disasm
+make: Leaving directory '/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src'
+/home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.ko: ELF 32-bit LSB relocatable, ARM, EABI5 version 1 (SYSV), BuildID[sha1]=54bf55ddf3774fd09b108717e646f1b2e03962e2, with debug_info, not stripped
+filename:       /home/davydchuk/projects/ur/semester5/ca2/work/labs/lab6/src/hello.ko
+license:        Dual BSD/GPL
+description:    Hello module with intentional debugging faults
+author:         Artem Davydchuk
+depends:        
+name:           hello
+vermagic:       4.19.325 SMP mod_unload ARMv7 p2v8 
+parm:           count:Number of times to print Hello, world! (uint)

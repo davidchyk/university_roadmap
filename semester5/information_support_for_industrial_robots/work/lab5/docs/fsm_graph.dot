@@ -1,0 +1,29 @@
+digraph FSM {
+  graph [rankdir=TB, bgcolor="white", pad="0.10", nodesep="0.36", ranksep="0.42", splines=polyline];
+  node [shape=box, style="rounded,filled", fontname="Noto Sans", fontsize=14,
+        color="#526274", fillcolor="#EEF1FA", penwidth=1.4, margin="0.15,0.09"];
+  edge [fontname="Noto Sans", fontsize=10, color="#3D4957", penwidth=1.3, arrowsize=0.75];
+
+  start [shape=circle, label="", width=0.20, fixedsize=true, fillcolor="#3D4957", color="#3D4957"];
+  idle [label="IDLE\nочікування START"];
+  feed [label="FEED\nподача кульки"];
+  picker1 [label="PICKER1\nзахват і перенесення\nна стіл"];
+  vision [label="VISION\nвизначення кольору"];
+  picker2 [label="PICKER2\nзахват і сортування\nу контейнер"];
+  ret [label="RETURN\nповернення додому"];
+  fault [label="FAULT\nаварійна зупинка", fillcolor="#FCE3E4", color="#A53A42"];
+
+  start -> idle;
+  idle -> feed [label="START"];
+  feed -> picker1 [label="кулька у зоні захвату"];
+  picker1 -> vision [label="кулька на столі\nта Picker1 удома"];
+  vision -> picker2 [label="колір визначено"];
+  picker2 -> ret [label="кульку відпущено"];
+  ret -> feed [label="наступний цикл"];
+
+  {rank=same; vision; fault}
+  picker1 -> fault [label="тайм-аут", color="#B12E37", fontcolor="#B12E37"];
+  vision -> fault [label="колір не визначено", color="#B12E37", fontcolor="#B12E37"];
+  picker2 -> fault [label="тайм-аут", color="#B12E37", fontcolor="#B12E37"];
+  fault -> idle [label="RESET", color="#B12E37", fontcolor="#B12E37"];
+}

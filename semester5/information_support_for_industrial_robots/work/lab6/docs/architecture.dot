@@ -1,0 +1,31 @@
+digraph Architecture {
+  graph [rankdir=TB, bgcolor="white", pad="0.15", nodesep="0.42", ranksep="0.55", splines=ortho];
+  node [shape=box, style="rounded,filled", fontname="Noto Sans", fontsize=13,
+        color="#53657A", fillcolor="#EEF2FA", penwidth=1.3, margin="0.16,0.10"];
+  edge [fontname="Noto Sans", fontsize=10, color="#465568", penwidth=1.2, arrowsize=0.75];
+
+  coordinator [label="Координатор комплексу\nокремий процес", fillcolor="#DCE8FF", color="#315A91"];
+
+  conveyor [label="Контролер конвеєра\nокремий процес"];
+  picker1 [label="Контролер Picker1\nокремий процес"];
+  vision [label="Підсистема технічного зору\nокремий процес", fillcolor="#E5F6E9", color="#3E7A50"];
+  picker2 [label="Контролер Picker2\nокремий процес"];
+
+  belt [label="Конвеєр\nтестова модель", shape=component, fillcolor="#F5F5F5"];
+  robot1 [label="ABB IRB-140\nPicker1", shape=component, fillcolor="#F5F5F5"];
+  camera [label="Камера / RGB", shape=component, fillcolor="#F5F5F5"];
+  robot2 [label="ABB IRB-140\nPicker2", shape=component, fillcolor="#F5F5F5"];
+
+  coordinator -> conveyor [dir=both, label="команда, ACK, RESULT,\nHEARTBEAT"];
+  coordinator -> picker1 [dir=both, label="ZeroMQ TCP / JSON"];
+  coordinator -> vision [dir=both, label="operation_id, колір"];
+  coordinator -> picker2 [dir=both, label="команда, ACK, RESULT"];
+
+  conveyor -> belt [dir=both, label="керування / стан"];
+  picker1 -> robot1 [dir=both, label="позиція / готовність"];
+  vision -> camera [dir=both, label="зображення / клас"];
+  picker2 -> robot2 [dir=both, label="позиція / готовність"];
+
+  {rank=same; conveyor; picker1; vision; picker2}
+  {rank=same; belt; robot1; camera; robot2}
+}

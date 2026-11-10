@@ -28,15 +28,15 @@
     - Lab 1          [completed, def]
     - Lab 2 (7 Oct)  [completed, def]
     - Lab 3 (21 Oct) [completed, def]
-    - Lab 4 (4 Nov)  []
+    - Lab 4 (4 Nov)  [completed, ndef]
     - Lab 5 (18 Nov) []
 
 4. information support for industrial robots:
     - Lab 1/2 (7 Oct) [completed, def]
     - Lab 3 (21 Oct)  [completed, def]
     - Lab 4 (25 Oct)  [completed, ndef]
-    - Lab 5 (11 Nov)  []
-    - Lab 6 (11 Nov)  []
+    - Lab 5 (11 Nov)  [completed, ndef]
+    - Lab 6 (11 Nov)  [completed, ndef]
 
 5. ca2:
     - Lab 1 (22 Sep) [completed, -]
@@ -49,9 +49,12 @@
 6. artificial intelligence methods and technologies:
     - Lab 1 ()       [completed, def]
     - Lab 2 (27 Sep) [completed, ndef]
-    - Lab 3 ()
-    - Lab 4 ()
+    - Lab 3 ()       [completed, ndef]
+    - Lab 4 ()       [completed, ndef]
     - Lab 5 ()
+    - Lab 6 ()
+    - Lab 7 ()
+    - Lab 8 ()
 
 7. computer network:
     - Lab 1,2,3,4 ()

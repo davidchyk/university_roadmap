@@ -1,0 +1,52 @@
+digraph States {
+  graph [rankdir=LR, bgcolor="white", pad="0.15", nodesep="0.35", ranksep="0.65", splines=polyline,
+         label="Стани координатора і локального контролера", labelloc=t,
+         fontname="Noto Sans", fontsize=17];
+  node [shape=box, style="rounded,filled", fontname="Noto Sans", fontsize=12,
+        color="#53657A", fillcolor="#EEF2FA", penwidth=1.2, margin="0.13,0.08"];
+  edge [fontname="Noto Sans", fontsize=9, color="#465568", penwidth=1.1, arrowsize=0.70];
+
+  subgraph cluster_coordinator {
+    label="Координатор";
+    color="#AAB8CA";
+    style="rounded";
+    cwait [label="WAIT_READY"];
+    cfeed [label="FEED"];
+    cp1 [label="PICKER1"];
+    cvision [label="VISION"];
+    cp2 [label="PICKER2"];
+    cdone [label="CYCLE_DONE"];
+    cfault [label="FAULT", fillcolor="#FCE3E4", color="#A53A42"];
+
+    cwait -> cfeed [label="усі READY"];
+    cfeed -> cp1 [label="RESULT DONE"];
+    cp1 -> cvision [label="RESULT DONE"];
+    cvision -> cp2 [label="колір отримано"];
+    cp2 -> cdone [label="RESULT DONE"];
+    cdone -> cfeed [label="наступний цикл"];
+    cfeed -> cfault [label="ERROR / timeout", color="#B12E37"];
+    cp1 -> cfault [label="ERROR / timeout", color="#B12E37"];
+    cvision -> cfault [label="ERROR / timeout", color="#B12E37"];
+    cp2 -> cfault [label="ERROR / timeout", color="#B12E37"];
+    cfault -> cwait [label="RESET", color="#B12E37"];
+  }
+
+  subgraph cluster_controller {
+    label="Локальний контролер";
+    color="#AAB8CA";
+    style="rounded";
+    lidle [label="IDLE"];
+    lack [label="ACCEPTED"];
+    lbusy [label="BUSY"];
+    ldone [label="DONE"];
+    lerror [label="ERROR", fillcolor="#FCE3E4", color="#A53A42"];
+
+    lidle -> lack [label="нова COMMAND / ACK"];
+    lack -> lbusy [label="початок дії"];
+    lbusy -> ldone [label="дію виконано / RESULT"];
+    lbusy -> lerror [label="відмова", color="#B12E37"];
+    ldone -> lidle [label="нова операція"];
+    ldone -> ldone [label="той самий operation_id\nDUPLICATE"];
+    lerror -> lidle [label="RESET", color="#B12E37"];
+  }
+}

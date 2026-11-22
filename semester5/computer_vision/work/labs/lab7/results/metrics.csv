@@ -1,0 +1,6 @@
+metric,value
+train_samples,1536
+test_samples,384
+epochs,180
+accuracy,1.000000
+final_loss,0.000789

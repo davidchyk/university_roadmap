@@ -1,0 +1,13 @@
+sample,cluster,feature_distance
+landsat_01,2,2.83478
+landsat_02,2,2.50491
+landsat_03,1,4.37650
+landsat_04,2,4.84226
+landsat_05,2,1.60362
+landsat_06,2,2.87585
+bing_01,4,1.52131
+bing_02,1,1.80070
+bing_03,4,1.52131
+bing_04,3,0.76163
+bing_05,1,2.99321
+bing_06,3,0.76163

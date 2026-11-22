@@ -1,0 +1,7 @@
+metric,value
+points,4400
+focal_length_px,520.0
+baseline_m,0.22
+mean_error_m,0.057746
+rmse_m,0.074103
+p95_error_m,0.150162

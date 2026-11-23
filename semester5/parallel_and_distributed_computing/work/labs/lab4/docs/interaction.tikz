@@ -1,0 +1,87 @@
+\begin{tikzpicture}[
+  font=\scriptsize,
+  >=Latex,
+  flow/.style={->,thick},
+  thread/.style={draw,fill=yellow!12,trapezium,trapezium left angle=82,
+    trapezium right angle=98,minimum width=3.05cm,minimum height=1.05cm,
+    align=center},
+  work/.style={draw,rounded corners=2pt,fill=green!9,minimum width=3.05cm,
+    minimum height=1.20cm,align=center},
+  phase/.style={draw,rounded corners=2pt,fill=blue!9,minimum width=14.8cm,
+    minimum height=.72cm,align=center},
+  critical/.style={draw,rounded corners=2pt,fill=red!10,minimum width=14.8cm,
+    minimum height=.82cm,align=center},
+  output/.style={draw,fill=orange!14,minimum width=3.05cm,
+    minimum height=.72cm,align=center},
+  memory/.style={draw,ellipse,fill=cyan!10,minimum width=12cm,
+    minimum height=.72cm,align=center}
+]
+
+\node[memory] (memory) at (0,8.15)
+  {Спільна пам’ять: $MC,B,Z,d,p,MM,MR,MZ$; результати $X,Y,s,MA$};
+
+\node[thread] (t1) at (-5.7,6.85) {$T_1$\\введення $MC,B$};
+\node[thread] (t2) at (-1.9,6.85) {$T_2$\\введення $Z,d,p$};
+\node[thread] (t3) at ( 1.9,6.85) {$T_3$\\введення $MM$};
+\node[thread] (t4) at ( 5.7,6.85) {$T_4$\\введення $MR,MZ$};
+
+\node[phase] (b1) at (0,5.65)
+  {$B_1$ --- введення завершено:
+   $S_{1,1},S_{2,1},S_{3,1},S_{4,1}$; кожний потік очікує три інші сигнали};
+
+\node[work] (c1) at (-5.7,4.25)
+  {$X_{*,J_0}=MR\cdot MC_{*,J_0}$\\
+   $Y_{*,J_0}=MZ\cdot MM_{*,J_0}$\\
+   $s_1=B_{J_0}\cdot Z_{J_0}$};
+\node[work] (c2) at (-1.9,4.25)
+  {$X_{*,J_1}=MR\cdot MC_{*,J_1}$\\
+   $Y_{*,J_1}=MZ\cdot MM_{*,J_1}$\\
+   $s_2=B_{J_1}\cdot Z_{J_1}$};
+\node[work] (c3) at (1.9,4.25)
+  {$X_{*,J_2}=MR\cdot MC_{*,J_2}$\\
+   $Y_{*,J_2}=MZ\cdot MM_{*,J_2}$\\
+   $s_3=B_{J_2}\cdot Z_{J_2}$};
+\node[work] (c4) at (5.7,4.25)
+  {$X_{*,J_3}=MR\cdot MC_{*,J_3}$\\
+   $Y_{*,J_3}=MZ\cdot MM_{*,J_3}$\\
+   $s_4=B_{J_3}\cdot Z_{J_3}$};
+
+\node[critical] (kd1) at (0,2.90)
+  {КД$_1$: кожний потік виконує \texttt{\#pragma omp atomic update}
+   для $s\mathrel{+}=s_i$; одночасне оновлення $s$ заборонене};
+
+\node[phase] (b2) at (0,1.90)
+  {$B_2$ --- усі стовпці $X,Y$ та остаточний скаляр $s$ готові
+   ($S_{i,2}$ / $W_{j,2}$)};
+
+\node[critical] (copies) at (0,.72)
+  {КД$_2$: \texttt{omp\_lock\_t} --- локальна копія $s$; \quad
+   КД$_3$: \texttt{critical(CS\_d)} --- копія $d$; \quad
+   КД$_4$: \texttt{critical(CS\_p)} --- копія $p$};
+
+\node[work] (r1) at (-5.7,-.55)
+  {$MA_{J_0}=dX_{J_0}+spY_{J_0}$};
+\node[work] (r2) at (-1.9,-.55)
+  {$MA_{J_1}=dX_{J_1}+spY_{J_1}$};
+\node[work] (r3) at (1.9,-.55)
+  {$MA_{J_2}=dX_{J_2}+spY_{J_2}$};
+\node[work] (r4) at (5.7,-.55)
+  {$MA_{J_3}=dX_{J_3}+spY_{J_3}$};
+
+\node[phase] (b3) at (0,-1.72)
+  {$B_3$ --- усі смуги $MA_{*,J_t}$ готові
+   ($S_{1,3},S_{2,3},S_{3,3},S_{4,3}$)};
+\node[output] (out) at (1.9,-2.82) {$T_3$: виведення $MA$};
+
+\foreach \x/\t/\c/\r in {-5.7/t1/c1/r1,-1.9/t2/c2/r2,1.9/t3/c3/r3,5.7/t4/c4/r4} {
+  \draw[flow] (\t.south) -- (\x,6.01);
+  \draw[flow] (\x,5.29) -- (\c.north);
+  \draw[flow] (\c.south) -- (\x,3.31);
+  \draw[flow] (\x,2.49) -- (\x,2.26);
+  \draw[flow] (\x,1.54) -- (\x,1.13);
+  \draw[flow] (\x,.31) -- (\r.north);
+  \draw[flow] (\r.south) -- (\x,-1.36);
+}
+\draw[flow] (1.9,-2.08) -- (out.north);
+
+\end{tikzpicture}

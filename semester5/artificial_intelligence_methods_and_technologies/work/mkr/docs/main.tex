@@ -1,0 +1,296 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{ukrainian}
+\setmainfont{NewComputerModern10}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}[
+  Scale=.82,
+  ItalicFont={Noto Sans Mono},
+  BoldItalicFont={Noto Sans Mono Bold}
+]
+\usepackage{amsmath,amssymb,booktabs,caption,enumitem,float,geometry,graphicx,hyperref,microtype,multirow,titlesec,xcolor}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\setlength{\parindent}{1.25cm}
+\linespread{1.08}
+\titleformat{\section}{\normalfont\fontsize{14}{16}\selectfont\bfseries}{\thesection}{.6em}{}
+\titleformat{\subsection}{\normalfont\fontsize{12}{14}\selectfont\bfseries}{\thesubsection}{.6em}{}
+\titlespacing*{\section}{0pt}{1.3em}{.6em}
+\captionsetup{font=small,labelfont=bf,labelsep=endash}
+\usepackage[newfloat]{minted}
+\SetupFloatingEnvironment{listing}{name=Лістинг}
+\setminted{fontsize=\footnotesize,linenos,breaklines,autogobble,frame=single,framesep=2mm,bgcolor=gray!5,tabsize=4}
+\hypersetup{unicode,colorlinks=true,linkcolor=black,pdftitle={ІО-41, Давидчук А. М., Модульна контрольна робота},pdfauthor={Давидчук А. М.}}
+\newcommand{\resultDir}{../results}
+\newcommand{\srcDir}{../src}
+\newcommand{\studentGroup}{ІО-41}
+\newcommand{\studentName}{Давидчук А. М.}
+\newcommand{\reportYear}{2026}
+
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+\begin{center}\includegraphics[width=.7\textwidth]{../../../../../templates/letterhead.png}\end{center}
+\begin{center}
+\large Національний технічний університет України\\
+«Київський політехнічний інститут імені Ігоря Сікорського»\\[1em]
+Факультет інформатики та обчислювальної техніки\\
+Кафедра обчислювальної техніки
+\end{center}
+\vfill
+\begin{center}
+\textbf{\LARGE Методи та технології штучного інтелекту}\\[2em]
+\textbf{\Large Модульна контрольна робота}\\[.7em]
+\parbox{.92\textwidth}{\centering «Навчання нейронної мережі прямого поширення генетичним алгоритмом»}
+\end{center}
+\vfill
+\begin{flushright}
+\begin{minipage}{.48\textwidth}
+Виконав: студент 3 курсу ФІОТ,\\
+групи \studentGroup\\
+\textit{\studentName}\\[1em]
+Перевірив: \textit{Польшакова О. М.}
+\end{minipage}
+\end{flushright}
+\vfill
+\begin{center}Київ --- \reportYear\end{center}
+\end{titlepage}
+\pagenumbering{arabic}
+
+\section{Завдання та індивідуальний варіант}
+Необхідно реалізувати нейронну мережу прямого поширення та навчити її генетичним алгоритмом моделювати функцію двох змінних. Для студента Давидчука Артема Миколайовича у таблиці варіантів задано структуру
+\begin{equation}
+2-4-8-10-6-6-1
+\end{equation}
+і функцію
+\begin{equation}
+z=x\sin|y|.
+\end{equation}
+
+Крім основного завдання, реалізовано обидва розширення на 10 балів: модифіковану ініціалізацію Нгуєна--Відроу з урахуванням значущості ознак та власне зворотне поширення помилки з оптимізатором Adam. Також виконано розширення на 20 балів: GUI-програму для автоматичного структурного синтезу мережі генетичним алгоритмом.
+
+В умові не визначено конкретний інтервал для варіанта 52. Для відтворюваного експерименту прийнято $x,y\in[0;1]$. Межі винесені в параметри програми й можуть бути змінені без перероблення алгоритмів.
+
+\section{Математична модель нейронної мережі}
+Мережа має два входи, п'ять прихованих шарів із 4, 8, 10, 6 і 6 нейронами та один вихід. Для прихованих шарів використано гіперболічний тангенс
+\begin{equation}
+a^{(l)}=\tanh\left(a^{(l-1)}W^{(l)}+b^{(l)}\right),
+\end{equation}
+а вихідний шар є лінійним:
+\begin{equation}
+\hat z=a^{(5)}W^{(6)}+b^{(6)}.
+\end{equation}
+Лінійний вихід не обмежує діапазон прогнозу й відповідає задачі регресії.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.98\textwidth]{\resultDir/architecture.png}
+\caption{Задана архітектура нейронної мережі}
+\end{figure}
+
+Кількість параметрів шару з $n_{l-1}$ входами та $n_l$ виходами дорівнює $n_{l-1}n_l+n_l$. Для заданої структури загальна кількість ваг і зміщень:
+\begin{equation}
+(2\cdot4+4)+(4\cdot8+8)+(8\cdot10+10)+(10\cdot6+6)+(6\cdot6+6)+(6\cdot1+1)=257.
+\end{equation}
+Тому хромосома генетичного алгоритму містить 257 дійсних генів.
+
+\section{Генетичне навчання мережі}
+Кожна особина популяції є повним набором параметрів мережі. Пристосованість оцінюється середньоквадратичною похибкою
+\begin{equation}
+\mathrm{MSE}=\frac{1}{N}\sum_{i=1}^{N}(z_i-\hat z_i)^2,
+\end{equation}
+яку потрібно мінімізувати.
+
+Алгоритм складається з таких кроків:
+\begin{enumerate}[leftmargin=*]
+\item створення початкової популяції хромосом;
+\item пряме поширення для кожної хромосоми й розрахунок MSE;
+\item турнірний відбір батьків;
+\item арифметичний blend-кросовер;
+\item гаусова мутація окремих генів зі спадним масштабом;
+\item перенесення чотирьох найкращих особин без змін;
+\item повторення до 280 поколінь або спрацювання критерію відсутності покращення.
+\end{enumerate}
+
+\begin{listing}[H]
+\inputminted[firstline=184,lastline=230]{python}{\srcDir/mkr_core.py}
+\caption{Оцінювання, відбір, кросовер і мутація}
+\end{listing}
+
+\section{Модифікована ініціалізація Нгуєна--Відроу}
+Звичайна випадкова ініціалізація не використовує інформацію про залежність виходу від входів. У модифікованому варіанті спочатку оцінюється значущість кожної ознаки через абсолютну кореляцію зі значенням $z$:
+\begin{equation}
+s_j=\frac{|\operatorname{corr}(x_j,z)|+\varepsilon}
+{\sum_k(|\operatorname{corr}(x_k,z)|+\varepsilon)}.
+\end{equation}
+Для сформованої вибірки отримано $s_x=0{,}5218$ і $s_y=0{,}4782$. Стовпці ваг першого шару масштабуються відповідно до $\sqrt{2s_j}$, після чого для кожного шару застосовується нормування Нгуєна--Відроу з коефіцієнтом
+\begin{equation}
+\beta=0{,}7n_{\mathrm{out}}^{1/n_{\mathrm{in}}}.
+\end{equation}
+
+\begin{listing}[H]
+\inputminted[firstline=114,lastline=144]{python}{\srcDir/mkr_core.py}
+\caption{Оцінювання значущості ознак та модифікована ініціалізація}
+\end{listing}
+
+\section{Самостійна реалізація backpropagation та Adam}
+Для порівняння реалізовано зворотне поширення помилки без готової функції машинного навчання. Для вихідного шару градієнт дорівнює
+\begin{equation}
+\delta^{(L)}=\frac{2}{N}(\hat z-z),
+\end{equation}
+а для прихованих шарів
+\begin{equation}
+\delta^{(l)}=\left(\delta^{(l+1)}(W^{(l+1)})^T\right)\odot\left(1-(a^{(l)})^2\right).
+\end{equation}
+Градієнти ваг і зміщень обчислюються як $\nabla W^{(l)}=(a^{(l-1)})^T\delta^{(l)}$ та $\nabla b^{(l)}=\sum_i\delta_i^{(l)}$. Adam накопичує перший і другий моменти градієнта та виконує корекцію зміщення моментів.
+
+\begin{listing}[H]
+\inputminted[firstline=267,lastline=296]{python}{\srcDir/mkr_core.py}
+\caption{Власна реалізація backpropagation та Adam}
+\end{listing}
+
+\section{Програмна реалізація та параметри експерименту}
+Вибірку сформовано на сітці $31\times31$, тобто отримано 961 точку. Випадковим, але відтворюваним розбиттям 769 точок використано для навчання, а 192 --- для незалежного тестування. У прихованих шарах використано $\tanh$, на виході --- лінійну активацію.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\toprule
+Метод & Параметр & Значення\\
+\midrule
+\multirow{7}{*}{Генетичний алгоритм}
+& Розмір популяції & 80\\
+& Максимум поколінь & 280\\
+& Елітних особин & 4\\
+& Розмір турніру & 4\\
+& Імовірність кросоверу & 0,90\\
+& Імовірність мутації гена & 0,035\\
+& Масштаб мутації & 0,12 $\rightarrow$ 0,008\\
+\midrule
+\multirow{3}{*}{Adam}
+& Кількість епох & 1200\\
+& Розмір пакета & 64\\
+& Швидкість навчання & 0,003\\
+\bottomrule
+\end{tabular}
+\caption{Параметри навчання}
+\end{table}
+
+Клас мережі не залежить від конкретної кількості шарів: архітектура передається списком, а ваги та зміщення автоматично пакуються в одну хромосому.
+
+\begin{listing}[H]
+\inputminted[firstline=48,lastline=73]{python}{\srcDir/mkr_core.py}
+\caption{Опис архітектури та розпакування хромосоми}
+\end{listing}
+
+\begin{listing}[H]
+\inputminted[firstline=75,lastline=92]{python}{\srcDir/mkr_core.py}
+\caption{Пакування параметрів і пряме поширення сигналу}
+\end{listing}
+
+\section{Результати навчання заданої мережі}
+У таблиці наведено метрики на тестовій вибірці й час одного запуску на використаному комп'ютері. Час залежить від обладнання, але дає змогу порівняти алгоритми в однакових умовах.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Метод & MSE & RMSE & MAE & $\max|e|$ & Час, с\\
+\midrule
+ГА, випадкова ініціалізація & 0,00115422 & 0,033974 & 0,028288 & 0,088683 & 10,14\\
+ГА, Нгуєн--Відроу & 0,00012166 & 0,011030 & 0,008009 & 0,041776 & 10,03\\
+Backpropagation, Adam & 0,00007381 & 0,008592 & 0,007133 & 0,018942 & 2,77\\
+\bottomrule
+\end{tabular}
+\caption{Порівняння методів навчання на тестовій вибірці}
+\end{table}
+
+Модифікована ініціалізація зменшила тестову MSE генетичного алгоритму у 9,49 раза порівняно з випадковою. Отже, використання апріорної інформації та геометрично узгодженого масштабу початкових ваг суттєво покращило пошук у 257-вимірному просторі.
+
+Adam досяг MSE $7{,}38\cdot10^{-5}$, що у 1,65 раза менше за результат найкращого ГА. Крім того, його час був приблизно у 3,6 раза меншим. Однак backpropagation потребує диференційовної моделі та явного виведення градієнтів, тоді як ГА працює лише зі значенням функції якості та простіше адаптується до дискретних або недиференційовних параметрів.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.98\textwidth]{\resultDir/convergence.png}
+\caption{Збіжність генетичного алгоритму та Adam}
+\end{figure}
+
+Криві ГА зменшуються монотонно завдяки елітизму. Ініціалізація Нгуєна--Відроу після приблизно 30 поколінь випереджає випадкову й завершує пошук на порядок нижче. Крива Adam має коливання через мініпакетне навчання, але загальна тенденція також спадна.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.49\textwidth}\centering
+\includegraphics[width=\textwidth]{\resultDir/target_surface.png}
+\captionof{figure}{Точна поверхня $z=x\sin|y|$}
+\end{minipage}\hfill
+\begin{minipage}[t]{.49\textwidth}\centering
+\includegraphics[width=\textwidth]{\resultDir/prediction_surface.png}
+\captionof{figure}{Прогноз після навчання ГА}
+\end{minipage}
+\end{figure}
+
+Прогноз відтворює нульові значення при $x=0$ або $y=0$ та плавне зростання до $\sin(1)\approx0{,}8415$ у точці $(1;1)$.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{.49\textwidth}\centering
+\includegraphics[width=\textwidth]{\resultDir/error_surface.png}
+\captionof{figure}{Поверхня абсолютної похибки}
+\end{minipage}\hfill
+\begin{minipage}[t]{.49\textwidth}\centering
+\includegraphics[width=\textwidth]{\resultDir/slice_comparison.png}
+\captionof{figure}{Переріз при $y=0{,}5$}
+\end{minipage}
+\end{figure}
+
+Найбільші відхилення зосереджені біля меж області, але максимальна тестова похибка не перевищує 0,0418. На контрольному перерізі прогноз практично повторює точну функцію.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.72\textwidth]{\resultDir/method_comparison.png}
+\caption{Порівняння тестової MSE}
+\end{figure}
+
+\section{GUI та генетичний структурний синтез}
+GUI приймає математичний вираз, інтервали $x$ і $y$, максимальну сумарну кількість прихованих нейронів, допустиму MSE та параметри зовнішнього ГА. Вираз розбирається через модуль \texttt{ast}; дозволені лише змінні $x$, $y$, арифметичні операції та визначений набір математичних функцій.
+
+Структура кодується вектором із п'яти цілих генів. Нуль означає відсутній шар, а додатне число --- кількість нейронів. Зовнішній ГА змінює структуру, а внутрішній ГА навчає ваги кандидата. Функція пристосованості містить валідаційну MSE і малий штраф за кількість нейронів:
+\begin{equation}
+F(A)=\mathrm{MSE}_{\mathrm{val}}(A)+2\cdot10^{-5}\sum_{l}n_l.
+\end{equation}
+
+\begin{listing}[H]
+\inputminted[firstline=69,lastline=94]{python}{\srcDir/structure_search.py}
+\caption{Оцінювання архітектури внутрішнім генетичним алгоритмом}
+\end{listing}
+
+\begin{listing}[H]
+\inputminted[firstline=96,lastline=129]{python}{\srcDir/structure_search.py}
+\caption{Еволюція структур нейронної мережі}
+\end{listing}
+
+Пошук виконується в окремому потоці, щоб вікно не блокувалося. У додатковому вікні відображаються параметри ГА та найкраща проміжна структура кожного покоління.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.80\textwidth]{\resultDir/gui_preview.png}
+\caption{Схематичний вигляд GUI та його результатів}
+\end{figure}
+
+У контрольному headless-запуску обмежено сумарну кількість прихованих нейронів значенням 24. За шість поколінь оцінено 12 унікальних архітектур. Найкращою стала мережа $2-16-1$ з валідаційною MSE 0,0019517.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.60\textwidth]{\resultDir/structure_search.png}
+\caption{Зміна найкращої похибки під час структурного синтезу}
+\end{figure}
+
+\section{Висновки}
+Реалізовано задану нейронну мережу $2-4-8-10-6-6-1$ для моделювання функції $z=x\sin|y|$. Усі 257 ваг і зміщень закодовано однією дійсною хромосомою та навчено генетичним алгоритмом. За модифікованої ініціалізації Нгуєна--Відроу тестова MSE становила 0,00012166, що у 9,49 раза краще за випадкову ініціалізацію.
+
+Самостійно реалізований backpropagation з Adam отримав тестову MSE 0,00007381 та потребував 2,77 с проти приблизно 10 с для кожного запуску ГА. Adam виявився ефективнішим для цієї гладкої диференційовної функції, а ГА продемонстрував незалежність від градієнтів і придатність до одночасної оптимізації структури.
+
+Реалізовано GUI для структурного синтезу. Програма приймає функцію та обмеження, показує параметри й проміжні результати ГА та повертає структуру мережі з її похибкою. Таким чином виконано основне завдання та всі три запропоновані розширення.
+
+\end{document}

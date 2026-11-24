@@ -1,0 +1,9 @@
+Samples: 650
+Rules: 8
+Epochs: 35
+Train RMSE: 1.089750
+Train MAE: 0.869402
+Train R2: 0.991801
+Test RMSE: 1.079940
+Test MAE: 0.831325
+Test R2: 0.991381

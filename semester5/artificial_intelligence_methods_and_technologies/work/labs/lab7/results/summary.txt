@@ -1,0 +1,12 @@
+Minimum x: -3.92698890
+Minimum value: -1.41421356
+Maximum x: 3.00000000
+Maximum y: 1.57080537
+Maximum value: 3.00000000
+Population: 10
+Generations: 100
+Repeated runs: 10
+Repeated minimum mean: -1.4142135252
+Repeated minimum std: 0.0000000407
+Repeated maximum mean: 2.9999997112
+Repeated maximum std: 0.0000007664

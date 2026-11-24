@@ -1,0 +1,18 @@
+Hosts: 24
+Switches: 4
+Capacity: 6
+Population: 80
+Generations: 250
+Baseline objective: 2.385999
+Optimized objective: 0.818145
+Baseline normalized load: 2.385999
+Optimized normalized load: 0.818145
+Baseline backbone: 596.499747
+Optimized backbone: 204.536352
+Baseline cable: 621.346929
+Optimized cable: 716.729881
+Baseline max cable: 50.938245
+Optimized max cable: 51.708945
+Baseline length violations: 0
+Optimized length violations: 0
+Improvement percent: 65.710572

@@ -1,0 +1,6 @@
+Train samples: 1500
+Test samples: 300
+Epochs: 20
+Test accuracy: 0.886667
+Corrupted accuracy: 0.826667
+Final loss: 0.233704
